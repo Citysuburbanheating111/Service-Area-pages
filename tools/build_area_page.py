@@ -109,7 +109,7 @@ NAMES = ['Rob', 'Eddie', 'Carissa', 'Frank', 'Nate', 'Sam', 'Andy', 'Mike']
 
 def live_chrome(name):
     """Live-site header or footer (assets/live/<name>.html, copied from citysuburbanheating.com/services/)."""
-    return open(os.path.join(ROOT, 'assets', 'live', name + '.html'), encoding='utf-8').read().replace('{{ASSETS}}', A)
+    return open(os.path.join(ROOT, 'assets', 'live', name + '.html'), encoding='utf-8').read().replace('{{ASSETS}}', A).replace('{{AREAS}}', '../')
 
 
 def track_controls(label):

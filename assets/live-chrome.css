@@ -193,3 +193,17 @@
         }}
 #live-site-footer .links a{overflow-wrap:anywhere}#live-site-footer :focus-visible{outline:3px solid #DD382B;outline-offset:3px}
 
+
+/* Service Areas menu item (design-system addition; not on the live site yet) */
+.site-menu-areas>.site-submenu{max-height:none}
+.site-menu-areas>.site-submenu li.all{border-top:1px solid #e6ebef;margin-top:4px;padding-top:.6rem}
+.site-menu-areas>.site-submenu li.all a{color:var(--site-red)}
+@media (min-width:1101px) and (max-width:1320px){.site-menu-areas>.site-submenu{left:auto;right:-20px}}
+/* Room for the sixth menu item: header as wide as the page content (1280), the arrow of the
+   last item kept clear of the actions, and the call block hidden a little earlier than live */
+.site-header-stack .site-shell{width:min(1280px,100% - 40px)}
+.site-nav{padding-right:22px}
+@media (max-width:1360px){.site-call{display:none}}
+@media (min-width:1101px) and (max-width:1250px){.site-menu{column-gap:24px}}
+.site-topbar-links a{white-space:nowrap}
+@media (max-width:1250px){.site-topbar-text.site-topbar-divided{display:none}}
