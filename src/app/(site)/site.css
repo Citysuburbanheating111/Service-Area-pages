@@ -254,8 +254,9 @@
 .cs-bt:last-child p { color: #ffffffd9; }
 
 /* ── B9 Districts ─────────────────────────────── */
-.cs-chips { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; max-width: 420px; }
-.cs-chips li { background: #fff; border-radius: var(--radius-pill); padding: 7px 14px; font: 600 13px/16px var(--font-body); color: var(--color-navy); }
+/* One line on desktop; the heading beside it takes the remaining width */
+.cs-chips { display: flex; flex-wrap: nowrap; flex-shrink: 0; justify-content: flex-end; gap: 10px; }
+.cs-chips li { background: #fff; border-radius: var(--radius-pill); padding: 7px 14px; font: 600 13px/16px var(--font-body); color: var(--color-navy); white-space: nowrap; }
 .cs-district { width: 400px; background: #fff; border-radius: var(--radius-lg); border-top: 5px solid #fff; padding: 28px; display: flex; flex-direction: column; gap: 12px; transition: border-color .15s; }
 .cs-district:hover, .cs-district:focus-within { border-top-color: var(--color-blue); }
 .cs-district h3 { font: 700 22px/28px var(--font-display); color: var(--color-navy); }
@@ -325,7 +326,7 @@
   .cs-steps { grid-template-columns: repeat(3, 1fr); }
   .cs-cards { grid-auto-flow: row; grid-template-columns: 1fr 1fr; }
   .cs-head-row { flex-direction: column; align-items: flex-start; gap: 20px; }
-  .cs-chips { justify-content: flex-start; }
+  .cs-chips { justify-content: flex-start; flex-wrap: wrap; flex-shrink: 1; }
 }
 
 /* ── Mobile (playbook Part H: 390px) ──────────── */
