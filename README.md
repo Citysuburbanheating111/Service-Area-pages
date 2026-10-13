@@ -12,7 +12,7 @@ Live design system for **City & Suburban Heating & Cooling** (family-owned Chica
 | [`west-loop.html`](west-loop.html) | Service area page — approved template (West Loop) |
 | [`lincoln-park.html`](lincoln-park.html) | Service area page built from the template (Lincoln Park) |
 | [`services-v1/service-areas/`](services-v1/service-areas/) | Service areas collection page (v1): collection cards for Chicago and nine neighbourhoods. The West Town card opens its area page; the rest are not linked yet |
-| [`services-v1/service-areas/west-town/`](services-v1/service-areas/west-town/) | West Town service area landing page (draft v1), written with the city-suburban-service-area-page skill from the Paper template; the same content is a draft in Sanity |
+| [`services-v1/service-areas/west-town/`](services-v1/service-areas/west-town/) | West Town service area landing page (draft v1), written with the city-suburban-service-area-page skill; a working page (links, form, tabs, FAQ, scrollable tracks, mobile layout) built by `tools/build_area_page.py` from the content file. The same content is a draft in Sanity |
 | [`assets/site-nav.css`](assets/site-nav.css) · [`site-nav.js`](assets/site-nav.js) | Shared utility bar + header: hover dropdowns, links to the live site (citysuburbanheating.com), mobile menu |
 | [`playbook/`](playbook/) | Area page playbook: rules, tokens, page anatomy, block library (B1–B13 + globals), copy rules, sources, workflow, QC checklist |
 
