@@ -81,7 +81,7 @@ def audit(path):
     problems = list(p.problems)
     text = re.sub(r'<script.*?</script>|<style.*?</style>', '', src, flags=re.S)
     text = re.sub(r'<[^>]+>', ' ', text)
-    for pat in (r'\[CONFIRM', r'\bNone\b', r'\bundefined\b', r'\bnull\b', r'\{\{', r'\bNaN\b', r'TODO'):
+    for pat in (r'\[CONFIRM', r'(?i)to confirm', r'\bNone\b', r'\bundefined\b', r'\bnull\b', r'\{\{', r'\bNaN\b', r'TODO'):
         for m in re.finditer(pat, text):
             problems.append(f'placeholder text {pat!r}: …{" ".join(text[max(0, m.start()-40):m.end()+40].split())}…')
     if '<title>' not in src or re.search(r'<title>\s*</title>', src):

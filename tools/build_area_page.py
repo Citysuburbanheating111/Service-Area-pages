@@ -18,6 +18,9 @@ UP = '../../../'          # services-v1/service-areas/<slug>/ -> site root
 A = UP + 'assets/'
 LIVE = 'https://citysuburbanheating.com'
 PHONE, TEL = '(773) 238-3838', 'tel:+17732383838'
+# City of Chicago licence number for the B3 tile. None hides the tile: nothing verifiable is on the
+# City's business licence register for 1225 N Cleaver St (checked 2026-10-13, dataset r5kz-chrr).
+LICENCE = None
 
 e = lambda s: html.escape(str(s), quote=True)
 
@@ -193,6 +196,8 @@ def build(path):
 </section>'''
 
     # ── B3 Who you're calling ──
+    licence_tile = ('\n    <div class="cs-fact fog"><span class="label">Licence</span>'
+                    f'<div><div class="mid">{e(LICENCE)}</div><p>City of Chicago business licence.</p></div></div>') if LICENCE else ''
     owner = f'''
 <section class="cs-sec cs-owner" aria-labelledby="owner-title">
   <div class="cs-owner-copy">
@@ -204,8 +209,7 @@ def build(path):
   <div class="cs-facts">
     <div class="cs-fact navy"><span class="label">Founded</span><div><div class="big">1952</div><p>74 years, family owned, now in its second generation.</p></div></div>
     <div class="cs-fact red"><span class="label">Google rating</span><div><div class="big">4.98</div><p>Across 204 Google reviews, as of 31 Aug 2026.</p></div></div>
-    <div class="cs-fact fog"><span class="label">Who answers</span><div><div class="mid">Rob, the owner</div><p>Owner-operator. He runs the calls himself, so the person who quotes is the person accountable.</p></div></div>
-    <div class="cs-fact confirm"><span class="label">Licences · to confirm</span><div><div class="mid">City of Chicago HVAC licence no.</div><p>Pull from the City&#x27;s registry before publishing. Not in any workbook or permit file.</p></div></div>
+    <div class="cs-fact fog{'' if LICENCE else ' wide'}"><span class="label">Who answers</span><div><div class="mid">Rob, the owner</div><p>Owner-operator. He runs the calls himself, so the person who quotes is the person accountable.</p></div></div>{licence_tile}
   </div>
 </section>'''
 
