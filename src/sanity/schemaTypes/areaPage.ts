@@ -7,21 +7,20 @@
  * per area (B8 Kinds of company, the 24-service list in B2, the facts in B3) are not
  * stored here.
  */
-import {
-  BillIcon,
-  BulbOutlineIcon,
-  ClipboardIcon,
-  EarthGlobeIcon,
-  HelpCircleIcon,
-  HomeIcon,
-  ListIcon,
-  PinIcon,
-  SearchIcon,
-  StarIcon,
-  ThListIcon,
-  UserIcon,
-  WarningOutlineIcon,
-} from '@sanity/icons'
+// @sanity/icons v5: one import path per icon
+import { BillIcon } from '@sanity/icons/Bill'
+import { BulbOutlineIcon } from '@sanity/icons/BulbOutline'
+import { ClipboardIcon } from '@sanity/icons/Clipboard'
+import { EarthGlobeIcon } from '@sanity/icons/EarthGlobe'
+import { HelpCircleIcon } from '@sanity/icons/HelpCircle'
+import { HomeIcon } from '@sanity/icons/Home'
+import { ListIcon } from '@sanity/icons/List'
+import { PinIcon } from '@sanity/icons/Pin'
+import { SearchIcon } from '@sanity/icons/Search'
+import { StarIcon } from '@sanity/icons/Star'
+import { ThListIcon } from '@sanity/icons/ThList'
+import { UserIcon } from '@sanity/icons/User'
+import { WarningOutlineIcon } from '@sanity/icons/WarningOutline'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 const LEDE_ENDING = 'Family-owned since 1952, with the owner, Rob, still on the calls.'
