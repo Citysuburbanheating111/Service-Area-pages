@@ -81,6 +81,41 @@
   "reviews.1.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT20xNVZpMXVUbEpVTW1Ob1pFMVhPVEpSYW1KeFExRRAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOm15Vi1uTlJUMmNoZE1XOTJRamJxQ1E%7C%7C?hl=en",
   "reviews.2.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pOVFNHdHpWalZQTm14T2QwSnhXbmRDWVdOaFIxRRAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOjNTSGtzVjVPNmxOd0JxWndCYWNhR1E%7C%7C?hl=en",
   "reviews.3.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25GVGJUbDVhWFl6Wkd4RlgzSkdYM2QwTkRBMWJXYxAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOnFTbTl5aXYzZGxFX3JGX3d0NDA1bWc%7C%7C?hl=en",
-  "reviews.4.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VNTFI0c19SZzVDMHFnRRAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CIHM0ogKEMLR4s_Rg5C0qgE%7C%7C?hl=en"
+  "reviews.4.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VNTFI0c19SZzVDMHFnRRAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CIHM0ogKEMLR4s_Rg5C0qgE%7C%7C?hl=en",
+  "faq.2.a": "Yes. Before a visit, high-rises usually want a certificate of insurance, a booked freight elevator and set working hours, so we book around your building's elevator and work hours. In towers that's often in-unit fan coils or air handlers on a building loop.",
+  "faq.3.a": "Yes. We service hot-water and steam boilers in vintage two-flats and converted lofts: pressure, circulators, zone valves and venting.",
+  "faq.4.a": "No. Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling. Permits cover installs and construction, so a company's permit count says little about its repair work.",
+  "faq.5.a": "Monday to Friday, 6:00 AM to 6:00 PM, and Saturday, 6:00 AM to 3:30 PM. Call (773) 238-3838.",
+  "districts.4.hvac": "HVAC here: restaurant make-up air below, condo heating and cooling above.",
+  "buildingTypeOptions": [
+   "Converted warehouse loft",
+   "High-rise condo",
+   "Condo or townhome",
+   "Restaurant or office"
+  ],
+  "seo.title": "HVAC Repair in the West Loop, Chicago | City & Suburban",
+  "seo.description": "Furnace, boiler, AC and make-up air repair for West Loop lofts, high-rises and restaurants. Family-owned since 1952. Call (773) 238-3838.",
+  "confirmNotes": [
+   {
+    "block": "B1 Hero",
+    "note": "Add the hero photo. Confirm it is City & Suburban's own or licensed; tick \"Illustrative photo\" if not."
+   },
+   {
+    "block": "B9 Districts",
+    "note": "Greektown \"HVAC here\" note is not in the design. Drafted from its description (restaurants with condos above). Check it."
+   },
+   {
+    "block": "B12 FAQ",
+    "note": "Answers to questions 2–5 are not in the design. Drafted only from facts elsewhere on this page (building rules, boiler service, permit record, hours). Review before publishing."
+   },
+   {
+    "block": "B11 Permits",
+    "note": "Confirm the 62 West Loop permits and the 24-month window against the City of Chicago permit data."
+   },
+   {
+    "block": "SEO",
+    "note": "Meta title and description are new. Review them."
+   }
+  ]
  }
 }
