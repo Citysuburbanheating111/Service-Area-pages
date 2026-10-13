@@ -81,26 +81,15 @@ img{display:block;max-width:100%}
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 
 /* area card */
-.area{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--color-line);border-radius:var(--radius-lg);overflow:hidden;transition:border-color .2s}
-.area:hover{border-color:var(--color-navy)}
+.area{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--color-line);border-radius:var(--radius-lg);overflow:hidden}
 .area .media{position:relative;aspect-ratio:16/10;background:var(--color-fog);overflow:hidden}
-.area .media img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
-@media (prefers-reduced-motion:no-preference){.area:hover .media img{transform:scale(1.04)}}
+.area .media img{width:100%;height:100%;object-fit:cover}
 .chip{position:absolute;left:16px;bottom:16px;display:inline-flex;align-items:center;gap:6px;min-height:30px;padding:0 12px 0 10px;border-radius:var(--radius-pill);background:#fff;color:var(--color-navy);font:500 13px/16px var(--font-display)}
 .chip svg{color:var(--color-red);flex-shrink:0}
-.area .body{display:flex;flex-direction:column;flex:1;padding:24px 28px 0}
+.area .body{display:flex;flex-direction:column;flex:1;padding:24px 28px 28px}
 .area h3{font:700 24px/30px var(--font-display);color:var(--color-navy);margin-top:10px}
 .area .desc{margin-top:10px;font-size:15px;line-height:24px}
 .area .hvac{margin-top:12px;font-size:14px;line-height:21px;font-weight:600;color:var(--color-blue)}
-.area .foot{margin-top:auto;padding:20px 0 24px}
-.area .foot::before{content:"";display:block;height:1px;background:var(--color-line);margin-bottom:18px}
-.area .act{display:inline-flex;align-items:center;gap:8px;font:700 14px/18px var(--font-display);letter-spacing:.04em;text-transform:uppercase;color:var(--color-red);text-decoration:none}
-.area .act:hover{color:var(--color-red-dk)}
-.area .act svg{transition:transform .2s}
-.area:hover .act svg{transform:translateX(3px)}
-.area .act.page::after{content:"";position:absolute;inset:0;border-radius:inherit}
-.area .eyebrow{display:flex;align-items:center;height:16px}
-.tag-page{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:var(--radius-pill);background:var(--color-fog);color:var(--color-navy);font:500 12px/16px var(--font-display);letter-spacing:.02em;text-transform:none;margin-left:10px}
 
 /* city card: the navy highlight, full row */
 .area.city{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);background:var(--color-navy);border-color:var(--color-navy);color:#ffffffd9}
@@ -109,7 +98,6 @@ img{display:block;max-width:100%}
 .area.city .eyebrow{color:#FF8A7F}
 .area.city h3{color:#fff;font-size:44px;line-height:50px;letter-spacing:-.01em;margin-top:14px}
 .area.city .desc{font-size:17px;line-height:28px;max-width:520px;margin-top:14px}
-.area.city .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 
 .credits{margin-top:28px;font-size:13px;line-height:20px;color:var(--color-muted)}
 .credits summary{cursor:pointer;font-weight:600;width:max-content}
@@ -179,11 +167,9 @@ footer .ph{font:700 20px/24px var(--font-display);text-decoration:none}
   .dir-head{margin-bottom:32px;gap:16px}
   .dir-head h2{font-size:32px;line-height:38px}
   .grid{grid-template-columns:minmax(0,1fr);gap:16px}
-  .area .body{padding:20px 22px 0}
-  .area .foot{padding-bottom:20px}
+  .area .body{padding:20px 22px 24px}
   .area.city .body{padding:24px 22px 28px}
   .area.city h3{font-size:32px;line-height:38px}
-  .area.city .actions .btn{flex:1 1 100%}
   .credits ul{columns:1}
   .why{padding:48px 0}
   .why .wrap{grid-template-columns:minmax(0,1fr);gap:22px}
@@ -198,7 +184,7 @@ footer .ph{font:700 20px/24px var(--font-display);text-decoration:none}
   "@context":"https://schema.org",
   "@graph":[
     {"@type":"BreadcrumbList","itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Home","item":"https://logeshmaximus.github.io/city-suburban/"},
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://citysuburbanheating.com/"},
       {"@type":"ListItem","position":2,"name":"Service areas","item":"https://logeshmaximus.github.io/city-suburban/services-v1/service-areas/"}
     ]},
     {"@type":"HVACBusiness","name":"City & Suburban Heating & Cooling","foundingDate":"1952","telephone":"+1-773-238-3838",
@@ -254,7 +240,7 @@ footer .ph{font:700 20px/24px var(--font-display);text-decoration:none}
   <div class="wrap hero-grid">
     <div>
       <div class="crumbs">
-        <nav aria-label="Breadcrumb"><ol><li><a href="../../">Home</a></li><li aria-current="page">Service areas</li></ol></nav>
+        <nav aria-label="Breadcrumb"><ol><li><a href="https://citysuburbanheating.com/">Home</a></li><li aria-current="page">Service areas</li></ol></nav>
         <span class="pill-red">Chicago</span>
       </div>
       <h1 id="hero-title">Heating and cooling service areas across Chicago</h1>
@@ -296,10 +282,6 @@ footer .ph{font:700 20px/24px var(--font-display);text-decoration:none}
           <p class="eyebrow">Citywide</p>
           <h3 id="area-chicago">Chicago</h3>
           <p class="desc">The nine neighborhoods below are the ones we work in most. We cover Chicago from city to suburbs, so if your block isn't listed, call and ask. Rob will tell you straight.</p>
-          <div class="actions">
-            <a class="btn btn-red btn-sm" href="tel:+17732383838">Call (773) 238-3838</a>
-            <a class="btn btn-outline btn-sm" href="https://citysuburbanheating.com/contact-us/">Schedule service</a>
-          </div>
         </div>
       </article>
 
@@ -310,18 +292,16 @@ footer .ph{font:700 20px/24px var(--font-display);text-decoration:none}
           <h3 id="area-wicker-park">Wicker Park</h3>
           <p class="desc">Vintage two- and three-flats, frame cottages and storefront apartments around the six-corner crossing of Milwaukee, North and Damen.</p>
           <p class="hvac">HVAC here: boilers and radiators, basement furnaces, ductless where ducts won't fit.</p>
-          <div class="foot"><a class="act" href="tel:+17732383838">Call about Wicker Park <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div>
       </article>
 
       <article class="area" aria-labelledby="area-west-loop">
         <div class="media"><img src="../../assets/areas/west-loop.webp" width="960" height="640" alt="The Fulton Market District gateway sign over a West Loop street of brick warehouses" loading="lazy" decoding="async"><span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Chicago · Near West Side</span></div>
         <div class="body">
-          <p class="eyebrow">Service area<span class="tag-page">Area page</span></p>
+          <p class="eyebrow">Service area</p>
           <h3 id="area-west-loop">West Loop</h3>
           <p class="desc">Converted warehouse lofts, high-rise condos and restaurant kitchens around Fulton Market, about a mile and a half south of our shop.</p>
           <p class="hvac">HVAC here: steam in older lofts, fan coils in towers, kitchen make-up air.</p>
-          <div class="foot"><a class="act page" href="../../west-loop.html">Read the West Loop page <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div>
       </article>
 
@@ -332,18 +312,16 @@ footer .ph{font:700 20px/24px var(--font-display);text-decoration:none}
           <h3 id="area-west-town">West Town</h3>
           <p class="desc">Our shop is here, at 1225 N Cleaver St, among two- and three-flats, workers' cottages and new-build condos.</p>
           <p class="hvac">HVAC here: shared boilers, basement furnaces, condensers on garage roofs.</p>
-          <div class="foot"><a class="act" href="tel:+17732383838">Call about West Town <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div>
       </article>
 
       <article class="area" aria-labelledby="area-lincoln-park">
         <div class="media"><img src="../../assets/areas/lincoln-park.webp" width="960" height="720" alt="The Lincoln Park Conservatory and its gardens on a summer day" loading="lazy" decoding="async"><span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Chicago · North Side</span></div>
         <div class="body">
-          <p class="eyebrow">Service area<span class="tag-page">Area page</span></p>
+          <p class="eyebrow">Service area</p>
           <h3 id="area-lincoln-park">Lincoln Park</h3>
           <p class="desc">Greystones, two-flats, courtyard buildings and lakefront high-rises, just north-east of our shop across the river.</p>
           <p class="hvac">HVAC here: boilers and radiators, furnaces, ductless for tight cottages.</p>
-          <div class="foot"><a class="act page" href="../../lincoln-park.html">Read the Lincoln Park page <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div>
       </article>
 
@@ -354,7 +332,6 @@ footer .ph{font:700 20px/24px var(--font-display);text-decoration:none}
           <h3 id="area-pilsen">Pilsen</h3>
           <p class="desc">Nineteenth-century brick two-flats and storefront buildings in the Pilsen Historic District, with 18th Street at its heart.</p>
           <p class="hvac">HVAC here: older boilers and radiators, furnaces in converted flats.</p>
-          <div class="foot"><a class="act" href="tel:+17732383838">Call about Pilsen <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div>
       </article>
 
@@ -365,7 +342,6 @@ footer .ph{font:700 20px/24px var(--font-display);text-decoration:none}
           <h3 id="area-rogers-park">Rogers Park</h3>
           <p class="desc">Lakefront neighborhood at the city's north edge, with courtyard apartment buildings and vintage condos around Loyola University.</p>
           <p class="hvac">HVAC here: central boilers in courtyard buildings, ductless and through-wall cooling.</p>
-          <div class="foot"><a class="act" href="tel:+17732383838">Call about Rogers Park <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div>
       </article>
 
@@ -376,7 +352,6 @@ footer .ph{font:700 20px/24px var(--font-display);text-decoration:none}
           <h3 id="area-bucktown">Bucktown</h3>
           <p class="desc">North of Wicker Park, between Western Avenue and the Kennedy, with The 606 trail along its southern edge. Vintage frame homes beside new builds.</p>
           <p class="hvac">HVAC here: high-efficiency furnaces and central air, boilers in older homes.</p>
-          <div class="foot"><a class="act" href="tel:+17732383838">Call about Bucktown <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div>
       </article>
 
@@ -387,7 +362,6 @@ footer .ph{font:700 20px/24px var(--font-display);text-decoration:none}
           <h3 id="area-logan-square">Logan Square</h3>
           <p class="desc">Greystones and boulevard homes around the Illinois Centennial Monument, with brick two-flats on the side streets.</p>
           <p class="hvac">HVAC here: boilers and radiators in greystones, furnaces in frame houses.</p>
-          <div class="foot"><a class="act" href="tel:+17732383838">Call about Logan Square <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div>
       </article>
 
@@ -398,7 +372,6 @@ footer .ph{font:700 20px/24px var(--font-display);text-decoration:none}
           <h3 id="area-humboldt-park">Humboldt Park</h3>
           <p class="desc">Brick two-flats and frame homes around the park, its lagoon and the field house, a short drive west of our shop along Division Street.</p>
           <p class="hvac">HVAC here: boilers in two-flats, forced-air furnaces, window-unit upgrades to ductless.</p>
-          <div class="foot"><a class="act" href="tel:+17732383838">Call about Humboldt Park <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div>
       </article>
 
@@ -430,7 +403,7 @@ footer .ph{font:700 20px/24px var(--font-display);text-decoration:none}
     <div class="stat"><b>1952</b><span>Family owned, now in its second generation</span></div>
     <div class="stat"><b>4.98</b><span>Google rating across 204 reviews, as of 31 Aug 2026</span></div>
     <div class="stat"><b>Rob</b><span>The owner, still running the calls himself</span></div>
-    <a class="go" href="../../west-loop.html#cs-04">Who you're calling <span aria-hidden="true">→</span></a>
+    <a class="go" href="https://citysuburbanheating.com/about-us/">About the family <span aria-hidden="true">→</span></a>
   </div>
 </section>
 

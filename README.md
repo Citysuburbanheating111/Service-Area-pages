@@ -11,7 +11,7 @@ Live design system for **City & Suburban Heating & Cooling** (family-owned Chica
 | [`index.html`](index.html) | Design system: color tokens, typography, shape & spacing, components, page templates |
 | [`west-loop.html`](west-loop.html) | Service area page — approved template (West Loop) |
 | [`lincoln-park.html`](lincoln-park.html) | Service area page built from the template (Lincoln Park) |
-| [`services-v1/service-areas/`](services-v1/service-areas/) | Service areas collection page (v1): card grid for Chicago and nine neighbourhoods, linking to the built area pages |
+| [`services-v1/service-areas/`](services-v1/service-areas/) | Service areas collection page (v1): collection cards for Chicago and nine neighbourhoods (cards are not linked yet; no area pages written) |
 | [`assets/site-nav.css`](assets/site-nav.css) · [`site-nav.js`](assets/site-nav.js) | Shared utility bar + header: hover dropdowns, links to the live site (citysuburbanheating.com), mobile menu |
 | [`playbook/`](playbook/) | Area page playbook: rules, tokens, page anatomy, block library (B1–B13 + globals), copy rules, sources, workflow, QC checklist |
 
