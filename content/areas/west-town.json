@@ -11,18 +11,18 @@
   "form.building_default": "Two- or three-flat",
   "services.heading": "Every heating and cooling service we offer in West Town",
   "who.copy": "City & Suburban is run from 1225 N Cleaver St, half a block north of Division in West Town itself. Rob, the owner, still runs the calls and does the diagnosis on the jobs that need it.",
-  "reviews.1.tag": "Boiler service",
-  "reviews.1.quote": "[CONFIRM: the opening 60–70 words of an eligible Google review, quoted verbatim and cut at a sentence end, from the review workbook. For West Town, rank boiler, radiator, furnace and ductless reviews first.]",
-  "reviews.1.by": "Reviewer name · year",
+  "reviews.1.tag": "Boiler repair",
+  "reviews.1.quote": "Hello. When I had a problem with my boiler I called the first name I saw in the book. Because I didn’t do much research on City and Suburban I was afraid of paying a high price for service. I was incorrect. Rob Koehler showed up on time and fixed my boiler for a reasonable charge. I now had heat. Victory!",
+  "reviews.1.by": "William Gainer · 2024",
   "reviews.2.tag": "Furnace repair",
-  "reviews.2.quote": "[CONFIRM: the opening 60–70 words of an eligible Google review, quoted verbatim and cut at a sentence end, from the review workbook. For West Town, rank boiler, radiator, furnace and ductless reviews first.]",
-  "reviews.2.by": "Reviewer name · year",
-  "reviews.3.tag": "Ductless AC",
-  "reviews.3.quote": "[CONFIRM: the opening 60–70 words of an eligible Google review, quoted verbatim and cut at a sentence end, from the review workbook. For West Town, rank boiler, radiator, furnace and ductless reviews first.]",
-  "reviews.3.by": "Reviewer name · year",
-  "reviews.4.tag": "Rooftop unit",
-  "reviews.4.quote": "[CONFIRM: the opening 60–70 words of an eligible Google review, quoted verbatim and cut at a sentence end, from the review workbook. For West Town, rank boiler, radiator, furnace and ductless reviews first.]",
-  "reviews.4.by": "Reviewer name · year",
+  "reviews.2.quote": "Great company. I called on a Sunday night because my furnace wasn’t working. The repair person was here first thing on Monday morning. Absolutely fantastic. He was friendly and knowledgeable and got my furnace running very quickly. He then reviewed various options with me for the future. It was very easy to send my payment via Zelle. Could not have gone better.",
+  "reviews.2.by": "russell karasik · 2026",
+  "reviews.3.tag": "Rooftop AC & furnace",
+  "reviews.3.quote": "Outstanding work! AC/Furnace needed replacement. Two other companies would not even quote the job due to the roof location of the compressor. C&S H&C came and provided a quote on very short notice. Most technically sound solution for our preference and price was competitive vs other quotes. Installation was scheduled right away after quote acceptance. Everything was installed within the day and so far working good.",
+  "reviews.3.by": "JC · 2026",
+  "reviews.4.tag": "AC repair",
+  "reviews.4.quote": "Our A/C stopped working during the recent heat wave. Other companies didn't return our messages, but City & Suburban answered right away and were professional and communicative throughout. Rob was able to get to our place within a few hours, and he quickly diagnosed and fixed our A/C unit. He was practical and professional, and we would definitely call again.",
+  "reviews.4.by": "Matt Feery · 2026",
   "scope.heading": "The same repair costs differently in a two-flat, a cottage and a loft",
   "scope.1.factor": "Boiler or forced air",
   "scope.1.why": "Many two- and three-flats still heat with a boiler and radiators. A boiler repair is a different job from a furnace one.",
@@ -97,10 +97,6 @@
     "note": "Add the hero photo. Confirm it is City & Suburban's own or licensed; tick \"Illustrative photo\" if not."
    },
    {
-    "block": "B4 Reviews",
-    "note": "Add 4 verbatim Google reviews from the review workbook (opening 60–70 words, cut at a sentence end). For West Town, rank boiler, radiator, furnace and ductless reviews first."
-   },
-   {
     "block": "B9 Districts",
     "note": "River West \"HVAC here\" note isn't in the Paper card (card 4 has none). Drafted from its building stock. Check it."
    },
@@ -145,6 +141,10 @@
    "shop_location": "1225 N Cleaver St: 41.9043, -87.6637, community area 24, ward 1 (City of Chicago permit records on Cleaver St).",
    "wards": "Wards from City permits in community area 24, last 24 months: 1 (973), 27 (486), 36 (464), 32 (308), 26 (209); 34 and 2 under 15 each.",
    "boundaries": "Bloomingdale (north), Kinzie (south), Chicago River (east), Kedzie (west): Encyclopedia of Chicago via Chicago Public Library."
-  }
+  },
+  "reviews.1.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUNEM05ERkJBEAE!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CIHM0ogKEICAgICD3NDFBA%7C%7C?hl=en",
+  "reviews.2.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT20xVlVXRjZlRmhGWkZGRldWVkdXWFZUYVdwaE9FRRAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOm1VUWF6eFhFZFFFWVVGWXVTaWphOEE%7C%7C?hl=en",
+  "reviews.3.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xWSGRVeGlTQzFmWTNveFdXTXdSSHBDU1hGeFNXYxAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOlVHdUxiSC1fY3oxWWMwRHpCSXFxSWc%7C%7C?hl=en",
+  "reviews.4.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25OYVEyOWhOMjgwVmt0alRHMHpia1pMZEVWdFdHYxAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOnNaQ29hN280VktjTG0zbkZLdEVtWGc%7C%7C?hl=en"
  }
 }

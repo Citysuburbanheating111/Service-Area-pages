@@ -1,0 +1,22 @@
+{
+ "_source": "google-reviews-2026-08-31.csv (204 reviews, pulled 2026-08-31, SerpApi google_maps_reviews, newest first)",
+ "_rules": "Verbatim opening, 60-70 words cut at a sentence end (skill rule); 5-star only; ranked by equipment match, then recency; a review appears on at most two pages.",
+ "west-town": [
+  {"num": 183, "tag": "Boiler repair"},
+  {"num": 58, "tag": "Furnace repair"},
+  {"num": 23, "tag": "Rooftop AC & furnace"},
+  {"num": 19, "tag": "AC repair"}
+ ],
+ "west-loop": [
+  {"num": 26, "tag": "Condo AC repair"},
+  {"num": 42, "tag": "Condo furnace repair"},
+  {"num": 27, "tag": "Condo repairs"},
+  {"num": 73, "tag": "AC replacement"}
+ ],
+ "lincoln-park": [
+  {"num": 3, "tag": "Maintenance"},
+  {"num": 63, "tag": "Furnace repair"},
+  {"num": 70, "tag": "Furnace replacement"},
+  {"num": 183, "tag": "Boiler repair"}
+ ]
+}
