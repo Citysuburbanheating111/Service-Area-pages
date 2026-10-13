@@ -2,10 +2,13 @@ import { createClient } from 'next-sanity'
 
 import { apiVersion, dataset, projectId } from '../env'
 
-// Public, read-only client for published content. No token, safe in the browser.
+// Published content by default. In draft mode, `sanityFetch` switches perspective and turns on
+// stega so the Presentation tool can map every string back to its field.
 export const client = createClient({
   projectId,
   dataset,
   apiVersion,
   useCdn: true,
+  perspective: 'published',
+  stega: { studioUrl: '/studio' },
 })
