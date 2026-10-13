@@ -19,7 +19,8 @@ export const site = {
   reviewerNames: ['Rob', 'Eddie', 'Carissa', 'Frank', 'Nate', 'Sam', 'Andy', 'Mike'],
   // City of Chicago building permits, 24 months
   permits: { citywideFirms: '1,539', citywidePermits: '4,888', ours: 0 },
-  // Playbook Part K: not in any workbook yet. Shows as a "to confirm" tile until filled.
+  // City of Chicago licence for the B3 tile. null hides the tile: nothing verifiable is on the City's
+  // business licence register for 1225 N Cleaver St (checked 2026-10-13, dataset r5kz-chrr).
   licenceNumber: null as string | null,
 }
 

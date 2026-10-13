@@ -29,7 +29,7 @@ export function AreaPageView({ page, preview }: Props) {
       <main>
         <Hero page={page} />
         <Services page={page} preview={preview} />
-        <Owner page={page} preview={preview} />
+        <Owner page={page} />
         <Reviews page={page} preview={preview} />
         <Process page={page} />
         <Price page={page} />
@@ -166,7 +166,7 @@ function Services({ page, preview }: { page: AreaPageData; preview: boolean }) {
 }
 
 // ── B3 Who you're calling ──────────────────────────────
-function Owner({ page, preview }: { page: AreaPageData; preview: boolean }) {
+function Owner({ page }: { page: AreaPageData }) {
   return (
     <section className="cs-sec cs-owner" aria-labelledby="owner-title">
       <div className="cs-owner-copy">
@@ -187,22 +187,16 @@ function Owner({ page, preview }: { page: AreaPageData; preview: boolean }) {
           <span className="label">Google rating</span>
           <div><div className="big">{site.rating.value}</div><p>Across {site.rating.count} Google reviews, as of {site.rating.asOf}.</p></div>
         </div>
-        <div className="cs-fact fog">
+        {/* Without a licence tile, "Who answers" spans the second row */}
+        <div className={`cs-fact fog${site.licenceNumber ? '' : ' wide'}`}>
           <span className="label">Who answers</span>
           <div><div className="mid">Rob, the owner</div><p>Owner-operator. He runs the calls himself, so the person who quotes is the person accountable.</p></div>
         </div>
-        {site.licenceNumber ? (
+        {site.licenceNumber && (
           <div className="cs-fact fog">
             <span className="label">Licence</span>
-            <div><div className="mid">{site.licenceNumber}</div><p>City of Chicago HVAC licence.</p></div>
+            <div><div className="mid">{site.licenceNumber}</div><p>City of Chicago business licence.</p></div>
           </div>
-        ) : (
-          preview && (
-            <div className="cs-fact confirm">
-              <span className="label">Licences · to confirm</span>
-              <div><div className="mid">City of Chicago HVAC licence no.</div><p>Pull from the City&apos;s registry before publishing. Not in any workbook or permit file.</p></div>
-            </div>
-          )
         )}
       </div>
     </section>
