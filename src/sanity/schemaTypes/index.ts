@@ -1,6 +1,7 @@
 import { type SchemaTypeDefinition } from 'sanity'
 
-// Document and block types go here (areaPage, servicePage, siteSettings, section blocks).
+import { areaPage } from './areaPage'
+
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [],
+  types: [areaPage],
 }
