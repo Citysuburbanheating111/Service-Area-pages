@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Audit the built v1 pages before publishing.
+"""Audit the built v1 and v2 pages before publishing.
 
   python tools/audit_v1.py
 
-Checks every services-v1 page for: empty headings, paragraphs, FAQ answers, list items and
+Checks every services-v1 and services-v2 page for: empty headings, paragraphs, FAQ answers, list items and
 options; leftover placeholders ([CONFIRM, None, undefined, {{tokens}}); local images, styles,
 scripts and links that don't exist on disk; missing <title> / meta description; duplicate ids.
 Exits non-zero if anything fails.
@@ -110,8 +110,9 @@ def audit(path):
 
 def main():
     pages = []
-    for dirpath, _, files in os.walk(os.path.join(ROOT, 'services-v1')):
-        pages += [os.path.join(dirpath, f) for f in files if f.endswith('.html')]
+    for top in ('services-v1', 'services-v2'):
+        for dirpath, _, files in os.walk(os.path.join(ROOT, top)):
+            pages += [os.path.join(dirpath, f) for f in files if f.endswith('.html')]
     failed = False
     for path in sorted(pages):
         problems, faqs = audit(path)
