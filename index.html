@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>City &amp; Suburban Design System</title>
+<meta name="description" content="Design tokens, typography, components and page templates for City & Suburban Heating & Cooling.">
+<link rel="icon" href="assets/6FN1CP4RYC9MBCFR4H39DJ8HAE.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-bg:#FFFFFF;--color-fog:#F2F4F6;--color-line:#DCE2E7;--color-text:#3F4B55;--color-muted:#6A7782;
+  --color-navy:#09263A;--color-red:#DD382B;--color-red-dk:#AF281D;--color-blue:#186AA4;
+  --font-display:'Ubuntu',sans-serif;--font-body:'Noto Sans',sans-serif;
+  --radius-sm:8px;--radius-md:16px;--radius-lg:24px;--radius-pill:999px;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--color-bg);color:var(--color-text);font:16px/26px var(--font-body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+@media (max-width:640px){.wrap{padding:0 16px}}
+
+/* utility + header (from the page template) */
+.util{background:var(--color-navy);color:#fff;font-size:13px;line-height:16px;font-weight:600;letter-spacing:.02em;padding:10px 0}
+.util .wrap{display:flex;justify-content:space-between;gap:16px}
+.util span:last-child{opacity:.85;font-weight:400}
+header.top{border-bottom:1px solid var(--color-line);padding:16px 0;position:sticky;top:0;background:#fff;z-index:5}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{height:48px;aspect-ratio:17/6;background:url(assets/6FN1CP4RYC9MBCFR4H39DJ8HAE.webp) center/100% 100% no-repeat}
+nav.toc{display:flex;gap:28px;font:500 15px/18px var(--font-display);color:var(--color-navy)}
+nav.toc a{text-decoration:none}
+nav.toc a:hover{color:var(--color-red)}
+@media (max-width:900px){nav.toc{display:none}.util span:last-child{display:none}}
+
+/* hero */
+.hero{background:var(--color-navy);color:#fff;padding:96px 0 88px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;inset:auto -10% -60% 45%;height:120%;background:radial-gradient(closest-side,rgba(221,56,43,.35),transparent);pointer-events:none}
+.eyebrow{font:700 13px/16px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--color-red)}
+.hero .eyebrow{color:#FF8A7F}
+.hero h1{font:700 64px/68px var(--font-display);letter-spacing:-.02em;margin:18px 0 22px;max-width:820px}
+.hero p{font-size:19px;line-height:30px;color:#FFFFFFE6;max-width:640px}
+.hero .actions{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
+@media (max-width:640px){.hero{padding:64px 0}.hero h1{font-size:40px;line-height:44px}}
+
+/* sections */
+section.block{padding:96px 0;border-bottom:1px solid var(--color-line)}
+section.block.fog{background:var(--color-fog)}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:48px;flex-wrap:wrap}
+.sec-head h2{font:700 44px/50px var(--font-display);letter-spacing:-.01em;color:var(--color-navy);margin-top:14px;max-width:640px}
+.sec-head p{max-width:420px;color:var(--color-text)}
+@media (max-width:640px){section.block{padding:64px 0}.sec-head h2{font-size:32px;line-height:38px}}
+h3.sub{font:700 20px/25px var(--font-display);color:var(--color-navy);margin:48px 0 20px}
+h3.sub:first-child{margin-top:0}
+
+/* color swatches */
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(200px,100%),1fr));gap:16px}
+.sw{border-radius:var(--radius-lg);overflow:hidden;background:#fff;border:1px solid var(--color-line)}
+.sw .chip{height:120px;display:flex;align-items:flex-end;padding:16px;font:700 12px/16px var(--font-body);letter-spacing:.12em}
+.sw .meta{padding:16px}
+.sw .meta b{display:block;font:700 17px/22px var(--font-display);color:var(--color-navy)}
+.sw code,.code{font:500 13px/18px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--color-muted)}
+.sw .meta span{display:block;font-size:14px;line-height:21px;margin-top:6px}
+
+/* type scale */
+.type-row{display:grid;grid-template-columns:220px 1fr;gap:32px;align-items:baseline;padding:28px 0;border-top:1px solid var(--color-line)}
+.type-row:last-child{border-bottom:1px solid var(--color-line)}
+.type-row .spec{font-size:14px;line-height:21px;color:var(--color-muted)}
+.type-row .spec b{display:block;color:var(--color-navy);font:700 15px/18px var(--font-display);margin-bottom:4px}
+.type-row .sample{color:var(--color-navy);overflow-wrap:anywhere}
+@media (max-width:760px){.type-row{grid-template-columns:1fr;gap:12px}}
+.fonts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:40px}
+.font-card{background:#fff;border-radius:var(--radius-lg);padding:32px;border:1px solid var(--color-line)}
+.font-card .big{font-size:88px;line-height:92px;color:var(--color-navy)}
+.font-card .name{font:700 22px/28px var(--font-display);color:var(--color-navy);margin-top:12px}
+@media (max-width:760px){.fonts{grid-template-columns:1fr}}
+
+/* radius + spacing */
+.radii{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(180px,100%),1fr));gap:16px}
+.radius{background:#fff;border:1px solid var(--color-line);border-radius:var(--radius-md);padding:20px}
+.radius .box{height:96px;background:var(--color-navy);margin-bottom:16px}
+.radius b{display:block;font:700 17px/22px var(--font-display);color:var(--color-navy)}
+
+/* components */
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:var(--radius-pill);font:700 15px/18px var(--font-display);letter-spacing:.04em;text-transform:uppercase;text-decoration:none;padding:14px 26px;border:1.5px solid transparent;cursor:pointer;transition:background .15s}
+.btn-red{background:var(--color-red);color:#fff}
+.btn-red:hover{background:var(--color-red-dk)}
+.btn-ghost{border-color:#fff;color:#fff}
+.btn-ghost:hover{background:#ffffff1a}
+.btn-navy{background:var(--color-navy);color:#fff}
+.btn-outline{border-color:var(--color-navy);color:var(--color-navy)}
+.btn-sm{font-size:14px;padding:12px 22px}
+.demo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media (max-width:900px){.demo-grid{grid-template-columns:1fr}}
+.demo{background:#fff;border-radius:var(--radius-lg);border:1px solid var(--color-line);padding:32px;display:flex;flex-direction:column;gap:20px}
+.demo.dark{background:var(--color-navy);border-color:var(--color-navy)}
+.label{font:700 12px/16px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--color-muted)}
+.demo.dark .label{color:#ffffffb3}
+.demo .row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.pill-light{display:inline-flex;background:#FFFFFF29;border:1px solid #FFFFFF66;border-radius:var(--radius-pill);padding:6px 16px;font:500 13px/16px var(--font-display);letter-spacing:.06em;color:#fff}
+.pill-red{display:inline-flex;background:var(--color-red);border-radius:var(--radius-pill);padding:4px 12px;font:500 13px/16px var(--font-display);color:#fff}
+.tag{display:inline-flex;background:var(--color-fog);border-radius:var(--radius-pill);padding:4px 10px;font:600 12px/16px var(--font-body);color:var(--color-muted)}
+.chipname{display:inline-flex;border:1px solid var(--color-line);border-radius:var(--radius-pill);padding:6px 14px;font:500 14px/18px var(--font-display);color:var(--color-navy)}
+.chipname.on{background:var(--color-navy);color:#fff;border-color:var(--color-navy)}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font:600 13px/16px var(--font-body);color:var(--color-navy)}
+.field .input{height:44px;border:1px solid var(--color-line);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:15px;color:var(--color-text);background:#fff}
+.review{background:#fff;border-radius:var(--radius-lg);padding:28px;display:flex;flex-direction:column;gap:18px;border:1px solid var(--color-line)}
+.review .stars{color:#F5A623;font-size:18px;letter-spacing:.08em}
+.review q{font-size:16px;line-height:26px;color:var(--color-text);quotes:"\201C" "\201D"}
+.review .who{font:700 15px/18px var(--font-display);color:var(--color-navy)}
+.stat{background:var(--color-navy);color:#fff;border-radius:var(--radius-lg);padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;min-height:230px}
+.stat.red{background:var(--color-red)}
+.stat .n{font:700 72px/72px var(--font-display);letter-spacing:-.02em}
+.stat small{font-size:15px;line-height:22px;color:#ffffffd9}
+.confirm{background:#FFF8E1;border:2px dashed #E3B341;border-radius:var(--radius-lg);padding:28px;display:flex;flex-direction:column;gap:12px}
+.confirm .label{color:#8A6400}
+.confirm b{font:700 28px/34px var(--font-display);color:#5C4300}
+.urgent{border:1.5px dashed var(--color-red);border-radius:var(--radius-md);padding:16px;display:flex;flex-direction:column;gap:6px}
+.urgent b{font:700 15px/18px var(--font-display);color:var(--color-red)}
+.urgent span{font-size:14px;line-height:21px}
+.svc{background:var(--color-fog);border-radius:var(--radius-md);padding:18px;display:flex;gap:14px}
+.svc .ic{width:36px;height:36px;border-radius:10px;background:#fff;display:grid;place-items:center;flex-shrink:0}
+.svc b{display:block;font:700 17px/22px var(--font-display);color:var(--color-navy);margin-bottom:4px}
+.svc span{font-size:14px;line-height:21px}
+.faq-item{border-top:1px solid var(--color-line);padding:20px 0;display:flex;justify-content:space-between;gap:16px;font:700 17px/22px var(--font-display);color:var(--color-navy)}
+.faq-item:last-child{border-bottom:1px solid var(--color-line)}
+.faq-item i{color:var(--color-red);font-style:normal;font-size:22px}
+
+/* templates */
+.templates{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+@media (max-width:760px){.templates{grid-template-columns:1fr}}
+.tpl{display:block;text-decoration:none;background:#fff;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--color-line);transition:transform .2s,box-shadow .2s}
+.tpl:hover{transform:translateY(-4px);box-shadow:#09263A33 0 24px 60px -24px}
+.tpl .shot{height:440px;background-size:100% auto;background-position:top center;background-repeat:no-repeat;border-bottom:1px solid var(--color-line);transition:background-position 3s ease}
+.tpl:hover .shot{background-position:bottom center}
+.tpl .cap{padding:24px 28px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.tpl .cap b{display:block;font:700 22px/28px var(--font-display);color:var(--color-navy)}
+.tpl .cap span{font-size:14px;line-height:21px;color:var(--color-muted)}
+.tpl .go{width:44px;height:44px;border-radius:50%;background:var(--color-red);color:#fff;display:grid;place-items:center;flex-shrink:0;font-size:20px}
+
+.sections-list{columns:3 220px;column-gap:32px;margin-top:40px;padding:0;list-style:none;counter-reset:s}
+.sections-list li{break-inside:avoid;padding:10px 0;border-top:1px solid var(--color-line);font:500 15px/20px var(--font-display);color:var(--color-navy);counter-increment:s}
+.sections-list li:before{content:counter(s,decimal-leading-zero);color:var(--color-red);font-weight:700;margin-right:12px}
+
+footer{background:var(--color-navy);color:#ffffffcc;padding:40px 0;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer b{color:#fff;font:700 18px/22px var(--font-display)}
+</style>
+</head>
+<body>
+
+<div class="util"><div class="wrap"><span>Trusted HVAC experts “From City to Suburbs”</span><span>Design system · v1.0</span></div></div>
+<header class="top">
+  <div class="wrap">
+    <div class="logo" role="img" aria-label="City &amp; Suburban Heating &amp; Cooling"></div>
+    <nav class="toc">
+      <a href="#color">Color</a><a href="#type">Typography</a><a href="#shape">Shape</a><a href="#components">Components</a><a href="#templates">Templates</a>
+    </nav>
+    <a class="btn btn-red btn-sm" href="#templates">View pages</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap" style="position:relative;z-index:1">
+    <div class="eyebrow">City &amp; Suburban Heating &amp; Cooling</div>
+    <h1>The design system behind every City &amp; Suburban page</h1>
+    <p>Tokens, type, components and page templates for a family-owned Chicago HVAC company, built in Paper and published here as live HTML.</p>
+    <div class="actions">
+      <a class="btn btn-red" href="west-loop.html">Open the template page</a>
+      <a class="btn btn-ghost" href="#color">Browse the tokens</a>
+    </div>
+  </div>
+</section>
+
+<!-- COLOR -->
+<section class="block" id="color">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">01 · Color</div><h2>Navy for trust, red for action</h2></div>
+      <p>Navy carries the brand and dark surfaces. Red is reserved for calls to action and the moments that need attention. Everything else stays neutral.</p>
+    </div>
+    <h3 class="sub">Brand</h3>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#09263A;color:#fff">NAVY</div><div class="meta"><b>Navy</b><code>--color-navy · #09263A</code><span>Headings, dark sections, utility bar, footer.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#DD382B;color:#fff">RED</div><div class="meta"><b>Red</b><code>--color-red · #DD382B</code><span>Primary buttons, eyebrows, the services band.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#AF281D;color:#fff">RED DARK</div><div class="meta"><b>Red dark</b><code>--color-red-dk · #AF281D</code><span>Hover and pressed state for red.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#186AA4;color:#fff">BLUE</div><div class="meta"><b>Blue</b><code>--color-blue · #186AA4</code><span>Links and cooling-related accents.</span></div></div>
+    </div>
+    <h3 class="sub">Neutrals</h3>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#FFFFFF;color:#09263A;border-bottom:1px solid #DCE2E7">BG</div><div class="meta"><b>Background</b><code>--color-bg · #FFFFFF</code><span>Default page ground.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#F2F4F6;color:#09263A">FOG</div><div class="meta"><b>Fog</b><code>--color-fog · #F2F4F6</code><span>Alternate sections, service tiles, tags.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#DCE2E7;color:#09263A">LINE</div><div class="meta"><b>Line</b><code>--color-line · #DCE2E7</code><span>Borders, dividers, input outlines.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#3F4B55;color:#fff">TEXT</div><div class="meta"><b>Text</b><code>--color-text · #3F4B55</code><span>Body copy.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#6A7782;color:#fff">MUTED</div><div class="meta"><b>Muted</b><code>--color-muted · #6A7782</code><span>Labels, captions, secondary meta.</span></div></div>
+    </div>
+    <h3 class="sub">Supporting</h3>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#F5A623;color:#09263A">STAR</div><div class="meta"><b>Star gold</b><code>#F5A623</code><span>Review stars only.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#FFF8E1;color:#8A6400;border-bottom:2px dashed #E3B341">CONFIRM</div><div class="meta"><b>Confirm note</b><code>#FFF8E1 · #E3B341 · #8A6400</code><span>Content still to verify before publishing.</span></div></div>
+      <div class="sw"><div class="chip" style="background:#FF8A7F;color:#09263A">CORAL</div><div class="meta"><b>Coral</b><code>#FF8A7F</code><span>Red eyebrows on navy surfaces.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TYPE -->
+<section class="block fog" id="type">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">02 · Typography</div><h2>Ubuntu to speak, Noto Sans to explain</h2></div>
+      <p>Ubuntu Bold carries every heading, number and button. Noto Sans handles body copy, labels and form text.</p>
+    </div>
+    <div class="fonts">
+      <div class="font-card"><div class="big" style="font-family:var(--font-display);font-weight:700">Aa</div><div class="name">Ubuntu</div><div class="code">--font-display · 500 / 700</div></div>
+      <div class="font-card"><div class="big" style="font-family:var(--font-body);font-weight:400">Aa</div><div class="name">Noto Sans</div><div class="code">--font-body · 400 / 600 / 700</div></div>
+    </div>
+    <div class="type-row"><div class="spec"><b>Stat</b>Ubuntu 700 · 72/72 · −0.02em</div><div class="sample" style="font:700 72px/72px var(--font-display);letter-spacing:-.02em">1952</div></div>
+    <div class="type-row"><div class="spec"><b>Display / H1</b>Ubuntu 700 · 56/62 · −0.015em</div><div class="sample" style="font:700 56px/62px var(--font-display);letter-spacing:-.015em">Heating and cooling repair in the West Loop</div></div>
+    <div class="type-row"><div class="spec"><b>H2 / Section</b>Ubuntu 700 · 44/50 · −0.01em</div><div class="sample" style="font:700 44px/50px var(--font-display);letter-spacing:-.01em">One family. Second generation.</div></div>
+    <div class="type-row"><div class="spec"><b>H3 / Panel</b>Ubuntu 700 · 28/34</div><div class="sample" style="font:700 28px/34px var(--font-display)">Heating: furnaces, boilers and heat pumps</div></div>
+    <div class="type-row"><div class="spec"><b>H4 / Card title</b>Ubuntu 700 · 20/25</div><div class="sample" style="font:700 20px/25px var(--font-display)">Family-owned, since 1952</div></div>
+    <div class="type-row"><div class="spec"><b>H5 / Item</b>Ubuntu 700 · 17/22</div><div class="sample" style="font:700 17px/22px var(--font-display)">Furnace and heater repair</div></div>
+    <div class="type-row"><div class="spec"><b>Lead</b>Noto Sans 400 · 19/30</div><div class="sample" style="font:400 19px/30px var(--font-body);color:var(--color-text)">Furnaces, boilers, central air, ductless systems and restaurant make-up air, for lofts, high-rise condos, townhomes and kitchens.</div></div>
+    <div class="type-row"><div class="spec"><b>Body</b>Noto Sans 400 · 16/25</div><div class="sample" style="font:400 16px/25px var(--font-body);color:var(--color-text)">A furnace that won't light, a boiler losing pressure, a unit that short-cycles. Diagnosis comes first, and replacement only if the unit is genuinely done.</div></div>
+    <div class="type-row"><div class="spec"><b>Small</b>Noto Sans 400 · 14/21</div><div class="sample" style="font:400 14px/21px var(--font-body);color:var(--color-text)">The person who diagnoses your system is the person who quotes it.</div></div>
+    <div class="type-row"><div class="spec"><b>Eyebrow</b>Noto Sans 700 · 13/16 · 0.14em · caps</div><div class="sample"><span class="eyebrow">Who you're calling</span></div></div>
+    <div class="type-row"><div class="spec"><b>Button</b>Ubuntu 700 · 15/18 · 0.04em · caps</div><div class="sample" style="font:700 15px/18px var(--font-display);letter-spacing:.04em">SCHEDULE SERVICE</div></div>
+  </div>
+</section>
+
+<!-- SHAPE -->
+<section class="block" id="shape">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">03 · Shape &amp; space</div><h2>Soft corners, generous rhythm</h2></div>
+      <p>Cards sit on a 24px radius, actions are always pills. Desktop pages use an 80px side gutter, a 1280px content width and 96px section padding.</p>
+    </div>
+    <div class="radii">
+      <div class="radius"><div class="box" style="border-radius:var(--radius-sm)"></div><b>Small · 8px</b><code class="code">--radius-sm</code><div style="font-size:14px">Inputs, selects</div></div>
+      <div class="radius"><div class="box" style="border-radius:var(--radius-md)"></div><b>Medium · 16px</b><code class="code">--radius-md</code><div style="font-size:14px">Service tiles, notes</div></div>
+      <div class="radius"><div class="box" style="border-radius:var(--radius-lg)"></div><b>Large · 24px</b><code class="code">--radius-lg</code><div style="font-size:14px">Cards, panels, CTA</div></div>
+      <div class="radius"><div class="box" style="border-radius:var(--radius-pill)"></div><b>Pill · 999px</b><code class="code">--radius-pill</code><div style="font-size:14px">Buttons, tags, badges</div></div>
+    </div>
+    <h3 class="sub">Layout</h3>
+    <div class="radii">
+      <div class="radius"><b>1440px</b><div style="font-size:14px">Desktop artboard</div></div>
+      <div class="radius"><b>1280px</b><div style="font-size:14px">Content width</div></div>
+      <div class="radius"><b>80px</b><div style="font-size:14px">Side gutter</div></div>
+      <div class="radius"><b>96px</b><div style="font-size:14px">Section padding</div></div>
+      <div class="radius"><b>16 / 20px</b><div style="font-size:14px">Card grid gap</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPONENTS -->
+<section class="block fog" id="components">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">04 · Components</div><h2>The building blocks</h2></div>
+      <p>Every component below is lifted straight from the area page template, with the same values.</p>
+    </div>
+    <div class="demo-grid">
+      <div class="demo dark">
+        <div class="label">Buttons · on navy</div>
+        <div class="row">
+          <a class="btn btn-red" href="tel:7732383838"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Call (773) 238-3838</a>
+          <a class="btn btn-ghost btn-sm" href="#components">Schedule service</a>
+        </div>
+      </div>
+      <div class="demo">
+        <div class="label">Buttons · on white</div>
+        <div class="row">
+          <a class="btn btn-red btn-sm" href="#components">Schedule service</a>
+          <a class="btn btn-navy btn-sm" href="#components">Request a diagnosis</a>
+          <a class="btn btn-outline btn-sm" href="#components">Learn more</a>
+        </div>
+      </div>
+      <div class="demo" style="background:var(--color-red);border-color:var(--color-red)">
+        <div class="label" style="color:#ffffffcc">Badges &amp; pills</div>
+        <div class="row"><span class="pill-light">FROM CITY TO SUBURBS</span><span class="pill-red" style="background:#fff;color:var(--color-red)">West Loop</span></div>
+      </div>
+      <div class="demo">
+        <div class="label">Tags &amp; chips</div>
+        <div class="row"><span class="tag">Furnace repair</span><span class="tag">Boiler service</span><span class="chipname on">Rob</span><span class="chipname">Eddie</span><span class="chipname">Carissa</span></div>
+      </div>
+      <div class="demo">
+        <div class="label">Form fields</div>
+        <div class="field"><label>Name</label><div class="input"></div></div>
+        <div class="field"><label>Building type</label><div class="input">Converted warehouse loft<svg width="14" height="14" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="#6A7782" stroke-width="2.5" stroke-linecap="round"/></svg></div></div>
+        <a class="btn btn-red" style="justify-content:center" href="#components">Request a diagnosis</a>
+      </div>
+      <div class="review">
+        <div class="row" style="display:flex;justify-content:space-between;align-items:center"><span class="stars">★★★★★</span><span class="tag">Furnace repair</span></div>
+        <div style="font-size:16px;line-height:26px;background:#FFF8E1;border:1.5px dashed #E3B341;border-radius:12px;padding:14px;color:#5C4300">[CONFIRM: the opening 60–70 words of an eligible Google review, quoted verbatim from the review workbook.]</div>
+        <div class="who">Reviewer name · year</div>
+      </div>
+      <div class="stat"><div class="label" style="color:#ffffffb3">Founded</div><div><div class="n">1952</div><small>74 years, family owned, now in its second generation.</small></div></div>
+      <div class="stat red"><div class="label" style="color:#ffffffcc">Google rating</div><div><div class="n">4.98</div><small>Across 204 Google reviews.</small></div></div>
+      <div class="demo">
+        <div class="label">Service tile</div>
+        <div class="svc"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M14.5 6.5a4 4 0 0 0-5 5L4 17l3 3 5.5-5.5a4 4 0 0 0 5-5l-2.5 2.5-2-2z" fill="none" stroke="#09263A" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div><b>Furnace and heater repair</b><span>Ignition, flame sensors, inducer motors and limit switches, found and fixed on the first visit.</span></div></div>
+        <div class="urgent"><b>No heat in January?</b><span>Call (773) 238-3838. Tell us the furnace or boiler make and what it's doing.</span></div>
+      </div>
+      <div class="confirm">
+        <div class="label">Licence · to confirm</div>
+        <b>City of Chicago HVAC licence no.</b>
+        <span style="font-size:14px;line-height:21px;color:#5C4300">Content-review note: pull from the City's registry before publishing.</span>
+      </div>
+      <div class="demo" style="grid-column:1/-1">
+        <div class="label">FAQ rows</div>
+        <div>
+          <div class="faq-item">Do I need a new furnace, or can mine be repaired?<i>−</i></div>
+          <div class="faq-item">Can you service the steam boiler in my loft?<i>+</i></div>
+          <div class="faq-item">Does HVAC repair in Chicago need a permit?<i>+</i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEMPLATES -->
+<section class="block" id="templates">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">05 · Page templates</div><h2>Service area pages</h2></div>
+      <p>One approved template, filled per Chicago neighbourhood. Each page runs the same 16 sections. Hover a card to scroll the preview.</p>
+    </div>
+    <div class="templates">
+      <a class="tpl" href="west-loop.html">
+        <div class="shot" style="background-image:url(assets/thumb-west-loop.webp)"></div>
+        <div class="cap"><div><b>West Loop</b><span>Template · approved design</span></div><div class="go">→</div></div>
+      </a>
+      <a class="tpl" href="lincoln-park.html">
+        <div class="shot" style="background-image:url(assets/thumb-lincoln-park.webp)"></div>
+        <div class="cap"><div><b>Lincoln Park</b><span>Area page built from the template</span></div><div class="go">→</div></div>
+      </a>
+    </div>
+    <ol class="sections-list">
+      <li>Utility bar</li><li>Header</li><li>Hero + request card</li><li>Services</li><li>Who you're calling</li><li>Reviews</li><li>Process</li><li>Scope and price</li><li>How to choose</li><li>Kinds of company</li><li>Districts</li><li>Building types</li><li>Permit record</li><li>FAQ</li><li>Closing CTA</li><li>Footer</li>
+    </ol>
+  </div>
+</section>
+
+<footer><div class="wrap"><div><b>City &amp; Suburban Heating &amp; Cooling</b><div>1225 N Cleaver St, Chicago · Family-owned since 1952</div></div><b>(773) 238-3838</b></div></footer>
+
+</body>
+</html>
