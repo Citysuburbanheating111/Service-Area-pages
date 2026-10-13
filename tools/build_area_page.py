@@ -8,7 +8,8 @@ Reads an area content file in the city-suburban-service-area-page skill's format
 ({"area": {flat skill fields}, "extras": {...}}) and writes
 services-v1/service-areas/<slug>/index.html. Same blocks, order and design system as the Paper
 template and the Next.js template, but with real links, a real form, working tabs, accordions and
-scrollable tracks. Styles: assets/area-page.css. Behaviour: assets/area-page.js.
+scrollable tracks. Styles: assets/area-page.css (page) + assets/live-chrome.css (live-site header and footer).
+Behaviour: assets/area-page.js.
 """
 import html, json, os, sys
 
@@ -106,13 +107,9 @@ COMPANIES = [
 NAMES = ['Rob', 'Eddie', 'Carissa', 'Frank', 'Nate', 'Sam', 'Andy', 'Mike']
 
 
-def header_block():
-    """The shared live-site utility bar + header, taken from the collection page so they stay identical."""
-    s = open(os.path.join(ROOT, 'services-v1/service-areas/index.html'), encoding='utf-8').read()
-    a = s.index('<!-- G1 utility bar')
-    b = s.index('</header>', a) + len('</header>')
-    blk = s[a:b].replace('url(../../assets/', f'url({A}').replace('href="./"', 'href="../"')
-    return blk
+def live_chrome(name):
+    """Live-site header or footer (assets/live/<name>.html, copied from citysuburbanheating.com/services/)."""
+    return open(os.path.join(ROOT, 'assets', 'live', name + '.html'), encoding='utf-8').read().replace('{{ASSETS}}', A)
 
 
 def track_controls(label):
@@ -323,15 +320,6 @@ def build(path):
   </div>
 </section>'''
 
-    footer = f'''
-<footer class="cs-footer">
-  <div class="brand">
-    <a class="badge" href="{LIVE}/" aria-label="City &amp; Suburban Heating &amp; Cooling home"><span class="cs-logo" style="background-image:url({A}6FN1CP4RYC9MBCFR4H39DJ8HAE.webp)"></span></a>
-    <address>1225 N Cleaver St, Chicago, IL 60642<br>Family owned since 1952</address>
-  </div>
-  <a href="{TEL}">{PHONE}</a>
-</footer>'''
-
     title = x.get('seo.title') or a['hero.h1']
     desc = x.get('seo.description') or a['hero.lede']
     page = f'''<!doctype html>
@@ -347,7 +335,7 @@ def build(path):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Ubuntu:wght@500;700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="{A}5X6SBXHGCABFYFB3GFJ2CY4MYM.webp">
-<link rel="stylesheet" href="{A}site-nav.css">
+<link rel="stylesheet" href="{A}live-chrome.css">
 <link rel="stylesheet" href="{A}area-page.css">
 </head>
 <body>
@@ -355,12 +343,12 @@ def build(path):
   <span class="t">Service area page · {e(area)} · draft v1</span>
   <span class="acts"><a href="../">&larr; All service areas</a><a href="{UP}playbook/">Playbook</a></span>
 </div>
+{live_chrome("header")}
 <div class="cs">
-{header_block()}
 <main>{hero}{services}{owner}{reviews}{process}{price}{choose}{companies}{districts}{buildings}{permits}{faq}{cta}
-</main>{footer}
+</main>
 </div>
-<script src="{A}site-nav.js"></script>
+{live_chrome("footer")}
 <script src="{A}area-page.js"></script>
 </body>
 </html>

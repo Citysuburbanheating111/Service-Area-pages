@@ -413,3 +413,8 @@ a.cs-tile:hover h4 { color: var(--color-red); }
 
 .cs-footer a:hover { text-decoration: underline; }
 @media (prefers-reduced-motion: reduce) { .cs-faq-list details p { animation: none; } .cs-track { scroll-behavior: auto; } }
+
+/* Tracks run to the screen edges: cards slide off the edge instead of being cut at the content margin */
+.cs-track-wrap .cs-track { margin-inline: calc(var(--pad-x) * -1); padding-inline: var(--pad-x); scroll-padding-inline: var(--pad-x); }
+html { scroll-padding-top: 16px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
