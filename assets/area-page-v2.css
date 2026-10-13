@@ -223,14 +223,16 @@
 .v2-steps-bar .dots::before { content: ''; position: absolute; left: 14px; right: 14px; top: 50%; height: 2px; background: var(--color-line); }
 .v2-steps-bar .dot { position: relative; width: 30px; height: 30px; border-radius: 99px; border: 1.5px solid var(--color-line); background: #fff; font: 600 13px/1 var(--font-body); color: var(--color-navy); cursor: pointer; }
 .v2-steps-bar .dot[aria-current='step'] { background: var(--color-red); border-color: var(--color-red); color: #fff; box-shadow: 0 0 0 4px #fdeceb; }
-.v2-steps { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; padding-bottom: 4px; }
+/* No snapping where several cards show: the last steps share the final stretch of scroll (area-page-v2.js) */
+.v2-steps { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; padding-bottom: 4px; }
 .v2-steps::-webkit-scrollbar { display: none; }
-.v2-step { flex: 0 0 calc((100% - 60px) / 3.4); scroll-snap-align: start; background: #fff; border: 1px solid var(--color-line); border-radius: var(--radius-lg); padding: 28px; display: flex; flex-direction: column; gap: 12px; }
+.v2-step { flex: 0 0 calc((100% - 60px) / 3.4); scroll-snap-align: start; transition: border-color .2s, box-shadow .2s; background: #fff; border: 1px solid var(--color-line); border-radius: var(--radius-lg); padding: 28px; display: flex; flex-direction: column; gap: 12px; }
 .v2-step header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
 .v2-step .big { font: 700 60px/1 var(--font-display); color: var(--color-red); letter-spacing: -.02em; }
 .v2-step header img { height: 52px; width: auto; }
 .v2-step h3 { font: 700 20px/25px var(--font-display); color: var(--color-navy); }
 .v2-step p { font-size: 15px; line-height: 24px; }
+.v2-step.is-active { border-color: var(--color-red); box-shadow: 0 0 0 1px var(--color-red); }
 .v2-step footer { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--color-line); }
 
 /* ── B9 Navy areas band with map ───────────────── */
@@ -368,6 +370,7 @@ a.v2-mini:hover { border-color: var(--color-navy); }
   .v2-steps-bar { gap: 14px; }
   .v2-steps-bar .dots { display: none; }
   .v2-steps-bar .cs-arrows { margin-left: auto; }
+  .v2-steps { scroll-snap-type: x mandatory; }
   .v2-step { flex-basis: 84%; padding: 22px; }
   .v2-step .big { font-size: 48px; }
   .v2-dchips { flex-wrap: wrap; flex-shrink: 1; }

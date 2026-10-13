@@ -35,30 +35,46 @@
     var prev = wrap.querySelector('[data-prev]');
     var next = wrap.querySelector('[data-next]');
     var current = 0, last = cards.length - 1, lock = 0;
-    // Counter, dots and arrows follow the selected step, set directly on click (scroll events can lag)
+
+    // Scroll position for each step. A card that can reach the left edge gets its own position.
+    // The last cards can't (the track stops when the final card meets the right edge), so the
+    // remaining scroll distance is shared out between them. Scrolling to the end is always the
+    // last step, and every step can be reached by scrolling, a dot or an arrow.
+    function positions() {
+      var max = track.scrollWidth - track.clientWidth, base = cards[0].offsetLeft;
+      if (max < 1) return cards.map(function () { return 0; }); // everything fits: no scrolling
+      var p = cards.map(function (c) { return c.offsetLeft - base; });
+      var j = 1;
+      while (j <= last && p[j] < max) j++; // first step whose card can't reach the left edge
+      if (j > last) return p;
+      var from = p[j - 1];
+      for (var k = j; k <= last; k++) p[k] = from + (max - from) * (k - j + 1) / (last - j + 1);
+      return p;
+    }
+
+    // Counter, dots, arrows and the highlighted card follow the current step
     function setActive(i) {
       current = i;
       count.textContent = String(i + 1).padStart(2, '0');
       dots.forEach(function (d, n) { if (n === i) d.setAttribute('aria-current', 'step'); else d.removeAttribute('aria-current'); });
+      cards.forEach(function (c, n) { c.classList.toggle('is-active', n === i); });
       prev.disabled = i === 0;
       next.disabled = i === last;
     }
     function go(i) {
       i = Math.max(0, Math.min(last, i));
-      setActive(i);
-      lock = Date.now() + 700; // ignore the scroll events this programmatic scroll causes
-      track.scrollTo({ left: cards[i].offsetLeft - cards[0].offsetLeft });
+      setActive(i); // set straight away: scroll events can lag behind a click
+      lock = Date.now() + 900;
+      track.scrollTo({ left: positions()[i] });
     }
-    // Manual swipes and trackpad scrolls: pick the step nearest the left edge
+    // Swipes, trackpads and drags: the step whose position is nearest the current scroll
     function paint() {
       if (Date.now() < lock) return;
-      var left = track.scrollLeft, best = 0, max = track.scrollWidth - track.clientWidth;
-      cards.forEach(function (c, n) {
-        if (Math.abs(c.offsetLeft - cards[0].offsetLeft - left) < Math.abs(cards[best].offsetLeft - cards[0].offsetLeft - left)) best = n;
-      });
-      if (max > 0 && left >= max - 2 && best < current) best = current; // at the end, keep a later step the user chose
+      var left = track.scrollLeft, p = positions(), best = 0;
+      p.forEach(function (v, n) { if (Math.abs(v - left) < Math.abs(p[best] - left)) best = n; });
       setActive(best);
     }
+    track.addEventListener('scrollend', function () { lock = 0; paint(); });
     dots.forEach(function (d) { d.addEventListener('click', function () { go(+d.dataset.go); }); });
     prev.addEventListener('click', function () { go(current - 1); });
     next.addEventListener('click', function () { go(current + 1); });
