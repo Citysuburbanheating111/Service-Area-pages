@@ -8,6 +8,7 @@
 <link rel="icon" href="assets/6FN1CP4RYC9MBCFR4H39DJ8HAE.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/site-nav.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{--color-bg:#FFFFFF;--color-fog:#F2F4F6;--color-line:#DCE2E7;--color-text:#3F4B55;--color-muted:#6A7782;--color-navy:#09263A;--color-red:#DD382B;--color-red-dk:#AF281D;--color-blue:#186AA4;--font-display:'Ubuntu',sans-serif;--font-body:'Noto Sans',sans-serif;--radius-sm:8px;--radius-md:16px;--radius-lg:24px;--radius-pill:999px}
@@ -81,60 +82,26 @@ main.page{min-width:0;background:#fff;border-radius:10px;overflow:hidden}
   <main class="page"><div id="frame">
 
     <div style="background-color:#FFFFFF;box-sizing:border-box;display:flex;flex-direction:column;font-size:12px;font-synthesis:none;height:fit-content;line-height:16px;-moz-osx-font-smoothing:grayscale;overflow:clip;overflow-wrap:anywhere;-webkit-font-smoothing:antialiased;width:1440px">
-      <div id="cs-00" class="sec" style="align-items:center;background-color:var(--color-navy);box-sizing:border-box;display:flex;font-family:var(--font-body);justify-content:space-between;padding-block:10px;padding-inline:80px">
-        <div style="box-sizing:border-box;color:#FFFFFF;display:inline-block;font-family:var(--font-body);font-size:13px;font-weight:600;letter-spacing:0.02em;line-height:16px">
-          Trusted HVAC experts “From City to Suburbs”
-        </div>
-        <div style="box-sizing:border-box;color:#FFFFFF;display:inline-block;font-family:var(--font-body);font-size:13px;line-height:16px;opacity:0.85">
-          Mon–Fri 6:00 AM – 6:00 PM · Sat 6:00 AM – 3:30 PM
-        </div>
-        <div style="box-sizing:border-box;display:flex;gap:24px">
-          <div style="box-sizing:border-box;color:#FFFFFF;display:inline-block;font-family:var(--font-body);font-size:13px;font-weight:600;line-height:16px">
-            Finance
-          </div>
-          <div style="box-sizing:border-box;color:#FFFFFF;display:inline-block;font-family:var(--font-body);font-size:13px;font-weight:600;line-height:16px">
-            About us
-          </div>
-          <div style="box-sizing:border-box;color:#FFFFFF;display:inline-block;font-family:var(--font-body);font-size:13px;font-weight:600;line-height:16px">
-            Contact us
-          </div>
-        </div>
+      <div id="cs-00" class="site-util sec">
+        <span class="tag">Trusted HVAC experts “From City to Suburbs”</span>
+        <span class="hrs">Mon–Fri 6:00 AM – 6:00 PM · Sat 6:00 AM – 3:30 PM</span>
+        <nav aria-label="Company"><a href="https://retailservices.wellsfargo.com/pl/0024376626" target="_blank" rel="noopener">Finance</a><a href="https://citysuburbanheating.com/about-us/">About us</a><a href="https://citysuburbanheating.com/contact-us/">Contact us</a></nav>
       </div>
-      <div id="cs-01" class="sec" style="align-items:center;background-color:#FFFFFF;border-bottom-color:var(--color-line);border-bottom-style:solid;border-bottom-width:1px;box-sizing:border-box;display:flex;justify-content:space-between;padding-block:16px;padding-inline:80px">
-        <div style="aspect-ratio:17 / 6;background-image:url(assets/6FN1CP4RYC9MBCFR4H39DJ8HAE.webp);background-position:50%;background-repeat:no-repeat;background-size:100% 100%;box-sizing:border-box;height:56px"></div>
-        <div style="box-sizing:border-box;display:flex;font-family:var(--font-display);gap:32px">
-          <div style="box-sizing:border-box;color:var(--color-navy);display:inline-block;font-family:var(--font-display);font-size:15px;font-weight:500;line-height:18px">
-            Heating
-          </div>
-          <div style="box-sizing:border-box;color:var(--color-navy);display:inline-block;font-family:var(--font-display);font-size:15px;font-weight:500;line-height:18px">
-            Cooling
-          </div>
-          <div style="box-sizing:border-box;color:var(--color-navy);display:inline-block;font-family:var(--font-display);font-size:15px;font-weight:500;line-height:18px">
-            Air quality
-          </div>
-          <div style="box-sizing:border-box;color:var(--color-navy);display:inline-block;font-family:var(--font-display);font-size:15px;font-weight:500;line-height:18px">
-            Commercial
-          </div>
-          <div style="box-sizing:border-box;color:var(--color-navy);display:inline-block;font-family:var(--font-display);font-size:15px;font-weight:500;line-height:18px">
-            Services
-          </div>
+      <header id="cs-01" class="site-head sec">
+        <a class="logo" href="https://citysuburbanheating.com/" style="background-image:url(assets/6FN1CP4RYC9MBCFR4H39DJ8HAE.webp)" aria-label="City &amp; Suburban Heating &amp; Cooling home"></a>
+        <nav aria-label="Main"><ul class="snav">
+          <li><a href="https://citysuburbanheating.com/service/heating/">Heating<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></a><button class="subtog" type="button" aria-expanded="false" aria-controls="sub-0" aria-label="Show heating links"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="sub" id="sub-0"><li><a href="https://citysuburbanheating.com/services/heating/heater-repair/">Heater repair</a></li><li><a href="https://citysuburbanheating.com/services/heating/boiler-service/">Boiler services</a></li><li><a href="https://citysuburbanheating.com/services/heating/heat-pump/">Heat pump</a></li><li><a href="https://citysuburbanheating.com/services/heating/hybrid-heating-systems/">Hybrid heating systems</a></li><li><a href="https://citysuburbanheating.com/services/heating/hvac-maintenance-plans/">HVAC maintenance plans</a></li><li><a href="https://citysuburbanheating.com/services/heating/heater-installation/">Heater installation</a></li><li><a href="https://citysuburbanheating.com/services/heating/heater-maintenance/">Heater maintenance</a></li></ul></li>
+          <li><a href="https://citysuburbanheating.com/service/cooling/">Cooling<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></a><button class="subtog" type="button" aria-expanded="false" aria-controls="sub-1" aria-label="Show cooling links"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="sub" id="sub-1"><li><a href="https://citysuburbanheating.com/services/cooling/ductless-hvac-service/">Ductless HVAC services</a></li><li><a href="https://citysuburbanheating.com/services/cooling/air-conditioning-repair/">Air conditioning repair</a></li><li><a href="https://citysuburbanheating.com/services/cooling/air-conditioning-maintenance/">Air conditioning maintenance</a></li><li><a href="https://citysuburbanheating.com/services/cooling/air-conditioning-installation/">Air conditioning installation</a></li><li><a href="https://citysuburbanheating.com/services/cooling/cooling-maintenance-plans/">Cooling maintenance plans</a></li><li><a href="https://citysuburbanheating.com/services/cooling/heat-pump-services/">Heat pump services</a></li></ul></li>
+          <li><a href="https://citysuburbanheating.com/service/air-quality/">Air quality<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></a><button class="subtog" type="button" aria-expanded="false" aria-controls="sub-2" aria-label="Show air quality links"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="sub" id="sub-2"><li><a href="https://citysuburbanheating.com/services/air-quality/dehumidifier-installation/">Dehumidifier installation</a></li><li><a href="https://citysuburbanheating.com/services/air-quality/indoor-air-quality-test/">Indoor air quality test</a></li><li><a href="https://citysuburbanheating.com/services/air-quality/duct-repair/">Duct repair</a></li><li><a href="https://citysuburbanheating.com/services/air-quality/duct-maintenance/">Duct maintenance</a></li><li><a href="https://citysuburbanheating.com/services/air-quality/humidifier-air-cleaner/">Humidifier &amp; air cleaner</a></li></ul></li>
+          <li><a href="https://citysuburbanheating.com/service/commercial-hvac/">Commercial<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></a><button class="subtog" type="button" aria-expanded="false" aria-controls="sub-3" aria-label="Show commercial links"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="sub" id="sub-3"><li><a href="https://citysuburbanheating.com/services/commercial/commercial-hvac-system-installation/">Commercial HVAC system installation</a></li><li><a href="https://citysuburbanheating.com/services/commercial/commercial-hvac-system-replacement/">Commercial HVAC system replacement</a></li><li><a href="https://citysuburbanheating.com/services/commercial/emergency-routine-commercial-hvac-repairs/">Emergency &amp; routine commercial HVAC repairs</a></li><li><a href="https://citysuburbanheating.com/services/commercial/energy-efficient-hvac-upgrades/">Energy-efficient HVAC upgrades</a></li><li><a href="https://citysuburbanheating.com/services/commercial/custom-hvac-maintenance-plan/">Custom HVAC maintenance plan</a></li><li><a href="https://citysuburbanheating.com/services/commercial/ductwork-design-repair-services/">Ductwork design &amp; repair services</a></li></ul></li>
+          <li><a href="https://citysuburbanheating.com/services/">Services</a></li>
+          <li><a href="services-v1/service-areas/">Service areas<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></a><button class="subtog" type="button" aria-expanded="false" aria-controls="sub-5" aria-label="Show service areas links"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="sub" id="sub-5"><li><a href="https://citysuburbanheating.com/service-area/wicker-park/">Wicker Park</a></li><li><a href="https://citysuburbanheating.com/service-area/west-loop/">West Loop</a></li><li><a href="https://citysuburbanheating.com/service-area/west-town/">West Town</a></li><li><a href="https://citysuburbanheating.com/service-area/lincoln-park/">Lincoln Park</a></li><li><a href="https://citysuburbanheating.com/service-area/pilsen/">Pilsen</a></li><li><a href="https://citysuburbanheating.com/service-area/rogers-park/">Rogers Park</a></li><li><a href="https://citysuburbanheating.com/service-area/bucktown/">Bucktown</a></li><li><a href="https://citysuburbanheating.com/service-area/logan-square/">Logan Square</a></li><li><a href="https://citysuburbanheating.com/service-area/humboldt-park/">Humboldt Park</a></li><li class="all"><a href="services-v1/service-areas/">All service areas →</a></li></ul></li>
+        </ul></nav>
+        <div class="hcta">
+          <a class="hcall" href="tel:+17732383838"><small>CALL</small><b>(773) 238-3838</b></a>
+          <a class="hbtn" href="https://citysuburbanheating.com/contact-us/">Schedule service</a>
         </div>
-        <div style="align-items:center;box-sizing:border-box;display:flex;gap:20px">
-          <div style="box-sizing:border-box;display:flex;flex-direction:column;font-family:var(--font-body)">
-            <div style="box-sizing:border-box;color:var(--color-muted);display:inline-block;font-family:var(--font-body);font-size:12px;font-weight:600;letter-spacing:0.06em;line-height:16px">
-              CALL
-            </div>
-            <div style="box-sizing:border-box;color:var(--color-navy);display:inline-block;font-family:var(--font-display);font-size:18px;font-weight:700;line-height:22px">
-              (773) 238-3838
-            </div>
-          </div>
-          <div style="align-items:center;background-color:var(--color-red);border-radius:var(--radius-pill);box-sizing:border-box;display:flex;font-family:var(--font-display);padding-block:12px;padding-inline:22px">
-            <div style="box-sizing:border-box;color:#FFFFFF;display:flex;font-family:var(--font-display);font-size:14px;font-weight:700;letter-spacing:0.04em;line-height:18px">
-              SCHEDULE SERVICE
-            </div>
-          </div>
-        </div>
-      </div>
+      </header>
       <div id="cs-02" class="sec" style="align-items:start;background-image:linear-gradient(in oklab 90deg, oklab(25.8% -0.023 -0.045 / 96%) 0%, oklab(25.8% -0.023 -0.045 / 88%) 55%, oklab(25.8% -0.023 -0.045 / 62%) 100%), url(assets/5X6SBXHGCABFYFB3GFJ2CY4MYM.webp);background-position:50%;background-size:cover;box-sizing:border-box;display:flex;gap:56px;padding-bottom:120px;padding-inline:80px;padding-top:56px;position:relative">
         <div style="box-sizing:border-box;display:flex;flex-basis:0%;flex-direction:column;flex-grow:1;gap:22px;min-width:0px;padding-top:8px">
           <div style="align-items:center;box-sizing:border-box;display:flex;gap:16px">
@@ -1323,5 +1290,6 @@ main.page{min-width:0;background:#fff;border-radius:10px;overflow:hidden}
   if(location.hash){var t=document.getElementById(location.hash.slice(1));if(t)setTimeout(function(){go(t);},60);}
 })();
 </script>
+<script src="assets/site-nav.js"></script>
 </body>
 </html>
