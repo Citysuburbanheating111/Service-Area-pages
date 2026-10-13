@@ -11,6 +11,7 @@ Live design system for **City & Suburban Heating & Cooling** (family-owned Chica
 | [`index.html`](index.html) | Design system: color tokens, typography, shape & spacing, components, page templates |
 | [`west-loop.html`](west-loop.html) | Service area page — approved template (West Loop) |
 | [`lincoln-park.html`](lincoln-park.html) | Service area page built from the template (Lincoln Park) |
+| [`playbook/`](playbook/) | Area page playbook: rules, tokens, page anatomy, block library (B1–B13 + globals), copy rules, sources, workflow, QC checklist |
 
 ## Tokens
 
@@ -24,4 +25,4 @@ Live design system for **City & Suburban Heating & Cooling** (family-owned Chica
 }
 ```
 
-The area pages are exported 1:1 from the 1440px desktop artboards in Paper and scale down to fit smaller screens.
+Each area page has a sticky, tappable section index (a bottom-sheet drawer on mobile) with deep links such as `west-loop.html#cs-07`. The area pages are exported 1:1 from the 1440px desktop artboards in Paper and scale down to fit smaller screens.

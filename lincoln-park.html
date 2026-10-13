@@ -3,24 +3,85 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lincoln Park Area Page</title>
+<meta name="robots" content="noindex, nofollow">
+<title>Lincoln Park area page · City &amp; Suburban</title>
+<link rel="icon" href="assets/6FN1CP4RYC9MBCFR4H39DJ8HAE.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{--color-bg:#FFFFFF;--color-fog:#F2F4F6;--color-line:#DCE2E7;--color-text:#3F4B55;--color-muted:#6A7782;--color-navy:#09263A;--color-red:#DD382B;--color-red-dk:#AF281D;--color-blue:#186AA4;--font-display:'Ubuntu',sans-serif;--font-body:'Noto Sans',sans-serif;--radius-sm:8px;--radius-md:16px;--radius-lg:24px;--radius-pill:999px}
-*{margin:0}
-html,body{background:#FFFFFF}
-body{overflow-x:hidden}
-#frame{width:1440px;margin:0 auto;transform-origin:top left}
-.ds-back{position:fixed;left:16px;bottom:16px;z-index:10;background:#09263A;color:#fff;font:600 13px 'Noto Sans',sans-serif;padding:10px 16px;border-radius:999px;text-decoration:none;box-shadow:0 4px 16px rgba(9,38,58,.25)}
+*{margin:0;box-sizing:border-box}
+html{scroll-padding-top:72px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{background:#071D2C;color:#fff;font:15px/1.5 'Noto Sans',system-ui,sans-serif}
+.bar{position:sticky;top:0;z-index:20;background:var(--color-navy);border-bottom:1px solid #ffffff26;padding:12px 16px;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between;min-height:60px}
+.bar .t{display:flex;align-items:center;gap:10px;font:700 13px/1.2 'Ubuntu',sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.bar .t::before{content:"";width:9px;height:9px;border-radius:99px;background:var(--color-red);flex-shrink:0}
+.bar .n{color:#ffffffb3;font-size:13px;flex:1;min-width:240px}
+.bar .acts{display:flex;gap:8px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:6px;min-height:40px;background:#fff;color:var(--color-navy);font:700 13px/1 'Ubuntu',sans-serif;text-transform:uppercase;letter-spacing:.04em;padding:0 16px;border-radius:99px;text-decoration:none;white-space:nowrap;border:0;cursor:pointer}
+.btn.red{background:var(--color-red);color:#fff}
+.btn.ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px #ffffff80}
+#open-toc{display:none}
+.wrap{display:grid;grid-template-columns:240px minmax(0,1440px);gap:24px;justify-content:center;padding:24px 16px 64px}
+nav.toc{position:sticky;top:84px;align-self:start;max-height:calc(100vh - 100px);overflow:auto;font-size:14px;padding-right:4px}
+nav.toc .lbl{margin:0 0 8px;color:#ffffff99;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+nav.toc .switch{display:flex;flex-direction:column;gap:4px;margin-bottom:22px}
+nav.toc .switch a{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;background:#ffffff0d;color:#fff;text-decoration:none;font:700 14px/1.2 'Ubuntu',sans-serif;border:1px solid transparent}
+nav.toc .switch a span{font:600 11px/1 'Noto Sans',sans-serif;color:#ffffff99;text-transform:uppercase;letter-spacing:.06em}
+nav.toc .switch a[aria-current]{border-color:var(--color-red);background:#DD382B26}
+nav.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1px}
+nav.toc ol a{display:flex;align-items:center;gap:10px;min-height:38px;color:#ffffffd9;text-decoration:none;padding:6px 10px;border-left:2px solid #ffffff1f;transition:background .15s,border-color .15s}
+nav.toc ol a b{font:700 11px/1 'Ubuntu',sans-serif;color:#ffffff80;width:26px;flex-shrink:0;letter-spacing:.02em}
+nav.toc ol a:hover{border-left-color:#ffffff80;color:#fff;background:#ffffff0d}
+nav.toc ol a.on{border-left-color:var(--color-red);color:#fff;background:#ffffff14}
+nav.toc ol a.on b{color:#FF8A7F}
+nav.toc .more{margin-top:18px;display:flex;flex-direction:column;gap:2px}
+nav.toc .more a{color:#ffffffd9;text-decoration:none;padding:8px 0;font-size:13px}
+nav.toc .more a:hover{color:#fff;text-decoration:underline}
+main.page{min-width:0;background:#fff;border-radius:10px;overflow:hidden}
+#frame{width:1440px}
+#frame .sec{scroll-margin-top:72px}
+.scrim{display:none}
+@media (max-width:1000px){
+  .wrap{grid-template-columns:minmax(0,1fr);padding:12px 8px 48px}
+  #open-toc{display:inline-flex}
+  .bar .n{display:none}
+  nav.toc{position:fixed;z-index:40;left:0;right:0;bottom:0;top:auto;max-height:78vh;background:var(--color-navy);border-radius:20px 20px 0 0;padding:20px 16px calc(20px + env(safe-area-inset-bottom));transform:translateY(105%);transition:transform .25s ease;box-shadow:0 -12px 40px #0008}
+  nav.toc.open{transform:none}
+  nav.toc::before{content:"";display:block;width:40px;height:4px;border-radius:9px;background:#ffffff40;margin:0 auto 16px}
+  nav.toc ol a{min-height:46px;font-size:15px}
+  .scrim.open{display:block;position:fixed;inset:0;background:#0009;z-index:30}
+}
+@media (max-width:560px){.bar .t{font-size:12px}.bar .acts .btn.ghost{display:none}}
 </style>
 </head>
 <body>
-<div id="frame">
+<div class="bar">
+  <span class="t">Area page preview · Lincoln Park (area page)</span>
+  <span class="n">Built from the Paper file (1440px desktop artboard). The page scales down to fit narrower screens.</span>
+  <span class="acts">
+    <button class="btn red" id="open-toc" aria-controls="toc" aria-expanded="false">☰ Sections</button>
+    <a class="btn ghost" href="./">Design system</a>
+    <a class="btn" href="playbook/">Area page playbook →</a>
+  </span>
+</div>
+<div class="wrap">
+  <nav class="toc" id="toc" aria-label="Page sections">
+    <p class="lbl">Pages</p>
+    <div class="switch"><a href="west-loop.html">West Loop<span>Template</span></a><a href="lincoln-park.html" aria-current="page">Lincoln Park<span>Area page</span></a></div>
+    <p class="lbl">Sections</p>
+    <ol><li><a href="#cs-00" data-sec="cs-00"><b>G1</b>Utility bar</a></li><li><a href="#cs-01" data-sec="cs-01"><b>G2</b>Header</a></li><li><a href="#cs-02" data-sec="cs-02"><b>B1</b>Hero + request card</a></li><li><a href="#cs-03" data-sec="cs-03"><b>B2</b>Services</a></li><li><a href="#cs-04" data-sec="cs-04"><b>B3</b>Who you're calling</a></li><li><a href="#cs-05" data-sec="cs-05"><b>B4</b>Reviews</a></li><li><a href="#cs-06" data-sec="cs-06"><b>B5</b>Process</a></li><li><a href="#cs-07" data-sec="cs-07"><b>B6</b>Scope and price</a></li><li><a href="#cs-08" data-sec="cs-08"><b>B7</b>How to choose</a></li><li><a href="#cs-09" data-sec="cs-09"><b>B8</b>Kinds of company</a></li><li><a href="#cs-10" data-sec="cs-10"><b>B9</b>Districts</a></li><li><a href="#cs-11" data-sec="cs-11"><b>B10</b>Building types</a></li><li><a href="#cs-12" data-sec="cs-12"><b>B11</b>Permit record</a></li><li><a href="#cs-13" data-sec="cs-13"><b>B12</b>FAQ</a></li><li><a href="#cs-14" data-sec="cs-14"><b>B13</b>Closing CTA</a></li><li><a href="#cs-15" data-sec="cs-15"><b>G3</b>Footer</a></li></ol>
+    <div class="more">
+      <a href="playbook/#part-d">Block library (playbook) →</a>
+      <a href="./">← Design system</a>
+    </div>
+  </nav>
+  <main class="page"><div id="frame">
 
     <div style="background-color:#FFFFFF;box-sizing:border-box;display:flex;flex-direction:column;font-size:12px;font-synthesis:none;height:fit-content;line-height:16px;-moz-osx-font-smoothing:grayscale;overflow:clip;overflow-wrap:anywhere;-webkit-font-smoothing:antialiased;width:1440px">
-      <div style="align-items:center;background-color:var(--color-navy);box-sizing:border-box;display:flex;font-family:var(--font-body);justify-content:space-between;padding-block:10px;padding-inline:80px">
+      <div id="cs-00" class="sec" style="align-items:center;background-color:var(--color-navy);box-sizing:border-box;display:flex;font-family:var(--font-body);justify-content:space-between;padding-block:10px;padding-inline:80px">
         <div style="box-sizing:border-box;color:#FFFFFF;display:inline-block;font-family:var(--font-body);font-size:13px;font-weight:600;letter-spacing:0.02em;line-height:16px">
           Trusted HVAC experts “From City to Suburbs”
         </div>
@@ -39,7 +100,7 @@ body{overflow-x:hidden}
           </div>
         </div>
       </div>
-      <div style="align-items:center;background-color:#FFFFFF;border-bottom-color:var(--color-line);border-bottom-style:solid;border-bottom-width:1px;box-sizing:border-box;display:flex;justify-content:space-between;padding-block:16px;padding-inline:80px">
+      <div id="cs-01" class="sec" style="align-items:center;background-color:#FFFFFF;border-bottom-color:var(--color-line);border-bottom-style:solid;border-bottom-width:1px;box-sizing:border-box;display:flex;justify-content:space-between;padding-block:16px;padding-inline:80px">
         <div style="aspect-ratio:17 / 6;background-image:url(assets/6FN1CP4RYC9MBCFR4H39DJ8HAE.webp);background-position:50%;background-repeat:no-repeat;background-size:100% 100%;box-sizing:border-box;height:56px"></div>
         <div style="box-sizing:border-box;display:flex;font-family:var(--font-display);gap:32px">
           <div style="box-sizing:border-box;color:var(--color-navy);display:inline-block;font-family:var(--font-display);font-size:15px;font-weight:500;line-height:18px">
@@ -74,11 +135,11 @@ body{overflow-x:hidden}
           </div>
         </div>
       </div>
-      <div style="align-items:start;background-image:linear-gradient(in oklab 90deg, oklab(25.8% -0.023 -0.045 / 96%) 0%, oklab(25.8% -0.023 -0.045 / 88%) 55%, oklab(25.8% -0.023 -0.045 / 62%) 100%), url(assets/5X6SBXHGCABFYFB3GFJ2CY4MYM.webp);background-position:50%;background-size:cover;box-sizing:border-box;display:flex;gap:56px;padding-bottom:120px;padding-inline:80px;padding-top:56px;position:relative">
+      <div id="cs-02" class="sec" style="align-items:start;background-image:linear-gradient(in oklab 90deg, oklab(25.8% -0.023 -0.045 / 96%) 0%, oklab(25.8% -0.023 -0.045 / 88%) 55%, oklab(25.8% -0.023 -0.045 / 62%) 100%), url(assets/5X6SBXHGCABFYFB3GFJ2CY4MYM.webp);background-position:50%;background-size:cover;box-sizing:border-box;display:flex;gap:56px;padding-bottom:120px;padding-inline:80px;padding-top:56px;position:relative">
         <div style="box-sizing:border-box;display:flex;flex-basis:0%;flex-direction:column;flex-grow:1;gap:22px;min-width:0px;padding-top:8px">
           <div style="align-items:center;box-sizing:border-box;display:flex;gap:16px">
             <div style="box-sizing:border-box;color:#FFFFFFBF;display:inline-block;font-family:var(--font-body);font-size:14px;line-height:18px;white-space:pre-wrap">
-              Home{'  '}›{'  '}Service area{'  '}›{'  '}Lincoln Park
+              Home&nbsp;&nbsp;›&nbsp;&nbsp;Service area&nbsp;&nbsp;›&nbsp;&nbsp;Lincoln Park
             </div>
             <div style="background-color:var(--color-red);border-radius:var(--radius-pill);box-sizing:border-box;display:flex;font-family:var(--font-display);padding-block:6px;padding-inline:14px">
               <div style="box-sizing:border-box;color:#FFFFFF;display:flex;font-family:var(--font-display);font-size:13px;font-weight:500;line-height:16px">
@@ -197,7 +258,7 @@ body{overflow-x:hidden}
           </div>
         </div>
       </div>
-      <div style="align-items:center;background-image:linear-gradient(in oklab 180deg, oklab(59.3% 0.178 0.099) 0%, oklab(51.8% 0.155 0.088) 46%, oklab(96.6% -0.001 -0.003) 46%, oklab(96.6% -0.001 -0.003) 100%);box-sizing:border-box;display:flex;flex-direction:column;gap:36px;padding-bottom:88px;padding-inline:80px;padding-top:72px">
+      <div id="cs-03" class="sec" style="align-items:center;background-image:linear-gradient(in oklab 180deg, oklab(59.3% 0.178 0.099) 0%, oklab(51.8% 0.155 0.088) 46%, oklab(96.6% -0.001 -0.003) 46%, oklab(96.6% -0.001 -0.003) 100%);box-sizing:border-box;display:flex;flex-direction:column;gap:36px;padding-bottom:88px;padding-inline:80px;padding-top:72px">
         <div style="align-items:center;box-sizing:border-box;display:flex;flex-direction:column;gap:14px;max-width:820px">
           <div style="background-color:#FFFFFF29;border-color:#FFFFFF66;border-radius:var(--radius-pill);border-style:solid;border-width:1px;box-sizing:border-box;display:flex;font-family:var(--font-display);padding-block:6px;padding-inline:16px">
             <div style="box-sizing:border-box;color:#FFFFFF;display:flex;font-family:var(--font-display);font-size:13px;font-weight:500;letter-spacing:0.06em;line-height:16px">
@@ -409,7 +470,7 @@ body{overflow-x:hidden}
           </div>
         </div>
       </div>
-      <div style="background-color:#FFFFFF;box-sizing:border-box;display:flex;gap:64px;padding-block:96px;padding-inline:80px">
+      <div id="cs-04" class="sec" style="background-color:#FFFFFF;box-sizing:border-box;display:flex;gap:64px;padding-block:96px;padding-inline:80px">
         <div style="box-sizing:border-box;display:flex;flex-direction:column;flex-shrink:0;gap:18px;width:430px">
           <div style="box-sizing:border-box;color:var(--color-red);display:inline-block;font-family:var(--font-body);font-size:13px;font-weight:700;letter-spacing:0.14em;line-height:16px">
             WHO YOU'RE CALLING
@@ -523,7 +584,7 @@ body{overflow-x:hidden}
           </div>
         </div>
       </div>
-      <div style="background-color:var(--color-fog);box-sizing:border-box;display:flex;flex-direction:column;gap:36px;padding-block:88px;padding-inline:80px">
+      <div id="cs-05" class="sec" style="background-color:var(--color-fog);box-sizing:border-box;display:flex;flex-direction:column;gap:36px;padding-block:88px;padding-inline:80px">
         <div style="align-items:end;box-sizing:border-box;display:flex;gap:48px;justify-content:space-between">
           <div style="box-sizing:border-box;display:flex;flex-direction:column;gap:14px;max-width:720px">
             <div style="box-sizing:border-box;color:var(--color-red);display:inline-block;font-family:var(--font-body);font-size:13px;font-weight:700;letter-spacing:0.14em;line-height:16px">
@@ -659,7 +720,7 @@ body{overflow-x:hidden}
           <div style="background-color:var(--color-navy);border-radius:var(--radius-pill);box-sizing:border-box;height:6px;width:round(38%, 1px)"></div>
         </div>
       </div>
-      <div style="background-color:#FFFFFF;box-sizing:border-box;display:flex;flex-direction:column;gap:40px;padding-block:96px;padding-inline:80px">
+      <div id="cs-06" class="sec" style="background-color:#FFFFFF;box-sizing:border-box;display:flex;flex-direction:column;gap:40px;padding-block:96px;padding-inline:80px">
         <div style="box-sizing:border-box;display:flex;flex-direction:column;gap:14px;max-width:760px">
           <div style="box-sizing:border-box;color:var(--color-red);display:inline-block;font-family:var(--font-body);font-size:13px;font-weight:700;letter-spacing:0.14em;line-height:16px">
             WHAT HAPPENS WHEN YOU CALL
@@ -755,7 +816,7 @@ body{overflow-x:hidden}
           </div>
         </div>
       </div>
-      <div style="background-color:var(--color-navy);box-sizing:border-box;display:flex;gap:64px;padding-block:96px;padding-inline:80px">
+      <div id="cs-07" class="sec" style="background-color:var(--color-navy);box-sizing:border-box;display:flex;gap:64px;padding-block:96px;padding-inline:80px">
         <div style="box-sizing:border-box;display:flex;flex-direction:column;flex-shrink:0;gap:18px;width:420px">
           <div style="box-sizing:border-box;color:#FF8A7F;display:inline-block;font-family:var(--font-body);font-size:13px;font-weight:700;letter-spacing:0.14em;line-height:16px">
             WHAT CHANGES THE PRICE
@@ -834,7 +895,7 @@ body{overflow-x:hidden}
           </div>
         </div>
       </div>
-      <div style="background-color:var(--color-fog);box-sizing:border-box;display:flex;flex-direction:column;gap:40px;padding-block:96px;padding-inline:80px">
+      <div id="cs-08" class="sec" style="background-color:var(--color-fog);box-sizing:border-box;display:flex;flex-direction:column;gap:40px;padding-block:96px;padding-inline:80px">
         <div style="align-items:end;box-sizing:border-box;display:flex;gap:48px;justify-content:space-between">
           <div style="box-sizing:border-box;display:flex;flex-direction:column;gap:14px;max-width:720px">
             <div style="box-sizing:border-box;color:var(--color-red);display:inline-block;font-family:var(--font-body);font-size:13px;font-weight:700;letter-spacing:0.14em;line-height:16px">
@@ -906,7 +967,7 @@ body{overflow-x:hidden}
           </div>
         </div>
       </div>
-      <div style="background-color:#FFFFFF;box-sizing:border-box;display:flex;flex-direction:column;gap:40px;padding-block:96px;padding-inline:80px">
+      <div id="cs-09" class="sec" style="background-color:#FFFFFF;box-sizing:border-box;display:flex;flex-direction:column;gap:40px;padding-block:96px;padding-inline:80px">
         <div style="box-sizing:border-box;display:flex;flex-direction:column;gap:14px;max-width:760px">
           <div style="box-sizing:border-box;color:var(--color-red);display:inline-block;font-family:var(--font-body);font-size:13px;font-weight:700;letter-spacing:0.14em;line-height:16px">
             KINDS OF HVAC COMPANY
@@ -955,7 +1016,7 @@ body{overflow-x:hidden}
           </div>
         </div>
       </div>
-      <div style="background-color:var(--color-fog);box-sizing:border-box;display:flex;flex-direction:column;gap:32px;padding-block:96px;padding-inline:80px">
+      <div id="cs-10" class="sec" style="background-color:var(--color-fog);box-sizing:border-box;display:flex;flex-direction:column;gap:32px;padding-block:96px;padding-inline:80px">
         <div style="align-items:end;box-sizing:border-box;display:flex;gap:48px;justify-content:space-between">
           <div style="box-sizing:border-box;display:flex;flex-direction:column;gap:14px;max-width:720px">
             <div style="box-sizing:border-box;color:#FFFFFF;display:inline-block;font-family:var(--font-body);font-size:13px;font-weight:700;letter-spacing:0.14em;line-height:16px">
@@ -1030,7 +1091,7 @@ body{overflow-x:hidden}
           <div style="background-color:var(--color-navy);border-radius:var(--radius-pill);box-sizing:border-box;height:6px;width:round(52%, 1px)"></div>
         </div>
       </div>
-      <div style="background-color:#FFFFFF;box-sizing:border-box;display:flex;flex-direction:column;gap:32px;padding-block:96px;padding-inline:80px">
+      <div id="cs-11" class="sec" style="background-color:#FFFFFF;box-sizing:border-box;display:flex;flex-direction:column;gap:32px;padding-block:96px;padding-inline:80px">
         <div style="box-sizing:border-box;display:flex;flex-direction:column;gap:14px;max-width:760px">
           <div style="box-sizing:border-box;color:var(--color-red);display:inline-block;font-family:var(--font-body);font-size:13px;font-weight:700;letter-spacing:0.14em;line-height:16px">
             YOUR BUILDING TYPE
@@ -1086,7 +1147,7 @@ body{overflow-x:hidden}
           </div>
         </div>
       </div>
-      <div style="align-items:center;background-image:linear-gradient(in oklab 135deg, oklab(59.3% 0.178 0.099) 0%, oklab(49.6% 0.151 0.085) 100%);box-sizing:border-box;display:flex;gap:64px;padding-block:96px;padding-inline:80px">
+      <div id="cs-12" class="sec" style="align-items:center;background-image:linear-gradient(in oklab 135deg, oklab(59.3% 0.178 0.099) 0%, oklab(49.6% 0.151 0.085) 100%);box-sizing:border-box;display:flex;gap:64px;padding-block:96px;padding-inline:80px">
         <div style="box-sizing:border-box;display:flex;flex-basis:0%;flex-direction:column;flex-grow:1;gap:18px;min-width:0px">
           <div style="box-sizing:border-box;color:#FFFFFFD9;display:inline-block;font-family:var(--font-body);font-size:13px;font-weight:700;letter-spacing:0.14em;line-height:16px">
             THE PERMIT RECORD, HONESTLY
@@ -1125,7 +1186,7 @@ body{overflow-x:hidden}
           </div>
         </div>
       </div>
-      <div style="background-color:#FFFFFF;box-sizing:border-box;display:flex;gap:64px;padding-block:96px;padding-inline:80px">
+      <div id="cs-13" class="sec" style="background-color:#FFFFFF;box-sizing:border-box;display:flex;gap:64px;padding-block:96px;padding-inline:80px">
         <div style="box-sizing:border-box;display:flex;flex-direction:column;flex-shrink:0;gap:14px;width:380px">
           <div style="box-sizing:border-box;color:var(--color-red);display:inline-block;font-family:var(--font-body);font-size:13px;font-weight:700;letter-spacing:0.14em;line-height:16px">
             QUESTIONS
@@ -1182,7 +1243,7 @@ body{overflow-x:hidden}
           </div>
         </div>
       </div>
-      <div style="background-color:#FFFFFF;box-sizing:border-box;display:flex;padding-bottom:96px;padding-inline:80px">
+      <div id="cs-14" class="sec" style="background-color:#FFFFFF;box-sizing:border-box;display:flex;padding-bottom:96px;padding-inline:80px">
         <div style="align-items:center;background-color:var(--color-navy);border-radius:var(--radius-lg);box-sizing:border-box;display:flex;gap:48px;justify-content:space-between;padding-block:56px;padding-inline:64px;width:100%">
           <div style="box-sizing:border-box;display:flex;flex-direction:column;gap:14px;max-width:640px">
             <div style="box-sizing:border-box;color:#FFFFFF;display:inline-block;font-family:var(--font-display);font-size:40px;font-weight:700;letter-spacing:-0.01em;line-height:46px">
@@ -1209,7 +1270,7 @@ body{overflow-x:hidden}
           </div>
         </div>
       </div>
-      <div style="align-items:center;background-color:#071D2C;box-sizing:border-box;display:flex;justify-content:space-between;padding-block:36px;padding-inline:80px">
+      <div id="cs-15" class="sec" style="align-items:center;background-color:#071D2C;box-sizing:border-box;display:flex;justify-content:space-between;padding-block:36px;padding-inline:80px">
         <div style="align-items:center;box-sizing:border-box;display:flex;gap:16px">
           <div style="background-color:#FFFFFF;border-radius:var(--radius-md);box-sizing:border-box;display:flex;padding-block:10px;padding-inline:14px">
             <div style="aspect-ratio:17 / 6;background-image:url(assets/6FN1CP4RYC9MBCFR4H39DJ8HAE.webp);background-position:50%;background-repeat:no-repeat;background-size:100% 100%;box-sizing:border-box;height:40px"></div>
@@ -1224,17 +1285,42 @@ body{overflow-x:hidden}
       </div>
     </div>
   
+  </div></main>
 </div>
-<a class="ds-back" href="./">&larr; Design system</a>
+<div class="scrim" id="scrim"></div>
 <script>
 (function(){
-  var f=document.getElementById('frame');
-  function fit(){
-    var w=document.documentElement.clientWidth;
-    if(w<1440){var s=w/1440;f.style.transform='scale('+s+')';f.style.margin='0';document.body.style.height=(f.offsetHeight*s)+'px';}
-    else{f.style.transform='';f.style.margin='0 auto';document.body.style.height='';}
+  var frame=document.getElementById('frame'),main=frame.parentNode;
+  function fit(){var w=main.clientWidth;frame.style.zoom=w<1440?(w/1440):1;}
+  window.addEventListener('resize',fit);fit();
+
+  var toc=document.getElementById('toc'),btn=document.getElementById('open-toc'),scrim=document.getElementById('scrim');
+  function setOpen(o){toc.classList.toggle('open',o);scrim.classList.toggle('open',o);btn.setAttribute('aria-expanded',o);}
+  btn.addEventListener('click',function(){setOpen(!toc.classList.contains('open'));});
+  scrim.addEventListener('click',function(){setOpen(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false);});
+
+  function go(t){window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-68});}
+  var links={};
+  toc.querySelectorAll('ol a').forEach(function(a){
+    links[a.dataset.sec]=a;
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var t=document.getElementById(a.dataset.sec);
+      go(t);
+      history.replaceState(null,'','#'+a.dataset.sec);
+      setOpen(false);
+    });
+  });
+  function mark(id){for(var k in links)links[k].classList.toggle('on',k===id);}
+  var secs=[].slice.call(frame.querySelectorAll('.sec'));
+  function onScroll(){
+    var cur=secs[0].id;
+    for(var i=0;i<secs.length;i++){if(secs[i].getBoundingClientRect().top<=120)cur=secs[i].id;}
+    mark(cur);
   }
-  window.addEventListener('resize',fit);window.addEventListener('load',fit);fit();
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  if(location.hash){var t=document.getElementById(location.hash.slice(1));if(t)setTimeout(function(){go(t);},60);}
 })();
 </script>
 </body>

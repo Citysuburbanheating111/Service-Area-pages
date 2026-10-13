@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Area Page Playbook · City &amp; Suburban</title>
+<meta name="description" content="How to design, write and build every City & Suburban Heating & Cooling service area page.">
+<link rel="icon" href="../assets/6FN1CP4RYC9MBCFR4H39DJ8HAE.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600;700&family=Ubuntu:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: sticky contents rail on the left, one reading column on the right. Colours are the C&S tokens: navy = trust, red = act. */
+:root{
+  --bg:#ffffff;--bg-alt:#F2F4F6;--fg:#09263A;--fg-soft:#3F4B55;--muted:#6A7782;--line:#DCE2E7;
+  --accent:#DD382B;--accent-ink:#AF281D;--accent-tint:#FCECEA;--info:#186AA4;--info-tint:#E8F1F8;
+  --navy:#09263A;--on-navy:#ffffff;--on-navy-muted:#ffffffb3;--code-bg:#F2F4F6;
+  --confirm-bg:#FFF8E1;--confirm-line:#E3B341;--confirm-ink:#8A6400;
+  --display:'Ubuntu',sans-serif;--body:'Noto Sans',system-ui,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#071D2C;--bg-alt:#0D2A3F;--fg:#EEF2F5;--fg-soft:#C5CFD7;--muted:#93A2AE;--line:#ffffff1f;
+  --accent:#FF8A7F;--accent-ink:#FF8A7F;--accent-tint:#DD382B26;--info:#7DB7E3;--info-tint:#186AA433;--code-bg:#0D2A3F;
+  --confirm-bg:#3A2F0A;--confirm-line:#8A6400;--confirm-ink:#F2D27A;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#071D2C;--bg-alt:#0D2A3F;--fg:#EEF2F5;--fg-soft:#C5CFD7;--muted:#93A2AE;--line:#ffffff1f;
+  --accent:#FF8A7F;--accent-ink:#FF8A7F;--accent-tint:#DD382B26;--info:#7DB7E3;--info-tint:#186AA433;--code-bg:#0D2A3F;
+  --confirm-bg:#3A2F0A;--confirm-line:#8A6400;--confirm-ink:#F2D27A;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:24px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.65}
+a{color:var(--accent-ink);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+.top{background:var(--navy);color:var(--on-navy);padding-block:56px 48px;padding-inline:max(16px,calc((100vw - 1200px)/2))}
+.top .eyebrow{display:flex;align-items:center;gap:12px;font:700 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:#FF8A7F}
+.top .eyebrow::before{content:"";width:10px;height:10px;border-radius:999px;background:#DD382B;flex-shrink:0}
+.top h1{font:700 clamp(36px,6vw,64px)/1.05 var(--display);letter-spacing:-.015em;margin:18px 0 16px;text-wrap:balance}
+.top p{color:var(--on-navy-muted);max-width:680px;margin:0;font-size:18px;font-weight:300}
+.top .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.chip{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:8px 16px;border-radius:999px;border:1px solid #ffffff2e;background:#ffffff0f;color:var(--on-navy);font-size:14px;text-decoration:none}
+.chip b{font-weight:700}
+.chip .dot{width:10px;height:10px;border-radius:99px;flex-shrink:0}
+.chip.link{background:#DD382B;border-color:#DD382B;color:#fff;font:700 13px/1 var(--display);letter-spacing:.04em;text-transform:uppercase}
+.chip.link.alt{background:#fff;border-color:#fff;color:#09263A}
+
+.wrap{display:grid;grid-template-columns:250px minmax(0,1fr);gap:56px;max-width:1200px;margin:0 auto;padding-block:48px 96px;padding-inline:16px}
+nav.toc{position:sticky;top:24px;align-self:start;max-height:calc(100vh - 48px);overflow:auto;font-size:14px;padding-right:6px}
+nav.toc .lbl{font:700 12px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+nav.toc ol{list-style:none;margin:0 0 24px;padding:0;display:flex;flex-direction:column;gap:2px}
+nav.toc ol a{display:block;padding:7px 10px;border-left:2px solid var(--line);text-decoration:none;color:var(--fg);font:700 14px/1.3 var(--display);transition:background .15s,border-color .15s}
+nav.toc ol a span{display:block;font:400 13px/1.35 var(--body);color:var(--muted)}
+nav.toc ol a:hover{border-left-color:var(--accent);background:var(--accent-tint)}
+nav.toc ol a.on{border-left-color:var(--accent);background:var(--accent-tint)}
+nav.toc ul.blocks{list-style:none;padding:0;margin:0 0 24px;display:flex;flex-wrap:wrap;gap:6px}
+nav.toc ul.blocks a{display:inline-flex;align-items:center;justify-content:center;min-width:40px;min-height:32px;padding:4px 8px;border-radius:8px;background:var(--bg-alt);color:var(--fg-soft);text-decoration:none;font:700 12px/1.2 var(--display)}
+nav.toc ul.blocks a:hover,nav.toc ul.blocks a.on{background:var(--navy);color:#fff}
+nav.toc .pages{display:flex;flex-direction:column;gap:6px}
+nav.toc .pages a{font-size:13px;text-decoration:none;color:var(--fg-soft)}
+nav.toc .pages a:hover{color:var(--accent-ink);text-decoration:underline}
+#open-toc{display:none}
+
+main{min-width:0;max-width:780px}
+main h2{font:700 30px/1.15 var(--display);letter-spacing:-.01em;color:var(--fg);margin:64px 0 18px;padding-top:20px;border-top:1px solid var(--line);text-wrap:balance}
+main h2:first-child{margin-top:0}
+main h2 .k{color:var(--accent);margin-right:6px}
+main h3{font:700 20px/1.3 var(--display);margin:44px 0 10px;color:var(--fg);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+main h3 .code{font:700 12px/1 var(--display);background:var(--navy);color:#fff;border-radius:999px;padding:5px 9px;letter-spacing:.04em}
+main h3 .api{font:500 13px/1 var(--mono);color:var(--muted)}
+main p,main li{color:var(--fg-soft)}
+main strong{color:var(--fg)}
+main ul,main ol{padding-left:22px}
+main li{margin:5px 0}
+main hr{border:0;border-top:1px solid var(--line);margin:40px 0}
+.lede{font-size:18px;line-height:1.6;font-weight:300}
+code{font-family:var(--mono);font-size:.86em;background:var(--code-bg);padding:1px 5px;border-radius:4px;color:var(--fg);word-break:break-word}
+code.hex{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+code .sw{width:10px;height:10px;border-radius:2px;border:1px solid #00000026;flex-shrink:0}
+.tw{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th{text-align:left;font:700 12px/1.3 var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--bg-alt);padding:10px 12px;border-bottom:1px solid var(--line)}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--fg-soft)}
+tr:last-child td{border-bottom:0}
+td strong{color:var(--fg)}
+td a{font-weight:600}
+.band{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.band::before{content:"";width:12px;height:12px;border-radius:3px;border:1px solid #00000026;background:var(--b)}
+figure.ref{margin:8px 0 18px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg-alt)}
+figure.ref a{display:block}
+figure.ref img{display:block;width:100%;height:auto;max-height:420px;object-fit:cover;object-position:top}
+figure.ref figcaption{font-size:12px;color:var(--muted);padding:8px 12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}
+figure.ref figcaption a{font-weight:600;color:var(--accent-ink);text-decoration:none}
+.note{background:var(--info-tint);border-left:4px solid var(--info);border-radius:0 12px 12px 0;padding:14px 18px;margin:18px 0;color:var(--fg-soft)}
+.confirm{background:var(--confirm-bg);border:2px dashed var(--confirm-line);border-radius:12px;padding:14px 18px;margin:18px 0;color:var(--confirm-ink)}
+.confirm strong{color:var(--confirm-ink)}
+#part-a + ol li::marker{font-family:var(--display);color:var(--accent);font-weight:700}
+
+/* QC checklist */
+.qc{list-style:none;padding:0;margin:10px 0 24px}
+.qc li{margin:0;border-bottom:1px solid var(--line)}
+.qc label{display:flex;gap:12px;align-items:flex-start;padding:10px 4px;cursor:pointer;min-height:44px}
+.qc input{appearance:none;width:20px;height:20px;border:2px solid var(--accent);border-radius:5px;flex-shrink:0;margin:3px 0 0;display:grid;place-items:center;cursor:pointer;background:var(--bg)}
+.qc input:checked{background:var(--accent)}
+.qc input:checked::after{content:"";width:5px;height:10px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.qc input:checked + span{color:var(--muted);text-decoration:line-through}
+.qc-bar{position:sticky;top:0;z-index:2;background:var(--bg);display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.qc-bar .meter{flex:1;min-width:140px;height:8px;border-radius:99px;background:var(--bg-alt);overflow:hidden}
+.qc-bar .meter i{display:block;height:100%;width:0;background:var(--accent);transition:width .2s}
+.qc-bar b{font:700 15px/1 var(--display)}
+.qc-bar button{min-height:36px;border:1px solid var(--line);background:var(--bg);color:var(--fg-soft);border-radius:999px;padding:0 14px;font:600 13px/1 var(--body);cursor:pointer}
+
+.scrim{display:none}
+.to-top{position:fixed;right:16px;bottom:16px;z-index:5;width:48px;height:48px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;text-decoration:none;font-size:20px;box-shadow:0 6px 20px #09263A40;opacity:0;pointer-events:none;transition:opacity .2s}
+.to-top.show{opacity:1;pointer-events:auto}
+
+@media (max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:24px;padding-block:24px 96px}
+  #open-toc{display:inline-flex;position:fixed;left:16px;bottom:16px;z-index:25;min-height:48px;align-items:center;gap:8px;padding:0 20px;border:0;border-radius:999px;background:#DD382B;color:#fff;font:700 14px/1 var(--display);letter-spacing:.04em;text-transform:uppercase;box-shadow:0 6px 20px #09263A40;cursor:pointer}
+  nav.toc{position:fixed;z-index:40;left:0;right:0;bottom:0;top:auto;max-height:80vh;background:var(--bg);border-radius:20px 20px 0 0;padding:20px 16px calc(20px + env(safe-area-inset-bottom));transform:translateY(105%);transition:transform .25s ease;box-shadow:0 -12px 40px #0006}
+  nav.toc.open{transform:none}
+  nav.toc::before{content:"";display:block;width:40px;height:4px;border-radius:9px;background:var(--line);margin:0 auto 16px}
+  nav.toc ol a{padding:10px 12px}
+  .scrim.open{display:block;position:fixed;inset:0;background:#0009;z-index:30}
+}
+@media print{nav.toc,#open-toc,.to-top,.qc-bar button{display:none}.wrap{display:block}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="eyebrow">City &amp; Suburban Heating &amp; Cooling · Design system v1</div>
+  <h1>Area Page Playbook</h1>
+  <p>Read this before designing, writing or building any City &amp; Suburban service area page. Every Chicago neighbourhood page uses the same tokens, the same 16 blocks and the same order. The West Loop page is the reference template.</p>
+  <div class="meta">
+    <a class="chip link" href="https://app.paper.design/file/01M4QND690CETB8Z0GTPHHZKKX/p-1-0">Open the Paper file →</a>
+    <span class="chip"><span class="dot" style="background:#DD382B"></span><b>Red #DD382B</b> = act</span>
+    <span class="chip"><span class="dot" style="background:#09263A;border:1px solid #ffffff66"></span><b>Navy #09263A</b> = trust</span>
+    <a class="chip" href="../west-loop.html">West Loop template →</a>
+    <a class="chip" href="../lincoln-park.html">Lincoln Park page →</a>
+    <a class="chip" href="../">Design system →</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="toc" id="toc" aria-label="Playbook contents">
+    <p class="lbl">Contents</p>
+    <ol>
+      <li><a href="#part-a">Part A<span>The ten non-negotiables</span></a></li>
+      <li><a href="#part-b">Part B<span>Design tokens (summary)</span></a></li>
+      <li><a href="#part-c">Part C<span>Page anatomy (the standard order)</span></a></li>
+      <li><a href="#part-d">Part D<span>The block library</span></a></li>
+      <li><a href="#part-e">Part E<span>Area content → block rules</span></a></li>
+      <li><a href="#part-f">Part F<span>Copy &amp; voice rules</span></a></li>
+      <li><a href="#part-g">Part G<span>Facts, numbers &amp; sources</span></a></li>
+      <li><a href="#part-h">Part H<span>Build &amp; responsive notes</span></a></li>
+      <li><a href="#part-i">Part I<span>Workflow for every new area</span></a></li>
+      <li><a href="#part-j">Part J<span>Pre-publish QC checklist</span></a></li>
+      <li><a href="#part-k">Part K<span>Open decisions</span></a></li>
+    </ol>
+    <p class="lbl">Blocks</p>
+    <ul class="blocks">
+      <li><a href="#block-g1">G1</a></li><li><a href="#block-g2">G2</a></li>
+      <li><a href="#block-b1">B1</a></li><li><a href="#block-b2">B2</a></li><li><a href="#block-b3">B3</a></li><li><a href="#block-b4">B4</a></li>
+      <li><a href="#block-b5">B5</a></li><li><a href="#block-b6">B6</a></li><li><a href="#block-b7">B7</a></li><li><a href="#block-b8">B8</a></li>
+      <li><a href="#block-b9">B9</a></li><li><a href="#block-b10">B10</a></li><li><a href="#block-b11">B11</a></li><li><a href="#block-b12">B12</a></li>
+      <li><a href="#block-b13">B13</a></li><li><a href="#block-g3">G3</a></li>
+    </ul>
+    <p class="lbl">Pages</p>
+    <div class="pages">
+      <a href="../west-loop.html">West Loop (template) →</a>
+      <a href="../lincoln-park.html">Lincoln Park →</a>
+      <a href="../">← Design system</a>
+    </div>
+  </nav>
+
+  <main>
+<h2 id="part-a"><span class="k">A</span>The ten non-negotiables</h2>
+<ol>
+<li><strong>Two brand colours, two jobs.</strong> Red <code class="hex"><span class="sw" style="background:#DD382B"></span>#DD382B</code> = <em>act</em>: every button, every eyebrow, the urgent "No heat in January?" note, and the two statement bands (Services, Permit record). Navy <code class="hex"><span class="sw" style="background:#09263A"></span>#09263A</code> = <em>trust</em>: headings, the utility bar, dark bands, stat tiles and the highlighted "this is us" cards. Blue <code class="hex"><span class="sw" style="background:#186AA4"></span>#186AA4</code> is only for information: "Read on Google" links, "HVAC here" notes and the selected district card.</li>
+<li><strong>Red never sits on red.</strong> On the red bands, buttons and pills flip to white. On navy and on the hero photo, the secondary button is a 1.5px white outline with a white label.</li>
+<li><strong>Two fonts, no third.</strong> Ubuntu 700 for headings, numbers and buttons; Ubuntu 500 for nav and chips. Noto Sans for body, labels and forms. Headings are sentence case; only eyebrows, buttons and small tags are uppercase.</li>
+<li><strong>Every action is a pill.</strong> Buttons are radius-full, Ubuntu 700 uppercase with +0.04em tracking: red fill on white and navy, white fill on red.</li>
+<li><strong>Radii are 8 / 16 / 24 / full.</strong> 8 inputs, 16 service tiles and notes, 24 cards and panels, full for buttons, tags and chips. Nothing else.</li>
+<li><strong>Shadows only on floating cards.</strong> The trust strip over the hero and the services panel over the red band are the only elements with a shadow. Everywhere else, depth = a change of surface or a 1px <code>--color-line</code> border.</li>
+<li><strong>The owner is the proof.</strong> Rob is named in the hero lede, the "Who you're calling" block and the process. The promise on every page: <em>the person who diagnoses your system is the person who quotes it.</em></li>
+<li><strong>Never invent a price, a number or a review.</strong> Prices are permit medians labelled "median reported value" and sourced to City data. Reviews are quoted word for word from Google. Missing facts stay as a <code>[CONFIRM]</code> note until verified.</li>
+<li><strong>Be honest about the permit record.</strong> Chicago doesn't permit HVAC repair, so City &amp; Suburban's own count is shown as 0, every time. Never hide or round that number.</li>
+<li><strong>Keep the band rhythm.</strong> Sections alternate white and fog, punctuated by navy (Scope and price) and red (Services, Permit record). Two fog bands, two navy bands or two red bands never touch.</li>
+</ol>
+
+<h2 id="part-b"><span class="k">B</span>Design tokens (summary)</h2>
+<div class="tw"><table>
+<thead><tr><th>Role</th><th>Token</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td><strong>Act</strong></td><td><code>--color-red</code> / <code>--color-red-dk</code></td><td><code class="hex"><span class="sw" style="background:#DD382B"></span>#DD382B</code> / <code class="hex"><span class="sw" style="background:#AF281D"></span>#AF281D</code> (hover, band gradient end)</td></tr>
+<tr><td><strong>Trust</strong></td><td><code>--color-navy</code></td><td><code class="hex"><span class="sw" style="background:#09263A"></span>#09263A</code> · footer <code class="hex"><span class="sw" style="background:#071D2C"></span>#071D2C</code></td></tr>
+<tr><td><strong>Information</strong></td><td><code>--color-blue</code></td><td><code class="hex"><span class="sw" style="background:#186AA4"></span>#186AA4</code></td></tr>
+<tr><td><strong>Text</strong></td><td><code>--color-text</code> / <code>--color-muted</code></td><td><code class="hex"><span class="sw" style="background:#3F4B55"></span>#3F4B55</code> / <code class="hex"><span class="sw" style="background:#6A7782"></span>#6A7782</code></td></tr>
+<tr><td><strong>Surfaces</strong></td><td><code>--color-bg</code> / <code>--color-fog</code> / <code>--color-line</code></td><td><code class="hex"><span class="sw" style="background:#FFFFFF"></span>#FFFFFF</code> / <code class="hex"><span class="sw" style="background:#F2F4F6"></span>#F2F4F6</code> / <code class="hex"><span class="sw" style="background:#DCE2E7"></span>#DCE2E7</code></td></tr>
+<tr><td><strong>Ratings</strong></td><td>(literal)</td><td><code class="hex"><span class="sw" style="background:#F5A623"></span>#F5A623</code> stars only</td></tr>
+<tr><td><strong>Editorial flag</strong></td><td>(literal)</td><td><code class="hex"><span class="sw" style="background:#FFF8E1"></span>#FFF8E1</code> fill · <code class="hex"><span class="sw" style="background:#E3B341"></span>#E3B341</code> dashed 2px · <code class="hex"><span class="sw" style="background:#8A6400"></span>#8A6400</code> label</td></tr>
+<tr><td><strong>Coral</strong></td><td>(literal)</td><td><code class="hex"><span class="sw" style="background:#FF8A7F"></span>#FF8A7F</code> red-family text on navy</td></tr>
+<tr><td><strong>Radius</strong></td><td><code>--radius-sm / md / lg / pill</code></td><td>8 / 16 / 24 / 999px</td></tr>
+<tr><td><strong>Fonts</strong></td><td><code>--font-display</code> / <code>--font-body</code></td><td>Ubuntu (500, 700) / Noto Sans (400, 600, 700)</td></tr>
+</tbody></table></div>
+<p><strong>Type (desktop):</strong> H1 56/62 −0.015em · section H2 44/50 −0.01em · stat numerals 72/72 −0.02em · panel H3 28/34 · card titles 17–22 · lead 19/30 · body 16/25 · small 14/21 · eyebrow Noto Sans 700 13/16 uppercase +0.14em in red · buttons Ubuntu 700 14–16 uppercase +0.04em.</p>
+<p><strong>Frame:</strong> 1440px artboard, 80px side gutter, 1280px content. Section padding 96px top and bottom (88 on Reviews, 72 on Services, 56 on the hero). Card grid gaps 16–20px.</p>
+<p>Full swatches, type specimens and live components: <a href="../">the design system page</a>.</p>
+
+<h2 id="part-c"><span class="k">C</span>Page anatomy (the standard order)</h2>
+<p>Every area page uses this order. Never reorder the <strong>services → owner → reviews → process → price → choose → area → permits → FAQ → CTA</strong> spine. Tap a block code to jump to its spec, or a band to open it on the template.</p>
+<div class="tw"><table>
+<thead><tr><th>Code</th><th>Block</th><th>Band</th><th>Purpose</th><th>Changes per area</th></tr></thead>
+<tbody>
+<tr><td><a href="#block-g1">G1</a></td><td>Utility bar</td><td><a class="band" style="--b:#09263A" href="../west-loop.html#cs-00">navy 36px</a></td><td>tagline · hours · Finance / About / Contact</td><td>No</td></tr>
+<tr><td><a href="#block-g2">G2</a></td><td>Header</td><td><a class="band" style="--b:#fff" href="../west-loop.html#cs-01">white 89px</a></td><td>logo · nav · phone · Schedule service</td><td>No</td></tr>
+<tr><td><a href="#block-b1">B1</a></td><td>Hero + request card</td><td><a class="band" style="--b:#1d3a4f" href="../west-loop.html#cs-02">photo + navy scrim</a></td><td>where, what, who; two CTAs; the booking form; trust strip</td><td>Yes</td></tr>
+<tr><td><a href="#block-b2">B2</a></td><td>Services</td><td><a class="band" style="--b:#DD382B" href="../west-loop.html#cs-03">red → fog split</a></td><td>all 24 services in four tabbed groups</td><td>Heading only</td></tr>
+<tr><td><a href="#block-b3">B3</a></td><td>Who you're calling</td><td><a class="band" style="--b:#fff" href="../west-loop.html#cs-04">white</a></td><td>family, owner, rating, licence</td><td>Distance line</td></tr>
+<tr><td><a href="#block-b4">B4</a></td><td>Reviews</td><td><a class="band" style="--b:#F2F4F6" href="../west-loop.html#cs-05">fog</a></td><td>verbatim Google reviews, matched to the area's equipment</td><td>Yes</td></tr>
+<tr><td><a href="#block-b5">B5</a></td><td>Process</td><td><a class="band" style="--b:#fff" href="../west-loop.html#cs-06">white</a></td><td>six steps from first call to "good to go"</td><td>Minor</td></tr>
+<tr><td><a href="#block-b6">B6</a></td><td>Scope and price</td><td><a class="band" style="--b:#09263A" href="../west-loop.html#cs-07">navy</a></td><td>median permit value + what moves the price here</td><td>Yes</td></tr>
+<tr><td><a href="#block-b7">B7</a></td><td>How to choose</td><td><a class="band" style="--b:#F2F4F6" href="../west-loop.html#cs-08">fog</a></td><td>five questions to ask any HVAC company</td><td>Heading only</td></tr>
+<tr><td><a href="#block-b8">B8</a></td><td>Kinds of company</td><td><a class="band" style="--b:#fff" href="../west-loop.html#cs-09">white</a></td><td>four company types and their limits</td><td>No</td></tr>
+<tr><td><a href="#block-b9">B9</a></td><td>Districts</td><td><a class="band" style="--b:#F2F4F6" href="../west-loop.html#cs-10">fog</a></td><td>the area's boundaries and sub-districts</td><td>Yes</td></tr>
+<tr><td><a href="#block-b10">B10</a></td><td>Building types</td><td><a class="band" style="--b:#fff" href="../west-loop.html#cs-11">white</a></td><td>what heats and cools the area's housing stock</td><td>Yes</td></tr>
+<tr><td><a href="#block-b11">B11</a></td><td>Permit record</td><td><a class="band" style="--b:#DD382B" href="../west-loop.html#cs-12">red gradient</a></td><td>the honest permit numbers</td><td>Area count</td></tr>
+<tr><td><a href="#block-b12">B12</a></td><td>FAQ</td><td><a class="band" style="--b:#fff" href="../west-loop.html#cs-13">white</a></td><td>five area questions, first one open</td><td>Yes</td></tr>
+<tr><td><a href="#block-b13">B13</a></td><td>Closing CTA</td><td><a class="band" style="--b:#09263A" href="../west-loop.html#cs-14">navy card on white</a></td><td>call or schedule, with what to have ready</td><td>Last line</td></tr>
+<tr><td><a href="#block-g3">G3</a></td><td>Footer</td><td><a class="band" style="--b:#071D2C" href="../west-loop.html#cs-15">deep navy</a></td><td>logo · address · phone</td><td>No</td></tr>
+</tbody></table></div>
+<div class="note"><strong>Dropping a block:</strong> only if the content genuinely does not exist for that area (for example, no distinct sub-districts). Then re-check the band rhythm so two fog bands don't touch. White may separate them.</div>
+
+<h2 id="part-d"><span class="k">D</span>The block library</h2>
+<p>For every block: reference · layout (desktop 1440) · fields · per-area content · rules. Exact values: open the same layer in the Paper template artboard <code>C&amp;S — TEMPLATE West Loop area page (desktop)</code>. Tap any reference image to open that section on the live template.</p>
+
+<h3 id="block-g1"><span class="code">G1</span>Utility bar <span class="api">utilityBar · global</span></h3>
+<figure class="ref"><a href="../west-loop.html#cs-00"><img src="ref/cs-00.webp" alt="Utility bar reference" loading="lazy" width="1200" height="30"></a><figcaption><span>Reference · West Loop · Utility bar</span><a href="../west-loop.html#cs-00">Open in page →</a></figcaption></figure>
+<ul><li><strong>Layout:</strong> navy, 10px × 80px padding, three groups spaced between: tagline (600, +0.02em) · hours (85% opacity) · Finance / About us / Contact us.</li>
+<li><strong>Rule:</strong> global. One edit updates every page.</li></ul>
+
+<h3 id="block-g2"><span class="code">G2</span>Header <span class="api">header · global</span></h3>
+<figure class="ref"><a href="../west-loop.html#cs-01"><img src="ref/cs-01.webp" alt="Header reference" loading="lazy"></a><figcaption><span>Reference · West Loop · Header</span><a href="../west-loop.html#cs-01">Open in page →</a></figcaption></figure>
+<ul><li><strong>Layout:</strong> white, 1px bottom line. Logo 56px tall (17:6) · nav in Ubuntu 500 15px navy (Heating, Cooling, Air quality, Commercial, Services) · "CALL" label + (773) 238-3838 in Ubuntu 700 18 · red pill "Schedule service".</li></ul>
+
+<h3 id="block-b1"><span class="code">B1</span>Hero + request card <span class="api">heroRequest</span></h3>
+<figure class="ref"><a href="../west-loop.html#cs-02"><img src="ref/cs-02.webp" alt="Hero reference" loading="lazy"></a><figcaption><span>Reference · West Loop · Hero</span><a href="../west-loop.html#cs-02">Open in page →</a></figcaption></figure>
+<ul>
+<li><strong>Layout:</strong> full-bleed photo with a navy scrim running left (96%) to right. Left column ≤ 804px: breadcrumb (Home › Service area › Area) + red area pill → H1 white 56/62 → lead 19/30 at 90% white, max 640px → red "Call (773) 238-3838" with phone icon + white-outline "Schedule service". Right: white request card 420px, radius 24: title, promise line, Name, Phone, Building type (select), What's happening? (select), red full-width "Request a diagnosis", "Price agreed before any work starts." Bottom: white trust strip (radius full, floating shadow): Chicago local · Family owned · Since 1952 · 4.98 ★ 204 Google reviews.</li>
+<li><strong>Fields:</strong> area, breadcrumb, h1, lede, heroImage, buildingTypeDefault, buildingTypeOptions[], issueOptions[].</li>
+<li><strong>Per area:</strong> H1, lede (equipment + housing stock), card title "Book HVAC service in {area}", default building type (West Loop: converted warehouse loft · Lincoln Park: greystone two- or three-flat).</li>
+<li><strong>Rule:</strong> H1 = "Heating and cooling repair in {area}, Chicago". The lede always ends "Family-owned since 1952, with the owner, Rob, still on the calls."</li>
+</ul>
+
+<h3 id="block-b2"><span class="code">B2</span>Services <span class="api">servicesTabs</span></h3>
+<figure class="ref"><a href="../west-loop.html#cs-03"><img src="ref/cs-03.webp" alt="Services reference" loading="lazy"></a><figcaption><span>Reference · West Loop · Services</span><a href="../west-loop.html#cs-03">Open in page →</a></figcaption></figure>
+<ul>
+<li><strong>Layout:</strong> red band that splits to fog at 46%. Centred head: translucent white pill "From city to suburbs" → H2 white → one-line summary. Below: white panel (radius 24, floating shadow). Left rail: four tabs with icon + count badge (Heating 7 · Cooling 6 · Air quality 5 · Commercial 6), the active one navy; under them the red dashed urgent note. Right: group title (H3 28/34) + lede, then a two-column grid of fog service tiles (radius 16): white icon badge, title, one or two lines.</li>
+<li><strong>Fields:</strong> groups[]{name, icon, title, lede, services[]{icon, title, text}}, urgentNote.</li>
+<li><strong>Concealment:</strong> all four groups render in the HTML; only the active tab is visible. Default = Heating.</li>
+<li><strong>Per area:</strong> heading only ("Every heating and cooling service we offer in {area}"). Service copy may name local building types, as in "vintage two-flats and converted lofts".</li>
+</ul>
+
+<h3 id="block-b3"><span class="code">B3</span>Who you're calling <span class="api">ownerBand</span></h3>
+<figure class="ref"><a href="../west-loop.html#cs-04"><img src="ref/cs-04.webp" alt="Who you're calling reference" loading="lazy"></a><figcaption><span>Reference · West Loop · Who you're calling</span><a href="../west-loop.html#cs-04">Open in page →</a></figcaption></figure>
+<ul>
+<li><strong>Layout:</strong> left 430px: eyebrow → H2 "One family. Second generation. Since 1952." → paragraph → "Names our reviewers remember" chips (Rob selected, navy). Right: 2 × 2 tiles, radius 24, 230px tall: navy "Founded 1952" · red "Google rating 4.98" · fog "Who answers: Rob, the owner" · amber dashed "Licences · to confirm".</li>
+<li><strong>Per area:</strong> the distance line, e.g. "about a mile and a half north of Fulton Market" or "just south-west of Lincoln Park across the river".</li>
+<li><strong>Rule:</strong> reuse unchanged otherwise. The rating tile carries an "as of" date.</li>
+</ul>
+
+<h3 id="block-b4"><span class="code">B4</span>Reviews <span class="api">googleReviews</span></h3>
+<figure class="ref"><a href="../west-loop.html#cs-05"><img src="ref/cs-05.webp" alt="Reviews reference" loading="lazy"></a><figcaption><span>Reference · West Loop · Reviews</span><a href="../west-loop.html#cs-05">Open in page →</a></figcaption></figure>
+<ul>
+<li><strong>Layout:</strong> fog band. Head row: eyebrow + H2 left, sourcing note right. A horizontal track of white review cards (392px, radius 24): gold stars, a fog service tag, a 60–70-word quote, reviewer name · year, blue "Read on Google". Six-pixel scroll indicator underneath.</li>
+<li><strong>Fields:</strong> reviews[]{service, text, name, year, url}.</li>
+<li><strong>Per area:</strong> which reviews, ranked by equipment match to the area (West Loop: furnace, boiler, high-rise AC, make-up air · Lincoln Park: boiler, radiator, steam, furnace first).</li>
+<li><strong>Rule:</strong> the opening 60–70 words of an eligible review, quoted verbatim and cut at a sentence end. Never edit, merge or paraphrase.</li>
+</ul>
+
+<h3 id="block-b5"><span class="code">B5</span>Process <span class="api">processSteps</span></h3>
+<figure class="ref"><a href="../west-loop.html#cs-06"><img src="ref/cs-06.webp" alt="Process reference" loading="lazy"></a><figcaption><span>Reference · West Loop · Process</span><a href="../west-loop.html#cs-06">Open in page →</a></figcaption></figure>
+<ul>
+<li><strong>Layout:</strong> six equal step cards in a row (fog, radius 24): illustrated icon on a pale circle, a large pale step number (01–06) top right, title, short text. Step 06 "Good to go" is the navy highlight.</li>
+<li><strong>Per area:</strong> step 02 names the area's access constraint (West Loop: elevator and building work hours).</li>
+</ul>
+
+<h3 id="block-b6"><span class="code">B6</span>Scope and price <span class="api">priceFactors · NAVY</span></h3>
+<figure class="ref"><a href="../west-loop.html#cs-07"><img src="ref/cs-07.webp" alt="Scope and price reference" loading="lazy"></a><figcaption><span>Reference · West Loop · Scope and price</span><a href="../west-loop.html#cs-07">Open in page →</a></figcaption></figure>
+<ul>
+<li><strong>Layout:</strong> navy. Left 420px: coral eyebrow → H2 white → "We don't publish a price book" paragraph → raised stat card: big median value + what it measures. Right: a two-column factor table (Factor · Why it changes the work), six rows, hairline dividers, no boxes.</li>
+<li><strong>Fields:</strong> heading, median{value, caption, source}, factors[6]{title, text}.</li>
+<li><strong>Per area:</strong> the H2 names the area's three building types ("in a loft, a tower and a kitchen" · "in a greystone, a cottage and a tower") and all six factors. The last factor is always "Repair or replace".</li>
+</ul>
+
+<h3 id="block-b7"><span class="code">B7</span>How to choose <span class="api">questionsToAsk</span></h3>
+<figure class="ref"><a href="../west-loop.html#cs-08"><img src="ref/cs-08.webp" alt="How to choose reference" loading="lazy"></a><figcaption><span>Reference · West Loop · How to choose</span><a href="../west-loop.html#cs-08">Open in page →</a></figcaption></figure>
+<ul>
+<li><strong>Layout:</strong> fog. Five white question cards (Q1–Q5) in a row; Q5 "Will they tell you to keep it?" is the navy highlight. "Ask them of anyone you call, including us." right of the head.</li>
+<li><strong>Per area:</strong> heading only ("Five questions that sort {area} HVAC companies").</li>
+</ul>
+
+<h3 id="block-b8"><span class="code">B8</span>Kinds of company <span class="api">companyTypes</span></h3>
+<figure class="ref"><a href="../west-loop.html#cs-09"><img src="ref/cs-09.webp" alt="Kinds of company reference" loading="lazy"></a><figcaption><span>Reference · West Loop · Kinds of company</span><a href="../west-loop.html#cs-09">Open in page →</a></figcaption></figure>
+<ul>
+<li><strong>Layout:</strong> four cards: Family-owned since 1952 (white, 1.5px red border, red "This is us" tab on the top edge) · National franchise · One-van independent · Lead marketplace (fog). Each states one strength and one "Limit:".</li>
+<li><strong>Rule:</strong> identical on every page. Be fair to competitors; every type gets a real strength.</li>
+</ul>
+
+<h3 id="block-b9"><span class="code">B9</span>Districts <span class="api">areaDistricts</span></h3>
+<figure class="ref"><a href="../west-loop.html#cs-10"><img src="ref/cs-10.webp" alt="Districts reference" loading="lazy"></a><figcaption><span>Reference · West Loop · Districts</span><a href="../west-loop.html#cs-10">Open in page →</a></figcaption></figure>
+<ul>
+<li><strong>Layout:</strong> fog. H2 = the boundaries ("Grand Ave to I-290, Ashland to the river"). Right of the head: chips for ZIP codes, wards and community area (number). Below: a track of district cards (white, radius 24): name, one-line character, blue "HVAC here:" note. The active card carries a 5px top rule; a navy progress bar sits under the track.</li>
+<li><strong>Fields:</strong> boundaries, zips[], wards[], communityArea{name, number}, districts[]{name, text, hvacHere}.</li>
+<li><strong>Per area:</strong> everything. 3–5 districts.</li>
+</ul>
+
+<h3 id="block-b10"><span class="code">B10</span>Building types <span class="api">buildingTypes</span></h3>
+<figure class="ref"><a href="../west-loop.html#cs-11"><img src="ref/cs-11.webp" alt="Building types reference" loading="lazy"></a><figcaption><span>Reference · West Loop · Building types</span><a href="../west-loop.html#cs-11">Open in page →</a></figcaption></figure>
+<ul>
+<li><strong>Layout:</strong> exactly four cards: uppercase type tag (LOFT, TOWER…), name, what heats and cools it. The fourth card is the navy highlight.</li>
+<li><strong>Per area:</strong> all four, from the area's real housing stock.</li>
+</ul>
+
+<h3 id="block-b11"><span class="code">B11</span>Permit record <span class="api">permitRecord · RED</span></h3>
+<figure class="ref"><a href="../west-loop.html#cs-12"><img src="ref/cs-12.webp" alt="Permit record reference" loading="lazy"></a><figcaption><span>Reference · West Loop · Permit record</span><a href="../west-loop.html#cs-12">Open in page →</a></figcaption></figure>
+<ul>
+<li><strong>Layout:</strong> red diagonal gradient. Left: eyebrow "The permit record, honestly" → H2 "Why you won't find us in the City's permit file" → explanation. Right: three white stat rows: area HVAC permits (24 months) · firms pulling HVAC permits citywide · <strong>0</strong> on a navy row.</li>
+<li><strong>Per area:</strong> the area permit count only (West Loop 62 · Lincoln Park 42).</li>
+</ul>
+
+<h3 id="block-b12"><span class="code">B12</span>FAQ <span class="api">faqSplit</span></h3>
+<figure class="ref"><a href="../west-loop.html#cs-13"><img src="ref/cs-13.webp" alt="FAQ reference" loading="lazy"></a><figcaption><span>Reference · West Loop · FAQ</span><a href="../west-loop.html#cs-13">Open in page →</a></figcaption></figure>
+<ul>
+<li><strong>Layout:</strong> left 380px: eyebrow "Questions" + H2 "{area} HVAC, answered". Right: five accordion rows, hairline dividers, red +/–. The first is open.</li>
+<li><strong>Per area:</strong> questions 1–3 are about the area's equipment and buildings; "Does HVAC repair in Chicago need a permit?" and "What are your hours?" stay.</li>
+<li><strong>Concealment:</strong> every answer is in the HTML (<code>&lt;details&gt;</code>), and the page carries FAQPage structured data.</li>
+</ul>
+
+<h3 id="block-b13"><span class="code">B13</span>Closing CTA <span class="api">closingCta</span></h3>
+<figure class="ref"><a href="../west-loop.html#cs-14"><img src="ref/cs-14.webp" alt="Closing CTA reference" loading="lazy"></a><figcaption><span>Reference · West Loop · Closing CTA</span><a href="../west-loop.html#cs-14">Open in page →</a></figcaption></figure>
+<ul>
+<li><strong>Layout:</strong> navy card (radius 24) inside the white band: H2 "No heat, no cooling, or just a question?" + what to have ready; red "Call" and white-outline "Schedule service" stacked right.</li>
+<li><strong>Per area:</strong> the last sentence names the local access detail ("In a high-rise, mention your building's work hours" · "In a condo, mention who handles the shared boiler").</li>
+</ul>
+
+<h3 id="block-g3"><span class="code">G3</span>Footer <span class="api">footer · global</span></h3>
+<figure class="ref"><a href="../west-loop.html#cs-15"><img src="ref/cs-15.webp" alt="Footer reference" loading="lazy"></a><figcaption><span>Reference · West Loop · Footer</span><a href="../west-loop.html#cs-15">Open in page →</a></figcaption></figure>
+<ul><li><strong>Layout:</strong> deep navy <code>#071D2C</code>: logo, "1225 N Cleaver St, Chicago, IL 60642 · Family owned since 1952", phone in Ubuntu 700.</li></ul>
+
+<h2 id="part-e"><span class="k">E</span>Area content → block rules</h2>
+<div class="tw"><table>
+<thead><tr><th>If the area research gives you…</th><th>It goes in</th></tr></thead>
+<tbody>
+<tr><td>The area's name, its main equipment and its housing stock</td><td><a href="#block-b1">B1</a> H1, lede and default building type</td></tr>
+<tr><td>How far the area is from 1225 N Cleaver St</td><td><a href="#block-b3">B3</a> paragraph</td></tr>
+<tr><td>Google reviews mentioning the area's typical equipment</td><td><a href="#block-b4">B4</a>, ranked by equipment match</td></tr>
+<tr><td>Access constraints (elevators, alleys, basements, associations)</td><td><a href="#block-b5">B5</a> step 02, <a href="#block-b6">B6</a> factors, <a href="#block-b13">B13</a> last line</td></tr>
+<tr><td>What makes work cost more or less here</td><td><a href="#block-b6">B6</a>: exactly six factors, the last always "Repair or replace"</td></tr>
+<tr><td>Boundaries, ZIPs, wards, community area</td><td><a href="#block-b9">B9</a> heading and chips</td></tr>
+<tr><td>Named sub-districts or micro-neighbourhoods</td><td><a href="#block-b9">B9</a> district cards (3–5)</td></tr>
+<tr><td>Typical building types</td><td><a href="#block-b10">B10</a>: exactly four</td></tr>
+<tr><td>City of Chicago HVAC permits in the area (24 months)</td><td><a href="#block-b11">B11</a> first stat</td></tr>
+<tr><td>Questions people in that area actually ask</td><td><a href="#block-b12">B12</a> questions 1–3</td></tr>
+<tr><td>Anything you can't verify</td><td>A <code>[CONFIRM: …]</code> note in the field, never invented copy</td></tr>
+</tbody></table></div>
+
+<h2 id="part-f"><span class="k">F</span>Copy &amp; voice rules</h2>
+<ul>
+<li><strong>Plain, specific, local.</strong> Name the equipment ("steam boilers in converted warehouses") and the place ("Randolph and Fulton Market"). No "top-rated", "best-in-class" or "one-stop shop".</li>
+<li><strong>Repair first.</strong> Every page repeats the promise: diagnosis first, and where the unit has years left, we say so.</li>
+<li><strong>The owner by name.</strong> "Rob, the owner" in the hero lede and in B3. Other names appear only as "names our reviewers remember".</li>
+<li><strong>Headline patterns:</strong> H1 "Heating and cooling repair in {area}, Chicago". Section H2s are statements or the buyer's question, in sentence case.</li>
+<li><strong>Honest numbers only:</strong> every figure has a source (Part G), and the permit count of 0 is never left out.</li>
+<li><strong>Keep the words, hide the length.</strong> Inactive service tabs, FAQ answers after the first, and the full review text stay in the HTML behind a click. Never load hidden copy with JavaScript after the page loads.</li>
+<li><strong><code>[CONFIRM]</code> notes</strong> are editorial flags shown in the amber dashed style in drafts only. A published page contains none.</li>
+</ul>
+
+<h2 id="part-g"><span class="k">G</span>Facts, numbers &amp; sources</h2>
+<div class="tw"><table>
+<thead><tr><th>Fact</th><th>Current value</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>Founded</td><td>1952 · family owned, second generation</td><td>Company</td></tr>
+<tr><td>Owner</td><td>Rob</td><td>Company</td></tr>
+<tr><td>Address</td><td>1225 N Cleaver St, Chicago, IL 60642</td><td>Company</td></tr>
+<tr><td>Phone</td><td>(773) 238-3838</td><td>Company</td></tr>
+<tr><td>Hours</td><td>Mon–Fri 6:00 AM – 6:00 PM · Sat 6:00 AM – 3:30 PM</td><td>Company</td></tr>
+<tr><td>Google rating</td><td>4.98 across 204 reviews, as of 31 Aug 2026</td><td>Google Business Profile (refresh the "as of" date)</td></tr>
+<tr><td>Median furnace replacement value</td><td>$6,807 (81 permits, 24 months)</td><td>City of Chicago building permits</td></tr>
+<tr><td>Citywide HVAC permit firms</td><td>1,539 firms across 4,888 permits (24 months)</td><td>City of Chicago building permits</td></tr>
+<tr><td>Area HVAC permits</td><td>West Loop 62 · Lincoln Park 42 (24 months)</td><td>City of Chicago building permits, filtered to the area</td></tr>
+<tr><td>City &amp; Suburban permits on record</td><td>0</td><td>City of Chicago building permits</td></tr>
+<tr><td>HVAC licence number</td><td><code>[CONFIRM]</code></td><td>City of Chicago licence registry</td></tr>
+<tr><td>Review quotes</td><td><code>[CONFIRM]</code> on both pages</td><td>Review workbook (verbatim Google reviews)</td></tr>
+</tbody></table></div>
+
+<h2 id="part-h"><span class="k">H</span>Build &amp; responsive notes</h2>
+<ul>
+<li><strong>Tokens:</strong> copy the <code>:root</code> block from the <a href="../">design system page</a>. Never hard-code a brand hex that has a token.</li>
+<li><strong>Fonts:</strong> Google Fonts: Ubuntu 500/700 and Noto Sans 400/600/700. Nothing else loads.</li>
+<li><strong>Exact values:</strong> select the layer in the Paper template. Layer names match the block names in Part C. With Claude Code + Paper MCP, pull <code>get_jsx</code> / <code>get_computed_styles</code> for that node.</li>
+<li><strong>Interactive parts:</strong> service tabs and FAQ use real buttons or <code>&lt;details&gt;</code> with keyboard support. Review and district tracks scroll horizontally with scroll-snap.</li>
+<li><strong>Structured data:</strong> LocalBusiness (HVACBusiness) + Service + FAQPage (from B12) + BreadcrumbList.</li>
+</ul>
+<p><strong>Responsive (mobile is not drawn yet, so follow these rules):</strong></p>
+<ul>
+<li>&lt; 768px: side gutter 16px, section padding 64px, H1 36–40px, H2 30–32px. Every split layout stacks: copy first, then the card or table.</li>
+<li>B1: the request card drops below the hero copy, and the trust strip wraps into a 2 × 2 grid.</li>
+<li>B2: the tab rail becomes a horizontal row of pills above the panel, and tiles go to one column.</li>
+<li>B5, B7, B8, B10: horizontal scroll-snap rows of cards at about 80% width.</li>
+<li>B6 factor table: label above text. B3 and B11 tiles: one column.</li>
+</ul>
+
+<h2 id="part-i"><span class="k">I</span>Workflow for every new area</h2>
+<ol>
+<li><strong>Brief:</strong> the area name and its boundaries, ZIPs, wards and community area.</li>
+<li><strong>Research:</strong> housing stock, sub-districts, access constraints and the equipment that's typical there. Pull the area's 24-month HVAC permit count from City data.</li>
+<li><strong>Reviews:</strong> pick verbatim Google reviews from the review workbook, ranked by equipment match. If none are eligible, leave the <code>[CONFIRM]</code> note.</li>
+<li><strong>Write</strong> the per-area fields only (Part C, last column), following Part E and Part F.</li>
+<li><strong>Design:</strong> duplicate the West Loop template artboard in Paper, rename it "C&amp;S — {area} area page (desktop)" and swap the text. Don't restyle.</li>
+<li><strong>Publish the preview</strong> to this site and add it to the page switcher.</li>
+<li><strong>QC</strong> with Part J, clear every <code>[CONFIRM]</code>, then publish.</li>
+</ol>
+
+<h2 id="part-j"><span class="k">J</span>Pre-publish QC checklist</h2>
+<p>Tap to tick. Your ticks are saved in this browser only.</p>
+<div class="qc-bar"><b id="qc-count">0 / 0</b><span class="meter"><i id="qc-meter"></i></span><button type="button" id="qc-reset">Reset</button></div>
+<p><strong>Design system</strong></p>
+<ul class="qc">
+<li><label><input type="checkbox"><span>Only token colours: red for actions, navy for trust, blue only for information.</span></label></li>
+<li><label><input type="checkbox"><span>Every button is a pill: red on white and navy, white on red.</span></label></li>
+<li><label><input type="checkbox"><span>Only Ubuntu and Noto Sans load. Headings are sentence case.</span></label></li>
+<li><label><input type="checkbox"><span>Radii are only 8 / 16 / 24 / full. Shadows only on the trust strip and services panel.</span></label></li>
+<li><label><input type="checkbox"><span>Band rhythm holds: no two fog, navy or red bands touch.</span></label></li>
+</ul>
+<p><strong>Content</strong></p>
+<ul class="qc">
+<li><label><input type="checkbox"><span>H1 follows "Heating and cooling repair in {area}, Chicago".</span></label></li>
+<li><label><input type="checkbox"><span>Every per-area field is filled (Part C, last column), with no West Loop leftovers.</span></label></li>
+<li><label><input type="checkbox"><span>Reviews are verbatim, linked to Google and matched to the area's equipment.</span></label></li>
+<li><label><input type="checkbox"><span>Every number has a Part G source. The Google rating "as of" date is current.</span></label></li>
+<li><label><input type="checkbox"><span>Permit record shows the area count and City &amp; Suburban's 0.</span></label></li>
+<li><label><input type="checkbox"><span>No <code>[CONFIRM]</code> text on the published page.</span></label></li>
+</ul>
+<p><strong>Function</strong></p>
+<ul class="qc">
+<li><label><input type="checkbox"><span>Service tabs and FAQ work with keyboard, and all hidden copy is in the HTML.</span></label></li>
+<li><label><input type="checkbox"><span>Request form: phone required, validation messages show, submit works.</span></label></li>
+<li><label><input type="checkbox"><span>Phone numbers are <code>tel:</code> links.</span></label></li>
+<li><label><input type="checkbox"><span>Checked at 390px and 768px against the Part H rules.</span></label></li>
+<li><label><input type="checkbox"><span>JSON-LD validates (HVACBusiness, Service, FAQPage, BreadcrumbList).</span></label></li>
+</ul>
+
+<h2 id="part-k"><span class="k">K</span>Open decisions</h2>
+<ol>
+<li><strong>Licence number:</strong> the City of Chicago HVAC licence number isn't in any workbook. Pull it from the City registry before any page goes live.</li>
+<li><strong>Reviews:</strong> both pages still have <code>[CONFIRM]</code> placeholders in B4. They need verbatim quotes from the review workbook.</li>
+<li><strong>Spelling:</strong> the template uses "Licences" (British). Decide on US "Licenses" for a Chicago audience and apply it everywhere.</li>
+<li><strong>Mobile:</strong> mobile frames aren't drawn in Paper yet. The Part H rules apply until they are.</li>
+<li><strong>Districts eyebrow contrast:</strong> on the template, the B9 eyebrow ("The West Loop, district by district") is white on fog and effectively invisible. Fix it to red like every other eyebrow, in Paper and in the build.</li>
+<li><strong>Hero photo:</strong> confirm the hero image is City &amp; Suburban's own or licensed. If it could be read as their own work and isn't, add an "Illustrative photo" label.</li>
+</ol>
+  </main>
+</div>
+
+<button id="open-toc" aria-controls="toc" aria-expanded="false">☰ Contents</button>
+<a class="to-top" id="to-top" href="#" aria-label="Back to top">↑</a>
+<div class="scrim" id="scrim"></div>
+
+<script>
+(function(){
+  var toc=document.getElementById('toc'),btn=document.getElementById('open-toc'),scrim=document.getElementById('scrim');
+  function setOpen(o){toc.classList.toggle('open',o);scrim.classList.toggle('open',o);btn.setAttribute('aria-expanded',o);}
+  btn.addEventListener('click',function(){setOpen(!toc.classList.contains('open'));});
+  scrim.addEventListener('click',function(){setOpen(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false);});
+  toc.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){setOpen(false);});});
+
+  // highlight the part and block currently in view
+  var partLinks={},blockLinks={};
+  toc.querySelectorAll('ol a').forEach(function(a){partLinks[a.getAttribute('href').slice(1)]=a;});
+  toc.querySelectorAll('.blocks a').forEach(function(a){blockLinks[a.getAttribute('href').slice(1)]=a;});
+  var heads=[].slice.call(document.querySelectorAll('main h2[id], main h3[id]'));
+  var toTop=document.getElementById('to-top');
+  function onScroll(){
+    var part=null,block=null;
+    for(var i=0;i<heads.length;i++){
+      if(heads[i].getBoundingClientRect().top>140)break;
+      if(heads[i].tagName==='H2'){part=heads[i].id;block=null;}else{block=heads[i].id;}
+    }
+    for(var k in partLinks)partLinks[k].classList.toggle('on',k===part);
+    for(var b in blockLinks)blockLinks[b].classList.toggle('on',b===block);
+    toTop.classList.toggle('show',window.scrollY>800);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // QC checklist with per-browser memory
+  var boxes=[].slice.call(document.querySelectorAll('.qc input')),key='cs-playbook-qc';
+  var saved=[];try{saved=JSON.parse(localStorage.getItem(key)||'[]');}catch(e){}
+  boxes.forEach(function(b,i){b.checked=!!saved[i];b.addEventListener('change',update);});
+  function update(){
+    var n=boxes.filter(function(b){return b.checked;}).length;
+    document.getElementById('qc-count').textContent=n+' / '+boxes.length;
+    document.getElementById('qc-meter').style.width=(100*n/boxes.length)+'%';
+    try{localStorage.setItem(key,JSON.stringify(boxes.map(function(b){return b.checked;})));}catch(e){}
+  }
+  document.getElementById('qc-reset').addEventListener('click',function(){boxes.forEach(function(b){b.checked=false;});update();});
+  update();
+})();
+</script>
+</body>
+</html>
