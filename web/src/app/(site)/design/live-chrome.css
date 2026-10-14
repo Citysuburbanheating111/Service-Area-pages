@@ -65,7 +65,7 @@
 #live-site-footer *,#live-site-footer *::before,#live-site-footer *::after{box-sizing:border-box;margin:0;padding:0}
 #live-site-footer .container{max-width:1170px;width:100%;padding:0 15px;margin:0 auto}
 #live-site-footer img{height:auto;object-fit:cover;display:block;max-width:100%;border-radius:0}
-#live-site-footer h4{font-family:var(--font-ubuntu),Ubuntu,sans-serif;font-size:clamp(20px,3.5vw,28px);line-height:clamp(28px,4.5vw,36px);font-weight:600;margin-bottom:12px;letter-spacing:normal;color:#0C1E35}
+#live-site-footer h4,#live-site-footer h2.ft-h{font-family:var(--font-ubuntu),Ubuntu,sans-serif;font-size:clamp(20px,3.5vw,28px);line-height:clamp(28px,4.5vw,36px);font-weight:600;margin-bottom:12px;letter-spacing:normal;color:#0C1E35}
 #live-site-footer p{font-size:clamp(16px,2.5vw,18px);line-height:clamp(24px,3vw,26px)}
 #live-site-footer a{font-size:18px;line-height:26px;text-decoration:none;letter-spacing:normal}
 #live-site-footer li{font-size:18px;line-height:26px}
@@ -93,7 +93,7 @@
     }#live-site-footer .footer-logo{
         width: 200px;
         margin-bottom: 20px;
-    }#live-site-footer .site-footer.footer-col h4{
+    }#live-site-footer .site-footer.footer-col h4,#live-site-footer .site-footer.footer-col h2.ft-h{
         margin-bottom: 20px;
         font-weight: 700;
     }#live-site-footer .site-footer .footer-col ul{

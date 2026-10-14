@@ -3,9 +3,14 @@ import { stegaClean } from 'next-sanity'
 import { Suspense } from 'react'
 
 import { collectionCss, collectionDescription, collectionMain, collectionTitle } from '@/components/area/collectionHtml'
+import { design } from '@/components/area/design'
 import { LiveFooter, LiveHeader } from '@/components/area/LiveChrome'
+import { resolveTemplate } from '@/components/area/template'
+import { collectionSchema, jsonLd } from '@/lib/schema'
+import { areaPath, collectionPath } from '@/lib/siteUrl'
 import { cachedSanity, getDynamicFetchOptions } from '@/sanity/live'
-import { AREA_LIST_QUERY } from '@/sanity/queries'
+import { AREA_LIST_QUERY, AREA_TEMPLATE_QUERY } from '@/sanity/queries'
+import type { AreaTemplateData } from '@/sanity/types'
 
 // The live "All service areas" collection page, synced from services-v2/service-areas/ by
 // tools/sync_design_to_web.py. Cards link to an area page only when that page exists in Sanity:
@@ -13,20 +18,38 @@ import { AREA_LIST_QUERY } from '@/sanity/queries'
 export const metadata: Metadata = {
   title: collectionTitle,
   description: collectionDescription,
-  alternates: { canonical: '/service-areas' },
+  alternates: { canonical: collectionPath },
+  openGraph: {
+    type: 'website',
+    url: collectionPath,
+    title: collectionTitle,
+    description: collectionDescription,
+    siteName: 'City & Suburban Heating & Cooling',
+    locale: 'en_US',
+    images: [{ url: design.images.van, width: 1235, height: 848, alt: 'A City & Suburban Heating & Cooling service van on a Chicago street' }],
+  },
+  twitter: { card: 'summary_large_image', title: collectionTitle, description: collectionDescription, images: [design.images.van] },
 }
 
-type Row = { slug?: string }
+type Row = { slug?: string; areaName?: string }
 
 export default async function ServiceAreasPage() {
   // Published pages are the same for every visitor, so their links are in the first HTML
   // (crawlers and no-JS visitors see them). Inside the preview, drafts get linked too.
   const published = await linkedHtml('published')
+  const [{ data: list }, { data: tpl }] = await Promise.all([
+    cachedSanity({ query: AREA_LIST_QUERY, perspective: 'published', stega: false }),
+    cachedSanity({ query: AREA_TEMPLATE_QUERY, perspective: 'published', stega: false }),
+  ])
+  const areas = ((list ?? []) as Row[]).filter((r) => r.slug).map((r) => ({ slug: r.slug as string, name: r.areaName ?? r.slug as string }))
+  const schema = collectionSchema(resolveTemplate(tpl as AreaTemplateData | null), areas, { title: collectionTitle, description: collectionDescription })
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />
       <style dangerouslySetInnerHTML={{ __html: collectionCss }} />
       <LiveHeader />
-      <Suspense fallback={<Collection html={published} />}>
+      <div className="cs-published" style={{ display: 'contents' }}><Collection html={published} /></div>
+      <Suspense fallback={null}>
         <PreviewAwareCollection />
       </Suspense>
       <LiveFooter />
@@ -34,9 +57,17 @@ export default async function ServiceAreasPage() {
   )
 }
 
+// Visitors: nothing (the published collection above is the page). Inside the Studio's Preview
+// (draft mode): the collection with drafts linked too, shown in place of the published one.
 async function PreviewAwareCollection() {
   const { perspective, variant } = await getDynamicFetchOptions()
-  return <Collection html={await linkedHtml(perspective, variant)} />
+  if (perspective === 'published') return null
+  return (
+    <>
+      <style>{'.cs-published{display:none!important}'}</style>
+      <Collection html={await linkedHtml(perspective, variant)} />
+    </>
+  )
 }
 
 async function linkedHtml(perspective: Awaited<ReturnType<typeof getDynamicFetchOptions>>['perspective'], variant?: string) {
@@ -61,7 +92,7 @@ function publishedOnly(html: string, slugs: Set<string>) {
     if (!slugs.has(slug)) return ''
     shown.push(name)
     return card
-      .replace(heading, `<h3 id="area-${slug}"><a class="stretch" href="/service-areas/${slug}">${name}</a></h3>`)
+      .replace(heading, `<h3 id="area-${slug}"><a class="stretch" href="${areaPath(slug)}">${name}</a></h3>`)
       .replace(/(<p class="hvac">[\s\S]*?<\/p>)/, `$1\n          <p class="open" aria-hidden="true">Open the ${name} page <span>→</span></p>`)
   })
   // Photo credits: Chicago, the hero and the cards on the page

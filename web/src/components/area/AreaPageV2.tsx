@@ -28,7 +28,9 @@ import { RequestForm } from './RequestForm'
 import { ReviewCard } from './ReviewCard'
 import { ServicesTabs } from './ServicesTabs'
 import { StepsTrack } from './StepsTrack'
-import { fill, telHref, type Template } from './template'
+import { areaPath, collectionPath } from '@/lib/siteUrl'
+
+import { fill, mergeFaq, telHref, type Template } from './template'
 
 type Props = { page: AreaPageData; template: Template; preview: boolean }
 type P = { page: AreaPageData; t: Template }
@@ -81,7 +83,7 @@ function PreviewBar({ page, slug }: { page: AreaPageData; slug: string }) {
     <details className="cs-preview-bar">
       <summary>
         <span>Draft preview · {notes.length ? `${notes.length} item${notes.length > 1 ? 's' : ''} to confirm before publishing` : 'nothing left to confirm'}</span>
-        <a href={`/api/draft-mode/disable?redirect=/service-areas/${slug}`}>Exit preview</a>
+        <a href={`/api/draft-mode/disable?redirect=${areaPath(slug)}`}>Exit preview</a>
       </summary>
       {notes.length > 0 && <ul>{notes.map((n) => <li key={n._key}><b>{n.block}</b>{n.note}</li>)}</ul>}
     </details>
@@ -108,7 +110,7 @@ function Hero({ page, t, slug }: P & { slug: string }) {
       style={scrim('linear-gradient(90deg,rgb(9 38 58 / 95%) 0%,rgb(9 38 58 / 86%) 50%,rgb(9 38 58 / 45%) 100%)', img)}>
       <div className="v2-hero-copy">
         <nav className="cs-crumbs" aria-label="Breadcrumb">
-          <ol><li><a href={`${design.live}/`}>Home</a></li><li><Link href="/service-areas">Service area</Link></li><li aria-current="page">{page.areaName}</li></ol>
+          <ol><li><a href={`${design.live}/`}>Home</a></li><li><Link href={collectionPath}>Service area</Link></li><li aria-current="page">{page.areaName}</li></ol>
         </nav>
         <p className="cs-eyebrow v2-dot">Chicago · {page.areaName}</p>
         <h1 className="cs-h1" id="hero-title">{hero.h1}</h1>
@@ -398,14 +400,8 @@ function Permits({ page, t }: P) {
 }
 
 // ── B12 FAQ: the area's own questions, then the template's shared ones ──
-const norm = (q?: string) => (stegaClean(q) ?? '').trim().toLowerCase()
-
 function Faq({ page, t }: P) {
-  const shared = t.faq.items
-  const sharedQs = new Set(shared.map((f) => norm(f.question)))
-  // Older pages still store the shared questions themselves; the template's version wins
-  const own = (page.faq?.items ?? []).filter((f) => !sharedQs.has(norm(f.question)))
-  const items = [...own, ...shared]
+  const { own, items } = mergeFaq(page.faq?.items, t)
   if (!own.length) return null
   const b = t.business
   return (

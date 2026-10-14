@@ -57,3 +57,12 @@ export const fill = (text: string | undefined, area: string | undefined) => (tex
 
 /** tel: link for a phone number as written, e.g. (773) 238-3838 -> tel:+17732383838 */
 export const telHref = (phone: string) => `tel:+1${(stegaClean(phone) ?? '').replace(/\D/g, '').slice(-10)}`
+
+/** FAQ shown on an area page: the area's own questions, then the template's shared ones. Older pages
+ *  still store the shared questions themselves; the template's version wins, so nothing repeats. */
+export function mergeFaq(own: { _key: string; question?: string; answer?: string }[] | undefined, t: Template) {
+  const norm = (q?: string) => (stegaClean(q) ?? '').trim().toLowerCase()
+  const shared = new Set(t.faq.items.map((f) => norm(f.question)))
+  const mine = (own ?? []).filter((f) => !shared.has(norm(f.question)))
+  return { own: mine, items: [...mine, ...t.faq.items] }
+}

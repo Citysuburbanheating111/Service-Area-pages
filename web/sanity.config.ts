@@ -47,28 +47,30 @@ export default defineConfig({
     presentationTool({
       title: 'Preview',
       previewUrl: {
-        initial: '/service-areas',
+        initial: '/service-areas/',
         previewMode: { enable: '/api/draft-mode/enable' },
       },
       resolve: {
         // Opening a page in Preview selects its document
         mainDocuments: defineDocuments([
-          { route: '/service-areas/:slug', filter: `_type == "areaPage" && slug.current == $slug` },
+          // Public URL /service-area/<slug>/ (the old /service-areas/<slug> redirects there)
+          { route: '/service-area/:slug/', filter: `_type == "areaPage" && slug.current == $slug` },
+          { route: '/service-area/:slug', filter: `_type == "areaPage" && slug.current == $slug` },
         ]),
         // "Used on" links shown at the top of each document
         locations: {
           // The template shows on every area page
           areaTemplate: defineLocations({
             message: 'Shared by every service area page',
-            locations: [{ title: 'All service areas', href: '/service-areas' }],
+            locations: [{ title: 'All service areas', href: '/service-areas/' }],
           }),
           areaPage: defineLocations({
             select: { title: 'areaName', slug: 'slug.current' },
             resolve: (doc) => ({
               locations: doc?.slug
                 ? [
-                    { title: doc.title || 'Untitled', href: `/service-areas/${doc.slug}` },
-                    { title: 'All service areas', href: '/service-areas' },
+                    { title: doc.title || 'Untitled', href: `/service-area/${doc.slug}/` },
+                    { title: 'All service areas', href: '/service-areas/' },
                   ]
                 : [],
             }),
