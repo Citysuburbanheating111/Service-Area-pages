@@ -34,7 +34,9 @@ HERO = A + '5X6SBXHGCABFYFB3GFJ2CY4MYM.webp'
 PH_AC = A + 'v2/photo-ac-service.webp'
 PH_FILTER = A + 'v2/photo-furnace-filter.webp'
 SEAL = A + 'v2/family-owned-seal.webp'
-VAN = A + 'v2/van.webp'  # City & Suburban's own van, supplied by the client (2026-10-14)
+# City & Suburban's own van (client photo, 2026-10-14) composited onto the Chicago skyline at dusk
+# by tools/art/compose_van_scene.py. Skyline: Tony Webster, CC BY 2.0.
+VAN = A + 'v2/van-scene.webp'
 CREDITS = {
     'west-loop': ('Fulton Market, West Loop', 'Bex Walton', 'CC BY 2.0',
                   'https://commons.wikimedia.org/wiki/File:Fulton_Market,_West_Loop_(47090474824).jpg'),
@@ -295,8 +297,8 @@ def build(path):
       <div class="v2-names"><small>Names our reviewers remember</small><ul>{"".join(f"<li>{n}</li>" for n in v1.NAMES)}</ul></div></div></div>
   <div class="v2-cred-grid">
     <figure class="v2-van">
-      <img src="{VAN}" alt="A City &amp; Suburban Heating &amp; Cooling service van with the phone number (773) 238-3838 on the side" width="666" height="525" loading="lazy" decoding="async">
-      <img class="seal" src="{SEAL}" alt="Chicago local, family owned, since 1952" width="96" height="96" loading="lazy">
+      <img src="{VAN}" alt="A City &amp; Suburban Heating &amp; Cooling service van parked by the lakefront with the Chicago skyline at dusk behind it" width="1000" height="860" loading="lazy" decoding="async">
+      <figcaption>Illustrative image</figcaption>
       <a class="v2-addr" href="{GMAPS}" target="_blank" rel="noopener">{icon("pin", 16, 2)}1225 N Cleaver St</a>
     </figure>
     <div class="v2-tiles">
@@ -436,7 +438,8 @@ def build(path):
     credits = f'''
 <div class="cs-sec v2-credits"><details><summary>Photo credits</summary><ul>
 {f'<li>{e(credit[0])}: {e(credit[1])} · {e(credit[2])} · <a href="{credit[3]}" target="_blank" rel="noopener">Wikimedia Commons</a></li>' if credit else ''}
-  <li>Van photo: City &amp; Suburban. Hero, AC service and furnace filter photos: from citysuburbanheating.com, illustrative.</li>
+  <li>Van: City &amp; Suburban, set against the Chicago skyline (Tony Webster · CC BY 2.0 · <a href="https://commons.wikimedia.org/wiki/File:Chicago_Skyline_(15240030464).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>). Illustrative image.</li>
+  <li>Hero, AC service and furnace filter photos: from citysuburbanheating.com, illustrative.</li>
 </ul></details></div>'''
 
     title = x.get('seo.title') or a['hero.h1']

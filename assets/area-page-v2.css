@@ -146,11 +146,11 @@
 /* ── B3 Navy credentials band ──────────────────── */
 .v2-cred { display: flex; flex-direction: column; gap: 40px; }
 .v2-cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-/* Van card: the client's van photo (blue band and white floor are part of the photo) */
-.v2-van { position: relative; margin: 0; border-radius: var(--radius-lg); overflow: hidden; background: #fff; min-height: 420px; }
-.v2-van > img:first-child { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 72% 100%; }
-.v2-van .seal { position: absolute; left: 20px; top: 20px; width: 92px; height: 92px; transform: rotate(-8deg); filter: drop-shadow(0 6px 14px rgb(9 38 58 / 35%)); }
-.v2 .v2-addr { position: absolute; left: 20px; bottom: 20px; display: inline-flex; align-items: center; gap: 8px; background: var(--color-navy); color: #fff; border-radius: var(--radius-pill); padding: 9px 16px; font: 600 14px/18px var(--font-body); box-shadow: 0 6px 18px rgb(9 38 58 / 30%); }
+/* Van card: the client's van on the Chicago skyline at dusk (tools/art/compose_van_scene.py) */
+.v2-van { position: relative; margin: 0; border-radius: var(--radius-lg); overflow: hidden; background: #1a1418; min-height: 420px; }
+.v2-van > img:first-child { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 100%; }
+.v2-van figcaption { position: absolute; right: 14px; top: 14px; background: rgb(9 38 58 / 70%); color: #fff; font-size: 12px; line-height: 16px; padding: 4px 10px; border-radius: var(--radius-pill); }
+.v2 .v2-addr { position: absolute; left: 20px; bottom: 20px; display: inline-flex; align-items: center; gap: 8px; background: #fff; color: var(--color-navy); border-radius: var(--radius-pill); padding: 9px 16px; font: 600 14px/18px var(--font-body); box-shadow: 0 6px 18px rgb(9 38 58 / 30%); }
 .v2 .v2-addr:hover { text-decoration: underline; }
 .v2-aside { display: flex; flex-direction: column; gap: 18px; }
 .v2-aside b { color: #fff; }
@@ -336,7 +336,7 @@ a.v2-mini:hover { border-color: var(--color-navy); }
   .v2-pick-panel .v2-link { grid-column: 1 / -1; }
   .v2-split, .v2-acc-split, .v2-rev-grid, .v2-cred-grid, .v2-area-grid, .v2-faq { grid-template-columns: 1fr; gap: 32px; }
   .v2-faq-side { position: static; }
-  .v2-van { min-height: 0; aspect-ratio: 666 / 525; }
+  .v2-van { min-height: 0; aspect-ratio: 1000 / 860; }
   .v2-tall img, .v2-acc-split .v2-tall img { min-height: 0; max-height: 420px; }
   .v2-step { flex-basis: calc((100% - 20px) / 2.2); }
   .v2-proof { grid-template-columns: 1fr 1fr; }
