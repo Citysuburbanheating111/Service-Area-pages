@@ -53,7 +53,14 @@
   "eyebrow": "What changes the price",
   "intro": "We don't publish a price book, and we're not going to invent one here. What we can show you is what moves the number.",
   "medianValue": "$6,807",
-  "medianCaption": "Median reported value of 81 central-furnace replacement permits in Chicago over 24 months. That's the whole project's construction value, not a quote."
+  "medianCaption": "Median reported value of 81 central-furnace replacement permits in Chicago over 24 months. That's the whole project's construction value, not a quote.",
+  "howWePrice": [
+   "The person who diagnoses is the person who quotes.",
+   "You hear the price before any work starts.",
+   "No flat-rate price book, no commissioned adviser.",
+   "Where the unit has years left, the quote is for a repair."
+  ],
+  "medianQuestion": "\"What does a new furnace cost?\""
  },
  "choose": {
   "eyebrow": "How to choose",
@@ -61,23 +68,33 @@
   "questions": [
    {
     "title": "Who diagnoses, and who quotes?",
-    "text": "If they're different people, ask who owns the outcome. Here it's Rob for both."
+    "text": "If they're different people, ask who owns the outcome. Here it's Rob for both.",
+    "verify": "Ask who comes out, who prices it and who's accountable afterwards",
+    "answer": "Rob does both. 90 of our 204 Google reviews name him or the owner"
    },
    {
     "title": "Is the technician on commission?",
-    "text": "Commission on replacements changes what \"your furnace is done\" means."
+    "text": "Commission on replacements changes what \"your furnace is done\" means.",
+    "verify": "Ask how the technician is paid",
+    "answer": "No commission, no flat-rate price book"
    },
    {
     "title": "Does a permit count mean anything here?",
-    "text": "Not for repairs. Chicago doesn't permit HVAC repair or maintenance, so a permit count only measures installs."
+    "text": "Not for repairs. Chicago doesn't permit HVAC repair or maintenance, so a permit count only measures installs.",
+    "verify": "Ask how much of their work is repair",
+    "answer": "0 permits on record, because most of what we do is repair"
    },
    {
     "title": "What do the newest reviews say?",
-    "text": "Read the last 20, not the top 5. Look for names and specifics."
+    "text": "Read the last 20, not the top 5. Look for names and specifics.",
+    "verify": "Read the newest reviews, not the top ones",
+    "answer": "4.98 from 204 Google reviews"
    },
    {
     "title": "Will they tell you to keep it?",
-    "text": "Ask if the unit has years left. Our reviewers record hearing \"yes\"."
+    "text": "Ask if the unit has years left. Our reviewers record hearing \"yes\".",
+    "verify": "Ask if the unit has years left",
+    "answer": "Repair first. Our reviewers record hearing \"yes\""
    }
   ]
  },
@@ -88,24 +105,45 @@
    {
     "title": "Family-owned, since 1952",
     "text": "The owner answers and quotes. Limit: one family's capacity, so peak-winter days fill up.",
-    "us": true
+    "us": true,
+    "talkTo": "The owner, Rob, or someone who works directly with him",
+    "priceSet": "A price for the actual fault, agreed before any work starts",
+    "fitsWhen": "Condo, house, loft and restaurant work where you want one accountable person"
    },
    {
     "title": "National franchise",
     "text": "Response time is genuinely good. Limit: commission and price books shape the recommendation.",
-    "us": false
+    "us": false,
+    "talkTo": "A call centre, then the technician dispatched",
+    "priceSet": "Often a flat-rate price book, sometimes with membership plans",
+    "fitsWhen": "Standard repairs where speed of dispatch matters most"
    },
    {
     "title": "One-van independent",
     "text": "The work is often excellent. Limit: one person, so a January no-heat call can wait days.",
-    "us": false
+    "us": false,
+    "talkTo": "The owner, who is also the only technician",
+    "priceSet": "Their own quote, often good value",
+    "fitsWhen": "Small jobs that can wait. One person means a January no-heat call can take days"
    },
    {
     "title": "Lead marketplace",
     "text": "Several quotes fast. Limit: you don't choose who calls back, or who turns up.",
-    "us": false
+    "us": false,
+    "talkTo": "A website that passes your request to several contractors",
+    "priceSet": "Whatever each contractor who calls back quotes",
+    "fitsWhen": "You want several quotes fast and don't mind not choosing who calls"
+   },
+   {
+    "title": "Large mechanical contractor",
+    "text": "Built for big projects. Limit: bids against drawings, not a no-heat call.",
+    "us": false,
+    "talkTo": "A project manager or estimator",
+    "priceSet": "Bids against drawings and specifications",
+    "fitsWhen": "Tower central plants, base-building systems and new construction"
    }
-  ]
+  ],
+  "fitNote": "City & Suburban is a family-owned Chicago company. In {area} we're the right call for condo, house, loft and restaurant heating and cooling: repairs, boilers, furnaces, central air and make-up air. Tower central plants and new-build mechanical systems are for the big mechanical contractors, and we'll tell you so."
  },
  "about": {
   "eyebrow": "About City & Suburban",
@@ -128,12 +166,44 @@
     "title": "The price before the work",
     "text": "You hear the price before any work starts."
    }
+  ],
+  "familyHeading": "Why family-owned matters on a {area} job",
+  "familyPoints": [
+   "You talk to the person who owns the outcome, not a dispatcher reading from a price book.",
+   "The office books you in, and reviewers name the people who did it.",
+   "Nobody is on commission, so \"your furnace is done\" means it's done.",
+   "Your request isn't sold on to three other contractors."
   ]
  },
  "reviews": {
   "eyebrow": "What customers say",
   "heading": "Why Chicago homeowners keep calling the same family",
-  "intro": "Quoted word for word from Google, never edited. Several reviewers were told their old unit still had years left."
+  "intro": "Quoted word for word from Google, never edited. Several reviewers were told their old unit still had years left.",
+  "statsHeading": "What customers say about value",
+  "statsIntro": "We don't publish a price book, because the price depends on the fault. Here is what our Google reviews say instead, counted by what reviewers chose to mention.",
+  "stats": [
+   {
+    "value": "90",
+    "label": "name Rob, or say they dealt with the owner directly",
+    "percent": 44
+   },
+   {
+    "value": "59",
+    "label": "mention a fast response, a same-day visit or arriving on time",
+    "percent": 29
+   },
+   {
+    "value": "43",
+    "label": "call the price fair, reasonable or competitive",
+    "percent": 21
+   },
+   {
+    "value": "29",
+    "label": "mention honesty, trust or no pressure to upsell",
+    "percent": 14
+   }
+  ],
+  "statsNote": "Counted by keyword matching across all 204 Google reviews (export of 31 Aug 2026), so the numbers are approximate. 202 of the 204 are five stars."
  },
  "process": {
   "heading": "From the first call to a warm apartment, in six steps",
@@ -167,11 +237,17 @@
  "permits": {
   "eyebrow": "The permit record, honestly",
   "heading": "Why you won't find us in the City's permit file",
+  "intro": "Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling, which is most of what we do. This is what the City's permit file does show for {area}, and where it comes from.",
   "text": "Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling, which is most of what we do. The permit file measures construction, not service. So when a company waves a permit count at you, ask how much of their work is repair.",
   "citywideNumber": "1,539",
   "citywideCaption": "Firms that pull HVAC permits citywide, across 4,888 permits in 24 months.",
   "ourNumber": "0",
   "ourCaption": "Permits on record for City & Suburban. We said we'd be honest."
+ },
+ "nearby": {
+  "eyebrow": "More service areas",
+  "heading": "Other neighborhoods we serve",
+  "intro": "We work across Chicago and the suburbs. Each neighborhood has its own page, written for its buildings."
  },
  "faq": {
   "items": [
@@ -187,6 +263,14 @@
  },
  "cta": {
   "eyebrow": "Your next step",
-  "heading": "No heat, no cooling, or just a question?"
+  "heading": "No heat, no cooling, or just a question?",
+  "checklist": [
+   "The make of your furnace, boiler or condenser, from the label on the unit",
+   "What it's doing: no heat, no cooling, a noise, a smell, short-cycling",
+   "In a high-rise: your building's work hours and how to book the freight elevator",
+   "For a condo: your association's contact if they need a certificate of insurance",
+   "A photo of the unit's data plate and the thermostat screen",
+   "For a restaurant: your service hours, so we can work around them"
+  ]
  }
 }

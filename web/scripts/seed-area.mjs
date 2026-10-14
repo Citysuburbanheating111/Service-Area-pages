@@ -15,6 +15,8 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { createClient } from '@sanity/client'
 
+import { permitBreakdown } from './permit-breakdown.mjs'
+
 const file = process.argv.slice(2).find((arg) => !arg.startsWith('--'))
 const replaceDraft = process.argv.includes('--replace-draft')
 if (!file) throw new Error('Usage: node --env-file=.env.local scripts/seed-area.mjs <content file> [--replace-draft]')
@@ -48,6 +50,12 @@ const range = (count) => Array.from({ length: count }, (_, i) => i + 1)
 const isPlaceholder = (s) => typeof s === 'string' && s.startsWith('[CONFIRM')
 const wards = (chip) => (chip.match(/\d+/g) ?? []).map(Number)
 const zips = (chip) => chip.match(/\b\d{5}\b/g) ?? []
+
+// The permit graph: the content file's permits.* keys (skill v3), or hvac_permits.py's output in _sources
+const permitSource = () =>
+  a['permits.by_equipment']
+    ? { by_equipment: a['permits.by_equipment'], permits_in_box: a['permits.total'], window: { from: a['permits.window_from'], to: a['permits.window_to'] } }
+    : x._sources?.permits
 
 // Shared blocks (process, questions, price intro and median, review heading, CTA heading, the
 // "What's happening?" options and the shared FAQs) live in the Service area template, not here.
@@ -98,7 +106,8 @@ const doc = {
     heading: a['buildings.heading'],
     types: items('buildingType', range(4).map((i) => ({ tag: a[`buildings.${i}.tag`], name: a[`buildings.${i}.title`], text: a[`buildings.${i}.body`] }))),
   },
-  permits: { areaCount: Number(a['permits.area_count']), areaCaption: a['permits.area_text'] },
+  permits: { areaCount: Number(a['permits.area_count']), areaCaption: a['permits.area_text'], ...permitBreakdown(permitSource()) },
+  nearby: { items: items('nearbyArea', range(6).filter((i) => a[`nearby.${i}.name`]).map((i) => ({ name: a[`nearby.${i}.name`], text: a[`nearby.${i}.text`] }))) },
   faq: {
     heading: a['faq.heading'],
     // Questions 1-3 are the area's own; 4 and 5 (permits, hours) come from the template

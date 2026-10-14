@@ -12,22 +12,25 @@ import csv, glob, json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 CONTENT = os.path.join(HERE, '..', 'content')
 
-AREA_KEYS = ['_area', '_area_the', '_slug', 'hero.breadcrumb', 'hero.pill', 'hero.h1', 'hero.lede', 'form.title',
+AREA_KEYS = ['_area', '_area_the', '_slug', 'hero.h1', 'hero.lede', 'form.title',
              'form.building_default', 'services.heading', 'who.copy']
 AREA_KEYS += [f'reviews.{i}.{k}' for i in range(1, 5) for k in ('tag', 'quote', 'by')]
 AREA_KEYS += ['scope.heading'] + [f'scope.{i}.{k}' for i in range(1, 7) for k in ('factor', 'why')]
 AREA_KEYS += ['choose.heading', 'districts.label', 'districts.heading', 'districts.chip1', 'districts.chip2', 'districts.chip3']
-AREA_KEYS += [f'districts.{i}.{k}' for i in range(1, 4) for k in ('name', 'intro', 'hvac')] + ['districts.4.name', 'districts.4.intro']
+AREA_KEYS += [f'districts.{i}.{k}' for i in range(1, 5) for k in ('name', 'intro', 'hvac')]
 AREA_KEYS += ['buildings.heading'] + [f'buildings.{i}.{k}' for i in range(1, 5) for k in ('tag', 'title', 'body')]
-AREA_KEYS += ['permits.area_count', 'permits.area_text', 'faq.heading', 'faq.1.q', 'faq.1.a', 'faq.2.q', 'faq.3.q',
+AREA_KEYS += ['permits.area_count', 'permits.area_text', 'permits.total', 'permits.window_from', 'permits.window_to',
+              'permits.by_equipment', 'faq.heading', 'faq.1.q', 'faq.1.a', 'faq.2.q', 'faq.3.q',
               'faq.4.q', 'faq.5.q', 'cta.body']
-EXTRA_KEYS = ['buildingTypeOptions', 'districts.4.hvac', 'faq.2.a', 'faq.3.a', 'faq.4.a', 'faq.5.a', 'seo.title',
+# v3: 3-6 bordering neighborhoods, checked separately
+NEARBY_KEYS = [f'nearby.{i}.{k}' for i in range(1, 7) for k in ('name', 'text')]
+EXTRA_KEYS = ['buildingTypeOptions', 'faq.2.a', 'faq.3.a', 'faq.4.a', 'faq.5.a', 'seo.title',
               'seo.description'] + [f'reviews.{i}.url' for i in range(1, 5)] + ['confirmNotes', '_sources']
 SOURCE_KEYS = ['permits', 'shop_location', 'wards', 'boundaries', 'districts', 'buildings']
 PERMIT_KEYS = ['source', 'window', 'permits_in_box', 'hvac_mentions', 'by_equipment', 'cs_permits', 'citywide_context']
 
 LIMITS = {'hero.h1': 60, 'hero.lede': 260, 'who.copy': 230, 'scope.heading': 80, 'faq.1.a': 220, 'cta.body': 200,
-          'seo.title': 60, 'seo.description': 155, 'districts.4.hvac': 90}
+          'seo.title': 60, 'seo.description': 155}
 for i in range(1, 5):
     LIMITS[f'reviews.{i}.quote'] = 520
     LIMITS[f'buildings.{i}.tag'] = 12
@@ -35,8 +38,11 @@ for i in range(1, 5):
     LIMITS[f'buildings.{i}.body'] = 120
     LIMITS[f'districts.{i}.name'] = 24
     LIMITS[f'districts.{i}.intro'] = 110
-for i in range(1, 4):
+for i in range(1, 5):
     LIMITS[f'districts.{i}.hvac'] = 90
+for i in range(1, 7):
+    LIMITS[f'nearby.{i}.name'] = 26
+    LIMITS[f'nearby.{i}.text'] = 110
 for i in range(1, 6):
     LIMITS[f'scope.{i}.factor'] = 32
     LIMITS[f'scope.{i}.why'] = 140
@@ -67,7 +73,11 @@ def audit(path, picks_count):
     p = []
     # skeleton
     p += [f'missing area key {k}' for k in AREA_KEYS if k not in a]
-    p += [f'extra area key {k}' for k in a if k not in AREA_KEYS]
+    p += [f'extra area key {k}' for k in a if k not in AREA_KEYS and k not in NEARBY_KEYS]
+    near = [i for i in range(1, 7) if a.get(f'nearby.{i}.name')]
+    if len(near) < 3:
+        p.append(f'nearby: list 3-6 bordering neighborhoods (nearby.N.name / nearby.N.text), found {len(near)}')
+    p += [f'nearby.{i}.text is empty' for i in near if not a.get(f'nearby.{i}.text')]
     p += [f'missing extras key {k}' for k in EXTRA_KEYS if k not in x]
     p += [f'extra extras key {k}' for k in x if k not in EXTRA_KEYS]
     for k in AREA_KEYS + EXTRA_KEYS:
@@ -87,6 +97,16 @@ def audit(path, picks_count):
         p.append('cs_permits is not 0')
     if str(pm.get('hvac_mentions')) != str(a.get('permits.area_count')):
         p.append('permits.area_count differs from _sources hvac_mentions')
+    # The permit bar graph: the same hvac_permits.py run as the count, copied unchanged
+    if a.get('permits.total') != pm.get('permits_in_box'):
+        p.append('permits.total differs from _sources permits_in_box')
+    if [a.get('permits.window_from'), a.get('permits.window_to')] != [pm.get('window', {}).get('from'), pm.get('window', {}).get('to')]:
+        p.append('permits.window_from / window_to differ from the _sources window')
+    if a.get('permits.by_equipment') != pm.get('by_equipment'):
+        p.append('permits.by_equipment differs from _sources by_equipment')
+    eq = a.get('permits.by_equipment') or {}
+    if isinstance(eq, dict) and eq and max(eq.values()) > int(a.get('permits.area_count') or 0):
+        p.append('a permits.by_equipment row is larger than permits.area_count')
     cw = pm.get('citywide_context', {})
     if cw.get('hvac_firms') != 1539 or cw.get('hvac_permits_24m') != 4888:
         p.append('citywide_context should be 1539 firms / 4888 permits')
@@ -101,8 +121,6 @@ def audit(path, picks_count):
             p.append(f'{k} must be exactly: {v}')
     A, T, slug = a.get('_area', ''), a.get('_area_the', ''), a.get('_slug', '')
     pat = {
-        'hero.breadcrumb': f'Home  ›  Service area  ›  {A}',
-        'hero.pill': A,
         'hero.h1': f'Heating and cooling repair in {T}, Chicago',
         'form.title': f'Book HVAC service in {T}',
         'services.heading': f'Every heating and cooling service we offer in {T}',
@@ -136,11 +154,9 @@ def audit(path, picks_count):
         p.append('seo.description should end "Family-owned since 1952. Call (773) 238-3838."')
     if not a.get('scope.heading', '').startswith('The same repair costs differently in a'):
         p.append('scope.heading pattern')
-    for i in range(1, 4):
+    for i in range(1, 5):
         if not str(a.get(f'districts.{i}.hvac', '')).startswith('HVAC here: '):
             p.append(f'districts.{i}.hvac should start "HVAC here: "')
-    if not str(x.get('districts.4.hvac', '')).startswith('HVAC here: '):
-        p.append('districts.4.hvac should start "HVAC here: "')
     # buildings consistency
     titles = [a.get(f'buildings.{i}.title') for i in range(1, 5)]
     if x.get('buildingTypeOptions') != titles:
@@ -173,7 +189,7 @@ def audit(path, picks_count):
     allowed = {A} | {a.get(f'districts.{i}.name', '') for i in range(1, 5)}
     scan = ' '.join(str(v) for k, v in {**a, **x}.items()
                     if not k.startswith('_') and k not in ('confirmNotes', 'who.copy', 'districts.chip3', 'faq.2.a')
-                    and 'quote' not in k and not k.startswith('districts.')).lower()
+                    and 'quote' not in k and not k.startswith(('districts.', 'nearby.'))).lower()
     for n in AREA_NAMES:
         if n.lower() in scan and not any(n in name for name in allowed):
             p.append(f'mentions another area: {n}')

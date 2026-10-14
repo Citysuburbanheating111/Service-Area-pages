@@ -3,14 +3,14 @@ import { notFound } from 'next/navigation'
 import { stegaClean } from 'next-sanity'
 import { Suspense } from 'react'
 
-import { AreaPageV2 } from '@/components/area/AreaPageV2'
+import { AreaPageV3 } from '@/components/area/AreaPageV3'
 import { design } from '@/components/area/design'
 import { resolveTemplate } from '@/components/area/template'
 import { areaPageSchema, jsonLd } from '@/lib/schema'
 import { areaPath } from '@/lib/siteUrl'
 import { cachedSanity, getDynamicFetchOptions } from '@/sanity/live'
 import { AREA_LIST_QUERY, AREA_PAGE_QUERY, AREA_TEMPLATE_QUERY } from '@/sanity/queries'
-import type { AreaPageData, AreaTemplateData } from '@/sanity/types'
+import type { AreaListItem, AreaPageData, AreaTemplateData } from '@/sanity/types'
 
 // Public URL: /service-area/<slug>/ (next.config.ts rewrites it to this route).
 type Props = PageProps<'/service-areas/[slug]'>
@@ -60,10 +60,12 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 // params is awaited outside any Suspense boundary so every URL gets its own complete HTML.
 export default async function AreaPage({ params }: Props) {
   const { slug } = await params
-  const [{ data }, { data: tpl }] = await Promise.all([
+  const [{ data }, { data: tpl }, { data: list }] = await Promise.all([
     cachedSanity({ query: AREA_PAGE_QUERY, params: { slug }, ...published }),
     // The shared Service area template (one document for every area page)
     cachedSanity({ query: AREA_TEMPLATE_QUERY, ...published }),
+    // The other published area pages, for "Other neighbourhoods we serve"
+    cachedSanity({ query: AREA_LIST_QUERY, ...published }),
   ])
   const page = data as AreaPageData | null
   const template = resolveTemplate(tpl as AreaTemplateData | null)
@@ -73,7 +75,7 @@ export default async function AreaPage({ params }: Props) {
       {live && (
         <div className="cs-published" style={{ display: 'contents' }}>
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(areaPageSchema(live, template, metaFor(live))) }} />
-          <AreaPageV2 page={live} template={template} preview={false} />
+          <AreaPageV3 page={live} template={template} others={(list ?? []) as AreaListItem[]} preview={false} />
         </div>
       )}
       <Suspense fallback={null}>
@@ -92,16 +94,17 @@ async function PreviewAware({ slug, hasPublished }: { slug: string; hasPublished
     if (!hasPublished) notFound()
     return null
   }
-  const [{ data }, { data: tpl }] = await Promise.all([
+  const [{ data }, { data: tpl }, { data: list }] = await Promise.all([
     cachedSanity({ query: AREA_PAGE_QUERY, params: { slug }, perspective, variant, stega }),
     cachedSanity({ query: AREA_TEMPLATE_QUERY, perspective, variant, stega }),
+    cachedSanity({ query: AREA_LIST_QUERY, ...published }),
   ])
   const page = data as AreaPageData | null
   if (!page || !stegaClean(page.slug)) notFound()
   return (
     <>
       <style>{'.cs-published{display:none!important}'}</style>
-      <AreaPageV2 page={page} template={resolveTemplate(tpl as AreaTemplateData | null)} preview />
+      <AreaPageV3 page={page} template={resolveTemplate(tpl as AreaTemplateData | null)} others={(list ?? []) as AreaListItem[]} preview />
     </>
   )
 }

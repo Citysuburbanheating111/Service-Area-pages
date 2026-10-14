@@ -59,6 +59,7 @@ export const areaPage = defineType({
     { name: 'districts', title: 'B9 Districts', icon: EarthGlobeIcon },
     { name: 'buildings', title: 'B10 Buildings', icon: HomeIcon },
     { name: 'permits', title: 'B11 Permits', icon: ClipboardIcon },
+    { name: 'nearby', title: 'Nearby', icon: EarthGlobeIcon },
     { name: 'faq', title: 'B12 FAQ', icon: HelpCircleIcon },
     { name: 'cta', title: 'B13 CTA', icon: PinIcon },
     { name: 'seo', title: 'SEO', icon: SearchIcon },
@@ -476,6 +477,60 @@ export const areaPage = defineType({
           description: 'e.g. "West Loop permits in 24 months that even mention HVAC equipment."',
           type: 'string',
           validation: (r) => r.required(),
+        }),
+        defineField({
+          name: 'totalPermits',
+          title: 'All permits in the area (same 24 months)',
+          description: "Every building permit inside the area's boundary, for the data-source line.",
+          type: 'number',
+          validation: (r) => r.integer().min(0),
+        }),
+        defineField({ name: 'windowFrom', title: 'Window: from', type: 'date' }),
+        defineField({ name: 'windowTo', title: 'Window: to', type: 'date' }),
+        defineField({
+          name: 'byEquipment',
+          title: 'By equipment',
+          description: 'How many of the area HVAC permits name each kind of equipment (one permit can name several). Shown as the bar graph.',
+          type: 'array',
+          of: [
+            defineArrayMember({
+              name: 'equipmentCount',
+              type: 'object',
+              fields: [
+                defineField({ name: 'label', title: 'Equipment', type: 'string', validation: (r) => r.required() }),
+                defineField({ name: 'count', title: 'Permits', type: 'number', validation: (r) => r.required().integer().min(0) }),
+              ],
+              preview: { select: { title: 'label', subtitle: 'count' } },
+            }),
+          ],
+        }),
+      ],
+    }),
+
+    // ── Nearby neighbourhoods ──────────────────────────────
+    defineField({
+      name: 'nearby',
+      title: 'Neighborhoods next to this area',
+      description: 'Up to six bordering neighborhoods, each with one line on how its buildings differ. A card links to its area page when one is published. Leave empty to list the other published area pages instead.',
+      type: 'object',
+      group: 'nearby',
+      fields: [
+        defineField({
+          name: 'items',
+          title: 'Neighborhoods',
+          type: 'array',
+          of: [
+            defineArrayMember({
+              name: 'nearbyArea',
+              type: 'object',
+              fields: [
+                defineField({ name: 'name', title: 'Name', type: 'string', validation: (r) => r.required() }),
+                defineField({ name: 'text', title: 'One line', type: 'string', validation: (r) => r.required().max(110) }),
+              ],
+              preview: { select: { title: 'name', subtitle: 'text' } },
+            }),
+          ],
+          validation: (r) => r.max(6),
         }),
       ],
     }),
