@@ -1,8 +1,8 @@
-import { serviceIcons } from '@/lib/site'
+import { design } from './design'
 
-type Props = { name: keyof typeof serviceIcons; size?: number; strokeWidth?: number }
+type Props = { name: string; size?: number; strokeWidth?: number }
 
-// The design's line icons. Markup is a static constant from src/lib/site.ts, never user content.
+// The design's 24×24 line icons. Markup is a static constant from design-data.json, never user content.
 export function Icon({ name, size = 20, strokeWidth = 1.8 }: Props) {
   return (
     <svg
@@ -15,7 +15,12 @@ export function Icon({ name, size = 20, strokeWidth = 1.8 }: Props) {
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
-      dangerouslySetInnerHTML={{ __html: serviceIcons[name] }}
+      dangerouslySetInnerHTML={{ __html: design.icons[name] ?? '' }}
     />
   )
+}
+
+/** Google "G" mark (static markup). */
+export function GLogo() {
+  return <span style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: design.gLogo }} />
 }

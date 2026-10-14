@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { stegaClean } from 'next-sanity'
 import { Suspense } from 'react'
 
-import { AreaPageView } from '@/components/area/AreaPageView'
+import { AreaPageV2 } from '@/components/area/AreaPageV2'
 import { cachedSanity, getDynamicFetchOptions } from '@/sanity/live'
 import { AREA_PAGE_QUERY } from '@/sanity/queries'
 import type { AreaPageData } from '@/sanity/types'
@@ -37,5 +37,5 @@ async function AreaRoute({ params }: Pick<Props, 'params'>) {
   if (!page || !stegaClean(page.slug)) notFound()
 
   // Drafts are only visible in preview (draft mode); published visitors never see placeholders.
-  return <AreaPageView page={page} preview={perspective !== 'published'} />
+  return <AreaPageV2 page={page} preview={perspective !== 'published'} />
 }

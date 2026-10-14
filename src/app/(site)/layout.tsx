@@ -4,7 +4,11 @@ import { Suspense } from 'react'
 
 import { SanityLive } from '@/sanity/live'
 
-import './site.css'
+// The shared design (synced from the design-system site), then the Next-only additions
+import './design/live-chrome.css'
+import './design/area-page.css'
+import './design/area-page-v2.css'
+import './next-only.css'
 
 export default function SiteLayout({ children }: LayoutProps<'/'>) {
   return (

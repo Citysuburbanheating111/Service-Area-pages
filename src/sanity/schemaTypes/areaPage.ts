@@ -21,13 +21,13 @@ import { StarIcon } from '@sanity/icons/Star'
 import { ThListIcon } from '@sanity/icons/ThList'
 import { UserIcon } from '@sanity/icons/User'
 import { WarningOutlineIcon } from '@sanity/icons/WarningOutline'
-import { defineArrayMember, defineField, defineType } from 'sanity'
+import { defineArrayMember, defineField, defineType, type ArrayRule } from 'sanity'
 
 const LEDE_ENDING = 'Family-owned since 1952, with the owner, Rob, still on the calls.'
 const FIXED_FAQS = ['Does HVAC repair in Chicago need a permit?', 'What are your hours?']
 
 // Exactly `n` items in an array (playbook: fixed card counts per block).
-const exactly = (n: number) => (rule: any) =>
+const exactly = (n: number) => (rule: ArrayRule<unknown[]>) =>
   rule.required().min(n).max(n).error(`This block uses exactly ${n} items.`)
 
 // A {title, text} card, used by several blocks.
@@ -171,8 +171,8 @@ export const areaPage = defineType({
           description: 'Pre-selected option. Must match one of the options above.',
           type: 'string',
           validation: (r) =>
-            r.required().custom((v: string | undefined, ctx: any) => {
-              const opts: string[] = ctx.parent?.buildingTypeOptions ?? []
+            r.required().custom((v: string | undefined, ctx) => {
+              const opts: string[] = (ctx.parent as { buildingTypeOptions?: string[] } | undefined)?.buildingTypeOptions ?? []
               return !v || opts.includes(v) ? true : 'Must be one of the building type options.'
             }),
         }),
