@@ -1,4 +1,5 @@
-// Synced from services-v2/service-areas/index.html by tools/sync_design_to_web.py. Edit the original, not this file.
+// Synced from services-v1/service-areas/index.html (every card) by tools/sync_design_to_web.py. Edit the original, not this file.
+// The /service-areas page keeps only the areas published in Sanity.
 export const collectionTitle = "HVAC Service Areas in Chicago · City & Suburban"
 
 export const collectionDescription = "City & Suburban Heating & Cooling service areas: heating and cooling repair across Chicago, from the West Loop and West Town to Rogers Park, Pilsen and Logan Square. Family-owned since 1952."
