@@ -1,0 +1,146 @@
+{
+ "area": {
+  "_area": "Rogers Park",
+  "_area_the": "Rogers Park",
+  "_slug": "rogers-park",
+  "hero.breadcrumb": "Home  ›  Service area  ›  Rogers Park",
+  "hero.pill": "Rogers Park",
+  "hero.h1": "Heating and cooling repair in Rogers Park, Chicago",
+  "hero.lede": "Boilers and radiators, furnaces, central air and ductless systems, for Rogers Park courtyard buildings, vintage condos, two-flats and lakefront high-rises. Family-owned since 1952, with the owner, Rob, still on the calls.",
+  "form.title": "Book HVAC service in Rogers Park",
+  "form.building_default": "Courtyard building",
+  "services.heading": "Every heating and cooling service we offer in Rogers Park",
+  "who.copy": "City & Suburban is run from 1225 N Cleaver St in West Town, about seven miles south of Rogers Park. Rob, the owner, still runs the calls and does the diagnosis on the jobs that need it.",
+  "reviews.1.tag": "No heat, rental",
+  "reviews.1.quote": "⭐⭐⭐⭐⭐ Outstanding HVAC Service — Above and Beyond I cannot say enough great things about the service we received. Our HVAC technician responded to my text at 10:00 PM the night before the coldest day of the year, which alone speaks volumes about his dedication and professionalism. He arrived on time the very next morning, was incredibly respectful of the tenant and their home, and immediately got to work diagnosing…",
+  "reviews.1.by": "Lone Williams · 2026",
+  "reviews.2.tag": "Condo furnace",
+  "reviews.2.quote": "I have dealt with City and Suburban since October 4, 2017, because it is highly dependable and efficient. Rob always comes out at a convenient time and his excellent service prevents problems from occurring. When I needed him recently to check my furnace due to water leaks related to a clogged condensation pipe above my condo unit he came out right away, and since he was already here, serviced my…",
+  "reviews.2.by": "Larry Vigon · 2025",
+  "reviews.3.tag": "Condo rooftop AC",
+  "reviews.3.quote": "We recently noticed that our roof air conditioning unit was leaking a greenish liquid and making a lot of noise, both inside and outside of our condo, so we called City & Suburban Heating & Cooling to take a look. Rob was prompt in his response and we were able to schedule an appointment on Monday of Labor Day weekend.",
+  "reviews.3.by": "Aranya Tomseth · 2021",
+  "reviews.4.tag": "AC condenser repair",
+  "reviews.4.quote": "Eddie and his coworker arrived promptly, were nice & polite, and explained their work well. I was able to see their work after. I requested they use a higher end 5-2-1 compressor saver (hard start kit) for my old outdoor AC condenser unit, and they were able to handle my request. They also cleaned up after themselves and checked my indoor unit without asking.",
+  "reviews.4.by": "Edward Lee · 2026",
+  "scope.heading": "The same repair costs differently in a courtyard building, a house and a tower",
+  "scope.1.factor": "One boiler, many units",
+  "scope.1.why": "A courtyard building's boiler heats every apartment, so the owner or association signs off before the work starts.",
+  "scope.2.factor": "Landlord or owner",
+  "scope.2.why": "In a rental the landlord books and approves the repair. Tell us who owns the system when you call.",
+  "scope.3.factor": "Cooling a radiator flat",
+  "scope.3.why": "Vintage apartments heated by radiators have no ducts, so cooling means window units or ductless mini-splits.",
+  "scope.4.factor": "Building access",
+  "scope.4.why": "Courtyard buildings and towers set the access: a key from management, service hours, the way into the boiler room.",
+  "scope.5.factor": "Shops on Morse and Clark",
+  "scope.5.why": "Restaurants and shops run rooftop units and make-up air, so visits are booked around opening hours.",
+  "scope.6.factor": "Repair or replace",
+  "scope.6.why": "The biggest swing of all. Where the unit has years left, we say so.",
+  "choose.heading": "Five questions that sort Rogers Park HVAC companies",
+  "districts.label": "ROGERS PARK, DISTRICT BY DISTRICT",
+  "districts.heading": "Howard Street to Devon, Ridge Boulevard to the lake",
+  "districts.chip1": "ZIP 60626 · 60645",
+  "districts.chip2": "Wards 49, 40",
+  "districts.chip3": "Rogers Park (1)",
+  "districts.1.name": "East Rogers Park",
+  "districts.1.intro": "Courtyard apartment buildings and vintage condos between Sheridan Road and the beaches.",
+  "districts.1.hvac": "HVAC here: central boilers and radiators, window or ductless cooling.",
+  "districts.2.name": "Glenwood Arts District",
+  "districts.2.intro": "Galleries, cafés and the Sunday market along Glenwood Avenue, by Morse station.",
+  "districts.2.hvac": "HVAC here: rooftop units for shops, boilers in the flats above.",
+  "districts.3.name": "Loyola",
+  "districts.3.intro": "The university's lakefront campus at the south end, with student apartments off Sheridan.",
+  "districts.3.hvac": "HVAC here: boilers in older blocks, ductless cooling in rentals.",
+  "districts.4.name": "Howard Street",
+  "districts.4.intro": "The northern edge at Evanston, around the Howard Red Line station and newer mixed-use buildings.",
+  "buildings.heading": "What heats and cools your Rogers Park building",
+  "buildings.1.tag": "COURTYARD",
+  "buildings.1.title": "Courtyard building",
+  "buildings.1.body": "One central boiler with radiators in every unit. The owner or association approves the work.",
+  "buildings.2.tag": "TWO-FLAT",
+  "buildings.2.title": "Two-flat or house",
+  "buildings.2.body": "A boiler for the building or a furnace per floor, with the condenser in the yard or on the garage.",
+  "buildings.3.tag": "HIGH-RISE",
+  "buildings.3.title": "Lakefront tower",
+  "buildings.3.body": "In-unit fan coils or air handlers on a building loop. Management approval and elevator booking first.",
+  "buildings.4.tag": "COMMERCIAL",
+  "buildings.4.title": "Shop or restaurant",
+  "buildings.4.body": "Rooftop units and make-up air on Morse, Clark and Howard, scheduled around opening hours.",
+  "permits.area_count": "9",
+  "permits.area_text": "Rogers Park permits in 24 months that even mention HVAC equipment.",
+  "faq.heading": "Rogers Park HVAC, answered",
+  "faq.1.q": "Our courtyard building's boiler keeps failing. Does it need replacing?",
+  "faq.1.a": "Not always. We diagnose first, and where the boiler has years left, we say so. Replacement is quoted only when repairs stop making sense for the building.",
+  "faq.2.q": "Do you come as far north as Rogers Park?",
+  "faq.3.q": "Can I get air conditioning in a radiator-heated apartment?",
+  "faq.4.q": "Does HVAC repair in Chicago need a permit?",
+  "faq.5.q": "What are your hours?",
+  "cta.body": "Have the make of your boiler, furnace or condenser to hand, and tell us what it's doing. In a courtyard building, mention who looks after the boiler."
+ },
+ "extras": {
+  "buildingTypeOptions": [
+   "Courtyard building",
+   "Two-flat or house",
+   "Lakefront tower",
+   "Shop or restaurant"
+  ],
+  "districts.4.hvac": "HVAC here: furnaces and splits in newer buildings, boilers in older ones.",
+  "faq.2.a": "Yes. The shop is at 1225 N Cleaver St in West Town, about seven miles south, and Rob runs the calls from there. Call (773) 238-3838 to book.",
+  "faq.3.a": "Usually, yes. Radiator-heated apartments have no ducts for central air, so it means a window unit or a ductless mini-split. In a rental, the landlord approves it first.",
+  "faq.4.a": "No. Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling. Permits cover installs and construction, so a company's permit count says little about its repair work.",
+  "faq.5.a": "Monday to Friday, 6:00 AM to 6:00 PM, and Saturday, 6:00 AM to 3:30 PM. Call (773) 238-3838.",
+  "seo.title": "HVAC Repair in Rogers Park, Chicago | City & Suburban",
+  "seo.description": "Boiler, furnace, AC and ductless repair for Rogers Park courtyard buildings, condos, two-flats and towers. Family-owned since 1952. Call (773) 238-3838.",
+  "confirmNotes": [
+   {
+    "block": "B1 Hero",
+    "note": "Add the hero photo. Confirm it is City & Suburban's own or licensed; tick \"Illustrative photo\" if not."
+   },
+   {
+    "block": "B3 Who you're calling",
+    "note": "Rogers Park is about seven miles from the shop, the farthest of the areas so far. Confirm Rob wants to promote it before publishing."
+   },
+   {
+    "block": "B9 Districts",
+    "note": "Boundary line uses Howard Street for the north; the far north-east corner follows Juneway Terrace. Card 4 (Howard Street) \"HVAC here\" note isn't in the Paper card; drafted from its building stock. Check both."
+   },
+   {
+    "block": "B12 FAQ",
+    "note": "Answers to questions 2–5 aren't in the Paper design (collapsed). Drafted only from facts on this page and the West Town answers. Review before publishing."
+   },
+   {
+    "block": "SEO",
+    "note": "Meta title and description are new. Review them."
+   }
+  ],
+  "_sources": {
+   "permits": {
+    "source": "City of Chicago building permits (ydr8-5enu), inside the City's Rogers Park neighborhood polygon (y6yq-dbs2), all in community area 1",
+    "window": {
+     "from": "2024-10-13",
+     "to": "2026-10-14"
+    },
+    "permits_in_area": 629,
+    "hvac_mentions": 9,
+    "by_equipment": {
+     "Furnace": 3,
+     "Boiler": 1,
+     "Air conditioning / condensing units": 3,
+     "Rooftop units": 0,
+     "Ductwork": 4,
+     "Heat pump / mini-split": 2,
+     "Kitchen exhaust / make-up air": 1
+    },
+    "cs_permits": 0
+   },
+   "shop_location": "1225 N Cleaver St: 41.9043, -87.6637. Nearest Rogers Park edge 6.5 mi north (Devon); centre 7.4 mi north.",
+   "wards": "Wards of all permits in the polygon, last 24 months: 49 (596), 40 (33).",
+   "zips": "Share of the polygon: 60626 94%, 60645 6% (City ZIP boundaries unjd-c2ca).",
+   "boundaries": "Wikipedia, Rogers Park, Chicago: Evanston along Juneway Terrace and Howard Street (north), Ridge Blvd (west), Devon Ave (south), Lake Michigan (east). Community Area 1. Glenwood Arts District, East Rogers Park, Loyola, Howard Street station: same source."
+  },
+  "reviews.1.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xGVFFsRllVa05aWW1sNlkzWnNaVTVTVjJsdWNXYxAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOlFTQlFYUkNZYml6Y3ZsZU5SV2lucWc%7C%7C?hl=en",
+  "reviews.2.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT20xeVUyOTRiMUUwV2w5dVgwMWFlVlZUZW5VMmRYYxAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOm1yU294b1E0Wl9uX01aeVVTenU2dXc%7C%7C?hl=en",
+  "reviews.3.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUQ2OEtyTXp3RRAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CIHM0ogKEICAgID68KrMzwE%7C%7C?hl=en",
+  "reviews.4.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xKdk4wSmlOVEE0WTJsVE5FSkJkbUpqZVZsd1gzYxAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOlJvN0JiNTA4Y2lTNEJBdmJjeVlwX3c%7C%7C?hl=en"
+ }
+}
