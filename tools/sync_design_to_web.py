@@ -27,7 +27,7 @@ AREAS_URL = '/service-areas/'   # area pages in the Next.js app
 
 CSS = ['area-page.css', 'area-page-v2.css', 'live-chrome.css']
 IMAGES = (['5X6SBXHGCABFYFB3GFJ2CY4MYM.webp', '6FN1CP4RYC9MBCFR4H39DJ8HAE.webp', 'live/city-suburban-transparent-logo.png',
-           'live/live-footer-logo.webp', 'v2/van-scene.webp', 'v2/family-owned-seal.webp', 'v2/photo-ac-service.webp',
+           'live/live-footer-logo.webp', 'v2/van-street.webp', 'v2/family-owned-seal.webp', 'v2/photo-ac-service.webp',
            'v2/photo-furnace-filter.webp']
           + [f'{img}.webp' for img, _, _ in v1.STEPS]
           + [f'areas/{f}' for f in os.listdir(os.path.join(ROOT, 'assets', 'areas')) if f.endswith('.webp')])
@@ -72,7 +72,7 @@ def main():
         '_note': 'Synced from tools/build_area_page.py and tools/build_area_page_v2.py by tools/sync_design_to_web.py.',
         'phone': v1.PHONE, 'tel': v1.TEL, 'live': v1.LIVE, 'gmaps': v2.GMAPS, 'shop': v2.SHOP,
         'assets': ASSETS_URL,
-        'images': {'hero': ASSETS_URL + '5X6SBXHGCABFYFB3GFJ2CY4MYM.webp', 'van': ASSETS_URL + 'v2/van-scene.webp',
+        'images': {'hero': ASSETS_URL + '5X6SBXHGCABFYFB3GFJ2CY4MYM.webp', 'van': ASSETS_URL + 'v2/van-street.webp',
                    'seal': ASSETS_URL + 'v2/family-owned-seal.webp', 'acService': ASSETS_URL + 'v2/photo-ac-service.webp',
                    'furnaceFilter': ASSETS_URL + 'v2/photo-furnace-filter.webp',
                    'logo': ASSETS_URL + 'live/city-suburban-transparent-logo.png',
