@@ -2,53 +2,51 @@ import type { Metadata } from 'next'
 import { stegaClean } from 'next-sanity'
 import { Suspense } from 'react'
 
-import { Icon } from '@/components/area/Icon'
+import { collectionCss, collectionDescription, collectionMain, collectionTitle } from '@/components/area/collectionHtml'
 import { LiveFooter, LiveHeader } from '@/components/area/LiveChrome'
 import { cachedSanity, getDynamicFetchOptions } from '@/sanity/live'
 import { AREA_LIST_QUERY } from '@/sanity/queries'
 
-export const metadata: Metadata = { title: 'Service areas · City & Suburban Heating & Cooling' }
+// The live "All service areas" collection page, synced from services-v2/service-areas/ by
+// tools/sync_design_to_web.py. Cards link to an area page only when that page exists in Sanity:
+// published pages for visitors, drafts too inside the Presentation preview.
+export const metadata: Metadata = { title: collectionTitle, description: collectionDescription }
 
-type Row = { _id: string; areaName?: string; slug?: string; h1?: string }
+type Row = { slug?: string }
 
 export default function ServiceAreasPage() {
   return (
     <>
+      <style dangerouslySetInnerHTML={{ __html: collectionCss }} />
       <LiveHeader />
-      <div className="cs v2">
-        <main className="cs-sec v2-stack">
-          <div className="v2-head">
-            <p className="cs-eyebrow">Service areas</p>
-            <h1 className="cs-h2">Chicago neighbourhoods we serve</h1>
-          </div>
-          <Suspense fallback={null}>
-            <AreaList />
-          </Suspense>
-        </main>
-      </div>
+      <Suspense fallback={<Collection html={collectionMain} />}>
+        <LinkedCollection />
+      </Suspense>
       <LiveFooter />
     </>
   )
 }
 
-async function AreaList() {
-  const { perspective, variant, stega } = await getDynamicFetchOptions()
-  const { data } = await cachedSanity({ query: AREA_LIST_QUERY, perspective, variant, stega })
-  const rows = (data ?? []) as Row[]
-  if (!rows.length) return <p className="v2-lede">No published area pages yet. Drafts appear here in the Sanity preview.</p>
-  return (
-    <ul className="v2-cos">
-      {rows.map((r) => {
-        const slug = stegaClean(r.slug) ?? ''
-        return (
-          <li key={r._id} className="v2-co">
-            <span className="badge"><Icon name="pin" size={20} /></span>
-            <h3><a href={`/service-areas/${slug}`}>{r.areaName}</a></h3>
-            <p>{r.h1}</p>
-            <a className="v2-link" href={`/service-areas/${slug}`}>Open the page<Icon name="arrow" size={16} strokeWidth={2} /></a>
-          </li>
-        )
-      })}
-    </ul>
-  )
+async function LinkedCollection() {
+  const { perspective, variant } = await getDynamicFetchOptions()
+  const { data } = await cachedSanity({ query: AREA_LIST_QUERY, perspective, variant, stega: false })
+  const slugs = new Set(((data ?? []) as Row[]).map((r) => stegaClean(r.slug)).filter((s): s is string => !!s))
+  return <Collection html={linkCards(collectionMain, slugs)} />
+}
+
+function Collection({ html }: { html: string }) {
+  return <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: html }} />
+}
+
+// Turn a card's heading into a link (stretched over the card) and add the "Open the … page" line
+function linkCards(html: string, slugs: Set<string>) {
+  // One card (<article>) at a time, so a card without an "HVAC here" line can't run into the next one
+  return html.replace(/<article class="area[^"]*"[\s\S]*?<\/article>/g, (card) => {
+    const m = card.match(/<h3 id="area-([a-z-]+)">([^<]+)<\/h3>/)
+    if (!m || !slugs.has(m[1])) return card
+    const [heading, slug, name] = m
+    return card
+      .replace(heading, `<h3 id="area-${slug}"><a class="stretch" href="/service-areas/${slug}">${name}</a></h3>`)
+      .replace(/(<p class="hvac">[\s\S]*?<\/p>)/, `$1\n          <p class="open" aria-hidden="true">Open the ${name} page <span>→</span></p>`)
+  })
 }
