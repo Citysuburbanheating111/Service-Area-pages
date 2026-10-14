@@ -52,7 +52,7 @@ S = LIVE + '/services/'
 GROUPS = [
     ('heating', 'Heating', 'Heating: furnaces, boilers and heat pumps',
      "A furnace that won't light, a boiler losing pressure, a unit that short-cycles. Diagnosis comes first, and replacement only if the unit is genuinely done.",
-     LIVE + '/service/heating/', [
+     LIVE + '/services/heating/', [
          ('wrench', 'Furnace and heater repair', 'Ignition, flame sensors, inducer motors and limit switches, found and fixed on the first visit where the part is on the van.', S + 'heating/heater-repair/'),
          ('boiler', 'Boiler service', 'Hot-water and steam boilers in vintage two-flats and converted lofts: pressure, circulators, zone valves, venting.', S + 'heating/boiler-service/'),
          ('install', 'Furnace installation and replacement', 'Sized to the unit, not the brochure. In a high-rise, routed around building rules on venting and access.', S + 'heating/heater-installation/'),
@@ -61,7 +61,7 @@ GROUPS = [
          ('hybrid', 'Hybrid heating systems', 'A heat pump paired with a gas furnace, switching over on the coldest days.', S + 'heating/hybrid-heating-systems/'),
          ('calendar', 'HVAC maintenance plans', 'Scheduled heating and cooling visits for buildings that want them on the calendar.', S + 'heating/hvac-maintenance-plans/'),
      ]),
-    ('cooling', 'Cooling', 'Cooling', '', LIVE + '/service/cooling/', [
+    ('cooling', 'Cooling', 'Cooling', '', LIVE + '/services/cooling/', [
         ('cooling', 'Ductless HVAC services', '', S + 'cooling/ductless-hvac-service/'),
         ('cooling', 'Air conditioning repair', '', S + 'cooling/air-conditioning-repair/'),
         ('cooling', 'Air conditioning maintenance', '', S + 'cooling/air-conditioning-maintenance/'),
@@ -69,14 +69,14 @@ GROUPS = [
         ('cooling', 'Cooling maintenance plans', '', S + 'cooling/cooling-maintenance-plans/'),
         ('cooling', 'Heat pump services', '', S + 'cooling/heat-pump-services/'),
     ]),
-    ('airQuality', 'Air quality', 'Air quality', '', LIVE + '/service/air-quality/', [
+    ('airQuality', 'Air quality', 'Air quality', '', LIVE + '/services/air-quality/', [
         ('airQuality', 'Dehumidifier installation', '', S + 'air-quality/dehumidifier-installation/'),
         ('airQuality', 'Indoor air quality test', '', S + 'air-quality/indoor-air-quality-test/'),
         ('airQuality', 'Duct repair', '', S + 'air-quality/duct-repair/'),
         ('airQuality', 'Duct maintenance', '', S + 'air-quality/duct-maintenance/'),
         ('airQuality', 'Humidifier & air cleaner', '', S + 'air-quality/humidifier-air-cleaner/'),
     ]),
-    ('commercial', 'Commercial', 'Commercial', '', LIVE + '/service/commercial-hvac/', [
+    ('commercial', 'Commercial', 'Commercial', '', LIVE + '/services/commercial/', [
         ('commercial', 'Commercial HVAC system installation', '', S + 'commercial/commercial-hvac-system-installation/'),
         ('commercial', 'Commercial HVAC system replacement', '', S + 'commercial/commercial-hvac-system-replacement/'),
         ('commercial', 'Emergency & routine commercial HVAC repairs', '', S + 'commercial/emergency-routine-commercial-hvac-repairs/'),
