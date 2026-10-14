@@ -1,0 +1,192 @@
+{
+ "_note": "Starting content for the Service area template (Sanity document id areaTemplate). Business facts are from citysuburbanheating.com (14 Oct 2026). Used by scripts/seed-template.mjs and as the page fallback; after seeding, edit the template in Sanity, not here.",
+ "business": {
+  "companyName": "City & Suburban Heating & Cooling",
+  "ownerName": "Rob",
+  "phone": "(773) 238-3838",
+  "email": "service@citysuburbanheating.com",
+  "addressShort": "1225 N Cleaver St",
+  "addressFull": "1225 North Cleaver Street, Chicago, Illinois 60642",
+  "mapsUrl": "https://www.google.com/maps/place/City+%26+Suburban+Heating+%26+Cooling/@41.90408,-87.6634153,17z/data=!4m8!3m7!1s0x880fd302d5248501:0xb1c6abfab8cf849b!8m2!3d41.9042251!4d-87.6635221!9m1!1b1",
+  "hours": "24/7",
+  "foundedYear": 1952,
+  "experience": "50+ years experience",
+  "licensing": "Licensed, NATE-certified technicians",
+  "rating": 4.98,
+  "reviewCount": 204,
+  "ratingAsOf": "31 Aug 2026",
+  "reviewerNames": [
+   "Rob",
+   "Eddie",
+   "Carissa",
+   "Frank",
+   "Nate",
+   "Sam",
+   "Andy",
+   "Mike"
+  ]
+ },
+ "hero": {
+  "badges": [
+   "Family owned since 1952",
+   "Price agreed before any work starts"
+  ],
+  "stripTitle": "On the job, around {area}"
+ },
+ "form": {
+  "promise": "The person who diagnoses your system is the person who quotes it.",
+  "issueOptions": [
+   "No heat or no cooling",
+   "Strange noise or smell",
+   "Tune-up or maintenance",
+   "Replacement quote",
+   "Something else"
+  ],
+  "submitLabel": "Request a diagnosis",
+  "reassurance": "Price agreed before any work starts."
+ },
+ "services": {
+  "pill": "From city to suburbs",
+  "intro": "24 services in four groups, from a furnace that won't light to a restaurant's make-up air unit."
+ },
+ "price": {
+  "eyebrow": "What changes the price",
+  "intro": "We don't publish a price book, and we're not going to invent one here. What we can show you is what moves the number.",
+  "medianValue": "$6,807",
+  "medianCaption": "Median reported value of 81 central-furnace replacement permits in Chicago over 24 months. That's the whole project's construction value, not a quote."
+ },
+ "choose": {
+  "eyebrow": "How to choose",
+  "lede": "Ask them of anyone you call, including us.",
+  "questions": [
+   {
+    "title": "Who diagnoses, and who quotes?",
+    "text": "If they're different people, ask who owns the outcome. Here it's Rob for both."
+   },
+   {
+    "title": "Is the technician on commission?",
+    "text": "Commission on replacements changes what \"your furnace is done\" means."
+   },
+   {
+    "title": "Does a permit count mean anything here?",
+    "text": "Not for repairs. Chicago doesn't permit HVAC repair or maintenance, so a permit count only measures installs."
+   },
+   {
+    "title": "What do the newest reviews say?",
+    "text": "Read the last 20, not the top 5. Look for names and specifics."
+   },
+   {
+    "title": "Will they tell you to keep it?",
+    "text": "Ask if the unit has years left. Our reviewers record hearing \"yes\"."
+   }
+  ]
+ },
+ "companies": {
+  "eyebrow": "Kinds of HVAC company",
+  "heading": "Who you'll meet, and what limits each of them",
+  "items": [
+   {
+    "title": "Family-owned, since 1952",
+    "text": "The owner answers and quotes. Limit: one family's capacity, so peak-winter days fill up.",
+    "us": true
+   },
+   {
+    "title": "National franchise",
+    "text": "Response time is genuinely good. Limit: commission and price books shape the recommendation.",
+    "us": false
+   },
+   {
+    "title": "One-van independent",
+    "text": "The work is often excellent. Limit: one person, so a January no-heat call can wait days.",
+    "us": false
+   },
+   {
+    "title": "Lead marketplace",
+    "text": "Several quotes fast. Limit: you don't choose who calls back, or who turns up.",
+    "us": false
+   }
+  ]
+ },
+ "about": {
+  "eyebrow": "About City & Suburban",
+  "heading": "Who you're actually calling?",
+  "lead": "One family. Second generation. Since 1952.",
+  "ownerTile": "Owner-operator. He runs the calls himself, so the person who quotes is the person accountable.",
+  "foundedTile": "74 years, family owned, now in its second generation.",
+  "permitTile": "Permits on record. Chicago doesn't permit HVAC repair, which is most of what we do.",
+  "hoursTile": "Working hours. Call any time.",
+  "promises": [
+   {
+    "title": "The owner on the call",
+    "text": "Rob still runs the calls and does the diagnosis on the jobs that need it."
+   },
+   {
+    "title": "Repair first",
+    "text": "If the unit has years left, we say so and repair it."
+   },
+   {
+    "title": "The price before the work",
+    "text": "You hear the price before any work starts."
+   }
+  ]
+ },
+ "reviews": {
+  "eyebrow": "What customers say",
+  "heading": "Why Chicago homeowners keep calling the same family",
+  "intro": "Quoted word for word from Google, never edited. Several reviewers were told their old unit still had years left."
+ },
+ "process": {
+  "heading": "From the first call to a warm apartment, in six steps",
+  "steps": [
+   {
+    "title": "You call, Rob listens",
+    "text": "Tell us the make of the furnace or condenser and what it's doing. A good description often narrows it down on the phone."
+   },
+   {
+    "title": "Pick a time",
+    "text": "We're available 24/7. If your building has rules on access, like elevator or work hours, tell us and we book around them."
+   },
+   {
+    "title": "On-site diagnosis",
+    "text": "The technician finds the actual fault: ignition, pressure, refrigerant, airflow or controls."
+   },
+   {
+    "title": "Honest price, repair first",
+    "text": "You hear the price before any work. If the unit has years left, we say so and repair it."
+   },
+   {
+    "title": "We fix it",
+    "text": "Repairs done on the spot where the part is on the van. Installs are scheduled and quoted separately."
+   },
+   {
+    "title": "Good to go",
+    "text": "The system is tested through a full cycle before we leave, and you know what to watch for."
+   }
+  ]
+ },
+ "permits": {
+  "eyebrow": "The permit record, honestly",
+  "heading": "Why you won't find us in the City's permit file",
+  "text": "Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling, which is most of what we do. The permit file measures construction, not service. So when a company waves a permit count at you, ask how much of their work is repair.",
+  "citywideNumber": "1,539",
+  "citywideCaption": "Firms that pull HVAC permits citywide, across 4,888 permits in 24 months.",
+  "ourNumber": "0",
+  "ourCaption": "Permits on record for City & Suburban. We said we'd be honest."
+ },
+ "faq": {
+  "items": [
+   {
+    "question": "Does HVAC repair in Chicago need a permit?",
+    "answer": "No. Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling. Permits cover installs and construction, so a company's permit count says little about its repair work."
+   },
+   {
+    "question": "What are your hours?",
+    "answer": "Our working hours are 24/7. Call (773) 238-3838."
+   }
+  ]
+ },
+ "cta": {
+  "eyebrow": "Your next step",
+  "heading": "No heat, no cooling, or just a question?"
+ }
+}

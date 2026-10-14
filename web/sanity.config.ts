@@ -10,6 +10,7 @@ import { structureTool } from 'sanity/structure'
 
 import { apiVersion, dataset, projectId } from './src/sanity/env'
 import { schema } from './src/sanity/schemaTypes'
+import { TEMPLATE_ID } from './src/sanity/schemaTypes/areaTemplate'
 
 export default defineConfig({
   name: 'city-suburban',
@@ -17,9 +18,31 @@ export default defineConfig({
   basePath: '/studio',
   projectId,
   dataset,
-  schema,
+  schema: {
+    ...schema,
+    // The template is a single document: it can't be created again from "+ Create"
+    templates: (templates) => templates.filter((t) => t.schemaType !== 'areaTemplate'),
+  },
+  document: {
+    // ...or duplicated or deleted
+    actions: (actions, { schemaType }) =>
+      schemaType === 'areaTemplate' ? actions.filter((a) => !['duplicate', 'delete', 'unpublish'].includes(a.action ?? '')) : actions,
+  },
   plugins: [
-    structureTool(),
+    structureTool({
+      // The shared template first, then the area pages
+      structure: (S) =>
+        S.list()
+          .title('Content')
+          .items([
+            S.listItem()
+              .title('Service area template')
+              .id(TEMPLATE_ID)
+              .child(S.document().schemaType('areaTemplate').documentId(TEMPLATE_ID).title('Service area template')),
+            S.divider(),
+            S.documentTypeListItem('areaPage').title('Service area pages'),
+          ]),
+    }),
     // Live preview: the page next to its fields, drafts included, click any text to edit it
     presentationTool({
       title: 'Preview',
@@ -34,6 +57,11 @@ export default defineConfig({
         ]),
         // "Used on" links shown at the top of each document
         locations: {
+          // The template shows on every area page
+          areaTemplate: defineLocations({
+            message: 'Shared by every service area page',
+            locations: [{ title: 'All service areas', href: '/service-areas' }],
+          }),
           areaPage: defineLocations({
             select: { title: 'areaName', slug: 'slug.current' },
             resolve: (doc) => ({

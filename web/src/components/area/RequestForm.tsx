@@ -4,19 +4,31 @@
 import { stegaClean } from 'next-sanity'
 import { useRef, useState, type FormEvent } from 'react'
 
-import { design } from './design'
 import { Icon } from './Icon'
+import { telHref } from './template'
 
 const ISSUES = ['No heat or no cooling', 'Strange noise or smell', 'Tune-up or maintenance', 'Replacement quote', 'Something else']
 
-type Props = { title?: string; buildingOptions: string[]; defaultBuilding?: string; issueOptions?: string[]; crossStreets: string }
+// Texts come from the Service area template; the title and building types from the area page
+type Props = {
+  title?: string
+  buildingOptions: string[]
+  defaultBuilding?: string
+  issueOptions?: string[]
+  crossStreets: string
+  promise: string
+  submitLabel: string
+  reassurance: string
+  phone: string
+  ownerName: string
+}
 
-export function RequestForm({ title, buildingOptions, defaultBuilding, issueOptions, crossStreets }: Props) {
+export function RequestForm({ title, buildingOptions, defaultBuilding, issueOptions, crossStreets, promise, submitLabel, reassurance, phone: phoneNumber, ownerName }: Props) {
   const [phoneError, setPhoneError] = useState(false)
   const [sent, setSent] = useState(false)
   const phone = useRef<HTMLInputElement>(null)
   const msg = useRef<HTMLParagraphElement>(null)
-  // Sanity can list its own options; the five standard ones are the fallback
+  // The template lists the options; the five standard ones are the fallback
   const issues = issueOptions && issueOptions.length > 1 ? issueOptions : ISSUES
   const selected = buildingOptions.find((o) => stegaClean(o) === stegaClean(defaultBuilding))
 
@@ -32,7 +44,7 @@ export function RequestForm({ title, buildingOptions, defaultBuilding, issueOpti
   return (
     <form className="v2-form" id="request" noValidate aria-labelledby="request-title" onSubmit={submit}>
       <h2 id="request-title">{title}</h2>
-      <p className="sub">The person who diagnoses your system is the person who quotes it.</p>
+      <p className="sub">{promise}</p>
       <fieldset>
         <legend><span className="n">1</span>Your details</legend>
         <div className="v2-row2">
@@ -40,7 +52,7 @@ export function RequestForm({ title, buildingOptions, defaultBuilding, issueOpti
           <div className="cs-field"><label htmlFor="rq-phone">Phone</label>
             <input id="rq-phone" name="phone" type="tel" autoComplete="tel" required ref={phone} aria-invalid={phoneError} aria-describedby="rq-phone-err" /></div>
         </div>
-        <span className="err" id="rq-phone-err" hidden={!phoneError}>Enter a phone number so Rob can call you back.</span>
+        <span className="err" id="rq-phone-err" hidden={!phoneError}>Enter a phone number so {ownerName} can call you back.</span>
         <div className="cs-field"><label htmlFor="rq-street">Street or cross streets</label>
           <div className="v2-ic-input"><Icon name="pin" size={18} /><input id="rq-street" name="street" autoComplete="street-address" placeholder={crossStreets} /></div></div>
       </fieldset>
@@ -59,10 +71,10 @@ export function RequestForm({ title, buildingOptions, defaultBuilding, issueOpti
             ))}
           </div></div>
       </fieldset>
-      <button className="cs-btn cs-btn-red" type="submit">Request a diagnosis<Icon name="arrow" size={16} strokeWidth={2} /></button>
-      <p className="v2-reassure"><Icon name="check" size={16} strokeWidth={2.2} />Price agreed before any work starts.</p>
+      <button className="cs-btn cs-btn-red" type="submit">{submitLabel}<Icon name="arrow" size={16} strokeWidth={2} /></button>
+      <p className="v2-reassure"><Icon name="check" size={16} strokeWidth={2.2} />{reassurance}</p>
       <p className="cs-form-msg" role="status" tabIndex={-1} ref={msg} hidden={!sent}>
-        Thanks. This preview form isn&apos;t connected yet, so nothing was sent. To book now, call <a href={design.tel}>{design.phone}</a>.
+        Thanks. This preview form isn&apos;t connected yet, so nothing was sent. To book now, call <a href={telHref(phoneNumber)}>{phoneNumber}</a>.
       </p>
     </form>
   )
