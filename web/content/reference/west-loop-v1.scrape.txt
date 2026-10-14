@@ -1,0 +1,440 @@
+top	span	Service area page · West Loop · draft v1
+top	a	← All service areas
+top	a	Playbook
+top	span	Trusted HVAC Experts 'From City to Suburbs'
+top	span	Hours: Mon–Fri 6 AM–6 PM · Sat 6 AM–3:30 PM
+top	span	4.98
+top	span	★★★★★
+top	a	Finance
+top	a	About Us
+top	a	Contact Us
+header:site-header	SECTION	site-header
+header:site-header	a	Heating
+header:site-header	a	Heater repair
+header:site-header	a	Boiler Services
+header:site-header	a	Heat Pump
+header:site-header	a	Hybrid Heating Systems
+header:site-header	a	HVAC Maintenance Plans
+header:site-header	a	Heater Installation
+header:site-header	a	Heater Maintenance
+header:site-header	a	Cooling
+header:site-header	a	Ductless HVAC Services
+header:site-header	a	Air Conditioning Repair
+header:site-header	a	Air Conditioning Maintenance
+header:site-header	a	Air Conditioning Installation
+header:site-header	a	Cooling Maintenance Plans
+header:site-header	a	Heat Pump Services
+header:site-header	a	Air Quality
+header:site-header	a	Dehumidifier Installation
+header:site-header	a	Indoor Air Quality Test
+header:site-header	a	Duct Repair
+header:site-header	a	Duct Maintenance
+header:site-header	a	Humidifier & Air Cleaner
+header:site-header	a	Commercial
+header:site-header	a	Commercial HVAC System Installation
+header:site-header	a	Commercial HVAC System Replacement
+header:site-header	a	Emergency & Routine Commercial HVAC Repairs
+header:site-header	a	Energy-Efficient HVAC Upgrades
+header:site-header	a	Custom HVAC Maintenance Plan
+header:site-header	a	Ductwork Design & Repair Services
+header:site-header	a	Services
+header:site-header	a	Heating Services
+header:site-header	a	Cooling Services
+header:site-header	a	Air Quality Services
+header:site-header	a	Commercial HVAC Services
+header:site-header	a	All Services →
+header:site-header	a	Service Areas
+header:site-header	a	Wicker Park
+header:site-header	a	West Loop
+header:site-header	a	West Town
+header:site-header	a	Lincoln Park
+header:site-header	a	Pilsen
+header:site-header	a	Rogers Park
+header:site-header	a	Bucktown
+header:site-header	a	Logan Square
+header:site-header	a	Humboldt Park
+header:site-header	a	All Service Areas →
+header:site-header	href	tel:+17732383838
+header:site-header	small	Call
+header:site-header	span	(773) 238-3838
+header:site-header	a	Schedule Service
+header:site-header	summary	Heating
+header:site-header	a	All Heating
+header:site-header	a	Heater repair
+header:site-header	a	Boiler Services
+header:site-header	a	Heat Pump
+header:site-header	a	Hybrid Heating Systems
+header:site-header	a	HVAC Maintenance Plans
+header:site-header	a	Heater Installation
+header:site-header	a	Heater Maintenance
+header:site-header	summary	Cooling
+header:site-header	a	All Cooling
+header:site-header	a	Ductless HVAC Services
+header:site-header	a	Air Conditioning Repair
+header:site-header	a	Air Conditioning Maintenance
+header:site-header	a	Air Conditioning Installation
+header:site-header	a	Cooling Maintenance Plans
+header:site-header	a	Heat Pump Services
+header:site-header	summary	Air Quality
+header:site-header	a	All Air Quality
+header:site-header	a	Dehumidifier Installation
+header:site-header	a	Indoor Air Quality Test
+header:site-header	a	Duct Repair
+header:site-header	a	Duct Maintenance
+header:site-header	a	Humidifier & Air Cleaner
+header:site-header	summary	Commercial
+header:site-header	a	All Commercial
+header:site-header	a	Commercial HVAC System Installation
+header:site-header	a	Commercial HVAC System Replacement
+header:site-header	a	Emergency & Routine Commercial HVAC Repairs
+header:site-header	a	Energy-Efficient HVAC Upgrades
+header:site-header	a	Custom HVAC Maintenance Plan
+header:site-header	a	Ductwork Design & Repair Services
+header:site-header	summary	Services
+header:site-header	a	All Services
+header:site-header	a	Heating Services
+header:site-header	a	Cooling Services
+header:site-header	a	Air Quality Services
+header:site-header	a	Commercial HVAC Services
+header:site-header	summary	Service Areas
+header:site-header	a	All Service Areas
+header:site-header	a	Wicker Park
+header:site-header	a	West Loop
+header:site-header	a	West Town
+header:site-header	a	Lincoln Park
+header:site-header	a	Pilsen
+header:site-header	a	Rogers Park
+header:site-header	a	Bucktown
+header:site-header	a	Logan Square
+header:site-header	a	Humboldt Park
+header:site-header	a	Finance
+header:site-header	a	About Us
+header:site-header	a	Contact Us
+header:site-header	a	Schedule Service
+header:site-header	href	tel:+17732383838
+header:site-header	a	Call Us
+header:site-header	a	Schedule Service
+main:	SECTION	
+section:hero-title	SECTION	cs-hero on-dark
+section:hero-title	a	Home
+section:hero-title	a	Service area
+section:hero-title	li	West Loop
+section:hero-title	span	West Loop
+section:hero-title	h1	Heating and cooling repair in the West Loop, Chicago
+section:hero-title	p	Furnaces, boilers, central air, ductless systems and restaurant make-up air, for West Loop lofts, high-rise condos, townhomes and kitchens. Family-owned since 1952, with the owner, Rob, still on the calls.
+section:hero-title	href	tel:+17732383838
+section:hero-title	a	Call (773) 238-3838
+section:hero-title	a	Schedule service
+section:hero-title	h2	Book HVAC service in the West Loop
+section:hero-title	p	The person who diagnoses your system is the person who quotes it.
+section:hero-title	label	Name
+section:hero-title	label	Phone
+section:hero-title	span	Enter a phone number so Rob can call you back.
+section:hero-title	label	Building type
+section:hero-title	option	Converted warehouse loft
+section:hero-title	option	High-rise condo
+section:hero-title	option	Condo or townhome
+section:hero-title	option	Restaurant or office
+section:hero-title	label	What's happening?
+section:hero-title	option	No heat or no cooling
+section:hero-title	option	Strange noise or smell
+section:hero-title	option	Tune-up or maintenance
+section:hero-title	option	Replacement quote
+section:hero-title	option	Something else
+section:hero-title	button	Request a diagnosis
+section:hero-title	p	Price agreed before any work starts.
+section:hero-title	p	Thanks. This preview form isn't connected yet, so nothing was sent. To book now, call
+section:hero-title	href	tel:+17732383838
+section:hero-title	a	(773) 238-3838
+section:hero-title	p	.
+section:hero-title	li	Chicago local
+section:hero-title	li	Family owned
+section:hero-title	li	Since 1952
+section:hero-title	b	4.98
+section:hero-title	span	★★★★★
+section:hero-title	small	204 Google reviews
+section:services-title	SECTION	cs-services
+section:services-title	span	From city to suburbs
+section:services-title	h2	Every heating and cooling service we offer in the West Loop
+section:services-title	p	24 services in four groups, from a furnace that won't light to a restaurant's make-up air unit.
+section:services-title	span	Heating
+section:services-title	span	7
+section:services-title	span	Cooling
+section:services-title	span	6
+section:services-title	span	Air quality
+section:services-title	span	5
+section:services-title	span	Commercial
+section:services-title	span	6
+section:services-title	b	No heat in January?
+section:services-title	span	Call
+section:services-title	href	tel:+17732383838
+section:services-title	a	(773) 238-3838
+section:services-title	span	. Tell us the furnace or boiler make and what it's doing.
+section:services-title	h3	Heating: furnaces, boilers and heat pumps
+section:services-title	p	A furnace that won't light, a boiler losing pressure, a unit that short-cycles. Diagnosis comes first, and replacement only if the unit is genuinely done.
+section:services-title	h4	Furnace and heater repair
+section:services-title	p	Ignition, flame sensors, inducer motors and limit switches, found and fixed on the first visit where the part is on the van.
+section:services-title	h4	Boiler service
+section:services-title	p	Hot-water and steam boilers in vintage two-flats and converted lofts: pressure, circulators, zone valves, venting.
+section:services-title	h4	Furnace installation and replacement
+section:services-title	p	Sized to the unit, not the brochure. In a high-rise, routed around building rules on venting and access.
+section:services-title	h4	Heater maintenance
+section:services-title	p	An autumn tune-up before the first cold snap: burners, heat exchanger check, filters, safeties.
+section:services-title	h4	Heat pumps
+section:services-title	p	Repair and installation, including cold-climate units for townhomes moving off gas.
+section:services-title	h4	Hybrid heating systems
+section:services-title	p	A heat pump paired with a gas furnace, switching over on the coldest days.
+section:services-title	h4	HVAC maintenance plans
+section:services-title	p	Scheduled heating and cooling visits for buildings that want them on the calendar.
+section:services-title	h3	Cooling
+section:services-title	a	All cooling services →
+section:services-title	h4	Ductless HVAC services
+section:services-title	span	See the service →
+section:services-title	h4	Air conditioning repair
+section:services-title	span	See the service →
+section:services-title	h4	Air conditioning maintenance
+section:services-title	span	See the service →
+section:services-title	h4	Air conditioning installation
+section:services-title	span	See the service →
+section:services-title	h4	Cooling maintenance plans
+section:services-title	span	See the service →
+section:services-title	h4	Heat pump services
+section:services-title	span	See the service →
+section:services-title	h3	Air quality
+section:services-title	a	All air quality services →
+section:services-title	h4	Dehumidifier installation
+section:services-title	span	See the service →
+section:services-title	h4	Indoor air quality test
+section:services-title	span	See the service →
+section:services-title	h4	Duct repair
+section:services-title	span	See the service →
+section:services-title	h4	Duct maintenance
+section:services-title	span	See the service →
+section:services-title	h4	Humidifier & air cleaner
+section:services-title	span	See the service →
+section:services-title	h3	Commercial
+section:services-title	a	All commercial services →
+section:services-title	h4	Commercial HVAC system installation
+section:services-title	span	See the service →
+section:services-title	h4	Commercial HVAC system replacement
+section:services-title	span	See the service →
+section:services-title	h4	Emergency & routine commercial HVAC repairs
+section:services-title	span	See the service →
+section:services-title	h4	Energy-efficient HVAC upgrades
+section:services-title	span	See the service →
+section:services-title	h4	Custom HVAC maintenance plan
+section:services-title	span	See the service →
+section:services-title	h4	Ductwork design & repair services
+section:services-title	span	See the service →
+section:owner-title	SECTION	cs-sec cs-owner
+section:owner-title	p	Who you're calling
+section:owner-title	h2	One family. Second generation. Since 1952.
+section:owner-title	p	City & Suburban is run from 1225 N Cleaver St, about a mile and a half north of Fulton Market. Rob, the owner, still runs the calls and does the diagnosis on the jobs that need it.
+section:owner-title	small	Names our reviewers remember
+section:owner-title	li	Rob
+section:owner-title	li	Eddie
+section:owner-title	li	Carissa
+section:owner-title	li	Frank
+section:owner-title	li	Nate
+section:owner-title	li	Sam
+section:owner-title	li	Andy
+section:owner-title	li	Mike
+section:owner-title	span	Founded
+section:owner-title	div	1952
+section:owner-title	p	74 years, family owned, now in its second generation.
+section:owner-title	span	Google rating
+section:owner-title	div	4.98
+section:owner-title	p	Across 204 Google reviews, as of 31 Aug 2026.
+section:owner-title	span	Who answers
+section:owner-title	div	Rob, the owner
+section:owner-title	p	Owner-operator. He runs the calls himself, so the person who quotes is the person accountable.
+section:reviews-title	SECTION	cs-sec cs-fog cs-reviews
+section:reviews-title	p	What customers say
+section:reviews-title	h2	Why Chicago homeowners keep calling the same family
+section:reviews-title	p	Quoted word for word from Google, never edited. Several reviewers were told their old unit still had years left.
+header:	SECTION	
+header:	span	★★★★★
+header:	span	Condo AC repair
+header:	blockquote	Rob and Carissa were soooo helpful! Rob made it out super quick for a same day AC repair, and Carissa was great staying on top of my slow-replying HOA to get the insurance info processed before Rob showed up. Prices were reasonable (very middle of the road for quotes I received), and as I heard in my neighborhood’s Facebook group I was referred from—absolutely no pushiness on trying to oversell/upgrade…
+footer:	SECTION	
+footer:	b	Brandi Clinch · 2026
+footer:	a	Read on Google
+header:	SECTION	
+header:	span	★★★★★
+header:	span	Condo furnace repair
+header:	blockquote	I had used City and Suburban at my previous condo for furnace and a/c repairs so when my furnace stopped working at my new place I knew who to call and what to expect. They answered on the first call and scheduled an appointment that fit my schedule. Gave me a heads up and arrived on time. Rob quickly diagnosed the problem, explained what was needed, went and grabbed the…
+footer:	SECTION	
+footer:	b	Ken Davis · 2026
+footer:	a	Read on Google
+header:	SECTION	
+header:	span	★★★★★
+header:	span	Condo repairs
+header:	blockquote	These folks are amazing. Timely, highly professional, quick, get things done and very courteous to boost. I had just purchased a new condo, and had several things that needed fixing, so I dealt with all sorts of repair services. City & Suburban were the only ones that explained what they would do, when they would do it and did exactly as they said without charging an absurd amount of money.
+footer:	SECTION	
+footer:	b	Jens Pfister · 2026
+footer:	a	Read on Google
+header:	SECTION	
+header:	span	★★★★★
+header:	span	AC replacement
+header:	blockquote	Rob has taken great care of our HVAC systems for several years. During his most recent seasonal service it became clear it was the right time to replace the almost 20-year-old AC units. Rob put together a reasonable estimate using top of the line equipment. The install crew was friendly, professional and showed up on time. They get full marks for hauling the equipment up five flights of stairs to…
+footer:	SECTION	
+footer:	b	Christopher Abbott · 2025
+footer:	a	Read on Google
+section:process-title	SECTION	cs-sec cs-stack
+section:process-title	p	What happens when you call
+section:process-title	h2	From the first call to a warm apartment, in six steps
+header:	SECTION	
+header:	span	01
+header:	h3	You call, Rob listens
+header:	p	Tell us the make of the furnace or condenser and what it's doing. A good description often narrows it down on the phone.
+header:	SECTION	
+header:	span	02
+header:	h3	Pick a time
+header:	p	Monday to Saturday from 6 AM. High-rise visits are booked around your building's elevator and work hours.
+header:	SECTION	
+header:	span	03
+header:	h3	On-site diagnosis
+header:	p	The technician finds the actual fault: ignition, pressure, refrigerant, airflow or controls.
+header:	SECTION	
+header:	span	04
+header:	h3	Honest price, repair first
+header:	p	You hear the price before any work. If the unit has years left, we say so and repair it.
+header:	SECTION	
+header:	span	05
+header:	h3	We fix it
+header:	p	Repairs done on the spot where the part is on the van. Installs are scheduled and quoted separately.
+header:	SECTION	
+header:	span	06
+header:	h3	Good to go
+header:	p	The system is tested through a full cycle before we leave, and you know what to watch for.
+section:price-title	SECTION	cs-sec cs-navy cs-price on-dark
+section:price-title	p	What changes the price
+section:price-title	h2	The same repair costs differently in a loft, a tower and a kitchen
+section:price-title	p	We don't publish a price book, and we're not going to invent one here. What we can show you is what moves the number.
+section:price-title	b	$6,807
+section:price-title	p	Median reported value of 81 central-furnace replacement permits in Chicago over 24 months. That's the whole project's construction value, not a quote.
+section:price-title	span	Factor
+section:price-title	span	Why it changes the work
+section:price-title	span	Rooftop access
+section:price-title	span	Condensers on loft and tower roofs mean roof hatches, ladders, and sometimes a crane for a replacement.
+section:price-title	span	Building rules
+section:price-title	span	High-rises want a certificate of insurance, a booked freight elevator and set working hours before anyone arrives.
+section:price-title	span	The system you inherited
+section:price-title	span	Steam and hot-water boilers in converted warehouses, fan coils in towers, forced air in newer mid-rises. Each is a different repair.
+section:price-title	span	Concrete and exposed ceilings
+section:price-title	span	Line sets and ductwork can't be hidden in a slab. In a loft they have to run where they look intentional.
+section:price-title	span	Restaurant kitchens
+section:price-title	span	Make-up air has to balance the hood. Work is scheduled around service on Randolph and in Fulton Market.
+section:price-title	span	Repair or replace
+section:price-title	span	The biggest swing of all. Where the unit has years left, we say so.
+section:choose-title	SECTION	cs-sec cs-fog cs-stack
+section:choose-title	p	How to choose
+section:choose-title	h2	Five questions that sort West Loop HVAC companies
+section:choose-title	p	Ask them of anyone you call, including us.
+section:choose-title	span	Q1
+section:choose-title	h3	Who diagnoses, and who quotes?
+section:choose-title	p	If they're different people, ask who owns the outcome. Here it's Rob for both.
+section:choose-title	span	Q2
+section:choose-title	h3	Is the technician on commission?
+section:choose-title	p	Commission on replacements changes what "your furnace is done" means.
+section:choose-title	span	Q3
+section:choose-title	h3	Does a permit count mean anything here?
+section:choose-title	p	Not for repairs. Chicago doesn't permit HVAC repair or maintenance, so a permit count only measures installs.
+section:choose-title	span	Q4
+section:choose-title	h3	What do the newest reviews say?
+section:choose-title	p	Read the last 20, not the top 5. Look for names and specifics.
+section:choose-title	span	Q5
+section:choose-title	h3	Will they tell you to keep it?
+section:choose-title	p	Ask if the unit has years left. Our reviewers record hearing "yes".
+section:companies-title	SECTION	cs-sec cs-stack
+section:companies-title	p	Kinds of HVAC company
+section:companies-title	h2	Who you'll meet, and what limits each of them
+section:companies-title	span	This is us
+section:companies-title	h3	Family-owned, since 1952
+section:companies-title	p	The owner answers and quotes. Limit: one family's capacity, so peak-winter days fill up.
+section:companies-title	h3	National franchise
+section:companies-title	p	Response time is genuinely good. Limit: commission and price books shape the recommendation.
+section:companies-title	h3	One-van independent
+section:companies-title	p	The work is often excellent. Limit: one person, so a January no-heat call can wait days.
+section:companies-title	h3	Lead marketplace
+section:companies-title	p	Several quotes fast. Limit: you don't choose who calls back, or who turns up.
+section:districts-title	SECTION	cs-sec cs-fog cs-stack
+section:districts-title	p	The West Loop, district by district
+section:districts-title	h2	Grand Ave to I-290, Ashland to the river
+section:districts-title	li	ZIP 60607 · 60661 · 60606
+section:districts-title	li	Wards 27, 34, 42
+section:districts-title	li	Near West Side (28)
+section:districts-title	h3	Fulton Market
+section:districts-title	p	Former cold-storage and meatpacking buildings, now offices, hotels and restaurants.
+section:districts-title	p	HVAC here: rooftop units, make-up air, steam in older lofts.
+section:districts-title	h3	Randolph Street
+section:districts-title	p	Restaurant Row, between Halsted and Racine.
+section:districts-title	p	HVAC here: kitchen make-up air, dining-room cooling, after-hours visits.
+section:districts-title	h3	West Loop Gate
+section:districts-title	p	High-rise apartments and offices around Union Station and Ogilvie.
+section:districts-title	p	HVAC here: fan coils, in-unit air handlers, building-managed access.
+section:districts-title	h3	Greektown
+section:districts-title	p	Halsted south of Madison: restaurants with condos above.
+section:districts-title	p	HVAC here: restaurant make-up air below, condo heating and cooling above.
+section:buildings-title	SECTION	cs-sec cs-stack
+section:buildings-title	p	Your building type
+section:buildings-title	h2	What heats and cools your West Loop building
+section:buildings-title	span	LOFT
+section:buildings-title	h3	Converted warehouse
+section:buildings-title	p	Steam or hot-water radiators, or split systems added later. Exposed ceilings decide where ducts go.
+section:buildings-title	span	TOWER
+section:buildings-title	h3	High-rise condo
+section:buildings-title	p	In-unit fan coils or air handlers on a building loop. Management approval and elevator booking first.
+section:buildings-title	span	MID-RISE
+section:buildings-title	h3	Condo or townhome
+section:buildings-title	p	Forced-air furnaces with roof or balcony condensers, and newer heat pumps in recent builds.
+section:buildings-title	span	COMMERCIAL
+section:buildings-title	h3	Restaurant or office
+section:buildings-title	p	Rooftop units, make-up air and exhaust. Scheduled around service and opening hours.
+section:permits-title	SECTION	cs-sec cs-permits on-dark
+section:permits-title	p	The permit record, honestly
+section:permits-title	h2	Why you won't find us in the City's permit file
+section:permits-title	p	Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling, which is most of what we do. The permit file measures construction, not service. So when a company waves a permit count at you, ask how much of their work is repair.
+section:permits-title	b	62
+section:permits-title	span	West Loop permits in 24 months that even mention HVAC equipment.
+section:permits-title	b	1,539
+section:permits-title	span	Firms that pull HVAC permits citywide, across 4,888 permits in 24 months.
+section:permits-title	b	0
+section:permits-title	span	Permits on record for City & Suburban. We said we'd be honest.
+section:faq-title	SECTION	cs-sec cs-faq
+section:faq-title	p	Questions
+section:faq-title	h2	West Loop HVAC, answered
+section:faq-title	summary	Do I need a new furnace, or can mine be repaired?
+section:faq-title	p	Often it can be repaired. We diagnose first, and where the unit has years left, we say so. Replacement is quoted only when the repair stops making sense.
+section:faq-title	summary	Do you work in West Loop high-rises?
+section:faq-title	p	Yes. Before a visit, high-rises usually want a certificate of insurance, a booked freight elevator and set working hours, so we book around your building's elevator and work hours. In towers that's often in-unit fan coils or air handlers on a building loop.
+section:faq-title	summary	Can you service the steam boiler in my loft?
+section:faq-title	p	Yes. We service hot-water and steam boilers in vintage two-flats and converted lofts: pressure, circulators, zone valves and venting.
+section:faq-title	summary	Does HVAC repair in Chicago need a permit?
+section:faq-title	p	No. Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling. Permits cover installs and construction, so a company's permit count says little about its repair work.
+section:faq-title	summary	What are your hours?
+section:faq-title	p	Monday to Friday, 6:00 AM to 6:00 PM, and Saturday, 6:00 AM to 3:30 PM. Call (773) 238-3838.
+section:cta-title	SECTION	cs-cta-wrap
+section:cta-title	h2	No heat, no cooling, or just a question?
+section:cta-title	p	Have the make of your furnace, boiler or condenser to hand, and tell us what it's doing. In a high-rise, mention your building's work hours.
+section:cta-title	href	tel:+17732383838
+section:cta-title	a	Call (773) 238-3838
+section:cta-title	a	Schedule service
+footer:live-site-footer	SECTION	
+footer:live-site-footer	p	We provide top-quality heating, ventilation, and air conditioning services tailored to your needs. Our experienced technicians deliver reliable solutions to keep you comfortable year-round.
+footer:live-site-footer	h4	Our Services
+footer:live-site-footer	a	Heating
+footer:live-site-footer	a	Cooling
+footer:live-site-footer	a	Air Quality
+footer:live-site-footer	a	Commercial
+footer:live-site-footer	h4	Need quick help?
+footer:live-site-footer	href	tel:773-238-3838
+footer:live-site-footer	a	773-238-3838
+footer:live-site-footer	a	Apply for Financing
+footer:live-site-footer	href	mailto:service@citysuburbanheating.com
+footer:live-site-footer	a	service@citysuburbanheating.com
+footer:live-site-footer	a	1225 North Cleaver Street, Chicago, Illinois 60642, United States
+footer:live-site-footer	p	Copyright © 2026 City & Suburban Heating & Cooling • All rights reserved |
+footer:live-site-footer	a	Privacy Policy
+footer:live-site-footer	p	|
+footer:live-site-footer	a	Terms Of Use

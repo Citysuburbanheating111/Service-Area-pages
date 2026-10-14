@@ -1,0 +1,150 @@
+{
+ "area": {
+  "_area": "West Town",
+  "_area_the": "West Town",
+  "_slug": "west-town",
+  "hero.breadcrumb": "Home  ›  Service area  ›  West Town",
+  "hero.pill": "West Town",
+  "hero.h1": "Heating and cooling repair in West Town, Chicago",
+  "hero.lede": "Boilers and radiators, furnaces, central air and ductless systems, for West Town two- and three-flats, workers' cottages, converted lofts and storefronts. Family-owned since 1952, with the owner, Rob, still on the calls.",
+  "form.title": "Book HVAC service in West Town",
+  "form.building_default": "Two- or three-flat",
+  "services.heading": "Every heating and cooling service we offer in West Town",
+  "who.copy": "City & Suburban is run from 1225 N Cleaver St, half a block north of Division in West Town itself. Rob, the owner, still runs the calls and does the diagnosis on the jobs that need it.",
+  "reviews.1.tag": "Boiler repair",
+  "reviews.1.quote": "Hello. When I had a problem with my boiler I called the first name I saw in the book. Because I didn’t do much research on City and Suburban I was afraid of paying a high price for service. I was incorrect. Rob Koehler showed up on time and fixed my boiler for a reasonable charge. I now had heat. Victory!",
+  "reviews.1.by": "William Gainer · 2024",
+  "reviews.2.tag": "Furnace repair",
+  "reviews.2.quote": "Great company. I called on a Sunday night because my furnace wasn’t working. The repair person was here first thing on Monday morning. Absolutely fantastic. He was friendly and knowledgeable and got my furnace running very quickly. He then reviewed various options with me for the future. It was very easy to send my payment via Zelle. Could not have gone better.",
+  "reviews.2.by": "russell karasik · 2026",
+  "reviews.3.tag": "Rooftop AC & furnace",
+  "reviews.3.quote": "Outstanding work! AC/Furnace needed replacement. Two other companies would not even quote the job due to the roof location of the compressor. C&S H&C came and provided a quote on very short notice. Most technically sound solution for our preference and price was competitive vs other quotes. Installation was scheduled right away after quote acceptance. Everything was installed within the day and so far working good.",
+  "reviews.3.by": "JC · 2026",
+  "reviews.4.tag": "AC repair",
+  "reviews.4.quote": "Our A/C stopped working during the recent heat wave. Other companies didn't return our messages, but City & Suburban answered right away and were professional and communicative throughout. Rob was able to get to our place within a few hours, and he quickly diagnosed and fixed our A/C unit. He was practical and professional, and we would definitely call again.",
+  "reviews.4.by": "Matt Feery · 2026",
+  "scope.heading": "The same repair costs differently in a two-flat, a cottage and a loft",
+  "scope.1.factor": "Boiler or forced air",
+  "scope.1.why": "Many two- and three-flats still heat with a boiler and radiators. A boiler repair is a different job from a furnace one.",
+  "scope.2.factor": "Shared systems",
+  "scope.2.why": "In two-flats and condo conversions, one boiler can serve every unit, so the owners decide on repairs together.",
+  "scope.3.factor": "Cooling without ducts",
+  "scope.3.why": "Radiator-heated flats have no ducts for central air, so cooling usually means ductless mini-splits.",
+  "scope.4.factor": "Basement and alley access",
+  "scope.4.why": "Furnaces and boilers sit in low basements; condensers go on garage roofs or in gangways off the alley.",
+  "scope.5.factor": "Lofts and storefronts",
+  "scope.5.why": "Converted lofts and shops on Chicago Ave, Division and Grand often run rooftop units, so roof access sets the work.",
+  "scope.6.factor": "Repair or replace",
+  "scope.6.why": "The biggest swing of all. Where the unit has years left, we say so.",
+  "choose.heading": "Five questions that sort West Town HVAC companies",
+  "districts.label": "WEST TOWN, DISTRICT BY DISTRICT",
+  "districts.heading": "Bloomingdale to Kinzie, Kedzie to the river",
+  "districts.chip1": "ZIP 60622 · 60642",
+  "districts.chip2": "Wards 1, 26, 27, 32, 36",
+  "districts.chip3": "West Town (24)",
+  "districts.1.name": "Ukrainian Village",
+  "districts.1.intro": "Workers' cottages, two- and three-flats and onion-domed churches, Damen to Western.",
+  "districts.1.hvac": "HVAC here: boilers and radiators, basement furnaces, ductless cooling.",
+  "districts.2.name": "East Village",
+  "districts.2.intro": "Two- and three-flats built from the 1880s to the 1920s, between Ashland and Damen.",
+  "districts.2.hvac": "HVAC here: shared boilers, a furnace per unit after conversion.",
+  "districts.3.name": "Noble Square",
+  "districts.3.intro": "Around Eckhart Park and the Noble Street churches, from Division down to Chicago Ave.",
+  "districts.3.hvac": "HVAC here: two-flat boilers, newer condos on forced air.",
+  "districts.4.name": "River West",
+  "districts.4.intro": "Warehouse lofts and newer mid-rise condos between the Kennedy and the river.",
+  "buildings.heading": "What heats and cools your West Town building",
+  "buildings.1.tag": "TWO-FLAT",
+  "buildings.1.title": "Two- or three-flat",
+  "buildings.1.body": "A shared boiler and radiators, or a furnace per unit after conversion. Condensers off the alley.",
+  "buildings.2.tag": "COTTAGE",
+  "buildings.2.title": "Workers' cottage",
+  "buildings.2.body": "Small forced-air furnaces in low basements. Ductwork is tight; ductless is often the cleaner way to cool.",
+  "buildings.3.tag": "LOFT",
+  "buildings.3.title": "Converted warehouse",
+  "buildings.3.body": "Split systems or rooftop units added in the conversion. Exposed ceilings decide where ducts go.",
+  "buildings.4.tag": "COMMERCIAL",
+  "buildings.4.title": "Storefront or restaurant",
+  "buildings.4.body": "Rooftop units, kitchen exhaust and make-up air. Scheduled around opening hours.",
+  "permits.area_count": "51",
+  "permits.area_text": "West Town permits in 24 months that even mention HVAC equipment.",
+  "faq.heading": "West Town HVAC, answered",
+  "faq.1.q": "Does the boiler in my two-flat need replacing, or can it be repaired?",
+  "faq.1.a": "Often it can be repaired. We diagnose first, and where the boiler has years left, we say so. Replacement is quoted only when the repair stops making sense.",
+  "faq.2.q": "How far is your shop from West Town?",
+  "faq.3.q": "Can you cool a radiator-heated two-flat without ductwork?",
+  "faq.4.q": "Does HVAC repair in Chicago need a permit?",
+  "faq.5.q": "What are your hours?",
+  "cta.body": "Have the make of your boiler, furnace or condenser to hand, and tell us what it's doing. In a loft or storefront, mention how we get onto the roof."
+ },
+ "extras": {
+  "buildingTypeOptions": [
+   "Two- or three-flat",
+   "Workers' cottage",
+   "Converted warehouse",
+   "Storefront or restaurant"
+  ],
+  "districts.4.hvac": "HVAC here: rooftop units and splits in lofts, forced air in newer condos.",
+  "faq.2.a": "We're in it. The shop is at 1225 N Cleaver St, half a block north of Division, and Rob runs the calls from there.",
+  "faq.3.a": "Usually, yes. Radiator-heated flats have no ducts for central air, so cooling means ductless mini-splits, with the condenser on a garage roof or in the gangway.",
+  "faq.4.a": "No. Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling. Permits cover installs and construction, so a company's permit count says little about its repair work.",
+  "faq.5.a": "Monday to Friday, 6:00 AM to 6:00 PM, and Saturday, 6:00 AM to 3:30 PM. Call (773) 238-3838.",
+  "seo.title": "HVAC Repair in West Town, Chicago | City & Suburban",
+  "seo.description": "Boiler, furnace, AC and ductless repair for West Town two-flats, cottages, lofts and storefronts. Family-owned since 1952. Call (773) 238-3838.",
+  "confirmNotes": [
+   {
+    "block": "B1 Hero",
+    "note": "Add the hero photo. Confirm it is City & Suburban's own or licensed; tick \"Illustrative photo\" if not."
+   },
+   {
+    "block": "B9 Districts",
+    "note": "River West \"HVAC here\" note isn't in the Paper card (card 4 has none). Drafted from its building stock. Check it."
+   },
+   {
+    "block": "B9 Districts",
+    "note": "ZIP chip shows 60622 · 60642, the two every source agrees on. Edges of West Town also touch 60612 and 60647; decide whether to list them."
+   },
+   {
+    "block": "B12 FAQ",
+    "note": "Answers to questions 2–5 aren't in the Paper design (collapsed). Drafted only from facts on this page and the West Loop answers. Review before publishing."
+   },
+   {
+    "block": "SEO",
+    "note": "Meta title and description are new. Review them."
+   }
+  ],
+  "_sources": {
+   "permits": {
+    "source": "City of Chicago building permits (ydr8-5enu)",
+    "window": {
+     "from": "2024-10-12",
+     "to": "2026-10-13"
+    },
+    "permits_in_box": 2456,
+    "hvac_mentions": 51,
+    "by_equipment": {
+     "Furnace": 16,
+     "Boiler": 1,
+     "Air conditioning / condensing units": 6,
+     "Rooftop units": 4,
+     "Ductwork": 20,
+     "Heat pump / mini-split": 3,
+     "Kitchen exhaust / make-up air": 8
+    },
+    "cs_permits": 0,
+    "citywide_context": {
+     "hvac_firms": 1539,
+     "hvac_permits_24m": 4888,
+     "note": "From the City Suburban permit workbook, sheet 2 Work Types. Refresh from the workbook if it has been updated."
+    }
+   },
+   "shop_location": "1225 N Cleaver St: 41.9043, -87.6637, community area 24, ward 1 (City of Chicago permit records on Cleaver St).",
+   "wards": "Wards from City permits in community area 24, last 24 months: 1 (973), 27 (486), 36 (464), 32 (308), 26 (209); 34 and 2 under 15 each.",
+   "boundaries": "Bloomingdale (north), Kinzie (south), Chicago River (east), Kedzie (west): Encyclopedia of Chicago via Chicago Public Library."
+  },
+  "reviews.1.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUNEM05ERkJBEAE!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CIHM0ogKEICAgICD3NDFBA%7C%7C?hl=en",
+  "reviews.2.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT20xVlVXRjZlRmhGWkZGRldWVkdXWFZUYVdwaE9FRRAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOm1VUWF6eFhFZFFFWVVGWXVTaWphOEE%7C%7C?hl=en",
+  "reviews.3.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xWSGRVeGlTQzFmWTNveFdXTXdSSHBDU1hGeFNXYxAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOlVHdUxiSC1fY3oxWWMwRHpCSXFxSWc%7C%7C?hl=en",
+  "reviews.4.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25OYVEyOWhOMjgwVmt0alRHMHpia1pMZEVWdFdHYxAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOnNaQ29hN280VktjTG0zbkZLdEVtWGc%7C%7C?hl=en"
+ }
+}

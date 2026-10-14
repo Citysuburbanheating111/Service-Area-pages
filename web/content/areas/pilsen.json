@@ -1,0 +1,156 @@
+{
+ "area": {
+  "_area": "Pilsen",
+  "_area_the": "Pilsen",
+  "_slug": "pilsen",
+  "hero.breadcrumb": "Home  ›  Service area  ›  Pilsen",
+  "hero.pill": "Pilsen",
+  "hero.h1": "Heating and cooling repair in Pilsen, Chicago",
+  "hero.lede": "Boilers and radiators, furnaces, central air and ductless systems, for Pilsen brick two-flats, cottages, shops with flats above and the kitchens on 18th Street. Family-owned since 1952, with the owner, Rob, still on the calls.",
+  "form.title": "Book HVAC service in Pilsen",
+  "form.building_default": "Brick two-flat",
+  "services.heading": "Every heating and cooling service we offer in Pilsen",
+  "who.copy": "City & Suburban is run from 1225 N Cleaver St, about three miles north of Pilsen, a straight run down Ashland Avenue. Rob, the owner, still runs the calls and does the diagnosis on the jobs that need it.",
+  "reviews.1.tag": "Furnace repair",
+  "reviews.1.quote": "Great company. I called on a Sunday night because my furnace wasn’t working. The repair person was here first thing on Monday morning. Absolutely fantastic. He was friendly and knowledgeable and got my furnace running very quickly. He then reviewed various options with me for the future. It was very easy to send my payment via Zelle. Could not have gone better.",
+  "reviews.1.by": "russell karasik · 2026",
+  "reviews.2.tag": "Old furnace repair",
+  "reviews.2.quote": "Three times, my experience with Suburban Heating and Cooling has exceeded my expectations. The first time I found them as a quick search, my heat went out on a Saturday morning. He was here at 9am that day to fix it. Kind, prompt, and knowledgeable. He explained what he was doing, what he thought about my old furnace, and we agreed to keep fixing it.",
+  "reviews.2.by": "Heather Sillin · 2025",
+  "reviews.3.tag": "Furnace repair, rental",
+  "reviews.3.quote": "City and suburban came recommended to me when my furnace kept going out several years ago. My landlord was sending his guy to fix this chronic issue where it kept going out, they'd fix it, it'd go out again. It was a very cold winter for me. Rob responded quickly to my message and set up an appointment. He came, identified the problem, double-checked his work and was back with…",
+  "reviews.3.by": "Sarah Alshaibi · 2024",
+  "reviews.4.tag": "Same-day furnace repair",
+  "reviews.4.quote": "Very quick response and was clear on the issue and solution! Rob came out to our place to assess the issue on our furnace and fixed it within a same day! He was transparent on the status of the furnace and provided the solution of the issue im having right away. Definitely found a local business who I can rely on that will come back for sure!",
+  "reviews.4.by": "Jaeyoon Lee · 2025",
+  "scope.heading": "The same repair costs differently in a two-flat, a cottage and a storefront",
+  "scope.1.factor": "Below-street basements",
+  "scope.1.why": "Many Pilsen houses sit below the raised street, so the boiler or furnace is in a low basement and access sets the time.",
+  "scope.2.factor": "Boiler or forced air",
+  "scope.2.why": "Pilsen's 19th-century brick two-flats often still heat with a boiler and radiators, a different job from a furnace repair.",
+  "scope.3.factor": "Older equipment",
+  "scope.3.why": "In Pilsen's oldest flats the first job can be finding the part, or telling you straight when there isn't one.",
+  "scope.4.factor": "Cooling without ducts",
+  "scope.4.why": "Pilsen's boiler-heated flats have no ducts for central air, so cooling usually means ductless mini-splits.",
+  "scope.5.factor": "Shops on 18th Street",
+  "scope.5.why": "Bakeries and restaurants run rooftop units and kitchen make-up air, so visits are booked around opening hours.",
+  "scope.6.factor": "Repair or replace",
+  "scope.6.why": "The biggest swing of all. Where the unit has years left, we say so.",
+  "choose.heading": "Five questions that sort Pilsen HVAC companies",
+  "districts.label": "PILSEN, DISTRICT BY DISTRICT",
+  "districts.heading": "16th Street to the Stevenson, Western Avenue to the river",
+  "districts.chip1": "ZIP 60608 · 60616",
+  "districts.chip2": "Wards 25, 12",
+  "districts.chip3": "Lower West Side (31)",
+  "districts.1.name": "18th Street",
+  "districts.1.intro": "Bakeries, taquerias and murals along the main street, with flats above the shops.",
+  "districts.1.hvac": "HVAC here: rooftop units, kitchen make-up air, furnaces upstairs.",
+  "districts.2.name": "East Pilsen",
+  "districts.2.intro": "The arts district along Halsted Street, with studios in old brick commercial buildings.",
+  "districts.2.hvac": "HVAC here: split systems and rooftop units in studios and lofts.",
+  "districts.3.name": "Harrison Park",
+  "districts.3.intro": "Brick two-flats and cottages around the park and the National Museum of Mexican Art.",
+  "districts.3.hvac": "HVAC here: boilers and radiators, furnaces in low basements.",
+  "districts.4.name": "Heart of Chicago",
+  "districts.4.intro": "The south-west corner, Ashland to Western below the rail line, around Oakley Avenue.",
+  "buildings.heading": "What heats and cools your Pilsen building",
+  "buildings.1.tag": "TWO-FLAT",
+  "buildings.1.title": "Brick two-flat",
+  "buildings.1.body": "A shared boiler and radiators, or a furnace per flat. Condensers on the garage or in the gangway.",
+  "buildings.2.tag": "COTTAGE",
+  "buildings.2.title": "Brick or frame cottage",
+  "buildings.2.body": "Often below the street, with the furnace or boiler in a low basement. Duct runs are short and tight.",
+  "buildings.3.tag": "MIXED-USE",
+  "buildings.3.title": "Shop with flats above",
+  "buildings.3.body": "A rooftop unit or split for the store downstairs and a furnace or boiler for the flats.",
+  "buildings.4.tag": "COMMERCIAL",
+  "buildings.4.title": "Restaurant or bakery",
+  "buildings.4.body": "Rooftop units, kitchen exhaust and make-up air on 18th Street, worked around opening hours.",
+  "permits.area_count": "12",
+  "permits.area_text": "Pilsen permits in 24 months that even mention HVAC equipment.",
+  "faq.heading": "Pilsen HVAC, answered",
+  "faq.1.q": "Is the old boiler in my Pilsen two-flat worth repairing?",
+  "faq.1.a": "Often it is. We diagnose first, and where the boiler has years left, we say so. Replacement is quoted only when the repair stops making sense.",
+  "faq.2.q": "How far is your shop from Pilsen?",
+  "faq.3.q": "Can you work on a furnace in a below-street basement?",
+  "faq.4.q": "Does HVAC repair in Chicago need a permit?",
+  "faq.5.q": "What are your hours?",
+  "cta.body": "Have the make of your boiler, furnace or condenser to hand, and tell us what it's doing. In a below-street basement, mention how we get down to it."
+ },
+ "extras": {
+  "buildingTypeOptions": [
+   "Brick two-flat",
+   "Brick or frame cottage",
+   "Shop with flats above",
+   "Restaurant or bakery"
+  ],
+  "districts.4.hvac": "HVAC here: furnaces in frame houses, boilers in the brick two-flats.",
+  "faq.2.a": "About three miles. The shop is at 1225 N Cleaver St in West Town, and Ashland Avenue runs from there straight into Pilsen. Rob runs the calls himself.",
+  "faq.3.a": "Yes. Tell us when you call that the basement sits below the street, so we know about low ceilings and tight stairs before we arrive.",
+  "faq.4.a": "No. Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling. Permits cover installs and construction, so a company's permit count says little about its repair work.",
+  "faq.5.a": "Monday to Friday, 6:00 AM to 6:00 PM, and Saturday, 6:00 AM to 3:30 PM. Call (773) 238-3838.",
+  "seo.title": "HVAC Repair in Pilsen, Chicago | City & Suburban",
+  "seo.description": "Boiler, furnace, AC and ductless repair for Pilsen two-flats, cottages, shops and 18th Street kitchens. Family-owned since 1952. Call (773) 238-3838.",
+  "confirmNotes": [
+   {
+    "block": "B1 Hero",
+    "note": "Hero keeps the shared photo (assets/5X6SBXHGCABFYFB3GFJ2CY4MYM.webp). Ask for a City & Suburban-owned or licensed photo of Pilsen; tick \"Illustrative photo\" until then."
+   },
+   {
+    "block": "B9 Districts",
+    "note": "Pilsen has no City community area of its own; the page uses the Lower West Side (31), which also holds Heart of Chicago. The boundary line names 16th Street, the Stevenson, Western Avenue and the river; the Encyclopedia of Chicago describes rail tracks on the north and west and the river on the south and east. Check the Stevenson and Western Avenue edges."
+   },
+   {
+    "block": "B9 Districts",
+    "note": "Wards chip lists 25 and 12. Wards 28 (7 permits) and 11 (3) touch the edges; decide whether to list them."
+   },
+   {
+    "block": "B6 Scope and price",
+    "note": "Factor 1 (houses below the raised street) and cottage card 2 describe Pilsen's sunken lots. Confirm the wording against what Rob sees on calls."
+   },
+   {
+    "block": "B12 FAQ",
+    "note": "Answers to questions 2–5 aren't in the Paper design (collapsed). Drafted only from facts on this page and the West Town answers. Review before publishing."
+   },
+   {
+    "block": "SEO",
+    "note": "Meta title and description are new. Review them."
+   }
+  ],
+  "_sources": {
+   "permits": {
+    "source": "City of Chicago building permits (ydr8-5enu), inside the City's Lower West Side neighborhood polygon (y6yq-dbs2), all in community area 31",
+    "window": {
+     "from": "2024-10-13",
+     "to": "2026-10-14"
+    },
+    "permits_in_box": 737,
+    "hvac_mentions": 12,
+    "by_equipment": {
+     "Furnace": 3,
+     "Boiler": 1,
+     "Air conditioning / condensing units": 1,
+     "Rooftop units": 1,
+     "Ductwork": 4,
+     "Heat pump / mini-split": 2,
+     "Kitchen exhaust / make-up air": 1
+    },
+    "cs_permits": 0,
+    "citywide_context": {
+     "hvac_firms": 1539,
+     "hvac_permits_24m": 4888,
+     "note": "From the City Suburban permit workbook, sheet 2 Work Types, as shown on the reference page."
+    }
+   },
+   "shop_location": "1225 N Cleaver St: 41.9043, -87.6637. Nearest Lower West Side edge 3.1 mi south; 18th St about 3.2 mi south. Measured as straight-line distance from the shop to the City neighborhood polygon (nearest edge and centroid), City of Chicago boundary data.",
+   "wards": "Wards of all permits in the polygon, last 24 months: 25 (690), 12 (37), 28 (7), 11 (3). ZIP shares of the City polygon: 60608 91%, 60616 9% (City ZIP boundaries unjd-c2ca).",
+   "boundaries": "Encyclopedia of Chicago / Chicago Public Library: bounded by the Chicago River on the south and east and the Burlington Northern tracks on the north and west. 18th Street corridor, Halsted arts district, Heart of Chicago (Ashland to Western, BNSF to I-55): Wikipedia, Lower West Side.",
+   "districts": "Wikipedia, Lower West Side, Chicago: 18th Street commercial corridor, the art district along Halsted (East Pilsen), Heart of Chicago (Ashland to Western, BNSF to I-55), Oakley Avenue. Harrison Park and the National Museum of Mexican Art (1852 W 19th St): Chicago Park District / museum address.",
+   "buildings": "Wikipedia, Pilsen Historic District (buildings that survived the 1871 fire; neighborhood founded 1878; NRHP 2006) and Lower West Side (\"Victorian solid brick homes\"). Houses below street level: Gapers Block and Enjoy Illinois on Chicago raising its street grade in the 1850s, and The Jaxson on Pilsen's sunken front yards."
+  },
+  "reviews.1.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT20xVlVXRjZlRmhGWkZGRldWVkdXWFZUYVdwaE9FRRAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOm1VUWF6eFhFZFFFWVVGWXVTaWphOEE%7C%7C?hl=en",
+  "reviews.2.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25CaVF6VkJjVmgwYlVKUFpFaFlhazFLTUVOYVdIYxAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOnBiQzVBcVh0bUJPZEhYak1KMENaWHc%7C%7C?hl=en",
+  "reviews.3.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUNENllqUEpREAE!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CIHM0ogKEICAgICD6YjPJQ%7C%7C?hl=en",
+  "reviews.4.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTURJazVUUk93EAE!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CIHM0ogKEICAgMDIk5TROw%7C%7C?hl=en"
+ }
+}

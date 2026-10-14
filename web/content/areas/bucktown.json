@@ -1,0 +1,156 @@
+{
+ "area": {
+  "_area": "Bucktown",
+  "_area_the": "Bucktown",
+  "_slug": "bucktown",
+  "hero.breadcrumb": "Home  ›  Service area  ›  Bucktown",
+  "hero.pill": "Bucktown",
+  "hero.h1": "Heating and cooling repair in Bucktown, Chicago",
+  "hero.lede": "Furnaces, central air, boilers and ductless systems, for Bucktown frame houses, new single-family builds, two-flats and the shops on Damen Avenue. Family-owned since 1952, with the owner, Rob, still on the calls.",
+  "form.title": "Book HVAC service in Bucktown",
+  "form.building_default": "Frame house",
+  "services.heading": "Every heating and cooling service we offer in Bucktown",
+  "who.copy": "City & Suburban is run from 1225 N Cleaver St, under a mile south-east of Bucktown's edge along The 606. Rob, the owner, still runs the calls and does the diagnosis on the jobs that need it.",
+  "reviews.1.tag": "Upstairs AC & furnace",
+  "reviews.1.quote": "In August, the upstairs AC unit stopped working. Rob was able to diagnose and repair the issue and topped up the coolant in both condenser units. He also gave me an estimate for the basement furnace, which I knew needed replacing, and why I was especially happy that he didn't think the upstairs system needed replacing. The quote was good - a lower estimate was for a less well-regarded brand…",
+  "reviews.1.by": "Dora · 2025",
+  "reviews.2.tag": "AC & furnace replacement",
+  "reviews.2.quote": "We've relied on City & Suburban Heating & Cooling for years when it came to HVAC repairs on old systems (old home and new) but the current AC/furnace we had was getting very close to the end of its life. After City & Suburban came out to repair our condenser unit this summer, we could have kept sinking money into repairs but we didn't want to be forced into an…",
+  "reviews.2.by": "Nick Ulivieri · 2025",
+  "reviews.3.tag": "Condo furnace repair",
+  "reviews.3.quote": "I had used City and Suburban at my previous condo for furnace and a/c repairs so when my furnace stopped working at my new place I knew who to call and what to expect. They answered on the first call and scheduled an appointment that fit my schedule. Gave me a heads up and arrived on time. Rob quickly diagnosed the problem, explained what was needed, went and grabbed the…",
+  "reviews.3.by": "Ken Davis · 2026",
+  "reviews.4.tag": "Furnace & AC maintenance",
+  "reviews.4.quote": "Rob from City & suburban was super kind and helpful with our furnace and air conditioner maintenance. We wanted to make sure everything was running smoothly before winter and after calling Rob, he was able to come out very quickly. A few months later, our natural gas company let us know that we needed some repairs done, and after a phone call to City & Suburban, they came out the…",
+  "reviews.4.by": "Austin Hill · 2024",
+  "scope.heading": "The same repair costs differently in a frame house, a new build and a two-flat",
+  "scope.1.factor": "Two systems, not one",
+  "scope.1.why": "Bigger new builds often run a furnace and condenser for each floor, so one call can mean two systems to check.",
+  "scope.2.factor": "High-efficiency furnaces",
+  "scope.2.why": "Newer furnaces vent through plastic pipe to the side wall. Their sensors, igniters and drain lines are a job of their own.",
+  "scope.3.factor": "Boiler or forced air",
+  "scope.3.why": "Older frame houses near St. Mary of the Angels and Bucktown two-flats can still heat with a boiler and radiators.",
+  "scope.4.factor": "Condensers on the roof",
+  "scope.4.why": "Narrow lots put condensers on roof decks and garage roofs, so getting to them sets the time on site.",
+  "scope.5.factor": "Shops on Damen",
+  "scope.5.why": "Restaurants and boutiques on Damen and North run rooftop units and make-up air, booked around opening hours.",
+  "scope.6.factor": "Repair or replace",
+  "scope.6.why": "The biggest swing of all. Where the unit has years left, we say so.",
+  "choose.heading": "Five questions that sort Bucktown HVAC companies",
+  "districts.label": "BUCKTOWN, DISTRICT BY DISTRICT",
+  "districts.heading": "Fullerton to The 606, Western to the Kennedy",
+  "districts.chip1": "ZIP 60647 · 60622",
+  "districts.chip2": "Ward 32",
+  "districts.chip3": "Logan Square (22)",
+  "districts.1.name": "Holstein Park",
+  "districts.1.intro": "Frame houses and new single-family builds on the blocks around the park and its pool, west of Damen.",
+  "districts.1.hvac": "HVAC here: furnaces and central air, boilers in older frame homes.",
+  "districts.2.name": "Damen Avenue",
+  "districts.2.intro": "Shops, cafés and restaurants from North Avenue up to Armitage, with apartments above.",
+  "districts.2.hvac": "HVAC here: rooftop units, make-up air, splits in the flats upstairs.",
+  "districts.3.name": "St. Mary of the Angels",
+  "districts.3.intro": "Two-flats and cottages around the domed church at Hermitage and Cortland, by the Kennedy.",
+  "districts.3.hvac": "HVAC here: boilers and radiators, basement furnaces.",
+  "districts.4.name": "Along The 606",
+  "districts.4.intro": "Townhomes and newer condos on the trail's north side, around Churchill Field at Damen.",
+  "buildings.heading": "What heats and cools your Bucktown building",
+  "buildings.1.tag": "FRAME",
+  "buildings.1.title": "Frame house",
+  "buildings.1.body": "A furnace in the basement, or an older boiler and radiators. Central air was usually added later.",
+  "buildings.2.tag": "NEW BUILD",
+  "buildings.2.title": "Single-family new build",
+  "buildings.2.body": "High-efficiency furnaces and central air, often one system per floor, with condensers on the roof deck.",
+  "buildings.3.tag": "TWO-FLAT",
+  "buildings.3.title": "Two-flat or condo",
+  "buildings.3.body": "A shared boiler, or a furnace per unit after conversion. Condensers off the alley or on the garage.",
+  "buildings.4.tag": "COMMERCIAL",
+  "buildings.4.title": "Shop or restaurant",
+  "buildings.4.body": "Rooftop units and make-up air on Damen and North, scheduled around opening hours.",
+  "permits.area_count": "5",
+  "permits.area_text": "Bucktown permits in 24 months that even mention HVAC equipment.",
+  "faq.heading": "Bucktown HVAC, answered",
+  "faq.1.q": "Does a high-efficiency furnace need replacing when it stops working?",
+  "faq.1.a": "Often not. The fault is often a sensor, igniter or blocked drain line. We diagnose first, and where the furnace has years left, we say so.",
+  "faq.2.q": "How far is your shop from Bucktown?",
+  "faq.3.q": "My house has a system on each floor. Can you look at both on one visit?",
+  "faq.4.q": "Does HVAC repair in Chicago need a permit?",
+  "faq.5.q": "What are your hours?",
+  "cta.body": "Have the make of your furnace or condenser to hand, and tell us what it's doing. If the condenser is on a roof deck, mention how we get up to it."
+ },
+ "extras": {
+  "buildingTypeOptions": [
+   "Frame house",
+   "Single-family new build",
+   "Two-flat or condo",
+   "Shop or restaurant"
+  ],
+  "districts.4.hvac": "HVAC here: furnaces and central air in townhomes, splits in condos.",
+  "faq.2.a": "Under a mile. The shop is at 1225 N Cleaver St in West Town, just south-east of Bucktown across The 606, and Rob runs the calls from there.",
+  "faq.3.a": "Yes. Tell us when you call that there's a system on each floor, so we know to check both.",
+  "faq.4.a": "No. Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling. Permits cover installs and construction, so a company's permit count says little about its repair work.",
+  "faq.5.a": "Monday to Friday, 6:00 AM to 6:00 PM, and Saturday, 6:00 AM to 3:30 PM. Call (773) 238-3838.",
+  "seo.title": "HVAC Repair in Bucktown, Chicago | City & Suburban",
+  "seo.description": "Furnace, AC, boiler and ductless repair for Bucktown frame houses, new builds, two-flats and Damen shops. Family-owned since 1952. Call (773) 238-3838.",
+  "confirmNotes": [
+   {
+    "block": "B1 Hero",
+    "note": "Hero keeps the shared photo (assets/5X6SBXHGCABFYFB3GFJ2CY4MYM.webp). Ask for a City & Suburban-owned or licensed photo of Bucktown; tick \"Illustrative photo\" until then."
+   },
+   {
+    "block": "B9 Districts",
+    "note": "Bucktown has no community area of its own; it sits in Logan Square (22). The City's Bucktown polygon runs north of Fullerton and east to the river, so the permit count uses it cut at Fullerton. Its strip east of the Kennedy is in ZIP 60614, left off the chip. Decide whether to list it."
+   },
+   {
+    "block": "B9 Districts",
+    "note": "Card 4 (Along The 606) \"HVAC here\" note isn't in the Paper card. Drafted from its building stock. Check it."
+   },
+   {
+    "block": "B11 Permit record",
+    "note": "Only 5 HVAC-mention permits in 24 months, the lowest of any area so far. It's correct for the City polygon south of Fullerton; re-pull before publishing."
+   },
+   {
+    "block": "B12 FAQ",
+    "note": "Answers to questions 2–5 aren't in the Paper design (collapsed). Drafted only from facts on this page and the West Town answers. Review before publishing."
+   },
+   {
+    "block": "SEO",
+    "note": "Meta title and description are new. Review them."
+   }
+  ],
+  "_sources": {
+   "permits": {
+    "source": "City of Chicago building permits (ydr8-5enu), inside the City's Bucktown neighborhood polygon (y6yq-dbs2) south of Fullerton Ave, all in community area 22",
+    "window": {
+     "from": "2024-10-13",
+     "to": "2026-10-14"
+    },
+    "permits_in_box": 379,
+    "hvac_mentions": 5,
+    "by_equipment": {
+     "Furnace": 2,
+     "Boiler": 1,
+     "Air conditioning / condensing units": 1,
+     "Rooftop units": 0,
+     "Ductwork": 2,
+     "Heat pump / mini-split": 0,
+     "Kitchen exhaust / make-up air": 0
+    },
+    "cs_permits": 0,
+    "citywide_context": {
+     "hvac_firms": 1539,
+     "hvac_permits_24m": 4888,
+     "note": "From the City Suburban permit workbook, sheet 2 Work Types, as shown on the reference page."
+    }
+   },
+   "shop_location": "1225 N Cleaver St: 41.9043, -87.6637. Nearest Bucktown edge 0.7 mi north-west (The 606); centre 1.6 mi north-west. Measured as straight-line distance from the shop to the City neighborhood polygon (nearest edge and centroid), City of Chicago boundary data.",
+   "wards": "Wards of all permits in the polygon south of Fullerton, last 24 months: 32 (379). ZIP shares of the City polygon south of Fullerton: 60647 49%, 60614 29% (east of the Kennedy), 60622 17%, 60642 6% (City ZIP boundaries unjd-c2ca).",
+   "boundaries": "Wikipedia, Logan Square, Chicago: Bucktown is Fullerton Ave (north), Bloomingdale / The 606 (south), Kennedy Expressway (east), Western Ave (west). St. Mary of the Angels: same source.",
+   "districts": "Wikipedia, Logan Square, Chicago (Bucktown section): Damen Avenue, St. Mary of the Angels, The 606 as the southern edge. Holstein Park (2200 N Oakley Ave) and Churchill Field (1825 N Damen Ave): Chicago Park District addresses.",
+   "buildings": "Wikipedia, Logan Square, Chicago (older frame and stone houses, Polish-era churches, newer construction). New single-family builds and roof-deck condensers: the City polygon's permit mix (furnace, ductwork, condensing units). What heats and cools each type: the skill's building rules."
+  },
+  "reviews.1.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2s5M1ZFSjBXa2swZDBVelFsQnVjV3RCWVVGeWJFRRAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOk93VEJ0Wkk0d0UzQlBucWtBYUFybEE%7C%7C?hl=en",
+  "reviews.2.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pGdlQyRlRkbWxwU3pkbU1YbHFRV2g2WlVWSFlXYxAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOjFvT2FTdmlpSzdmMXlqQWh6ZUVHYWc%7C%7C?hl=en",
+  "reviews.3.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pOVFNHdHpWalZQTm14T2QwSnhXbmRDWVdOaFIxRRAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOjNTSGtzVjVPNmxOd0JxWndCYWNhR1E%7C%7C?hl=en",
+  "reviews.4.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUNQb0xTcTRnRRAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CIHM0ogKEICAgICPoLSq4gE%7C%7C?hl=en"
+ }
+}

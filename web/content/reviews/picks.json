@@ -1,0 +1,130 @@
+{
+ "_source": "google-reviews-2026-08-31.csv (204 reviews, pulled 2026-08-31, SerpApi google_maps_reviews, newest first)",
+ "_rules": "Verbatim opening, 60-70 words cut at a sentence end (skill rule); 5-star only; ranked by equipment match, then recency; a review appears on at most two pages.",
+ "west-town": [
+  {
+   "num": 183,
+   "tag": "Boiler repair"
+  },
+  {
+   "num": 58,
+   "tag": "Furnace repair"
+  },
+  {
+   "num": 23,
+   "tag": "Rooftop AC & furnace"
+  },
+  {
+   "num": 19,
+   "tag": "AC repair"
+  }
+ ],
+ "west-loop": [
+  {
+   "num": 26,
+   "tag": "Condo AC repair"
+  },
+  {
+   "num": 42,
+   "tag": "Condo furnace repair"
+  },
+  {
+   "num": 27,
+   "tag": "Condo repairs"
+  },
+  {
+   "num": 73,
+   "tag": "AC replacement"
+  }
+ ],
+ "lincoln-park": [
+  {
+   "num": 3,
+   "tag": "Maintenance"
+  },
+  {
+   "num": 63,
+   "tag": "Furnace repair"
+  },
+  {
+   "num": 70,
+   "tag": "Furnace replacement"
+  },
+  {
+   "num": 183,
+   "tag": "Boiler repair"
+  }
+ ],
+ "wicker-park": [
+  {
+   "num": 23,
+   "tag": "Rooftop AC & furnace"
+  },
+  {
+   "num": 13,
+   "tag": "AC & furnace replacement"
+  },
+  {
+   "num": 30,
+   "tag": "Second opinion"
+  },
+  {
+   "num": 102,
+   "tag": "Furnace cleaning"
+  }
+ ],
+ "pilsen": [
+  {
+   "num": 58,
+   "tag": "Furnace repair"
+  },
+  {
+   "num": 92,
+   "tag": "Old furnace repair"
+  },
+  {
+   "num": 181,
+   "tag": "Furnace repair, rental"
+  },
+  {
+   "num": 165,
+   "tag": "Same-day furnace repair"
+  }
+ ],
+ "rogers-park": [
+  {
+   "num": 181,
+   "tag": "Furnace repair, rental"
+  },
+  {
+   "num": 75,
+   "tag": "No heat, rental"
+  },
+  {
+   "num": 155,
+   "tag": "Condo furnace"
+  },
+  {
+   "num": 200,
+   "tag": "Condo rooftop AC"
+  }
+ ],
+ "bucktown": [
+  {
+   "num": 131,
+   "tag": "Upstairs AC & furnace"
+  },
+  {
+   "num": 137,
+   "tag": "AC & furnace replacement"
+  },
+  {
+   "num": 42,
+   "tag": "Condo furnace repair"
+  },
+  {
+   "num": 168,
+   "tag": "Furnace & AC maintenance"
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+/* Styles only the Next.js app needs, loaded after the shared design CSS in ./design/.
+   Everything else comes from the design-system site via tools/sync_design_to_web.py. */
+
+/* Fonts come from next/font (see app/layout.tsx), not from a Google Fonts <link> */
+.cs {
+  --font-display: var(--font-ubuntu), 'Ubuntu', sans-serif;
+  --font-body: var(--font-noto-sans), 'Noto Sans', sans-serif;
+}
+
+/* Draft preview bar (Sanity Presentation only) */
+.cs-preview-bar { position: sticky; top: 0; z-index: 60; background: #fff8e1; border-bottom: 2px dashed #e3b341; color: #5c4300;
+  font: 400 14px/20px var(--font-noto-sans), 'Noto Sans', sans-serif; padding: 10px max(16px, calc((100% - 1280px) / 2)); }
+.cs-preview-bar summary { cursor: pointer; display: flex; justify-content: space-between; gap: 16px; font-weight: 600; }
+.cs-preview-bar summary a { color: inherit; text-decoration: underline; font-weight: 600; }
+.cs-preview-bar ul { margin: 8px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.cs-preview-bar li b { font-weight: 700; margin-right: 6px; }

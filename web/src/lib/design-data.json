@@ -1,0 +1,449 @@
+{
+ "_note": "Synced from tools/build_area_page.py and tools/build_area_page_v2.py by tools/sync_design_to_web.py.",
+ "phone": "(773) 238-3838",
+ "tel": "tel:+17732383838",
+ "live": "https://citysuburbanheating.com",
+ "gmaps": "https://www.google.com/maps/place/City+%26+Suburban+Heating+%26+Cooling/@41.90408,-87.6634153,17z/data=!4m8!3m7!1s0x880fd302d5248501:0xb1c6abfab8cf849b!8m2!3d41.9042251!4d-87.6635221!9m1!1b1",
+ "shop": "1225 N Cleaver St, Chicago, IL 60642",
+ "assets": "/cs-assets/",
+ "images": {
+  "hero": "/cs-assets/5X6SBXHGCABFYFB3GFJ2CY4MYM.webp",
+  "van": "/cs-assets/v2/van-street.webp",
+  "seal": "/cs-assets/v2/family-owned-seal.webp",
+  "acService": "/cs-assets/v2/photo-ac-service.webp",
+  "furnaceFilter": "/cs-assets/v2/photo-furnace-filter.webp",
+  "logo": "/cs-assets/live/city-suburban-transparent-logo.png",
+  "favicon": "/cs-assets/6FN1CP4RYC9MBCFR4H39DJ8HAE.webp"
+ },
+ "groups": [
+  {
+   "key": "heating",
+   "name": "Heating",
+   "title": "Heating: furnaces, boilers and heat pumps",
+   "lede": "A furnace that won't light, a boiler losing pressure, a unit that short-cycles. Diagnosis comes first, and replacement only if the unit is genuinely done.",
+   "url": "https://citysuburbanheating.com/service/heating/",
+   "items": [
+    {
+     "icon": "wrench",
+     "title": "Furnace and heater repair",
+     "text": "Ignition, flame sensors, inducer motors and limit switches, found and fixed on the first visit where the part is on the van.",
+     "url": "https://citysuburbanheating.com/services/heating/heater-repair/"
+    },
+    {
+     "icon": "boiler",
+     "title": "Boiler service",
+     "text": "Hot-water and steam boilers in vintage two-flats and converted lofts: pressure, circulators, zone valves, venting.",
+     "url": "https://citysuburbanheating.com/services/heating/boiler-service/"
+    },
+    {
+     "icon": "install",
+     "title": "Furnace installation and replacement",
+     "text": "Sized to the unit, not the brochure. In a high-rise, routed around building rules on venting and access.",
+     "url": "https://citysuburbanheating.com/services/heating/heater-installation/"
+    },
+    {
+     "icon": "maintenance",
+     "title": "Heater maintenance",
+     "text": "An autumn tune-up before the first cold snap: burners, heat exchanger check, filters, safeties.",
+     "url": "https://citysuburbanheating.com/services/heating/heater-maintenance/"
+    },
+    {
+     "icon": "heatPump",
+     "title": "Heat pumps",
+     "text": "Repair and installation, including cold-climate units for townhomes moving off gas.",
+     "url": "https://citysuburbanheating.com/services/heating/heat-pump/"
+    },
+    {
+     "icon": "hybrid",
+     "title": "Hybrid heating systems",
+     "text": "A heat pump paired with a gas furnace, switching over on the coldest days.",
+     "url": "https://citysuburbanheating.com/services/heating/hybrid-heating-systems/"
+    },
+    {
+     "icon": "calendar",
+     "title": "HVAC maintenance plans",
+     "text": "Scheduled heating and cooling visits for buildings that want them on the calendar.",
+     "url": "https://citysuburbanheating.com/services/heating/hvac-maintenance-plans/"
+    }
+   ]
+  },
+  {
+   "key": "cooling",
+   "name": "Cooling",
+   "title": "Cooling",
+   "lede": "",
+   "url": "https://citysuburbanheating.com/service/cooling/",
+   "items": [
+    {
+     "icon": "cooling",
+     "title": "Ductless HVAC services",
+     "text": "",
+     "url": "https://citysuburbanheating.com/services/cooling/ductless-hvac-service/"
+    },
+    {
+     "icon": "cooling",
+     "title": "Air conditioning repair",
+     "text": "",
+     "url": "https://citysuburbanheating.com/services/cooling/air-conditioning-repair/"
+    },
+    {
+     "icon": "cooling",
+     "title": "Air conditioning maintenance",
+     "text": "",
+     "url": "https://citysuburbanheating.com/services/cooling/air-conditioning-maintenance/"
+    },
+    {
+     "icon": "cooling",
+     "title": "Air conditioning installation",
+     "text": "",
+     "url": "https://citysuburbanheating.com/services/cooling/air-conditioning-installation/"
+    },
+    {
+     "icon": "cooling",
+     "title": "Cooling maintenance plans",
+     "text": "",
+     "url": "https://citysuburbanheating.com/services/cooling/cooling-maintenance-plans/"
+    },
+    {
+     "icon": "cooling",
+     "title": "Heat pump services",
+     "text": "",
+     "url": "https://citysuburbanheating.com/services/cooling/heat-pump-services/"
+    }
+   ]
+  },
+  {
+   "key": "airQuality",
+   "name": "Air quality",
+   "title": "Air quality",
+   "lede": "",
+   "url": "https://citysuburbanheating.com/service/air-quality/",
+   "items": [
+    {
+     "icon": "airQuality",
+     "title": "Dehumidifier installation",
+     "text": "",
+     "url": "https://citysuburbanheating.com/services/air-quality/dehumidifier-installation/"
+    },
+    {
+     "icon": "airQuality",
+     "title": "Indoor air quality test",
+     "text": "",
+     "url": "https://citysuburbanheating.com/services/air-quality/indoor-air-quality-test/"
+    },
+    {
+     "icon": "airQuality",
+     "title": "Duct repair",
+     "text": "",
+     "url": "https://citysuburbanheating.com/services/air-quality/duct-repair/"
+    },
+    {
+     "icon": "airQuality",
+     "title": "Duct maintenance",
+     "text": "",
+     "url": "https://citysuburbanheating.com/services/air-quality/duct-maintenance/"
+    },
+    {
+     "icon": "airQuality",
+     "title": "Humidifier & air cleaner",
+     "text": "",
+     "url": "https://citysuburbanheating.com/services/air-quality/humidifier-air-cleaner/"
+    }
+   ]
+  },
+  {
+   "key": "commercial",
+   "name": "Commercial",
+   "title": "Commercial",
+   "lede": "",
+   "url": "https://citysuburbanheating.com/service/commercial-hvac/",
+   "items": [
+    {
+     "icon": "commercial",
+     "title": "Commercial HVAC system installation",
+     "text": "",
+     "url": "https://citysuburbanheating.com/services/commercial/commercial-hvac-system-installation/"
+    },
+    {
+     "icon": "commercial",
+     "title": "Commercial HVAC system replacement",
+     "text": "",
+     "url": "https://citysuburbanheating.com/services/commercial/commercial-hvac-system-replacement/"
+    },
+    {
+     "icon": "commercial",
+     "title": "Emergency & routine commercial HVAC repairs",
+     "text": "",
+     "url": "https://citysuburbanheating.com/services/commercial/emergency-routine-commercial-hvac-repairs/"
+    },
+    {
+     "icon": "commercial",
+     "title": "Energy-efficient HVAC upgrades",
+     "text": "",
+     "url": "https://citysuburbanheating.com/services/commercial/energy-efficient-hvac-upgrades/"
+    },
+    {
+     "icon": "commercial",
+     "title": "Custom HVAC maintenance plan",
+     "text": "",
+     "url": "https://citysuburbanheating.com/services/commercial/custom-hvac-maintenance-plan/"
+    },
+    {
+     "icon": "commercial",
+     "title": "Ductwork design & repair services",
+     "text": "",
+     "url": "https://citysuburbanheating.com/services/commercial/ductwork-design-repair-services/"
+    }
+   ]
+  }
+ ],
+ "stepIcons": [
+  "/cs-assets/1ZX1MZNPVM4QBDE0416B9TSFAE.webp",
+  "/cs-assets/5R5WBATX6VT8MS1HWEGQP972J1.webp",
+  "/cs-assets/0NY99S048Y1WPATAMB53MND9V4.webp",
+  "/cs-assets/269649PEQD5G7XWGA0EE9AAH67.webp",
+  "/cs-assets/639HJXW5YG5799PS4X6V7WG89A.webp",
+  "/cs-assets/4W6C9D3M0QTRJK8JVAH448ZBJX.webp"
+ ],
+ "steps": [
+  {
+   "title": "You call, Rob listens",
+   "text": "Tell us the make of the furnace or condenser and what it's doing. A good description often narrows it down on the phone."
+  },
+  {
+   "title": "Pick a time",
+   "text": "Monday to Saturday from 6 AM. High-rise visits are booked around your building's elevator and work hours."
+  },
+  {
+   "title": "On-site diagnosis",
+   "text": "The technician finds the actual fault: ignition, pressure, refrigerant, airflow or controls."
+  },
+  {
+   "title": "Honest price, repair first",
+   "text": "You hear the price before any work. If the unit has years left, we say so and repair it."
+  },
+  {
+   "title": "We fix it",
+   "text": "Repairs done on the spot where the part is on the van. Installs are scheduled and quoted separately."
+  },
+  {
+   "title": "Good to go",
+   "text": "The system is tested through a full cycle before we leave, and you know what to watch for."
+  }
+ ],
+ "questions": [
+  {
+   "title": "Who diagnoses, and who quotes?",
+   "text": "If they're different people, ask who owns the outcome. Here it's Rob for both."
+  },
+  {
+   "title": "Is the technician on commission?",
+   "text": "Commission on replacements changes what \"your furnace is done\" means."
+  },
+  {
+   "title": "Does a permit count mean anything here?",
+   "text": "Not for repairs. Chicago doesn't permit HVAC repair or maintenance, so a permit count only measures installs."
+  },
+  {
+   "title": "What do the newest reviews say?",
+   "text": "Read the last 20, not the top 5. Look for names and specifics."
+  },
+  {
+   "title": "Will they tell you to keep it?",
+   "text": "Ask if the unit has years left. Our reviewers record hearing \"yes\"."
+  }
+ ],
+ "companies": [
+  {
+   "title": "Family-owned, since 1952",
+   "text": "The owner answers and quotes. Limit: one family's capacity, so peak-winter days fill up.",
+   "us": true
+  },
+  {
+   "title": "National franchise",
+   "text": "Response time is genuinely good. Limit: commission and price books shape the recommendation.",
+   "us": false
+  },
+  {
+   "title": "One-van independent",
+   "text": "The work is often excellent. Limit: one person, so a January no-heat call can wait days.",
+   "us": false
+  },
+  {
+   "title": "Lead marketplace",
+   "text": "Several quotes fast. Limit: you don't choose who calls back, or who turns up.",
+   "us": false
+  }
+ ],
+ "names": [
+  "Rob",
+  "Eddie",
+  "Carissa",
+  "Frank",
+  "Nate",
+  "Sam",
+  "Andy",
+  "Mike"
+ ],
+ "icons": {
+  "heating": "<path d=\"M12 21c-3.3 0-6-2.4-6-5.5 0-3 2.5-4.5 3-7.5 2 1 3 3 3 4.5 1-1 1.5-2.5 1.5-4 2.5 1.5 4.5 4.3 4.5 7 0 3.1-2.7 5.5-6 5.5z\"/>",
+  "cooling": "<path d=\"M12 2v20M4.9 6.5l14.2 11M19.1 6.5 4.9 17.5M9 4l3 2 3-2M9 20l3-2 3 2\"/>",
+  "airQuality": "<path d=\"M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h8\"/>",
+  "commercial": "<path d=\"M4 21V8l8-4 8 4v13M4 21h16M9 21v-5h6v5M8 10h2M14 10h2M8 13h2M14 13h2\"/>",
+  "wrench": "<path d=\"M14.5 6.5a4 4 0 0 0-5.2 5.2L4 17l3 3 5.3-5.3a4 4 0 0 0 5.2-5.2l-2.6 2.6-2.4-.6-.6-2.4z\"/>",
+  "boiler": "<rect x=\"6\" y=\"3\" width=\"12\" height=\"17\" rx=\"2\"/><circle cx=\"12\" cy=\"9\" r=\"2.5\"/><path d=\"M9 15h6M8 21h8\"/>",
+  "install": "<rect x=\"4\" y=\"3\" width=\"16\" height=\"18\" rx=\"2\"/><path d=\"M8 8h8M8 12h8M12 15v3M10.5 16.5 12 18l1.5-1.5\"/>",
+  "maintenance": "<rect x=\"5\" y=\"4\" width=\"14\" height=\"17\" rx=\"2\"/><path d=\"M9 4V3h6v1M8.5 12l2.5 2.5L16 9.5\"/>",
+  "heatPump": "<rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\"/><circle cx=\"10\" cy=\"12\" r=\"4\"/><path d=\"M10 8v8M6 12h8M17 9v6\"/>",
+  "hybrid": "<path d=\"M8 21c-2.2 0-4-1.6-4-3.7 0-2 1.7-3 2-5 1.3.7 2 2 2 3 .7-.7 1-1.7 1-2.7\"/><path d=\"M14 4v8M10.5 6l7 4M17.5 6l-7 4\"/>",
+  "calendar": "<rect x=\"3\" y=\"5\" width=\"18\" height=\"16\" rx=\"2\"/><path d=\"M3 10h18M8 3v4M16 3v4M8 14h3\"/>",
+  "phone": "<path d=\"M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z\"/>",
+  "left": "<path d=\"m15 6-6 6 6 6\"/>",
+  "right": "<path d=\"m9 6 6 6-6 6\"/>",
+  "check": "<path d=\"m5 12.5 4.5 4.5L19 7.5\"/>",
+  "pin": "<path d=\"M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z\"/><circle cx=\"12\" cy=\"9\" r=\"2.5\"/>",
+  "arrow": "<path d=\"M5 12h14M13 6l6 6-6 6\"/>",
+  "user": "<circle cx=\"12\" cy=\"8\" r=\"4\"/><path d=\"M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7\"/>",
+  "tool": "<path d=\"M14.5 6.5a4 4 0 0 0-5.2 5.2L4 17l3 3 5.3-5.3a4 4 0 0 0 5.2-5.2l-2.6 2.6-2.4-.6-.6-2.4z\"/>",
+  "tag": "<path d=\"M3 12V4h8l10 10-8 8z\"/><circle cx=\"7.5\" cy=\"8.5\" r=\"1.5\"/>",
+  "question": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17.5h.01\"/>",
+  "shield": "<path d=\"M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6z\"/><path d=\"m8.5 12 2.5 2.5 4.5-4.5\"/>",
+  "home": "<path d=\"M3 11 12 4l9 7\"/><path d=\"M5 10v10h14V10\"/>",
+  "van": "<path d=\"M3 7h11v9H3zM14 10h4l3 3v3h-7\"/><circle cx=\"7\" cy=\"17.5\" r=\"1.8\"/><circle cx=\"17\" cy=\"17.5\" r=\"1.8\"/>",
+  "store": "<path d=\"M4 9h16l-1-5H5zM5 9v11h14V9M9 20v-6h6v6\"/>",
+  "franchise": "<rect x=\"3\" y=\"7\" width=\"7\" height=\"13\" rx=\"1\"/><rect x=\"14\" y=\"4\" width=\"7\" height=\"16\" rx=\"1\"/><path d=\"M6 11h1M6 14h1M17 8h1M17 11h1M17 14h1\"/>",
+  "dollar": "<path d=\"M12 3v18M16.5 7.5c-.8-1.3-2.4-2-4.5-2-2.5 0-4.5 1.3-4.5 3.3 0 4.9 9 2.5 9 7.4 0 2-2 3.3-4.5 3.3-2.3 0-4-.8-4.8-2.3\"/>",
+  "phone2": "<path d=\"M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z\"/>",
+  "chev": "<path d=\"m6 9 6 6 6-6\"/>",
+  "clock": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 7v5l3 2\"/>",
+  "camera": "<path d=\"M4 8h3l2-3h6l2 3h3v11H4z\"/><circle cx=\"12\" cy=\"13\" r=\"3.5\"/>"
+ },
+ "factorIcons": [
+  "home",
+  "shield",
+  "tool",
+  "install",
+  "store",
+  "check"
+ ],
+ "questionIcons": [
+  "user",
+  "dollar",
+  "tag",
+  "question",
+  "check"
+ ],
+ "companyIcons": [
+  "home",
+  "franchise",
+  "van",
+  "store"
+ ],
+ "buildings": {
+  "loft": "<path d=\"M6 56V28l11-8v8l11-8v8l11-8v8l11-8v36z\"/><path d=\"M6 56h52M14 36h6M26 36h6M38 36h6M14 46h6M26 46h6M38 46h6\"/>",
+  "tower": "<rect x=\"20\" y=\"6\" width=\"24\" height=\"50\" rx=\"1\"/><path d=\"M14 56h36M26 14h4M34 14h4M26 22h4M34 22h4M26 30h4M34 30h4M26 38h4M34 38h4M29 56v-8h6v8\"/>",
+  "mid": "<rect x=\"8\" y=\"18\" width=\"48\" height=\"38\" rx=\"1\"/><path d=\"M4 56h56M8 18l6-8h36l6 8M15 27h6M29 27h6M43 27h6M15 37h6M29 37h6M43 37h6M28 56v-9h8v9\"/>",
+  "commercial": "<path d=\"M8 24h48l-3-12H11z\"/><path d=\"M10 24v32h44V24M4 56h56M16 56V36h12v20M34 36h14v10H34z\"/><path d=\"M14 24c0 3 2 5 4 5s4-2 4-5c0 3 2 5 4 5s4-2 4-5c0 3 2 5 4 5s4-2 4-5c0 3 2 5 4 5s4-2 4-5\"/>",
+  "flat": "<rect x=\"14\" y=\"10\" width=\"36\" height=\"46\" rx=\"1\"/><path d=\"M10 56h44M12 10h40M20 18h8M36 18h8M20 30h8M36 30h8M20 42h8M28 56V46h8v10\"/>",
+  "cottage": "<path d=\"M8 30 32 10l24 20\"/><path d=\"M14 26v30h36V26M4 56h56M27 56V42h10v14M18 34h6M40 34h6\"/>"
+ },
+ "buildingKeys": [
+  [
+   "loft warehouse",
+   "loft"
+  ],
+  [
+   "tower high-rise lakefront",
+   "tower"
+  ],
+  [
+   "two-flat greystone three-flat",
+   "flat"
+  ],
+  [
+   "cottage frame house",
+   "cottage"
+  ],
+  [
+   "commercial restaurant storefront office",
+   "commercial"
+  ],
+  [
+   "mid-rise condo townhome courtyard",
+   "mid"
+  ]
+ ],
+ "gLogo": "<svg class=\"g\" viewBox=\"0 0 48 48\" aria-hidden=\"true\"><path fill=\"#EA4335\" d=\"M24 9.5c3.5 0 6.6 1.2 9 3.5l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.8 6C12.4 13.7 17.7 9.5 24 9.5z\"/><path fill=\"#4285F4\" d=\"M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.6 5.9c4.4-4.1 7-10.1 7-17.6z\"/><path fill=\"#FBBC05\" d=\"M10.5 28.7c-.5-1.5-.8-3-.8-4.7s.3-3.2.8-4.7l-7.8-6C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.8-6z\"/><path fill=\"#34A853\" d=\"M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.6-5.9c-2.1 1.4-4.9 2.3-8.3 2.3-6.3 0-11.6-4.2-13.5-9.9l-7.8 6C6.6 42.6 14.6 48 24 48z\"/></svg>",
+ "credits": {
+  "west-loop": {
+   "caption": "Fulton Market, West Loop",
+   "author": "Bex Walton",
+   "licence": "CC BY 2.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Fulton_Market,_West_Loop_(47090474824).jpg"
+  },
+  "west-town": {
+   "caption": "Division Street and Milwaukee Avenue, West Town",
+   "author": "Adam Jones, Ph.D.",
+   "licence": "CC BY-SA 3.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Intersection_of_Division_St._and_Milwaukee_Ave._-_Chicago_-_Illinois_-_USA.jpg"
+  },
+  "wicker-park": {
+   "caption": "Flat Iron Arts Building, Wicker Park",
+   "author": "David Hilowitz",
+   "licence": "CC BY 2.0",
+   "url": "https://commons.wikimedia.org/wiki/File:View_of_the_Flat_Iron_Arts_Building_from_the_Coyote_Tower_(5266790849).jpg"
+  },
+  "lincoln-park": {
+   "caption": "Lincoln Park Conservatory",
+   "author": "Ben Schumin",
+   "licence": "CC BY-SA 2.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Lincoln_Park_Conservatory_(9719113515).jpg"
+  },
+  "pilsen": {
+   "caption": "Pilsen Historic District",
+   "author": "Andrew Jameson",
+   "licence": "CC BY-SA 3.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Pilsen_Historic_District_Chicago_IL.jpg"
+  },
+  "rogers-park": {
+   "caption": "Rogers Park along Lake Michigan",
+   "author": "formulanone",
+   "licence": "CC BY-SA 2.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Rogers_Park_Aerial_Along_Lake_Michigan_3_(50561589996).jpg"
+  },
+  "bucktown": {
+   "caption": "Welcome to Bucktown banner",
+   "author": "Eric Fischer",
+   "licence": "CC BY 2.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Welcome_to_Bucktown_(38689679811).jpg"
+  },
+  "logan-square": {
+   "caption": "Illinois Centennial Monument, Logan Square",
+   "author": "Loganresident at en.wikipedia",
+   "licence": "CC BY 2.5",
+   "url": "https://commons.wikimedia.org/wiki/File:Illinois_Centennial_Memorial_Column.jpg"
+  },
+  "humboldt-park": {
+   "caption": "Humboldt Park field house",
+   "author": "Steven Kevil",
+   "licence": "CC BY-SA 4.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Humboldt_Park_Field_House_and_Refectory.jpg"
+  }
+ },
+ "cross": {
+  "west-loop": "e.g. Randolph & Halsted",
+  "west-town": "e.g. Division & Milwaukee"
+ },
+ "areaPhotos": [
+  "bucktown",
+  "chicago",
+  "humboldt-park",
+  "lincoln-park",
+  "logan-square",
+  "pilsen",
+  "rogers-park",
+  "west-loop",
+  "west-town",
+  "wicker-park"
+ ]
+}
