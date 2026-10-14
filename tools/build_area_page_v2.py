@@ -305,7 +305,7 @@ def build(path):
       <div class="v2-tile"><p class="k">{icon("user", 16, 2)}Owner</p><b>Rob</b><p>Owner-operator. He runs the calls himself, so the person who quotes is the person accountable.</p></div>
       <div class="v2-tile"><p class="k">{icon("home", 16, 2)}Founded</p><b>1952</b><p>74 years, family owned, now in its second generation.</p></div>
       <div class="v2-tile"><p class="k">{icon("shield", 16, 2)}Permit record</p><b>0</b><p>Permits on record. Chicago doesn&#x27;t permit HVAC repair, which is most of what we do.</p></div>
-      <div class="v2-tile"><p class="k">{icon("clock", 16, 2)}Hours</p><b>6 AM</b><p>Monday to Friday until 6 PM, Saturday until 3:30 PM.</p></div>
+      <div class="v2-tile"><p class="k">{icon("clock", 16, 2)}Hours</p><b>24/7</b><p>Working hours. Call any time.</p></div>
       <a class="v2-tile v2-gtile" href="{GMAPS}" target="_blank" rel="noopener"><span class="gc">{G_LOGO}</span><b>4.98<small>/5</small></b>
         <span class="gr"><span class="cs-stars" aria-hidden="true">★★★★★</span>204 Google reviews, as of 31 Aug 2026</span><span class="k gk">{icon("check", 14, 2.4)}Google rating</span></a>
     </div>
@@ -431,7 +431,7 @@ def build(path):
     <li><a href="{GMAPS}" target="_blank" rel="noopener"><span class="gc">{G_LOGO}</span><span><b>4.98 <span class="cs-stars" aria-hidden="true">★★★★★</span></b><small>204 Google reviews</small></span></a></li>
     <li><span class="badge">{icon("home", 18, 1.8)}</span><span><b>1952</b><small>Founded, family owned</small></span></li>
     <li><span class="badge">{icon("user", 18, 1.8)}</span><span><b>Rob</b><small>The owner, on the calls</small></span></li>
-    <li><span class="badge">{icon("clock", 18, 1.8)}</span><span><b>From 6 AM</b><small>Monday to Saturday</small></span></li>
+    <li><span class="badge">{icon("clock", 18, 1.8)}</span><span><b>24/7</b><small>Working hours</small></span></li>
   </ul>
 </section>'''
 

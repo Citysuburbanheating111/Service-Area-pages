@@ -88,7 +88,7 @@ GROUPS = [
 
 STEPS = [
     ('1ZX1MZNPVM4QBDE0416B9TSFAE', 'You call, Rob listens', "Tell us the make of the furnace or condenser and what it's doing. A good description often narrows it down on the phone."),
-    ('5R5WBATX6VT8MS1HWEGQP972J1', 'Pick a time', "Monday to Saturday from 6 AM. High-rise visits are booked around your building's elevator and work hours."),
+    ('5R5WBATX6VT8MS1HWEGQP972J1', 'Pick a time', "We're available 24/7. If your building has rules on access, like elevator or work hours, tell us and we book around them."),
     ('0NY99S048Y1WPATAMB53MND9V4', 'On-site diagnosis', 'The technician finds the actual fault: ignition, pressure, refrigerant, airflow or controls.'),
     ('269649PEQD5G7XWGA0EE9AAH67', 'Honest price, repair first', 'You hear the price before any work. If the unit has years left, we say so and repair it.'),
     ('639HJXW5YG5799PS4X6V7WG89A', 'We fix it', 'Repairs done on the spot where the part is on the van. Installs are scheduled and quoted separately.'),

@@ -47,7 +47,7 @@ FIXED = {
     'faq.4.q': 'Does HVAC repair in Chicago need a permit?',
     'faq.5.q': 'What are your hours?',
     'faq.4.a': "No. Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling. Permits cover installs and construction, so a company's permit count says little about its repair work.",
-    'faq.5.a': 'Monday to Friday, 6:00 AM to 6:00 PM, and Saturday, 6:00 AM to 3:30 PM. Call (773) 238-3838.',
+    'faq.5.a': 'Our working hours are 24/7. Call (773) 238-3838.',
 }
 BANNED = ['nestled', 'vibrant', 'bustling', 'premier', 'top-rated', 'best-in-class', 'one-stop', 'warranty', 'guarantee',
           'commission', 'licence', 'license']
