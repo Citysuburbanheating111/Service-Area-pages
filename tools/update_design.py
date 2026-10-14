@@ -55,6 +55,36 @@ src = re.sub(r'<a class="stretch" href="([a-z-]+)/">([^<]+)</a>',
              lambda m: m.group(0) if m.group(1) in LIVE_AREAS else m.group(2), src)
 src = re.sub(r'\s*<p class="open" aria-hidden="true">Open the ([^<]+) page <span>→</span></p>',
              lambda m: m.group(0) if m.group(1).lower().replace(' ', '-') in LIVE_AREAS else '', src)
+
+# Only published areas are listed: their cards, their photo credits and the count. The Chicago
+# citywide card always stays. Same rules as the Next.js page (web/src/app/(site)/service-areas/page.tsx).
+shown = []
+
+
+def keep_published(m):
+    card = m.group(0)
+    if 'class="area city"' in card:
+        return card
+    slug, name = re.search(r'<h3 id="area-([a-z-]+)">(?:<a [^>]*>)?([^<]+)', card).groups()
+    if slug not in LIVE_AREAS:
+        return ''
+    if 'class="stretch"' not in card:
+        sys.exit(f'{slug} is in LIVE_AREAS but its card has no link (does services-v2/service-areas/{slug}/ exist?)')
+    shown.append(name)
+    return card
+
+
+src = re.sub(r'\s*<article class="area[^"]*"[\s\S]*?</article>', keep_published, src)
+src = re.sub(r"\s*<li>([A-Z][A-Za-z .']+): <a [\s\S]*?</li>",
+             lambda m: m.group(0) if m.group(1) == 'Chicago' or m.group(1) in shown else '', src)
+n = len(shown)
+src = re.sub(r'aria-label="\d+ service areas?"', f'aria-label="{n} service area{"" if n == 1 else "s"}"', src, count=1)
+src = re.sub(r'<strong class="num">\d+</strong>(\s*<p>)[^<]*(</p>)',
+             lambda m: f'<strong class="num">{n}</strong>{m.group(1)}Chicago neighborhood{"" if n == 1 else "s"} '
+                       f'we serve, each with its own page, all from one family shop.{m.group(2)}', src, count=1)
+src = src.replace('The nine neighborhoods below are', 'The neighborhoods below are')
+if sorted(s for s in LIVE_AREAS) != sorted(re.findall(r'class="stretch" href="([a-z-]+)/"', src)):
+    sys.exit('live collection page: linked cards and LIVE_AREAS differ')
 for leftover in ('noindex', 'class="pbar"', 'collection page v'):
     if leftover in src:
         sys.exit(f'live collection page still contains "{leftover}"')
