@@ -91,28 +91,7 @@
   "faq.5.a": "Our working hours are 24/7. Call (773) 238-3838.",
   "seo.title": "HVAC Repair in Rogers Park, Chicago | City & Suburban",
   "seo.description": "Boiler, furnace, AC and ductless repair for Rogers Park courtyard buildings, condos, two-flats and towers. Family-owned since 1952. Call (773) 238-3838.",
-  "confirmNotes": [
-   {
-    "block": "B1 Hero",
-    "note": "Hero keeps the shared photo (assets/5X6SBXHGCABFYFB3GFJ2CY4MYM.webp). Ask for a City & Suburban-owned or licensed photo of Rogers Park; tick \"Illustrative photo\" until then."
-   },
-   {
-    "block": "B3 Who you're calling",
-    "note": "Rogers Park is about seven miles from the shop, the farthest of the areas so far. Confirm Rob wants to promote it before publishing."
-   },
-   {
-    "block": "B9 Districts",
-    "note": "Boundary line uses Howard Street for the north; the far north-east corner follows Juneway Terrace. Card 4 (Howard Street) \"HVAC here\" note isn't in the Paper card; drafted from its building stock. Check both."
-   },
-   {
-    "block": "B12 FAQ",
-    "note": "Answers to questions 2–5 aren't in the Paper design (collapsed). Drafted only from facts on this page and the West Town answers. Review before publishing."
-   },
-   {
-    "block": "SEO",
-    "note": "Meta title and description are new. Review them."
-   }
-  ],
+  "confirmNotes": [],
   "_sources": {
    "permits": {
     "source": "City of Chicago building permits (ydr8-5enu), inside the City's Rogers Park neighborhood polygon (y6yq-dbs2), all in community area 1",

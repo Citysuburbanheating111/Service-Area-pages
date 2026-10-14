@@ -35,6 +35,12 @@ const client = createClient({
 
 const { area: a, extras: x } = JSON.parse(readFileSync(file, 'utf8'))
 
+// Pages arrive in Sanity with nothing left to confirm: resolve open items while writing (decide from
+// data and sources, soften what can't be verified). Hero photo, licence and hours are template facts.
+if (x.confirmNotes?.length) {
+  throw new Error(`${file} still has ${x.confirmNotes.length} open confirm note(s). Resolve them first (python scripts/audit_area.py ${file}).`)
+}
+
 let n = 0
 const k = () => `k${(n++).toString(36).padStart(3, '0')}`
 const items = (type, list) => list.map((v) => ({ _key: k(), _type: type, ...v }))

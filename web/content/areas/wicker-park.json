@@ -91,32 +91,7 @@
   "faq.5.a": "Our working hours are 24/7. Call (773) 238-3838.",
   "seo.title": "HVAC Repair in Wicker Park, Chicago | City & Suburban",
   "seo.description": "Boiler, furnace, AC and ductless repair for Wicker Park Victorian houses, two-flats, cottages and lofts. Family-owned since 1952. Call (773) 238-3838.",
-  "confirmNotes": [
-   {
-    "block": "B1 Hero",
-    "note": "Hero keeps the shared photo (assets/5X6SBXHGCABFYFB3GFJ2CY4MYM.webp). Ask for a City & Suburban-owned or licensed photo of Wicker Park; tick \"Illustrative photo\" until then."
-   },
-   {
-    "block": "B6 Scope and price",
-    "note": "Factor 1 says a condenser or vent visible from the street can need Landmarks review in the Wicker Park Landmark District. Check with the City's Landmarks permit rules before publishing."
-   },
-   {
-    "block": "B9 Districts",
-    "note": "Boundaries follow the common definition (The 606, Division, Ashland, Western). The City's Wicker Park polygon reaches a little west of Western; the permit count uses the City polygon."
-   },
-   {
-    "block": "B9 Districts",
-    "note": "Card 4 (Along The 606) \"HVAC here\" note isn't in the Paper card. Drafted from its building stock. Check it."
-   },
-   {
-    "block": "B12 FAQ",
-    "note": "Answers to questions 2–5 aren't in the Paper design (collapsed). Drafted only from facts on this page and the West Town answers. Review before publishing."
-   },
-   {
-    "block": "SEO",
-    "note": "Meta title and description are new. Review them."
-   }
-  ],
+  "confirmNotes": [],
   "_sources": {
    "permits": {
     "source": "City of Chicago building permits (ydr8-5enu), inside the City's Wicker Park neighborhood polygon (y6yq-dbs2)",

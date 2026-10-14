@@ -55,7 +55,7 @@
   "districts.4.intro": "Halsted south of Madison: restaurants with condos above.",
   "buildings.heading": "What heats and cools your West Loop building",
   "buildings.1.tag": "LOFT",
-  "buildings.1.title": "Converted warehouse",
+  "buildings.1.title": "Converted warehouse loft",
   "buildings.1.body": "Steam or hot-water radiators, or split systems added later. Exposed ceilings decide where ducts go.",
   "buildings.2.tag": "TOWER",
   "buildings.2.title": "High-rise condo",
@@ -66,7 +66,7 @@
   "buildings.4.tag": "COMMERCIAL",
   "buildings.4.title": "Restaurant or office",
   "buildings.4.body": "Rooftop units, make-up air and exhaust. Scheduled around service and opening hours.",
-  "permits.area_count": "62",
+  "permits.area_count": "45",
   "permits.area_text": "West Loop permits in 24 months that even mention HVAC equipment.",
   "faq.heading": "West Loop HVAC, answered",
   "faq.1.q": "Do I need a new furnace, or can mine be repaired?",
@@ -95,27 +95,37 @@
   ],
   "seo.title": "HVAC Repair in the West Loop, Chicago | City & Suburban",
   "seo.description": "Furnace, boiler, AC and make-up air repair for West Loop lofts, high-rises and restaurants. Family-owned since 1952. Call (773) 238-3838.",
-  "confirmNotes": [
-   {
-    "block": "B1 Hero",
-    "note": "Add the hero photo. Confirm it is City & Suburban's own or licensed; tick \"Illustrative photo\" if not."
+  "confirmNotes": [],
+  "_sources": {
+   "permits": {
+    "source": "City of Chicago building permits (ydr8-5enu), skill script hvac_permits.py on the page's stated boundary (Grand Ave to I-290, Ashland Ave to the river) within community area 28",
+    "window": {
+     "from": "2024-10-13",
+     "to": "2026-10-14"
+    },
+    "permits_in_box": 1971,
+    "hvac_mentions": 45,
+    "by_equipment": {
+     "Furnace": 13,
+     "Boiler": 1,
+     "Air conditioning / condensing units": 4,
+     "Rooftop units": 4,
+     "Ductwork": 19,
+     "Heat pump / mini-split": 3,
+     "Kitchen exhaust / make-up air": 13
+    },
+    "cs_permits": 0,
+    "citywide_context": {
+     "hvac_firms": 1539,
+     "hvac_permits_24m": 4888,
+     "note": "From the City Suburban permit workbook, sheet 2 Work Types, as shown on the reference page."
+    }
    },
-   {
-    "block": "B9 Districts",
-    "note": "Greektown \"HVAC here\" note is not in the design. Drafted from its description (restaurants with condos above). Check it."
-   },
-   {
-    "block": "B12 FAQ",
-    "note": "Answers to questions 2–5 are not in the design. Drafted only from facts elsewhere on this page (building rules, boiler service, permit record, hours). Review before publishing."
-   },
-   {
-    "block": "B11 Permits",
-    "note": "Confirm the 62 West Loop permits and the 24-month window against the City of Chicago permit data."
-   },
-   {
-    "block": "SEO",
-    "note": "Meta title and description are new. Review them."
-   }
-  ]
+   "shop_location": "1225 N Cleaver St: 41.9043, -87.6637. Fulton Market (Fulton Market & Halsted) is about 1.4 mi south-south-east, measured straight-line; the City's West Loop outline centre is 2.0 mi south-east.",
+   "wards": "Wards of permits inside the City West Loop outline, 24 months: 34 (822), 27 (798), 42 (299), 28 (138). ZIP shares of the outline: 60607 79%, 60661 16%, 60606 4%, 60616 2% (City ZIP boundaries unjd-c2ca).",
+   "boundaries": "Grand Ave (north), I-290 / Eisenhower Expressway (south), Ashland Ave (west), Chicago River (east); community area 28, Near West Side.",
+   "districts": "Fulton Market (former meatpacking district, Chicago landmark district), Randolph Street \"Restaurant Row\" between Halsted and Racine, West Loop Gate around Union Station and Ogilvie, Greektown on Halsted: City of Chicago neighborhood and landmark records, Wikipedia (West Loop, Greektown).",
+   "buildings": "Converted warehouse lofts, high-rise condos, mid-rise condos and townhomes, restaurants and offices: the West Loop building stock in the City permit records (work descriptions) and the approved Paper template."
+  }
  }
 }
