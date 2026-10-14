@@ -34,11 +34,27 @@ HERO = A + '5X6SBXHGCABFYFB3GFJ2CY4MYM.webp'
 PH_AC = A + 'v2/photo-ac-service.webp'
 PH_FILTER = A + 'v2/photo-furnace-filter.webp'
 SEAL = A + 'v2/family-owned-seal.webp'
+VAN = A + 'v2/van.webp'  # City & Suburban's own van, supplied by the client (2026-10-14)
 CREDITS = {
     'west-loop': ('Fulton Market, West Loop', 'Bex Walton', 'CC BY 2.0',
                   'https://commons.wikimedia.org/wiki/File:Fulton_Market,_West_Loop_(47090474824).jpg'),
     'west-town': ('Division Street and Milwaukee Avenue, West Town', 'Adam Jones, Ph.D.', 'CC BY-SA 3.0',
                   'https://commons.wikimedia.org/wiki/File:Intersection_of_Division_St._and_Milwaukee_Ave._-_Chicago_-_Illinois_-_USA.jpg'),
+    # Ready for the next area pages (same photos and credits as the service areas collection page)
+    'wicker-park': ('Flat Iron Arts Building, Wicker Park', 'David Hilowitz', 'CC BY 2.0',
+                    'https://commons.wikimedia.org/wiki/File:View_of_the_Flat_Iron_Arts_Building_from_the_Coyote_Tower_(5266790849).jpg'),
+    'lincoln-park': ('Lincoln Park Conservatory', 'Ben Schumin', 'CC BY-SA 2.0',
+                     'https://commons.wikimedia.org/wiki/File:Lincoln_Park_Conservatory_(9719113515).jpg'),
+    'pilsen': ('Pilsen Historic District', 'Andrew Jameson', 'CC BY-SA 3.0',
+               'https://commons.wikimedia.org/wiki/File:Pilsen_Historic_District_Chicago_IL.jpg'),
+    'rogers-park': ('Rogers Park along Lake Michigan', 'formulanone', 'CC BY-SA 2.0',
+                    'https://commons.wikimedia.org/wiki/File:Rogers_Park_Aerial_Along_Lake_Michigan_3_(50561589996).jpg'),
+    'bucktown': ('Welcome to Bucktown banner', 'Eric Fischer', 'CC BY 2.0',
+                 'https://commons.wikimedia.org/wiki/File:Welcome_to_Bucktown_(38689679811).jpg'),
+    'logan-square': ('Illinois Centennial Monument, Logan Square', 'Loganresident at en.wikipedia', 'CC BY 2.5',
+                     'https://commons.wikimedia.org/wiki/File:Illinois_Centennial_Memorial_Column.jpg'),
+    'humboldt-park': ('Humboldt Park field house', 'Steven Kevil', 'CC BY-SA 4.0',
+                      'https://commons.wikimedia.org/wiki/File:Humboldt_Park_Field_House_and_Refectory.jpg'),
 }
 # Placeholder in the "street or cross streets" field: an intersection named on that area's page.
 CROSS = {'west-loop': 'e.g. Randolph & Halsted', 'west-town': 'e.g. Division & Milwaukee'}
@@ -82,11 +98,17 @@ BUILDINGS = {
 }
 
 
+# Keywords in the building tag/title -> illustration (also exported to the Next.js template)
+BUILDING_KEYS = [
+    ('loft warehouse', 'loft'), ('tower high-rise lakefront', 'tower'), ('two-flat greystone three-flat', 'flat'),
+    ('cottage frame house', 'cottage'), ('commercial restaurant storefront office', 'commercial'),
+    ('mid-rise condo townhome courtyard', 'mid'),
+]
+
+
 def building_art(tag, title):
     t = f'{tag} {title}'.lower()
-    for keys, art in (('loft warehouse', 'loft'), ('tower high-rise lakefront', 'tower'), ('two-flat greystone three-flat', 'flat'),
-                      ('cottage frame house', 'cottage'), ('commercial restaurant storefront office', 'commercial'),
-                      ('mid-rise condo townhome courtyard', 'mid')):
+    for keys, art in BUILDING_KEYS:
         if any(k in t for k in keys.split()):
             return (f'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" '
                     f'stroke-linejoin="round" aria-hidden="true">{BUILDINGS[art]}</svg>')
@@ -113,7 +135,8 @@ def build(path):
     area, slug = a['_area'], a['_slug']
     get = lambda k: a.get(k, x.get(k, ''))
     area_img = A + f'areas/{slug}.webp'
-    credit = CREDITS[slug]
+    # The area photo appears only when the photo and its credit both exist
+    credit = CREDITS.get(slug) if os.path.exists(os.path.join(ROOT, 'assets', 'areas', f'{slug}.webp')) else None
     building_opts = x.get('buildingTypeOptions') or [a['form.building_default']]
 
     # ── B1 Hero + request form ───────────────────────────
@@ -122,7 +145,7 @@ def build(path):
     chips = ''.join(f'<label class="v2-chip"><input type="radio" name="issue" value="{e(t)}"{" checked" if i == 0 else ""}><span>{icon("check", 14, 2.4)}{e(t)}</span></label>'
                     for i, t in enumerate(issues))
     strip = [
-        (area_img, f'{credit[0]}'),
+        *([(area_img, credit[0])] if credit else []),
         (PH_AC, 'A technician servicing an AC unit · Illustrative photo'),
         (PH_FILTER, 'A furnace filter change · Illustrative photo'),
     ]
@@ -264,21 +287,23 @@ def build(path):
   <ul class="v2-cos">{cos}</ul>
 </section>'''
 
-    # ── B3 Who you're calling: navy credentials band ─────
+    # ── B3 About City & Suburban: navy band with the van (Highlights "About" layout) ─
     owner = f'''
 <section class="cs-sec cs-navy v2-cred on-dark" aria-labelledby="owner-title">
-  <div class="v2-head-row">{head("Who you&#x27;re calling", "One family. Second generation. Since 1952.", "owner-title")}
-    <p class="v2-aside">{e(a["who.copy"])}</p></div>
+  <div class="v2-head-row">{head("About City &amp; Suburban", "Who you&#x27;re actually calling?", "owner-title")}
+    <div class="v2-aside"><p><b>One family. Second generation. Since 1952.</b> {e(a["who.copy"])}</p>
+      <div class="v2-names"><small>Names our reviewers remember</small><ul>{"".join(f"<li>{n}</li>" for n in v1.NAMES)}</ul></div></div></div>
   <div class="v2-cred-grid">
-    <div class="v2-seal">
-      <img src="{SEAL}" alt="City &amp; Suburban seal: Chicago local, family owned, since 1952" width="260" height="260" loading="lazy">
+    <figure class="v2-van">
+      <img src="{VAN}" alt="A City &amp; Suburban Heating &amp; Cooling service van with the phone number (773) 238-3838 on the side" width="666" height="525" loading="lazy" decoding="async">
+      <img class="seal" src="{SEAL}" alt="Chicago local, family owned, since 1952" width="96" height="96" loading="lazy">
       <a class="v2-addr" href="{GMAPS}" target="_blank" rel="noopener">{icon("pin", 16, 2)}1225 N Cleaver St</a>
-      <div class="v2-names"><small>Names our reviewers remember</small><ul>{"".join(f"<li>{n}</li>" for n in v1.NAMES)}</ul></div>
-    </div>
+    </figure>
     <div class="v2-tiles">
       <div class="v2-tile"><p class="k">{icon("user", 16, 2)}Owner</p><b>Rob</b><p>Owner-operator. He runs the calls himself, so the person who quotes is the person accountable.</p></div>
       <div class="v2-tile"><p class="k">{icon("home", 16, 2)}Founded</p><b>1952</b><p>74 years, family owned, now in its second generation.</p></div>
       <div class="v2-tile"><p class="k">{icon("shield", 16, 2)}Permit record</p><b>0</b><p>Permits on record. Chicago doesn&#x27;t permit HVAC repair, which is most of what we do.</p></div>
+      <div class="v2-tile"><p class="k">{icon("clock", 16, 2)}Hours</p><b>6 AM</b><p>Monday to Friday until 6 PM, Saturday until 3:30 PM.</p></div>
       <a class="v2-tile v2-gtile" href="{GMAPS}" target="_blank" rel="noopener"><span class="gc">{G_LOGO}</span><b>4.98<small>/5</small></b>
         <span class="gr"><span class="cs-stars" aria-hidden="true">★★★★★</span>204 Google reviews, as of 31 Aug 2026</span><span class="k gk">{icon("check", 14, 2.4)}Google rating</span></a>
     </div>
@@ -410,8 +435,8 @@ def build(path):
 
     credits = f'''
 <div class="cs-sec v2-credits"><details><summary>Photo credits</summary><ul>
-  <li>{e(credit[0])}: {e(credit[1])} · {e(credit[2])} · <a href="{credit[3]}" target="_blank" rel="noopener">Wikimedia Commons</a></li>
-  <li>Hero, AC service and furnace filter photos: from citysuburbanheating.com. Illustrative photos.</li>
+{f'<li>{e(credit[0])}: {e(credit[1])} · {e(credit[2])} · <a href="{credit[3]}" target="_blank" rel="noopener">Wikimedia Commons</a></li>' if credit else ''}
+  <li>Van photo: City &amp; Suburban. Hero, AC service and furnace filter photos: from citysuburbanheating.com, illustrative.</li>
 </ul></details></div>'''
 
     title = x.get('seo.title') or a['hero.h1']
