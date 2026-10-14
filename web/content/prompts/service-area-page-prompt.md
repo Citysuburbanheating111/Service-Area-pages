@@ -135,7 +135,7 @@ Copy the structure of references/examples/west-loop.json and wrap it as shown be
   "districts.4.hvac": "HVAC here: …",                                                  // ≤90
   "faq.2.a": "", "faq.3.a": "",
   "faq.4.a": "No. Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling. Permits cover installs and construction, so a company's permit count says little about its repair work.",
-  "faq.5.a": "Monday to Friday, 6:00 AM to 6:00 PM, and Saturday, 6:00 AM to 3:30 PM. Call (773) 238-3838.",
+  "faq.5.a": "Our working hours are 24/7. Call (773) 238-3838.",
   "seo.title": "HVAC Repair in <Area>, Chicago | City & Suburban",                     // ≤60
   "seo.description": "<equipment> repair for <Area> <building types>. Family-owned since 1952. Call (773) 238-3838.",  // ≤155
   "reviews.1.url": "", "reviews.2.url": "", "reviews.3.url": "", "reviews.4.url": "",
@@ -185,4 +185,5 @@ When all areas are done, finish with a one-line summary per area: slug, permit c
 - Content files: `web/content/areas/<slug>.json`. Review picks: `web/content/reviews/picks.json`, then `python web/scripts/apply_reviews.py` (cuts quotes, writes ledger.json, enforces the two-page limit).
 - Reviews CSV: `web/content/reviews/google-reviews-*.csv` (newest export). Don't ask for the workbook.
 - Skill scripts: if the installed skill folder is missing, unzip `C:\Citysuburban\city-suburban-service-area-page.skill`.
+- Shared content (business facts from citysuburbanheating.com, section intros, the 5 questions, the 6 process steps, kinds of company, About tiles, the permit record, FAQ 4 and 5) lives in ONE Sanity document, the **Service area template** (`areaTemplate`). `seed-area.mjs` writes only the area's own fields (FAQ 1–3). Don't flag hero photos, licence numbers or hours per page: they're template facts, taken from the live site.
 - After review, load into Sanity as a draft: `node --env-file=.env.local scripts/seed-area.mjs content/areas/<slug>.json` (from `web/`). Check in the Studio's Preview tool at http://localhost:3000/studio (launch config `web-dev`).

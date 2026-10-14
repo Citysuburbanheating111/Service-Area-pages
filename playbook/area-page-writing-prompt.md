@@ -134,7 +134,7 @@ Copy the structure of `references/examples/west-loop.json` and wrap it as shown 
   "districts.4.hvac": "HVAC here: …",                                                  // ≤90
   "faq.2.a": "", "faq.3.a": "",
   "faq.4.a": "No. Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling. Permits cover installs and construction, so a company's permit count says little about its repair work.",
-  "faq.5.a": "Monday to Friday, 6:00 AM to 6:00 PM, and Saturday, 6:00 AM to 3:30 PM. Call (773) 238-3838.",
+  "faq.5.a": "Our working hours are 24/7. Call (773) 238-3838.",
   "seo.title": "HVAC Repair in <Area>, Chicago | City & Suburban",                     // ≤60
   "seo.description": "<equipment> repair for <Area> <building types>. Family-owned since 1952. Call (773) 238-3838.",  // ≤155
   "reviews.1.url": "", "reviews.2.url": "", "reviews.3.url": "", "reviews.4.url": "",
