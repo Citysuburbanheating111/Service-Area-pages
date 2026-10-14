@@ -12,7 +12,7 @@
 
 In Sanity, a new area page document renders with the same template automatically.
 """
-import os, subprocess, sys
+import os, re, subprocess, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, 'tools'))
@@ -42,8 +42,24 @@ for a, b in [('city-suburban/services-v1/service-areas/', 'city-suburban/service
     if a not in src:
         sys.exit(f'v1 collection page changed: expected text not found: {a[:60]}')
     src = src.replace(a, b)
+
+# The v2 collection page is the live one: indexable, canonical, no preview bar, and cards don't
+# link to area pages until those pages are published (they stay noindex drafts). Add a slug to
+# LIVE_AREAS when its page goes live and its card links again.
+LIVE_AREAS = {'west-loop', 'wicker-park', 'pilsen', 'rogers-park', 'bucktown'}  # published in Sanity
+CANONICAL = 'https://logeshmaximus.github.io/city-suburban/services-v2/service-areas/'
+src = src.replace('<meta name="robots" content="noindex, nofollow">',
+                  f'<meta name="robots" content="index, follow">\n<link rel="canonical" href="{CANONICAL}">')
+src = re.sub(r'<div class="pbar">.*?</div>\s*', '', src, count=1, flags=re.S)
+src = re.sub(r'<a class="stretch" href="([a-z-]+)/">([^<]+)</a>',
+             lambda m: m.group(0) if m.group(1) in LIVE_AREAS else m.group(2), src)
+src = re.sub(r'\s*<p class="open" aria-hidden="true">Open the ([^<]+) page <span>→</span></p>',
+             lambda m: m.group(0) if m.group(1).lower().replace(' ', '-') in LIVE_AREAS else '', src)
+for leftover in ('noindex', 'class="pbar"', 'collection page v'):
+    if leftover in src:
+        sys.exit(f'live collection page still contains "{leftover}"')
 open(os.path.join(ROOT, 'services-v2', 'service-areas', 'index.html'), 'w', encoding='utf-8', newline='').write(src)
-print('wrote services-v2/service-areas/index.html')
+print('wrote services-v2/service-areas/index.html (live)')
 
 # 3 + 4. Sync into the Sanity app, then audit
 sync_design_to_web.main()

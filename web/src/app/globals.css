@@ -1,0 +1,8 @@
+/* No CSS framework: the area pages use the shared design CSS in (site)/design/,
+   synced from the design-system site so both render identically. */
+html,
+body {
+  margin: 0;
+  background: #ffffff;
+  color: #3f4b55;
+}

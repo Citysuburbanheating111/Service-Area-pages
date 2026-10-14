@@ -1,0 +1,156 @@
+{
+ "area": {
+  "_area": "Wicker Park",
+  "_area_the": "Wicker Park",
+  "_slug": "wicker-park",
+  "hero.breadcrumb": "Home  ›  Service area  ›  Wicker Park",
+  "hero.pill": "Wicker Park",
+  "hero.h1": "Heating and cooling repair in Wicker Park, Chicago",
+  "hero.lede": "Boilers and radiators, furnaces, central air and ductless systems, for Wicker Park two- and three-flats, Victorian houses, workers' cottages and the shops on Milwaukee and Division. Family-owned since 1952, with the owner, Rob, still on the calls.",
+  "form.title": "Book HVAC service in Wicker Park",
+  "form.building_default": "Two- or three-flat",
+  "services.heading": "Every heating and cooling service we offer in Wicker Park",
+  "who.copy": "City & Suburban is run from 1225 N Cleaver St, a fifth of a mile east of Wicker Park's Ashland Avenue edge, just north of Division. Rob, the owner, still runs the calls and does the diagnosis on the jobs that need it.",
+  "reviews.1.tag": "Rooftop AC & furnace",
+  "reviews.1.quote": "Outstanding work! AC/Furnace needed replacement. Two other companies would not even quote the job due to the roof location of the compressor. C&S H&C came and provided a quote on very short notice. Most technically sound solution for our preference and price was competitive vs other quotes. Installation was scheduled right away after quote acceptance. Everything was installed within the day and so far working good.",
+  "reviews.1.by": "JC · 2026",
+  "reviews.2.tag": "AC & furnace replacement",
+  "reviews.2.quote": "Great service all around! Carissa was polite and promptly scheduled my appointment. Rob came over and answered all of my questions thoroughly. The pricing was reasonable, so we decided to replace the AC and Furnace at the same time. We are so happy that we chose to do both at once! We were surprised that it was such a quick process to update everything.",
+  "reviews.2.by": "Janice Banich · 2026",
+  "reviews.3.tag": "Second opinion",
+  "reviews.3.quote": "Great experience. I called them for my second opinion. Fast, friendly and efficient service. I was told my unit is near end of life but the prices I was quoted are great and they will definitely be hearing from me again when it's time. Use this company. Update: had my ac, furnace, and water heater replaced yesterday. Not sure I could be happier.",
+  "reviews.3.by": "Todd Feitl · 2026",
+  "reviews.4.tag": "Furnace cleaning",
+  "reviews.4.quote": "I called City & Suburban Heating to have my furnaces cleaned. They told me that Rob was going out of town for a week. I asked he could come before he left, and he came two days after my call. I had forgotten to buy a furnace filter for one of the furnaces, but luckily he had it in his truck. He is very reliable and does a great job.",
+  "reviews.4.by": "Susan Nusbaum · 2025",
+  "scope.heading": "The same repair costs differently in a Victorian house, a two-flat and a loft",
+  "scope.1.factor": "Landmark district",
+  "scope.1.why": "Much of Wicker Park is a Chicago Landmark District, so a new condenser or vent in view of the street can need Landmarks review.",
+  "scope.2.factor": "Boiler or forced air",
+  "scope.2.why": "The big houses on Hoyne and Pierce, and many two-flats, still heat with a boiler and radiators, a different job from a furnace.",
+  "scope.3.factor": "Condo conversions",
+  "scope.3.why": "Many Wicker Park two-flats are now condos, so one boiler can serve every unit and the owners agree the repair between them.",
+  "scope.4.factor": "Cooling a radiator house",
+  "scope.4.why": "Victorian houses in the historic district were built for radiators, not ducts, so cooling usually means ductless mini-splits.",
+  "scope.5.factor": "Lofts above the shops",
+  "scope.5.why": "Lofts over Milwaukee Avenue and Division run splits or rooftop units, so getting onto the roof sets the work.",
+  "scope.6.factor": "Repair or replace",
+  "scope.6.why": "The biggest swing of all. Where the unit has years left, we say so.",
+  "choose.heading": "Five questions that sort Wicker Park HVAC companies",
+  "districts.label": "WICKER PARK, DISTRICT BY DISTRICT",
+  "districts.heading": "The 606 to Division, Western to Ashland",
+  "districts.chip1": "ZIP 60622 · 60647",
+  "districts.chip2": "Wards 1, 32, 26",
+  "districts.chip3": "West Town (24)",
+  "districts.1.name": "Historic district",
+  "districts.1.intro": "Victorian mansions on Hoyne and Pierce, the old \"Beer Baron Row\", around the park itself.",
+  "districts.1.hvac": "HVAC here: boilers and radiators, zoned furnaces in big old houses.",
+  "districts.2.name": "Milwaukee, North, Damen",
+  "districts.2.intro": "The six-corner crossing under the Blue Line, with the Flat Iron building and lofts over the shops.",
+  "districts.2.hvac": "HVAC here: rooftop units, splits in lofts, make-up air for kitchens.",
+  "districts.3.name": "Division Street",
+  "districts.3.intro": "The old \"Polish Broadway\": restaurants and bars, with two-flats and newer condos behind.",
+  "districts.3.hvac": "HVAC here: kitchen make-up air, forced air in the newer condos.",
+  "districts.4.name": "Along The 606",
+  "districts.4.intro": "Two-flats and new townhomes on the blocks below the Bloomingdale Trail, the northern edge.",
+  "buildings.heading": "What heats and cools your Wicker Park building",
+  "buildings.1.tag": "TWO-FLAT",
+  "buildings.1.title": "Two- or three-flat",
+  "buildings.1.body": "One boiler for the building, or a furnace per unit after a condo conversion. Condensers off the alley.",
+  "buildings.2.tag": "VICTORIAN",
+  "buildings.2.title": "Victorian house",
+  "buildings.2.body": "Boilers and radiators, often with zones added over the decades. Central air needs a path for ducts.",
+  "buildings.3.tag": "COTTAGE",
+  "buildings.3.title": "Workers' cottage",
+  "buildings.3.body": "A small furnace in a low basement and tight duct runs. Ductless is often the neater way to cool.",
+  "buildings.4.tag": "COMMERCIAL",
+  "buildings.4.title": "Shop or restaurant",
+  "buildings.4.body": "Rooftop units and make-up air over the Milwaukee and Division kitchens, scheduled around service.",
+  "permits.area_count": "10",
+  "permits.area_text": "Wicker Park permits in 24 months that even mention HVAC equipment.",
+  "faq.heading": "Wicker Park HVAC, answered",
+  "faq.1.q": "Does the old boiler in my Wicker Park house need replacing?",
+  "faq.1.a": "Often it doesn't. We diagnose first, and where the boiler has years left, we say so. Replacement is quoted only when repairs stop making sense.",
+  "faq.2.q": "How far is your shop from Wicker Park?",
+  "faq.3.q": "Can you add air conditioning to a house heated by radiators?",
+  "faq.4.q": "Does HVAC repair in Chicago need a permit?",
+  "faq.5.q": "What are your hours?",
+  "cta.body": "Have the make of your boiler, furnace or condenser to hand, and tell us what it's doing. In the landmark district, mention where the outdoor unit sits."
+ },
+ "extras": {
+  "buildingTypeOptions": [
+   "Two- or three-flat",
+   "Victorian house",
+   "Workers' cottage",
+   "Shop or restaurant"
+  ],
+  "districts.4.hvac": "HVAC here: furnaces and central air in new builds, boilers in the two-flats.",
+  "faq.2.a": "Very close. The shop is at 1225 N Cleaver St, a fifth of a mile east of Ashland Avenue, just north of Division, and Rob runs the calls from there.",
+  "faq.3.a": "Usually, yes. A radiator-heated house has no ducts for central air, so cooling usually means ductless mini-splits. In the landmark district, plan where the outdoor unit goes first.",
+  "faq.4.a": "No. Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling. Permits cover installs and construction, so a company's permit count says little about its repair work.",
+  "faq.5.a": "Monday to Friday, 6:00 AM to 6:00 PM, and Saturday, 6:00 AM to 3:30 PM. Call (773) 238-3838.",
+  "seo.title": "HVAC Repair in Wicker Park, Chicago | City & Suburban",
+  "seo.description": "Boiler, furnace, AC and ductless repair for Wicker Park Victorian houses, two-flats, cottages and lofts. Family-owned since 1952. Call (773) 238-3838.",
+  "confirmNotes": [
+   {
+    "block": "B1 Hero",
+    "note": "Hero keeps the shared photo (assets/5X6SBXHGCABFYFB3GFJ2CY4MYM.webp). Ask for a City & Suburban-owned or licensed photo of Wicker Park; tick \"Illustrative photo\" until then."
+   },
+   {
+    "block": "B6 Scope and price",
+    "note": "Factor 1 says a condenser or vent visible from the street can need Landmarks review in the Wicker Park Landmark District. Check with the City's Landmarks permit rules before publishing."
+   },
+   {
+    "block": "B9 Districts",
+    "note": "Boundaries follow the common definition (The 606, Division, Ashland, Western). The City's Wicker Park polygon reaches a little west of Western; the permit count uses the City polygon."
+   },
+   {
+    "block": "B9 Districts",
+    "note": "Card 4 (Along The 606) \"HVAC here\" note isn't in the Paper card. Drafted from its building stock. Check it."
+   },
+   {
+    "block": "B12 FAQ",
+    "note": "Answers to questions 2–5 aren't in the Paper design (collapsed). Drafted only from facts on this page and the West Town answers. Review before publishing."
+   },
+   {
+    "block": "SEO",
+    "note": "Meta title and description are new. Review them."
+   }
+  ],
+  "_sources": {
+   "permits": {
+    "source": "City of Chicago building permits (ydr8-5enu), inside the City's Wicker Park neighborhood polygon (y6yq-dbs2)",
+    "window": {
+     "from": "2024-10-13",
+     "to": "2026-10-14"
+    },
+    "permits_in_box": 725,
+    "hvac_mentions": 10,
+    "by_equipment": {
+     "Furnace": 2,
+     "Boiler": 0,
+     "Air conditioning / condensing units": 1,
+     "Rooftop units": 0,
+     "Ductwork": 4,
+     "Heat pump / mini-split": 0,
+     "Kitchen exhaust / make-up air": 4
+    },
+    "cs_permits": 0,
+    "citywide_context": {
+     "hvac_firms": 1539,
+     "hvac_permits_24m": 4888,
+     "note": "From the City Suburban permit workbook, sheet 2 Work Types, as shown on the reference page."
+    }
+   },
+   "shop_location": "1225 N Cleaver St: 41.9043, -87.6637. Nearest Wicker Park edge 0.2 mi west (Ashland Ave); centre 0.9 mi west. Measured as straight-line distance from the shop to the City neighborhood polygon (nearest edge and centroid), City of Chicago boundary data.",
+   "wards": "Wards of all permits in the polygon, last 24 months: 1 (480), 32 (202), 26 (40), 2 (3). ZIP shares of the City polygon: 60622 79%, 60647 21% (City ZIP boundaries unjd-c2ca).",
+   "boundaries": "Bloomingdale Trail / The 606 (north), Division St (south), Ashland Ave (east), Western Ave (west): Wikipedia, Wicker Park, Chicago. Historic district and Hoyne \"Beer Baron Row\", Division \"Polish Broadway\": same source.",
+   "districts": "Wikipedia, Wicker Park, Chicago: Wicker Park Historic District (Hoyne and Pierce, \"Beer Baron Row\"), Division Street (\"Polish Broadway\"), Milwaukee Avenue; the Bloomingdale Trail / The 606 as the northern edge. Milwaukee–North–Damen crossing and the Flat Iron building: Wikimedia Commons photo record (Flat Iron Arts Building from the Coyote Tower).",
+   "buildings": "Wikipedia, Wicker Park, Chicago (brewers' and merchants' mansions, artists' lofts in old factories, restored and new homes). Two-flats and workers' cottages: the West Town building stock on the West Town page, of which Wicker Park is part. What heats and cools each type: the skill's building rules (boilers and radiators in two-flats and older houses, furnaces in cottages)."
+  },
+  "reviews.1.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xWSGRVeGlTQzFmWTNveFdXTXdSSHBDU1hGeFNXYxAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOlVHdUxiSC1fY3oxWWMwRHpCSXFxSWc%7C%7C?hl=en",
+  "reviews.2.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25CWWJGQjFNa05zZG5oSlRWQkxMVFo2VEZsbWVYYxAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOnBYbFB1MkNsdnhJTVBLLTZ6TFlmeXc%7C%7C?hl=en",
+  "reviews.3.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21wSWQyaE9ibEJKUzNwTE5WTkNWa28yY2pCc1JuYxAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOmpId2hOblBJS3pLNVNCVko2cjBsRnc%7C%7C?hl=en",
+  "reviews.4.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25JeGVtMWhkV2hIVlhwSFJHaEphbFZTVTFoR2RWRRAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOnIxem1hdWhHVXpHRGhJalVSU1hGdVE%7C%7C?hl=en"
+ }
+}

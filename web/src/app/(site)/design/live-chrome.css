@@ -1,0 +1,215 @@
+/* Synced from assets/live-chrome.css by tools/sync_design_to_web.py. Edit the original, not this copy. */
+/* Live-site header and footer (citysuburbanheating.com/services/), copied for the design-system pages.
+   Markup: assets/live/header.html + footer.html. Fonts: Ubuntu + Noto Sans (Google Fonts). */
+.site-header-stack,.site-footer,#live-site-footer{--font-noto-sans:"Noto Sans";--font-ubuntu:"Ubuntu"}
+.site-header-stack,.site-footer{--site-blue:#186aa4;--site-navy:#09263a;--site-ink:#0c1e35;--site-red:#dd382b;--site-red-dark:#b92e23;--site-grey:#6a6a6a;font-family:var(--font-noto-sans),"Noto Sans",system-ui,sans-serif;color:var(--site-navy)}
+.site-header-stack *,.site-header-stack *::before,.site-header-stack *::after{box-sizing:border-box}
+.site-shell{width:min(1140px,100% - 40px);margin-inline:auto}
+.site-topbar{background:var(--site-blue);color:#fff;font-size:14px;font-weight:600}
+.site-topbar-inner{align-items:center;min-height:48px;display:flex}
+.site-topbar-text{white-space:nowrap;padding:0 22px}
+.site-topbar-text:first-child{padding-left:0}
+.site-topbar-divided{border-left:2px solid #ffffffd9}
+.site-topbar-rating{align-items:center;padding:0 22px;display:flex}
+.site-topbar-rating img{width:auto;height:22px;display:block}
+.site-topbar-links{gap:22px;margin-left:auto;display:flex}
+.site-topbar-links a{color:#fff;text-transform:uppercase;font-size:14px;font-weight:600;text-decoration:none}
+.site-topbar-links a:hover{text-decoration:underline}
+.site-header{z-index:30;background:#fff;position:relative;box-shadow:0 2px 10px #09263a0f}
+.site-header-inner{align-items:center;gap:24px;min-height:80px;display:flex}
+.site-logo img{width:150px;height:auto;display:block}
+.site-nav{margin-right:auto}
+.site-menu,.site-submenu{margin:0;padding:0;list-style:none}
+.site-menu{align-items:center;gap:15px 30px;display:flex}
+.site-menu-item{margin:0 0 5px;position:relative}
+.site-menu-item>a{color:var(--site-navy);text-transform:uppercase;white-space:nowrap;padding:30px 0;font-size:14px;font-weight:600;text-decoration:none;display:inline;position:relative}
+.site-menu-item:hover>a,.site-menu-item:focus-within>a{color:var(--site-red)}
+.site-menu-item.has-sub>a:after{content:"";background-image:url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 4L16 12L8 20' stroke='%2309263A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:16px 16px;width:16px;height:16px;transition:transform .3s;position:absolute;top:55%;right:-20px;transform:translateY(-50%)rotate(0)}
+.site-menu-item.has-sub:hover>a:after,.site-menu-item.has-sub:focus-within>a:after{transform:translateY(-35%)rotate(90deg)}
+.site-submenu{z-index:999;border-top:2px solid var(--site-navy);background:#fff;gap:0 30px;min-width:20rem;max-height:14rem;padding:10px 15px;display:none;position:absolute;top:55px;left:0;box-shadow:0 4px 8px #00000014}
+.site-menu-item:hover>.site-submenu,.site-menu-item:focus-within>.site-submenu{flex-flow:column wrap;width:max-content;display:flex}
+.site-submenu li{margin:0 0 5px;padding:.5rem;font-size:1rem;line-height:26px}
+.site-submenu li:hover{background-color:#f3f2f2;border-radius:.5rem}
+.site-submenu a{color:var(--site-navy);text-transform:uppercase;font-size:14px;font-weight:600;line-height:26px;text-decoration:none}
+.site-submenu a:hover{color:var(--site-red)}
+@media (min-width:1101px) and (max-width:1250px){.site-menu-item:nth-child(4)>.site-submenu{left:50%;transform:translate(-50%)}}
+.site-header-actions{align-items:center;gap:22px;display:flex}
+.site-call{color:var(--site-navy);white-space:nowrap;align-items:center;gap:8px;font-size:15px;font-weight:600;text-decoration:none;display:flex}
+.site-call small{text-transform:uppercase;font-size:13px;font-weight:600;display:block}
+.site-call-icon{border:1.5px solid var(--site-navy);border-radius:50%;width:26px;height:26px;padding:5px}
+.site-schedule{background:var(--site-red);color:#fff;text-transform:uppercase;white-space:nowrap;border-radius:30px;align-items:center;gap:10px;padding:10px 12px 10px 18px;font-size:15px;font-weight:600;text-decoration:none;transition:background .16s;display:inline-flex}
+.site-schedule:hover{background:var(--site-red-dark)}
+.site-btn-icon{width:24px;height:24px;color:var(--site-red);background:#fff;border-radius:50%;padding:4px}
+.site-mobile-menu{margin-left:auto;display:none;position:relative}
+.site-mobile-menu>summary{cursor:pointer;gap:5px;padding:10px;list-style:none;display:grid}
+.site-mobile-menu summary::-webkit-details-marker{display:none}
+.site-mobile-menu>summary span{background:var(--site-navy);border-radius:2px;width:24px;height:3px;display:block}
+.site-mobile-menu>nav{background:#fff;gap:2px;width:min(340px,100vw - 24px);max-height:calc(100vh - 140px);padding:10px;display:grid;position:absolute;top:52px;right:0;overflow:auto;box-shadow:0 18px 40px #09263a33}
+.site-mobile-menu details>summary{cursor:pointer;text-transform:uppercase;color:var(--site-navy);justify-content:space-between;padding:12px 14px;font-size:14px;font-weight:600;list-style:none;display:flex}
+.site-mobile-menu details>summary:after{content:"+"}
+.site-mobile-menu details[open]>summary:after{content:"-"}
+.site-mobile-menu details a{color:var(--site-navy);padding:9px 14px 9px 26px;font-size:14px;text-decoration:none;display:block}
+.site-mobile-plain{color:var(--site-navy);text-transform:uppercase;padding:12px 14px;font-size:14px;font-weight:600;text-decoration:none;display:block}
+.site-mobile-menu nav>.site-schedule{justify-content:center;margin-top:8px}
+.site-mobile-actions{display:none}
+.site-line-icon{width:17px;height:17px;color:var(--site-red);flex:none;margin-top:1px}
+@media (max-width:1180px){.site-menu{column-gap:22px}.site-call{display:none}}
+@media (max-width:1100px){.site-topbar-text,.site-topbar-rating{display:none}.site-topbar-text:first-child{display:block}.site-nav,.site-header-actions{display:none}.site-mobile-menu{display:block}.site-header-inner{min-height:68px}}
+@media (max-width:640px){.site-topbar-inner{justify-content:center}.site-topbar-text:first-child{display:none}.site-topbar-links{gap:18px;margin:0}.site-mobile-actions{background:#fff;border-top:1px solid #e6ebef;grid-template-columns:1fr 1fr;gap:10px;padding:10px 14px;display:grid}.site-mobile-actions a{text-transform:uppercase;border-radius:30px;justify-content:center;padding:10px;font-size:14px;font-weight:600;text-decoration:none;display:flex}.site-mobile-actions a:first-child{background:var(--site-red);color:#fff}.site-mobile-actions a:last-child{border:1.5px solid var(--site-navy);color:var(--site-navy)}}
+/* Rating: text instead of the live image (the image says 5.0; the brand figure is 4.98) */
+.site-topbar-rating{gap:6px;color:#fff;text-decoration:none}
+.site-topbar-rating .g{background:#fff;border-radius:50%;padding:2px}
+.site-topbar-rating .rt-num{font-weight:700;color:#FBBC05}
+.site-topbar-rating .rt-stars{color:#FBBC05;letter-spacing:1px}
+#live-site-footer{--primary-color:#09263A;--secondary-color:#DD382B;font-family:var(--font-noto-sans),"Noto Sans",sans-serif;font-size:16px;line-height:normal;color:#0C1E35;background:#fff}
+#live-site-footer *,#live-site-footer *::before,#live-site-footer *::after{box-sizing:border-box;margin:0;padding:0}
+#live-site-footer .container{max-width:1170px;width:100%;padding:0 15px;margin:0 auto}
+#live-site-footer img{height:auto;object-fit:cover;display:block;max-width:100%;border-radius:0}
+#live-site-footer h4{font-family:var(--font-ubuntu),Ubuntu,sans-serif;font-size:clamp(20px,3.5vw,28px);line-height:clamp(28px,4.5vw,36px);font-weight:600;margin-bottom:12px;letter-spacing:normal;color:#0C1E35}
+#live-site-footer p{font-size:clamp(16px,2.5vw,18px);line-height:clamp(24px,3vw,26px)}
+#live-site-footer a{font-size:18px;line-height:26px;text-decoration:none;letter-spacing:normal}
+#live-site-footer li{font-size:18px;line-height:26px}
+#live-site-footer strong{font-family:inherit;font-weight:700}
+#live-site-footer svg{flex-shrink:0}
+#live-site-footer .footer-bottom a{color:#fff}
+#live-site-footer .site-footer{
+        background-color: #fff;
+        color: #0c1e35;
+        font-size: 16px;
+        padding: 80px 0px 80px;
+    }#live-site-footer .footer-columns{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 24px;
+    }#live-site-footer .footer-col{
+        flex: 1 1 auto;
+    }#live-site-footer .footer-col p{
+        font-size: 14px;
+        line-height: 24px;
+        margin-bottom: 10px;
+    }#live-site-footer .footer-col.about p{
+        max-width: 345px;
+    }#live-site-footer .footer-logo{
+        width: 200px;
+        margin-bottom: 20px;
+    }#live-site-footer .site-footer.footer-col h4{
+        margin-bottom: 20px;
+        font-weight: 700;
+    }#live-site-footer .site-footer .footer-col ul{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }#live-site-footer .site-footer .footer-col.two-col ul{
+        max-height: 180px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }#live-site-footer .site-footer .footer-col ul li{
+        margin-bottom: 10px;
+        padding-left: 0;
+    }#live-site-footer .site-footer .footer-col.service-link a{
+        color: #6A6A6A;
+    }#live-site-footer .site-footer .footer-col a{
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color 0.3s ease;
+        font-size: 16px;
+    }#live-site-footer .site-footer .footer-col a:hover{
+        color: var(--secondary-color);
+    }#live-site-footer .site-footer a.phone-btn{
+        background-color: var(--secondary-color);
+        color: #ffffff;
+        padding: 10px 16px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        font-weight: bold;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        vertical-align: middle;
+        text-align: center;
+    }#live-site-footer .site-footer a.phone-btn:hover,#live-site-footer .site-footer a.phone-btn:focus{
+        opacity: 0.8;
+        color: #ffffff;
+    }#live-site-footer .site-footer .social-col{
+        margin-top: 20px;
+    }#live-site-footer .site-footer .social-icons{
+        display: flex;
+        gap: 24px;
+        margin-top: 10px;
+    }#live-site-footer .site-footer .social-icons .icon{
+        width: 40px;
+        height: 40px;
+    }#live-site-footer .site-footer .social-icons svg path,#live-site-footer .site-footer .social-icons svg circle{
+        fill: #fff;
+    }#live-site-footer .social-icons .svg-icon{
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #DD382B;
+        padding: 5px;
+    }#live-site-footer .footer-bottom{
+        background-color: var(--primary-color);
+        color: #fff;
+        text-align: center;
+        padding: 12px 0;
+        font-size: 14px;
+    }#live-site-footer .footer-bottom p{
+        margin-bottom: 0;
+        font-size: clamp(14px, 2vw, 16px);
+        padding: 0 15px;
+    }#live-site-footer .site-footer .footer-col.contact{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }#live-site-footer .site-footer .footer-col.contact .links{
+        display: inline-flex;
+        gap: 4px;
+        align-items: center;
+    }#live-site-footer .site-footer .footer-col.contact .links a{
+        font-weight: 600;
+    }@media (max-width: 1074px){#live-site-footer .site-footer .footer-col.two-col ul{
+            max-height: none;
+        }}@media (max-width: 914px){#live-site-footer .site-footer .footer-col.contact{
+            max-width: 350px;
+        }}@media (max-width: 768px){#live-site-footer .site-footer .footer-columns{
+            justify-content: center;
+        }#live-site-footer .site-footer .footer-col.two-col ul{
+            max-height: 100%;
+        }#live-site-footer .footer-logo{
+            width: 150px;
+        }#live-site-footer .site-footer .social-icons{
+            justify-content: center;
+            gap: 20px;
+        }}@media (max-width: 547px){#live-site-footer .site-footer{
+            padding: 50px 0;
+        }#live-site-footer .site-footer .footer-columns{
+            flex-direction: column;
+        }}
+#live-site-footer .links a{overflow-wrap:anywhere}#live-site-footer :focus-visible{outline:3px solid #DD382B;outline-offset:3px}
+
+
+/* Service Areas menu item (design-system addition; not on the live site yet) */
+.site-menu-areas>.site-submenu{max-height:none}
+.site-menu-areas>.site-submenu li.all{border-top:1px solid #e6ebef;margin-top:4px;padding-top:.6rem}
+.site-menu-areas>.site-submenu li.all a{color:var(--site-red)}
+@media (min-width:1101px) and (max-width:1320px){.site-menu-areas>.site-submenu{left:auto;right:-20px}}
+/* Room for the sixth menu item: header as wide as the page content (1280), the arrow of the
+   last item kept clear of the actions, and the call block hidden a little earlier than live */
+.site-header-stack .site-shell{width:min(1280px,100% - 40px)}
+.site-nav{padding-right:22px}
+@media (max-width:1360px){.site-call{display:none}}
+@media (min-width:1101px) and (max-width:1250px){.site-menu{column-gap:24px}}
+.site-topbar-links a{white-space:nowrap}
+@media (max-width:1250px){.site-topbar-text.site-topbar-divided{display:none}}
+
+/* Services dropdown (design-system addition, like the other menu items) */
+.site-menu-services>.site-submenu{max-height:none}
+.site-menu-services>.site-submenu li.all{border-top:1px solid #e6ebef;margin-top:4px;padding-top:.6rem}
+.site-menu-services>.site-submenu li.all a{color:var(--site-red)}

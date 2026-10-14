@@ -15,6 +15,7 @@ design change is made once, here in the design-system site, and then synced:
 Run it after changing any of the above. Then `npm run build` in web/ (or let `next dev` reload).
 """
 import json, os, re, shutil, sys
+from html import unescape as html_unescape
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WEB = os.path.join(ROOT, 'web')
@@ -94,6 +95,32 @@ def main():
         'areaPhotos': sorted(f[:-5] for f in os.listdir(os.path.join(ROOT, 'assets', 'areas')) if f.endswith('.webp')),
     }
     write(os.path.join(WEB, 'src', 'lib', 'design-data.json'), json.dumps(data, ensure_ascii=False, indent=1) + '\n')
+
+    # 5. The live "All service areas" collection page (services-v2/service-areas/) for /service-areas.
+    #    Cards are written unlinked; the Next page links the ones that exist in Sanity.
+    page = open(os.path.join(ROOT, 'services-v2', 'service-areas', 'index.html'), encoding='utf-8').read()
+    css = page[page.index('<style>') + 7:page.index('</style>')]
+    main = page[page.index('<main>'):page.index('</main>') + 7]
+    title = html_unescape(re.search(r'<title>(.*?)</title>', page).group(1))
+    desc = html_unescape(re.search(r'<meta name="description" content="([^"]*)"', page).group(1))
+    css = (css.replace("--font-display:'Ubuntu',sans-serif", "--font-display:var(--font-ubuntu),'Ubuntu',sans-serif")
+              .replace("--font-body:'Noto Sans',sans-serif", "--font-body:var(--font-noto-sans),'Noto Sans',sans-serif"))
+    css, main = (s.replace('../../assets/', ASSETS_URL) for s in (css, main))
+    main = main.replace('href="./"', f'href="{AREAS_URL}"')
+    main = re.sub(r'<a class="stretch" href="[a-z-]+/">([^<]+)</a>', r'\1', main)
+    main = re.sub(r'\s*<p class="open" aria-hidden="true">.*?</p>', '', main)
+    for img in re.findall(r'/cs-assets/([\w/.-]+\.(?:webp|png))', css + main):
+        src, dst = os.path.join(ROOT, 'assets', img), os.path.join(WEB, 'public', 'cs-assets', img)
+        if not os.path.exists(dst) or os.path.getsize(src) != os.path.getsize(dst):
+            os.makedirs(os.path.dirname(dst), exist_ok=True)
+            shutil.copy2(src, dst)
+            print('copied', 'web/public/cs-assets/' + img)
+    ts = ('// Synced from services-v2/service-areas/index.html by tools/sync_design_to_web.py. Edit the original, not this file.\n'
+          f'export const collectionTitle = {json.dumps(title, ensure_ascii=False)}\n\n'
+          f'export const collectionDescription = {json.dumps(desc, ensure_ascii=False)}\n\n'
+          f'export const collectionCss = {json.dumps(css, ensure_ascii=False)}\n\n'
+          f'export const collectionMain = {json.dumps(main, ensure_ascii=False)}\n')
+    write(os.path.join(WEB, 'src', 'components', 'area', 'collectionHtml.ts'), ts)
     print('design synced')
 
 
