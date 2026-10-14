@@ -1,8 +1,8 @@
 /**
  * Service area template: ONE document (id "areaTemplate") with everything every service area page
  * shares: business facts, section headings and intros, the request form, the 5 questions, the
- * 4 kinds of company, the About tiles, the 6 process steps, the permit record and the two fixed
- * FAQs. Edit it once and every area page (now and future) changes.
+ * kinds of company, the About tiles, the review stats, the 6 process steps, the permit record,
+ * the shared FAQs and the call checklist. Edit it once and every area page (now and future) changes.
  *
  * Area pages (areaPage) hold only what is specific to their area.
  * Business facts match the live site, citysuburbanheating.com.
@@ -114,7 +114,14 @@ export const areaTemplate = defineType({
       title: 'What changes the price (B6)',
       type: 'object',
       group: 'sections',
-      fields: [str('eyebrow', 'Eyebrow'), txt('intro', 'Intro'), str('medianValue', 'Median value'), txt('medianCaption', 'Median caption', 3)],
+      fields: [
+        str('eyebrow', 'Eyebrow'),
+        txt('intro', 'Intro'),
+        defineField({ name: 'howWePrice', title: '"How we price" points', type: 'array', of: [{ type: 'string' }], validation: exactly(4) }),
+        str('medianQuestion', 'Median callout question', 'e.g. "What does a new furnace cost?"'),
+        str('medianValue', 'Median value'),
+        txt('medianCaption', 'Median caption', 3),
+      ],
     }),
     defineField({
       name: 'choose',
@@ -124,7 +131,14 @@ export const areaTemplate = defineType({
       fields: [
         str('eyebrow', 'Eyebrow'),
         str('lede', 'Line under the heading'),
-        defineField({ name: 'questions', title: 'Five questions', type: 'array', of: [card('question', 'Question')], validation: exactly(5) }),
+        defineField({
+          name: 'questions',
+          title: 'Five questions',
+          description: 'One row each in the "How to choose" table.',
+          type: 'array',
+          of: [card('question', 'Question', [str('verify', 'How to verify it'), str('answer', "City & Suburban's answer")])],
+          validation: exactly(5),
+        }),
       ],
     }),
     defineField({
@@ -139,9 +153,17 @@ export const areaTemplate = defineType({
           name: 'items',
           title: 'Company types',
           type: 'array',
-          of: [card('company', 'Company type', [defineField({ name: 'us', title: 'This is us', type: 'boolean', initialValue: false })])],
-          validation: exactly(4),
+          of: [
+            card('company', 'Company type', [
+              defineField({ name: 'us', title: 'This is us', type: 'boolean', initialValue: false }),
+              str('talkTo', 'Who you talk to'),
+              str('priceSet', 'How the price is set'),
+              str('fitsWhen', 'Fits best when'),
+            ]),
+          ],
+          validation: (r) => r.required().min(4).max(5).error('The template uses 4 or 5 company types.'),
         }),
+        txt('fitNote', '"Where we fit, honestly"', 4, 'Use {area} for the area name'),
       ],
     }),
 
@@ -159,7 +181,9 @@ export const areaTemplate = defineType({
         txt('foundedTile', 'Founded tile'),
         txt('permitTile', 'Permit record tile'),
         txt('hoursTile', 'Hours tile'),
-        defineField({ name: 'promises', title: 'Three promises', type: 'array', of: [card('promise', 'Promise')], validation: exactly(3) }),
+        str('familyHeading', '"Why family-owned matters" heading', 'Use {area} for the area name'),
+        defineField({ name: 'familyPoints', title: '"Why family-owned matters" points', type: 'array', of: [{ type: 'string' }], validation: exactly(4) }),
+        defineField({ name: 'promises', title: 'Three promises ("How we work")', type: 'array', of: [card('promise', 'Promise')], validation: exactly(3) }),
       ],
     }),
     defineField({
@@ -168,7 +192,33 @@ export const areaTemplate = defineType({
       type: 'object',
       group: 'about',
       description: 'The four review cards stay on each area page.',
-      fields: [str('eyebrow', 'Eyebrow'), str('heading', 'Heading'), txt('intro', 'Note under the reviews')],
+      fields: [
+        str('eyebrow', 'Eyebrow'),
+        str('heading', 'Heading'),
+        txt('intro', 'Note under the reviews'),
+        str('statsHeading', 'Review stats heading'),
+        txt('statsIntro', 'Review stats intro'),
+        defineField({
+          name: 'stats',
+          title: 'Review stats',
+          description: 'What reviewers chose to mention, counted across the Google review export.',
+          type: 'array',
+          of: [
+            defineArrayMember({
+              name: 'reviewStat',
+              type: 'object',
+              fields: [
+                str('value', 'Count', 'e.g. 90'),
+                str('label', 'What they mention'),
+                defineField({ name: 'percent', title: 'Share of reviews (%)', type: 'number', validation: (r) => r.required().min(0).max(100) }),
+              ],
+              preview: { select: { title: 'value', subtitle: 'label' } },
+            }),
+          ],
+          validation: exactly(4),
+        }),
+        txt('statsNote', 'Note under the stats'),
+      ],
     }),
 
     // ── Process + permits ────────────────────────────────────────────
@@ -191,12 +241,22 @@ export const areaTemplate = defineType({
       fields: [
         str('eyebrow', 'Eyebrow'),
         str('heading', 'Heading'),
+        txt('intro', 'Intro', 3, 'Use {area} for the area name ("the West Loop")'),
         txt('text', 'Text', 4),
         str('citywideNumber', 'Citywide number'),
         txt('citywideCaption', 'Citywide caption'),
         str('ourNumber', 'Our number'),
         txt('ourCaption', 'Our caption'),
       ],
+    }),
+
+    defineField({
+      name: 'nearby',
+      title: 'Other neighborhoods',
+      type: 'object',
+      group: 'process',
+      description: 'Lists the other published area pages.',
+      fields: [str('eyebrow', 'Eyebrow'), str('heading', 'Heading'), txt('intro', 'Intro')],
     }),
 
     // ── FAQ + next step ──────────────────────────────────────────────
@@ -228,7 +288,11 @@ export const areaTemplate = defineType({
       type: 'object',
       group: 'faq',
       description: 'The closing line stays on each area page.',
-      fields: [str('eyebrow', 'Eyebrow'), str('heading', 'Heading')],
+      fields: [
+        str('eyebrow', 'Eyebrow'),
+        str('heading', 'Heading'),
+        defineField({ name: 'checklist', title: '"Have these ready when you call"', type: 'array', of: [{ type: 'string' }], validation: exactly(6) }),
+      ],
     }),
   ],
   preview: { prepare: () => ({ title: 'Service area template', subtitle: 'Shared by every service area page' }) },

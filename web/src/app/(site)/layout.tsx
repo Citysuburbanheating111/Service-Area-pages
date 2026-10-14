@@ -8,6 +8,7 @@ import { SanityLive } from '@/sanity/live'
 import './design/live-chrome.css'
 import './design/area-page.css'
 import './design/area-page-v2.css'
+import './design/area-page-v3.css'
 import './next-only.css'
 
 export default function SiteLayout({ children }: LayoutProps<'/'>) {

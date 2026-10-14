@@ -18,7 +18,8 @@ export const AREA_PAGE_QUERY = defineQuery(`
     choose{ heading, questions[]{ _key, title, text } },
     districts{ eyebrow, heading, zips, wards, communityArea, items[]{ _key, name, description, hvacHere } },
     buildings{ heading, types[]{ _key, tag, name, text } },
-    permits{ areaCount, areaCaption },
+    permits{ areaCount, areaCaption, totalPermits, windowFrom, windowTo, byEquipment[]{ _key, label, count } },
+    nearby{ items[]{ _key, name, text } },
     faq{ heading, items[]{ _key, question, answer } },
     cta{ heading, text },
     seo{ title, description },
@@ -28,7 +29,7 @@ export const AREA_PAGE_QUERY = defineQuery(`
 
 export const AREA_LIST_QUERY = defineQuery(`
   *[_type == "areaPage" && defined(slug.current)] | order(areaName asc){
-    _id, areaName, "slug": slug.current, "h1": hero.h1
+    _id, areaName, "slug": slug.current, "h1": hero.h1, "districts": districts.items[].name
   }
 `)
 
@@ -40,12 +41,13 @@ export const AREA_TEMPLATE_QUERY = defineQuery(`
     form,
     services,
     price,
-    choose{ eyebrow, lede, questions[]{ _key, title, text } },
-    companies{ eyebrow, heading, items[]{ _key, title, text, us } },
-    about{ eyebrow, heading, lead, ownerTile, foundedTile, permitTile, hoursTile, promises[]{ _key, title, text } },
-    reviews,
+    choose{ eyebrow, lede, questions[]{ _key, title, text, verify, answer } },
+    companies{ eyebrow, heading, fitNote, items[]{ _key, title, text, us, talkTo, priceSet, fitsWhen } },
+    about{ eyebrow, heading, lead, ownerTile, foundedTile, permitTile, hoursTile, familyHeading, familyPoints, promises[]{ _key, title, text } },
+    reviews{ eyebrow, heading, intro, statsHeading, statsIntro, statsNote, stats[]{ _key, value, label, percent } },
     process{ heading, steps[]{ _key, title, text } },
     permits,
+    nearby,
     faq{ items[]{ _key, question, answer } },
     cta
   }

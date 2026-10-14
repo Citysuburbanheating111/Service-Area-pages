@@ -37,7 +37,15 @@ export type AreaPageData = {
     items?: Keyed<{ name?: string; description?: string; hvacHere?: string }>[]
   }
   buildings?: { heading?: string; types?: Keyed<{ tag?: string; name?: string; text?: string }>[] }
-  permits?: { areaCount?: number; areaCaption?: string }
+  permits?: {
+    areaCount?: number
+    areaCaption?: string
+    totalPermits?: number
+    windowFrom?: string
+    windowTo?: string
+    byEquipment?: Keyed<{ label?: string; count?: number }>[]
+  }
+  nearby?: { items?: Keyed<{ name?: string; text?: string }>[] }
   faq?: { heading?: string; items?: Keyed<{ question?: string; answer?: string }>[] }
   cta?: { heading?: string; text?: string }
   seo?: { title?: string; description?: string }
@@ -66,9 +74,14 @@ export type AreaTemplateData = {
   hero?: { badges?: string[]; stripTitle?: string; image?: (SanityImageSource & { asset?: unknown }) | null }
   form?: { promise?: string; issueOptions?: string[]; submitLabel?: string; reassurance?: string }
   services?: { pill?: string; intro?: string }
-  price?: { eyebrow?: string; intro?: string; medianValue?: string; medianCaption?: string }
-  choose?: { eyebrow?: string; lede?: string; questions?: Card[] }
-  companies?: { eyebrow?: string; heading?: string; items?: Keyed<{ title?: string; text?: string; us?: boolean }>[] }
+  price?: { eyebrow?: string; intro?: string; howWePrice?: string[]; medianQuestion?: string; medianValue?: string; medianCaption?: string }
+  choose?: { eyebrow?: string; lede?: string; questions?: Keyed<{ title?: string; text?: string; verify?: string; answer?: string }>[] }
+  companies?: {
+    eyebrow?: string
+    heading?: string
+    fitNote?: string
+    items?: Keyed<{ title?: string; text?: string; us?: boolean; talkTo?: string; priceSet?: string; fitsWhen?: string }>[]
+  }
   about?: {
     eyebrow?: string
     heading?: string
@@ -77,19 +90,34 @@ export type AreaTemplateData = {
     foundedTile?: string
     permitTile?: string
     hoursTile?: string
+    familyHeading?: string
+    familyPoints?: string[]
     promises?: Card[]
   }
-  reviews?: { eyebrow?: string; heading?: string; intro?: string }
+  reviews?: {
+    eyebrow?: string
+    heading?: string
+    intro?: string
+    statsHeading?: string
+    statsIntro?: string
+    stats?: Keyed<{ value?: string; label?: string; percent?: number }>[]
+    statsNote?: string
+  }
   process?: { heading?: string; steps?: Card[] }
   permits?: {
     eyebrow?: string
     heading?: string
+    intro?: string
     text?: string
     citywideNumber?: string
     citywideCaption?: string
     ourNumber?: string
     ourCaption?: string
   }
+  nearby?: { eyebrow?: string; heading?: string; intro?: string }
   faq?: { items?: Keyed<{ question?: string; answer?: string }>[] }
-  cta?: { eyebrow?: string; heading?: string }
+  cta?: { eyebrow?: string; heading?: string; checklist?: string[] }
 }
+
+// Shape returned by AREA_LIST_QUERY
+export type AreaListItem = { _id: string; areaName?: string; slug?: string; h1?: string; districts?: string[] }

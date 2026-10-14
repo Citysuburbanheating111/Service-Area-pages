@@ -61,8 +61,7 @@ def main():
     w('Service Areas dropdown: Wicker Park · West Loop · West Town · Lincoln Park · Pilsen · Rogers Park · Bucktown · Logan Square · Humboldt Park · All Service Areas →\n')
 
     w('## 2. Hero')
-    w(f"- Breadcrumb: {a['hero.breadcrumb']}")
-    w(f"- Area pill: {a['hero.pill']}")
+    w(f"- Breadcrumb: Home  ›  Service areas  ›  {a['_area']}")
     w(f"- **H1:** {a['hero.h1']}")
     w(f"- Lede: {a['hero.lede']}")
     w('- Buttons (shared): Call (773) 238-3838 · Schedule service')

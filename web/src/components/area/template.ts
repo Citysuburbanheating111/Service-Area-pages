@@ -17,26 +17,35 @@ export type Template = {
   form: D['form']
   services: D['services']
   price: D['price']
-  choose: Omit<D['choose'], 'questions'> & { questions: Card[] }
-  companies: Omit<D['companies'], 'items'> & { items: Keyed<{ title: string; text: string; us: boolean }>[] }
+  choose: Omit<D['choose'], 'questions'> & { questions: Keyed<D['choose']['questions'][number]>[] }
+  companies: Omit<D['companies'], 'items'> & { items: Keyed<D['companies']['items'][number]>[] }
   about: Omit<D['about'], 'promises'> & { promises: Card[] }
-  reviews: D['reviews']
+  reviews: Omit<D['reviews'], 'stats'> & { stats: Keyed<D['reviews']['stats'][number]>[] }
   process: Omit<D['process'], 'steps'> & { steps: Card[] }
   permits: D['permits']
+  nearby: D['nearby']
   faq: { items: Keyed<{ question: string; answer: string }>[] }
   cta: D['cta']
 }
 
 const filled = (v: unknown) => v !== undefined && v !== null && v !== '' && !(Array.isArray(v) && v.length === 0)
 
-// Sanity values win where they are filled in; arrays get stable keys either way
+// Sanity values win where they are filled in; arrays get stable keys either way. An array item
+// from Sanity that lacks a newer field (e.g. a question saved before the v3 table columns) takes
+// that field from the default item in the same position.
 function merge<T extends Record<string, unknown>>(base: T, over: Record<string, unknown> | undefined | null): T {
   const out: Record<string, unknown> = {}
   for (const [k, v] of Object.entries(base)) {
     const o = over?.[k]
     const pick = filled(o) ? o : v
+    const def = Array.isArray(v) ? v : []
     out[k] = Array.isArray(pick)
-      ? pick.map((x, i) => (x && typeof x === 'object' ? { _key: String(i), ...(x as object) } : x))
+      ? pick.map((x, i) => {
+          if (!x || typeof x !== 'object') return x
+          const d = def[i] && typeof def[i] === 'object' ? (def[i] as Record<string, unknown>) : {}
+          const missing = Object.fromEntries(Object.entries(d).filter(([dk]) => !filled((x as Record<string, unknown>)[dk])))
+          return { _key: String(i), ...(x as object), ...missing }
+        })
       : pick && typeof pick === 'object' && !Array.isArray(pick) && v && typeof v === 'object'
         ? merge(v as Record<string, unknown>, filled(o) ? (o as Record<string, unknown>) : undefined)
         : pick

@@ -1,6 +1,6 @@
 # Master prompt: City & Suburban service area pages
 
-Saved 2026-10-14 from the user. Use it for every service area page. Ask the user which areas first,
+Saved 2026-10-14 from the user; updated the same day for the v3 standard design (Highlights Chicago layout, with the permit bar graph). Use it for every service area page. Ask the user which areas first,
 put them in the AREAS line, then follow the prompt with the city-suburban-service-area-page skill.
 Repo specifics for this project are at the end.
 
@@ -18,10 +18,10 @@ Write one page per area, one area at a time, in the order given. Each page must 
 - If the CSV is missing, fill the review cards with the [CONFIRM: …] placeholder text from the skill's examples and say so in your handover.
 
 ## Reference pages (public, scrape these first)
-- Approved reference page: https://logeshmaximus.github.io/city-suburban/services-v1/service-areas/west-loop/
-- Second finished example: https://logeshmaximus.github.io/city-suburban/services-v1/service-areas/west-town/
+- Approved reference page (v3 standard design, West Loop): https://logeshmaximus.github.io/city-suburban/west-loop-v3.html (exported 1:1 from the Paper template, https://app.paper.design/file/01M4X2DQFNVXA75B9MRX99QYFG/p-1-0)
+- The same page on the site, from Sanity: https://service-area-pages.vercel.app/service-area/west-loop/
 - Design system and tokens: https://logeshmaximus.github.io/city-suburban/
-- The skill's references/content-fields.md, references/examples/west-loop.json and references/examples/lincoln-park.json.
+- The skill's references/content-fields.md, references/examples/west-loop.json and references/examples/west-town.json.
 
 ## Step 0: How the skill applies here
 - Follow the skill's workflow steps 1–5: research, permits, reviews, write the content file, check it.
@@ -31,26 +31,26 @@ Write one page per area, one area at a time, in the order given. Each page must 
 ## Step 1: Scrape the reference page before you write anything
 Open the West Loop reference page and record the following:
 
-1. Every section, in order, with its eyebrow and heading. Confirm the page still has these 16 blocks. If the live page differs from this list, the live page wins; tell me what changed.
+1. Every section, in order, with its eyebrow and heading. Confirm the page still has these 16 blocks (header, 14 sections, footer). If the live page differs from this list, the live page wins; tell me what changed.
 
 | # | Block | Changes per area? |
 |---|---|---|
 | 1 | Header and navbar (Services and Service Areas dropdowns) | No |
-| 2 | Hero: breadcrumb, area pill, H1, lede, Call and Schedule buttons, background image | Yes: breadcrumb, pill, H1, lede |
-| 3 | Booking form: title, building-type dropdown, "What's happening?" options | Yes: title, building-type options and default |
-| 4 | Trust strip: Chicago local, Family owned, Since 1952, 4.98 ★, 204 Google reviews | No |
-| 5 | Services catalogue: heading, 24 services in four groups (Heating 7, Cooling 6, Air quality 5, Commercial 6) | Heading only |
-| 6 | Who you're calling: owner copy, reviewer names, Founded 1952, Google rating 4.98, Who answers (Rob) | Owner copy only |
-| 7 | Reviews: four cards with tag, verbatim quote, "Author · year", "Read on Google" link | Yes: all four cards |
-| 8 | Process: six steps with an image each | No |
-| 9 | What changes the price: heading, $6,807 median, six factor/why rows | Yes: heading and rows 1–5. Row 6 is always "Repair or replace". |
-| 10 | How to choose: heading, Q1–Q5 | Heading only |
-| 11 | Kinds of HVAC company: four company types | No |
-| 12 | Districts: label, boundaries heading, three chips (ZIPs, wards, community area), four district cards | Yes: all |
-| 13 | Building types: heading, four cards (tag, title, body) | Yes: all |
-| 14 | Permit record: area permit count and line, citywide 1,539 firms / 4,888 permits, 0 for City & Suburban | Area count and line only |
-| 15 | FAQ: heading, five questions and answers | Yes: heading, Q1–Q3 and their answers. Q4 and Q5 stay fixed. |
-| 16 | Final CTA and footer | CTA body only |
+| 2 | Hero: breadcrumb, eyebrow (area + first three districts), H1, lede, trust chips (licensing, family owned since 1952, price agreed before work, 4.98 · 204 Google reviews), Call and Schedule buttons, "On this page" links, booking form (title, building type, "What's happening?" options) | Yes: H1, lede, form title, building-type options and default |
+| 3 | All services: heading, 24 services in four groups (Heating 7, Cooling 6, Air quality 5, Commercial 6) | Heading only |
+| 4 | Who you're actually calling: owner copy, van photo, Owner Rob / 1952 / 0 permits / 24/7 cards, Google rating, why family-owned matters, how we work | Owner copy only |
+| 5 | What customers say: four review stats (counts across all 204 reviews), four review cards with tag, verbatim quote, "Author · year" | Yes: all four cards |
+| 6 | What happens when you call: six steps | No |
+| 7 | What changes the price: heading, How we price, $6,807 median, six factor cards | Yes: heading and factors 1–5. Factor 6 is always "Repair or replace". |
+| 8 | How to choose: heading, five-row table (what to check, why it matters, how to verify, City & Suburban's answer) | Heading only |
+| 9 | Kinds of HVAC company: five company types, "Where we fit, honestly" | No |
+| 10 | District by district: label, boundaries heading, map, area facts (community area, ZIPs, wards, our shop, permits), four district cards with "What the HVAC work looks like" | Yes: all |
+| 11 | Your building type: four cards (tag, title, what heats and cools it) | Yes: all |
+| 12 | Neighbourhoods next to the area: 3–6 cards | Yes: all |
+| 13 | Permit record: data-source line, area permit count and line, **bar graph of the area's HVAC permits by equipment**, the honest context (0 for City & Suburban, 1,539 firms / 4,888 permits citywide) | Yes: count, line, data-source numbers and the graph |
+| 14 | FAQ: heading, five questions and answers | Yes: heading, Q1–Q3 and their answers. Q4 and Q5 stay fixed. |
+| 15 | Next step: call buttons, proof strip, "Have these ready when you call" | CTA body only |
+| 16 | Footer | No |
 
 2. Every image. For each one, record its src URL, alt text, which block it sits in and what it shows. That covers the hero background, the three images beside the form, the six process-step images and the logos. These are shared assets: reuse the same URLs on the new page, don't swap or generate images, and don't take photos from other websites. The hero photo is shared by every page: it's set once in the Service area template in Sanity. Don't add a hero-photo note.
 
@@ -60,13 +60,14 @@ Open the West Loop reference page and record the following:
 Use web search, and keep everything specific to this area. Record every source you use.
 - Boundaries on four sides (north, south, east, west), the official Chicago community area name and number, ZIP codes and wards. Use the City of Chicago data portal, the Encyclopedia of Chicago and the City's ward maps. If the area is a sub-neighbourhood with no community area of its own (for example Wicker Park or Bucktown), say which community area it sits in.
 - Four districts or sub-neighbourhoods that people actually search by.
+- The 3–6 neighbourhoods that border the area, with the street or landmark that divides each one and how its buildings differ.
 - The building stock and what heats and cools it, for example: boilers and radiators in greystones, two-flats and courtyard buildings; furnaces in cottages and newer mid-rises; fan coils in high-rises; rooftop units and make-up air in commercial buildings.
 - Where 1225 N Cleaver St (the shop, 41.9043, -87.6637) sits relative to the area. Measure the distance and direction with a map tool. Don't guess.
 
 ## Step 3: Permit context (skill step 2)
 - Run the skill's scripts/hvac_permits.py with the area's bounding box (and --community-area N when there is one). If scripts can't run, query the City of Chicago building permits dataset (ydr8-5enu) directly for the last 24 months.
 - For a sub-neighbourhood without a community area, count permits inside the City's neighbourhood polygon (dataset y6yq-dbs2), not a rough box.
-- permits.area_count = hvac_mentions. Keep the full breakdown (window dates, permits in the box, by equipment) for _sources.
+- From the same run, unchanged: permits.area_count = hvac_mentions, permits.total = permits_in_box, permits.window_from / permits.window_to = window.from / window.to, permits.by_equipment = by_equipment. These draw the permit section's data-source line and bar graph. Also keep the full output in _sources.permits.
 - City & Suburban must come out at 0 permits. If it doesn't, stop and tell me before writing anything.
 - Area permit numbers are market context only. Never present them as City & Suburban's record.
 
@@ -84,8 +85,6 @@ Copy the structure of references/examples/west-loop.json and wrap it as shown be
 {
  "area": {
   "_area": "<Area>", "_area_the": "<'the West Loop' or 'Pilsen'>", "_slug": "<area-slug>",
-  "hero.breadcrumb": "Home  ›  Service area  ›  <Area>",
-  "hero.pill": "<Area>",
   "hero.h1": "Heating and cooling repair in <area_the>, Chicago",                     // ≤60
   "hero.lede": "<equipment>, for <Area> <building types>. Family-owned since 1952, with the owner, Rob, still on the calls.",  // ≤260
   "form.title": "Book HVAC service in <area_the>",
@@ -113,14 +112,20 @@ Copy the structure of references/examples/west-loop.json and wrap it as shown be
   "districts.1.name": "", "districts.1.intro": "", "districts.1.hvac": "HVAC here: …",  // name ≤24, intro ≤110, hvac ≤90
   "districts.2.name": "", "districts.2.intro": "", "districts.2.hvac": "HVAC here: …",
   "districts.3.name": "", "districts.3.intro": "", "districts.3.hvac": "HVAC here: …",
-  "districts.4.name": "", "districts.4.intro": "",
+  "districts.4.name": "", "districts.4.intro": "", "districts.4.hvac": "HVAC here: …",
   "buildings.heading": "What heats and cools your <Area> building",
   "buildings.1.tag": "", "buildings.1.title": "", "buildings.1.body": "",              // tag ≤12 CAPS, title ≤26, body ≤120
   "buildings.2.tag": "", "buildings.2.title": "", "buildings.2.body": "",
   "buildings.3.tag": "", "buildings.3.title": "", "buildings.3.body": "",
   "buildings.4.tag": "", "buildings.4.title": "", "buildings.4.body": "",
-  "permits.area_count": "<hvac_mentions>",
+  "nearby.1.name": "", "nearby.1.text": "",                                             // name ≤26, text ≤110; 3-6 bordering neighbourhoods
+  "nearby.2.name": "", "nearby.2.text": "",
+  "nearby.3.name": "", "nearby.3.text": "",
+  "permits.area_count": <hvac_mentions>,
   "permits.area_text": "<Area> permits in 24 months that even mention HVAC equipment.",
+  "permits.total": <permits_in_box>,
+  "permits.window_from": "<window.from, YYYY-MM-DD>", "permits.window_to": "<window.to>",
+  "permits.by_equipment": {"Furnace": 0, "Boiler": 0, "Air conditioning / condensing units": 0, "Rooftop units": 0, "Ductwork": 0, "Heat pump / mini-split": 0, "Kitchen exhaust / make-up air": 0},
   "faq.heading": "<Area> HVAC, answered",
   "faq.1.q": "<repair-or-replace question about the area's main equipment>",
   "faq.1.a": "",                                                                        // ≤220
@@ -132,7 +137,6 @@ Copy the structure of references/examples/west-loop.json and wrap it as shown be
  },
  "extras": {
   "buildingTypeOptions": ["<4 options, same order as buildings 1-4, first = form.building_default>"],
-  "districts.4.hvac": "HVAC here: …",                                                  // ≤90
   "faq.2.a": "", "faq.3.a": "",
   "faq.4.a": "No. Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling. Permits cover installs and construction, so a company's permit count says little about its repair work.",
   "faq.5.a": "Our working hours are 24/7. Call (773) 238-3838.",
@@ -153,7 +157,7 @@ Copy the structure of references/examples/west-loop.json and wrap it as shown be
 (The // comments are notes for you. Leave them out of the real file, which must be valid JSON.)
 
 Writing rules:
-- Area-specificity test: every district, building, scope row, FAQ and CTA line must be wrong if pasted onto another area. Use real street names, landmarks and building types from your research.
+- Area-specificity test: every district, building, nearby, scope row, FAQ and CTA line must be wrong if pasted onto another area. Use real street names, landmarks and building types from your research.
 - Building types 1–4, buildingTypeOptions and the building-type examples in the lede must describe the same four buildings.
 - Use plain, specific sentences. Claim numbers, not adjectives. No "nestled", "vibrant", "bustling", "premier" or "top-rated".
 - FAQ answers 2 and 3 may use only facts on this page or in the reference pages' answers. Don't invent services, response times, prices or guarantees.
@@ -166,6 +170,7 @@ Run `python scripts/plan.py --content <area-only json> --out check.json` on the 
 - [ ] Every length limit is met. Fix overflow by rewriting shorter, never by dropping content.
 - [ ] No leftover West Loop, West Town or other-area wording (street names, districts, "Fulton Market", "high-rise" where it doesn't apply).
 - [ ] 0 permits for City & Suburban. Area permit numbers are labelled as market context only.
+- [ ] permits.area_count, permits.total, the window and permits.by_equipment all come from the same hvac_permits.py run, copied unchanged. No equipment row is larger than the area count.
 - [ ] Rating is 4.98 across 204 Google reviews: never 5.0, never merged with Yelp.
 - [ ] Founded 1952, family owned, second generation, owner-operator Rob, 1225 N Cleaver St, (773) 238-3838.
 - [ ] No licence numbers (they're unverified). No commission claims, "most common call" claims, price books or warranties. Competitors are criticised for their set-up and incentives, never their workmanship.
@@ -174,7 +179,7 @@ Run `python scripts/plan.py --content <area-only json> --out check.json` on the 
 
 ## Output (for each area)
 1. <area-slug>.json, the complete content file from Step 5, as a downloadable file.
-2. A full page preview: all 16 blocks in page order, each with its heading and every piece of text exactly as it will appear. Area-specific text is shown in full; shared blocks are shown with their scraped text and marked (shared). Include an image table (block · image URL · alt · reused or needs replacing).
+2. A full page preview: all 16 blocks in page order, including the permit bar graph rows (equipment · count), each with its heading and every piece of text exactly as it will appear. Area-specific text is shown in full; shared blocks are shown with their scraped text and marked (shared). Include an image table (block · image URL · alt · reused or needs replacing).
 3. Review picks as a picks.json entry: "<area-slug>": [{"num": <n>, "tag": "<tag>"}, …].
 4. Handover notes: what's specific to this area (districts, building types, the permit line), the decisions you made on edge cases (ZIP or ward edges, boundary lines, drafted FAQ answers, SEO meta) and why. Nothing is left open, any difference between the live page and this prompt, and the source list.
 
@@ -186,5 +191,5 @@ When all areas are done, finish with a one-line summary per area: slug, permit c
 - Content files: `web/content/areas/<slug>.json`. Review picks: `web/content/reviews/picks.json`, then `python web/scripts/apply_reviews.py` (cuts quotes, writes ledger.json, enforces the two-page limit).
 - Reviews CSV: `web/content/reviews/google-reviews-*.csv` (newest export). Don't ask for the workbook.
 - Skill scripts: if the installed skill folder is missing, unzip `C:\Citysuburban\city-suburban-service-area-page.skill`.
-- Shared content (business facts from citysuburbanheating.com, section intros, the 5 questions, the 6 process steps, kinds of company, About tiles, the permit record, FAQ 4 and 5) lives in ONE Sanity document, the **Service area template** (`areaTemplate`). `seed-area.mjs` writes only the area's own fields (FAQ 1–3). Don't flag hero photos, licence numbers or hours per page: they're template facts, taken from the live site.
+- Shared content (business facts from citysuburbanheating.com, section intros, review stats, the 5 questions and their table columns, the 6 process steps, kinds of company, About tiles, the permit record text, FAQ 4 and 5, the call checklist) lives in ONE Sanity document, the **Service area template** (`areaTemplate`). `seed-area.mjs` writes only the area's own fields, including the permit graph (`permits.byEquipment`, `totalPermits`, the window), the nearby neighbourhoods and FAQ 1–3. Pages render through `web/src/components/area/AreaPageV3.tsx`. Don't flag hero photos, licence numbers or hours per page: they're template facts, taken from the live site.
 - After review, load into Sanity as a draft: `node --env-file=.env.local scripts/seed-area.mjs content/areas/<slug>.json` (from `web/`). Check in the Studio's Preview tool at http://localhost:3000/studio (launch config `web-dev`).
