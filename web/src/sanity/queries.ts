@@ -31,3 +31,22 @@ export const AREA_LIST_QUERY = defineQuery(`
     _id, areaName, "slug": slug.current, "h1": hero.h1
   }
 `)
+
+// The one shared template (id "areaTemplate"): business facts and every shared section
+export const AREA_TEMPLATE_QUERY = defineQuery(`
+  *[_id == "areaTemplate"][0]{
+    business,
+    hero{ badges, stripTitle, image{ asset, hotspot, crop } },
+    form,
+    services,
+    price,
+    choose{ eyebrow, lede, questions[]{ _key, title, text } },
+    companies{ eyebrow, heading, items[]{ _key, title, text, us } },
+    about{ eyebrow, heading, lead, ownerTile, foundedTile, permitTile, hoursTile, promises[]{ _key, title, text } },
+    reviews,
+    process{ heading, steps[]{ _key, title, text } },
+    permits,
+    faq{ items[]{ _key, question, answer } },
+    cta
+  }
+`)

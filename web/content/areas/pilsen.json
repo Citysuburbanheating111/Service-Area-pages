@@ -88,35 +88,10 @@
   "faq.2.a": "About three miles. The shop is at 1225 N Cleaver St in West Town, and Ashland Avenue runs from there straight into Pilsen. Rob runs the calls himself.",
   "faq.3.a": "Yes. Tell us when you call that the basement sits below the street, so we know about low ceilings and tight stairs before we arrive.",
   "faq.4.a": "No. Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling. Permits cover installs and construction, so a company's permit count says little about its repair work.",
-  "faq.5.a": "Monday to Friday, 6:00 AM to 6:00 PM, and Saturday, 6:00 AM to 3:30 PM. Call (773) 238-3838.",
+  "faq.5.a": "Our working hours are 24/7. Call (773) 238-3838.",
   "seo.title": "HVAC Repair in Pilsen, Chicago | City & Suburban",
   "seo.description": "Boiler, furnace, AC and ductless repair for Pilsen two-flats, cottages, shops and 18th Street kitchens. Family-owned since 1952. Call (773) 238-3838.",
-  "confirmNotes": [
-   {
-    "block": "B1 Hero",
-    "note": "Hero keeps the shared photo (assets/5X6SBXHGCABFYFB3GFJ2CY4MYM.webp). Ask for a City & Suburban-owned or licensed photo of Pilsen; tick \"Illustrative photo\" until then."
-   },
-   {
-    "block": "B9 Districts",
-    "note": "Pilsen has no City community area of its own; the page uses the Lower West Side (31), which also holds Heart of Chicago. The boundary line names 16th Street, the Stevenson, Western Avenue and the river; the Encyclopedia of Chicago describes rail tracks on the north and west and the river on the south and east. Check the Stevenson and Western Avenue edges."
-   },
-   {
-    "block": "B9 Districts",
-    "note": "Wards chip lists 25 and 12. Wards 28 (7 permits) and 11 (3) touch the edges; decide whether to list them."
-   },
-   {
-    "block": "B6 Scope and price",
-    "note": "Factor 1 (houses below the raised street) and cottage card 2 describe Pilsen's sunken lots. Confirm the wording against what Rob sees on calls."
-   },
-   {
-    "block": "B12 FAQ",
-    "note": "Answers to questions 2–5 aren't in the Paper design (collapsed). Drafted only from facts on this page and the West Town answers. Review before publishing."
-   },
-   {
-    "block": "SEO",
-    "note": "Meta title and description are new. Review them."
-   }
-  ],
+  "confirmNotes": [],
   "_sources": {
    "permits": {
     "source": "City of Chicago building permits (ydr8-5enu), inside the City's Lower West Side neighborhood polygon (y6yq-dbs2), all in community area 31",

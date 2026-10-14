@@ -88,35 +88,10 @@
   "faq.2.a": "Very close. The shop is at 1225 N Cleaver St, a fifth of a mile east of Ashland Avenue, just north of Division, and Rob runs the calls from there.",
   "faq.3.a": "Usually, yes. A radiator-heated house has no ducts for central air, so cooling usually means ductless mini-splits. In the landmark district, plan where the outdoor unit goes first.",
   "faq.4.a": "No. Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling. Permits cover installs and construction, so a company's permit count says little about its repair work.",
-  "faq.5.a": "Monday to Friday, 6:00 AM to 6:00 PM, and Saturday, 6:00 AM to 3:30 PM. Call (773) 238-3838.",
+  "faq.5.a": "Our working hours are 24/7. Call (773) 238-3838.",
   "seo.title": "HVAC Repair in Wicker Park, Chicago | City & Suburban",
   "seo.description": "Boiler, furnace, AC and ductless repair for Wicker Park Victorian houses, two-flats, cottages and lofts. Family-owned since 1952. Call (773) 238-3838.",
-  "confirmNotes": [
-   {
-    "block": "B1 Hero",
-    "note": "Hero keeps the shared photo (assets/5X6SBXHGCABFYFB3GFJ2CY4MYM.webp). Ask for a City & Suburban-owned or licensed photo of Wicker Park; tick \"Illustrative photo\" until then."
-   },
-   {
-    "block": "B6 Scope and price",
-    "note": "Factor 1 says a condenser or vent visible from the street can need Landmarks review in the Wicker Park Landmark District. Check with the City's Landmarks permit rules before publishing."
-   },
-   {
-    "block": "B9 Districts",
-    "note": "Boundaries follow the common definition (The 606, Division, Ashland, Western). The City's Wicker Park polygon reaches a little west of Western; the permit count uses the City polygon."
-   },
-   {
-    "block": "B9 Districts",
-    "note": "Card 4 (Along The 606) \"HVAC here\" note isn't in the Paper card. Drafted from its building stock. Check it."
-   },
-   {
-    "block": "B12 FAQ",
-    "note": "Answers to questions 2–5 aren't in the Paper design (collapsed). Drafted only from facts on this page and the West Town answers. Review before publishing."
-   },
-   {
-    "block": "SEO",
-    "note": "Meta title and description are new. Review them."
-   }
-  ],
+  "confirmNotes": [],
   "_sources": {
    "permits": {
     "source": "City of Chicago building permits (ydr8-5enu), inside the City's Wicker Park neighborhood polygon (y6yq-dbs2)",

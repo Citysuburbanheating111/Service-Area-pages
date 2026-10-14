@@ -52,7 +52,7 @@ Open the West Loop reference page and record the following:
 | 15 | FAQ: heading, five questions and answers | Yes: heading, Q1–Q3 and their answers. Q4 and Q5 stay fixed. |
 | 16 | Final CTA and footer | CTA body only |
 
-2. Every image. For each one, record its src URL, alt text, which block it sits in and what it shows. That covers the hero background, the three images beside the form, the six process-step images and the logos. These are shared assets: reuse the same URLs on the new page, don't swap or generate images, and don't take photos from other websites. The hero photo is the one image that could become area-specific. Keep the current one and add a confirm note asking for a City & Suburban-owned or licensed photo of the area.
+2. Every image. For each one, record its src URL, alt text, which block it sits in and what it shows. That covers the hero background, the three images beside the form, the six process-step images and the logos. These are shared assets: reuse the same URLs on the new page, don't swap or generate images, and don't take photos from other websites. The hero photo is shared by every page: it's set once in the Service area template in Sanity. Don't add a hero-photo note.
 
 3. Every shared value, copied character for character from the page. Don't retype these from memory. They include the phone number, address, hours, rating, review count, founding year, reviewer names, service names and counts, process steps, Q1–Q5, company types, citywide permit figures, the $6,807 median and its caption, and the FAQ 4 and FAQ 5 answers. If any value on the page differs from this prompt, use the page's value and flag the difference.
 
@@ -135,11 +135,11 @@ Copy the structure of references/examples/west-loop.json and wrap it as shown be
   "districts.4.hvac": "HVAC here: …",                                                  // ≤90
   "faq.2.a": "", "faq.3.a": "",
   "faq.4.a": "No. Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling. Permits cover installs and construction, so a company's permit count says little about its repair work.",
-  "faq.5.a": "Monday to Friday, 6:00 AM to 6:00 PM, and Saturday, 6:00 AM to 3:30 PM. Call (773) 238-3838.",
+  "faq.5.a": "Our working hours are 24/7. Call (773) 238-3838.",
   "seo.title": "HVAC Repair in <Area>, Chicago | City & Suburban",                     // ≤60
   "seo.description": "<equipment> repair for <Area> <building types>. Family-owned since 1952. Call (773) 238-3838.",  // ≤155
   "reviews.1.url": "", "reviews.2.url": "", "reviews.3.url": "", "reviews.4.url": "",
-  "confirmNotes": [ { "block": "B1 Hero", "note": "…" } ],
+  "confirmNotes": [],   // stays empty: resolve every open item before handover (Step 6)
   "_sources": {
    "permits": { "source": "City of Chicago building permits (ydr8-5enu)", "window": {"from": "", "to": ""},
                 "permits_in_box": 0, "hvac_mentions": 0, "by_equipment": {}, "cs_permits": 0,
@@ -162,6 +162,7 @@ Writing rules:
 ## Step 6: Check before you hand over (skill step 5)
 Run `python scripts/plan.py --content <area-only json> --out check.json` on the area object and fix every problem it reports. Then confirm each of these yourself:
 - [ ] All 16 blocks from Step 1 are accounted for, and every key in the Step 5 skeleton is present and filled.
+- [ ] Nothing is left to confirm: `confirmNotes` is empty. Decide every edge case yourself from data and sources (ZIP or ward edges: list the ones covering most of the area; boundary lines: follow the City outline or a cited source; drafted FAQ answers and SEO meta: check them against this page's facts). If a claim can't be verified, soften or drop it. Hero photo, licence and hours are template facts taken from citysuburbanheating.com; never ask the client for them.
 - [ ] Every length limit is met. Fix overflow by rewriting shorter, never by dropping content.
 - [ ] No leftover West Loop, West Town or other-area wording (street names, districts, "Fulton Market", "high-rise" where it doesn't apply).
 - [ ] 0 permits for City & Suburban. Area permit numbers are labelled as market context only.
@@ -175,9 +176,9 @@ Run `python scripts/plan.py --content <area-only json> --out check.json` on the 
 1. <area-slug>.json, the complete content file from Step 5, as a downloadable file.
 2. A full page preview: all 16 blocks in page order, each with its heading and every piece of text exactly as it will appear. Area-specific text is shown in full; shared blocks are shown with their scraped text and marked (shared). Include an image table (block · image URL · alt · reused or needs replacing).
 3. Review picks as a picks.json entry: "<area-slug>": [{"num": <n>, "tag": "<tag>"}, …].
-4. Handover notes: what's specific to this area (districts, building types, the permit line), every [CONFIRM] or open item (hero photo, ZIP or ward edge cases, drafted FAQ answers, new SEO meta), any difference between the live page and this prompt, and the source list.
+4. Handover notes: what's specific to this area (districts, building types, the permit line), the decisions you made on edge cases (ZIP or ward edges, boundary lines, drafted FAQ answers, SEO meta) and why. Nothing is left open, any difference between the live page and this prompt, and the source list.
 
-When all areas are done, finish with a one-line summary per area: slug, permit count, the four review numbers and the open confirm items.
+When all areas are done, finish with a one-line summary per area: slug, permit count, the four review numbers and the decisions made.
 
 ---
 
@@ -185,4 +186,5 @@ When all areas are done, finish with a one-line summary per area: slug, permit c
 - Content files: `web/content/areas/<slug>.json`. Review picks: `web/content/reviews/picks.json`, then `python web/scripts/apply_reviews.py` (cuts quotes, writes ledger.json, enforces the two-page limit).
 - Reviews CSV: `web/content/reviews/google-reviews-*.csv` (newest export). Don't ask for the workbook.
 - Skill scripts: if the installed skill folder is missing, unzip `C:\Citysuburban\city-suburban-service-area-page.skill`.
+- Shared content (business facts from citysuburbanheating.com, section intros, the 5 questions, the 6 process steps, kinds of company, About tiles, the permit record, FAQ 4 and 5) lives in ONE Sanity document, the **Service area template** (`areaTemplate`). `seed-area.mjs` writes only the area's own fields (FAQ 1–3). Don't flag hero photos, licence numbers or hours per page: they're template facts, taken from the live site.
 - After review, load into Sanity as a draft: `node --env-file=.env.local scripts/seed-area.mjs content/areas/<slug>.json` (from `web/`). Check in the Studio's Preview tool at http://localhost:3000/studio (launch config `web-dev`).

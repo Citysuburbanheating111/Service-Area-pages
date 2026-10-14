@@ -43,3 +43,53 @@ export type AreaPageData = {
   seo?: { title?: string; description?: string }
   confirmNotes?: Keyed<{ block?: string; note?: string }>[]
 }
+
+// Shape returned by AREA_TEMPLATE_QUERY (the shared Service area template)
+export type AreaTemplateData = {
+  business?: {
+    companyName?: string
+    ownerName?: string
+    phone?: string
+    email?: string
+    addressShort?: string
+    addressFull?: string
+    mapsUrl?: string
+    hours?: string
+    foundedYear?: number
+    experience?: string
+    licensing?: string
+    rating?: number
+    reviewCount?: number
+    ratingAsOf?: string
+    reviewerNames?: string[]
+  }
+  hero?: { badges?: string[]; stripTitle?: string; image?: (SanityImageSource & { asset?: unknown }) | null }
+  form?: { promise?: string; issueOptions?: string[]; submitLabel?: string; reassurance?: string }
+  services?: { pill?: string; intro?: string }
+  price?: { eyebrow?: string; intro?: string; medianValue?: string; medianCaption?: string }
+  choose?: { eyebrow?: string; lede?: string; questions?: Card[] }
+  companies?: { eyebrow?: string; heading?: string; items?: Keyed<{ title?: string; text?: string; us?: boolean }>[] }
+  about?: {
+    eyebrow?: string
+    heading?: string
+    lead?: string
+    ownerTile?: string
+    foundedTile?: string
+    permitTile?: string
+    hoursTile?: string
+    promises?: Card[]
+  }
+  reviews?: { eyebrow?: string; heading?: string; intro?: string }
+  process?: { heading?: string; steps?: Card[] }
+  permits?: {
+    eyebrow?: string
+    heading?: string
+    text?: string
+    citywideNumber?: string
+    citywideCaption?: string
+    ourNumber?: string
+    ourCaption?: string
+  }
+  faq?: { items?: Keyed<{ question?: string; answer?: string }>[] }
+  cta?: { eyebrow?: string; heading?: string }
+}

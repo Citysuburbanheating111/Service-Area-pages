@@ -5,8 +5,8 @@
  *   node --env-file=.env.local scripts/seed-area.mjs content/areas/west-town.json
  *
  * The file is { "area": {skill fields}, "extras": {fields Paper doesn't hold} }.
- * Blocks the skill treats as shared (process, five questions, price intro and median) are filled
- * from the approved template. Never overwrites an existing draft or published page.
+ * Only area-specific fields are written: everything shared lives in the Service area template
+ * (scripts/seed-template.mjs). Never overwrites an existing draft or published page.
  *
  *   --replace-draft  replaces this script's own draft after the content file changes, but only if
  *                    nobody has edited it in the Studio since this script last wrote it (revisions are
@@ -35,6 +35,12 @@ const client = createClient({
 
 const { area: a, extras: x } = JSON.parse(readFileSync(file, 'utf8'))
 
+// Pages arrive in Sanity with nothing left to confirm: resolve open items while writing (decide from
+// data and sources, soften what can't be verified). Hero photo, licence and hours are template facts.
+if (x.confirmNotes?.length) {
+  throw new Error(`${file} still has ${x.confirmNotes.length} open confirm note(s). Resolve them first (python scripts/audit_area.py ${file}).`)
+}
+
 let n = 0
 const k = () => `k${(n++).toString(36).padStart(3, '0')}`
 const items = (type, list) => list.map((v) => ({ _key: k(), _type: type, ...v }))
@@ -43,22 +49,8 @@ const isPlaceholder = (s) => typeof s === 'string' && s.startsWith('[CONFIRM')
 const wards = (chip) => (chip.match(/\d+/g) ?? []).map(Number)
 const zips = (chip) => chip.match(/\b\d{5}\b/g) ?? []
 
-// Shared blocks: identical on every area page (skill: "stays as designed")
-const STEPS = [
-  { title: 'You call, Rob listens', text: "Tell us the make of the furnace or condenser and what it's doing. A good description often narrows it down on the phone." },
-  { title: 'Pick a time', text: "Monday to Saturday from 6 AM. High-rise visits are booked around your building's elevator and work hours." },
-  { title: 'On-site diagnosis', text: 'The technician finds the actual fault: ignition, pressure, refrigerant, airflow or controls.' },
-  { title: 'Honest price, repair first', text: 'You hear the price before any work. If the unit has years left, we say so and repair it.' },
-  { title: 'We fix it', text: 'Repairs done on the spot where the part is on the van. Installs are scheduled and quoted separately.' },
-  { title: 'Good to go', text: 'The system is tested through a full cycle before we leave, and you know what to watch for.' },
-]
-const QUESTIONS = [
-  { title: 'Who diagnoses, and who quotes?', text: "If they're different people, ask who owns the outcome. Here it's Rob for both." },
-  { title: 'Is the technician on commission?', text: 'Commission on replacements changes what "your furnace is done" means.' },
-  { title: 'Does a permit count mean anything here?', text: "Not for repairs. Chicago doesn't permit HVAC repair or maintenance, so a permit count only measures installs." },
-  { title: 'What do the newest reviews say?', text: 'Read the last 20, not the top 5. Look for names and specifics.' },
-  { title: 'Will they tell you to keep it?', text: 'Ask if the unit has years left. Our reviewers record hearing "yes".' },
-]
+// Shared blocks (process, questions, price intro and median, review heading, CTA heading, the
+// "What's happening?" options and the shared FAQs) live in the Service area template, not here.
 
 // Real reviews only: placeholders stay in the confirm notes, never in the page
 const reviews = range(4)
@@ -80,25 +72,15 @@ const doc = {
     formTitle: a['form.title'],
     buildingTypeOptions: x.buildingTypeOptions,
     defaultBuildingType: a['form.building_default'],
-    // Same five options as the approved West Loop reference page
-    issueOptions: ['No heat or no cooling', 'Strange noise or smell', 'Tune-up or maintenance', 'Replacement quote', 'Something else'],
   },
   services: { heading: a['services.heading'] },
   owner: { paragraph: a['who.copy'] },
-  reviews: {
-    heading: 'Why Chicago homeowners keep calling the same family',
-    intro: 'Quoted word for word from Google, never edited. Several reviewers were told their old unit still had years left.',
-    items: items('review', reviews),
-  },
-  process: { heading: 'From the first call to a warm apartment, in six steps', steps: items('step', STEPS) },
+  reviews: { items: items('review', reviews) },
   price: {
     heading: a['scope.heading'],
-    intro: "We don't publish a price book, and we're not going to invent one here. What we can show you is what moves the number.",
-    medianValue: '$6,807',
-    medianCaption: "Median reported value of 81 central-furnace replacement permits in Chicago over 24 months. That's the whole project's construction value, not a quote.",
     factors: items('factor', range(6).map((i) => ({ title: a[`scope.${i}.factor`], text: a[`scope.${i}.why`] }))),
   },
-  choose: { heading: a['choose.heading'], questions: items('question', QUESTIONS) },
+  choose: { heading: a['choose.heading'] },
   districts: {
     // Skill writes the label in caps for Paper; the page sets the case with CSS
     eyebrow: a['districts.label'].toLowerCase().replace(/^./, (c) => c.toUpperCase()).replace(new RegExp(a._area, 'i'), a._area),
@@ -119,9 +101,10 @@ const doc = {
   permits: { areaCount: Number(a['permits.area_count']), areaCaption: a['permits.area_text'] },
   faq: {
     heading: a['faq.heading'],
-    items: items('faqItem', range(5).map((i) => ({ question: a[`faq.${i}.q`], answer: a[`faq.${i}.a`] ?? x[`faq.${i}.a`] }))),
+    // Questions 1-3 are the area's own; 4 and 5 (permits, hours) come from the template
+    items: items('faqItem', range(3).map((i) => ({ question: a[`faq.${i}.q`], answer: a[`faq.${i}.a`] ?? x[`faq.${i}.a`] }))),
   },
-  cta: { heading: 'No heat, no cooling, or just a question?', text: a['cta.body'] },
+  cta: { text: a['cta.body'] },
   seo: { title: x['seo.title'], description: x['seo.description'] },
   confirmNotes: items('confirmNote', x.confirmNotes ?? []),
 }

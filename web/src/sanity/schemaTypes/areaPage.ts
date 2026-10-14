@@ -3,9 +3,11 @@
  * Field groups follow the playbook's block order (B1–B13):
  * https://logeshmaximus.github.io/city-suburban/playbook/#part-c
  *
- * Global blocks (G1 utility bar, G2 header, G3 footer) and blocks that never change
- * per area (B8 Kinds of company, the 24-service list in B2, the facts in B3) are not
- * stored here.
+ * Only what is specific to the area lives here. Everything shared by every area page
+ * (business facts, the hero photo, section intros, the 5 questions, the 6 process steps,
+ * kinds of company, the About tiles, the permit record, the shared FAQs) is in ONE
+ * document: the Service area template (areaTemplate.ts). Fields that moved there are
+ * hidden below, so older pages still read.
  */
 // @sanity/icons v5: one import path per icon
 import { BillIcon } from '@sanity/icons/Bill'
@@ -14,7 +16,6 @@ import { ClipboardIcon } from '@sanity/icons/Clipboard'
 import { EarthGlobeIcon } from '@sanity/icons/EarthGlobe'
 import { HelpCircleIcon } from '@sanity/icons/HelpCircle'
 import { HomeIcon } from '@sanity/icons/Home'
-import { ListIcon } from '@sanity/icons/List'
 import { PinIcon } from '@sanity/icons/Pin'
 import { SearchIcon } from '@sanity/icons/Search'
 import { StarIcon } from '@sanity/icons/Star'
@@ -24,7 +25,6 @@ import { WarningOutlineIcon } from '@sanity/icons/WarningOutline'
 import { defineArrayMember, defineField, defineType, type ArrayRule } from 'sanity'
 
 const LEDE_ENDING = 'Family-owned since 1952, with the owner, Rob, still on the calls.'
-const FIXED_FAQS = ['Does HVAC repair in Chicago need a permit?', 'What are your hours?']
 
 // Exactly `n` items in an array (playbook: fixed card counts per block).
 const exactly = (n: number) => (rule: ArrayRule<unknown[]>) =>
@@ -54,7 +54,6 @@ export const areaPage = defineType({
     { name: 'services', title: 'B2 Services', icon: ThListIcon },
     { name: 'owner', title: 'B3 Owner', icon: UserIcon },
     { name: 'reviews', title: 'B4 Reviews', icon: StarIcon },
-    { name: 'process', title: 'B5 Process', icon: ListIcon },
     { name: 'price', title: 'B6 Price', icon: BillIcon },
     { name: 'choose', title: 'B7 Choose', icon: BulbOutlineIcon },
     { name: 'districts', title: 'B9 Districts', icon: EarthGlobeIcon },
@@ -128,27 +127,8 @@ export const areaPage = defineType({
             ).warning(),
           ],
         }),
-        defineField({
-          name: 'image',
-          title: 'Hero photo',
-          description: 'Full-bleed, at least 1920px wide. Sits under a navy scrim.',
-          type: 'image',
-          options: { hotspot: true },
-          fields: [
-            defineField({
-              name: 'alt',
-              title: 'Alt text',
-              type: 'string',
-              validation: (r) => r.required(),
-            }),
-            defineField({
-              name: 'illustrative',
-              title: 'Illustrative photo',
-              description: 'Tick if this isn\'t City & Suburban\'s own photo. Shows an "Illustrative photo" label.',
-              type: 'boolean',
-              initialValue: false,
-            }),
-          ],
+        // The hero photo is shared: it lives in the Service area template.
+        defineField({ name: 'image', title: 'Hero photo', type: 'image', hidden: true, // moved to the Service area template (areaTemplate); kept so older data still reads
         }),
         defineField({
           name: 'formTitle',
@@ -181,8 +161,7 @@ export const areaPage = defineType({
           title: '"What\'s happening?" options',
           type: 'array',
           of: [defineArrayMember({ type: 'string' })],
-          initialValue: ['No heat or no cooling'],
-          validation: (r) => r.required().min(1),
+          hidden: true, // moved to the Service area template (areaTemplate); kept so older data still reads
         }),
       ],
     }),
@@ -236,16 +215,14 @@ export const areaPage = defineType({
           name: 'heading',
           title: 'Heading',
           type: 'string',
-          initialValue: 'Why Chicago homeowners keep calling the same family',
-          validation: (r) => r.required(),
+          hidden: true, // moved to the Service area template (areaTemplate); kept so older data still reads
         }),
         defineField({
           name: 'intro',
           title: 'Intro',
           type: 'text',
           rows: 2,
-          initialValue:
-            'Quoted word for word from Google, never edited. Several reviewers were told their old unit still had years left.',
+          hidden: true, // moved to the Service area template (areaTemplate); kept so older data still reads
         }),
         defineField({
           name: 'items',
@@ -294,37 +271,14 @@ export const areaPage = defineType({
       ],
     }),
 
-    // ── B5 Process ─────────────────────────────────────────
+    // ── B5 Process: shared, in the Service area template ────
     defineField({
       name: 'process',
-      title: 'B5 · Process',
-      description: 'Step 02 names the area\'s access constraint (elevators, alleys, basements…).',
       type: 'object',
-      group: 'process',
+      hidden: true, // moved to the Service area template (areaTemplate); kept so older data still reads
       fields: [
-        defineField({
-          name: 'heading',
-          title: 'Heading',
-          type: 'string',
-          initialValue: 'From the first call to a warm apartment, in six steps',
-          validation: (r) => r.required(),
-        }),
-        defineField({
-          name: 'steps',
-          title: 'Steps',
-          description: 'Exactly six. Step 06 is the navy highlight.',
-          type: 'array',
-          of: [titledCard('step', 'Step')],
-          initialValue: [
-            { _key: 's1', _type: 'step', title: 'You call, Rob listens', text: "Tell us the make of the furnace or condenser and what it's doing. A good description often narrows it down on the phone." },
-            { _key: 's2', _type: 'step', title: 'Pick a time', text: 'Monday to Saturday from 6 AM.' },
-            { _key: 's3', _type: 'step', title: 'On-site diagnosis', text: 'The technician finds the actual fault: ignition, pressure, refrigerant, airflow or controls.' },
-            { _key: 's4', _type: 'step', title: 'Honest price, repair first', text: 'You hear the price before any work. If the unit has years left, we say so and repair it.' },
-            { _key: 's5', _type: 'step', title: 'We fix it', text: 'Repairs done on the spot where the part is on the van. Installs are scheduled and quoted separately.' },
-            { _key: 's6', _type: 'step', title: 'Good to go', text: 'The system is tested through a full cycle before we leave, and you know what to watch for.' },
-          ],
-          validation: exactly(6),
-        }),
+        defineField({ name: 'heading', type: 'string' }),
+        defineField({ name: 'steps', type: 'array', of: [titledCard('step', 'Step')] }),
       ],
     }),
 
@@ -347,24 +301,19 @@ export const areaPage = defineType({
           title: 'Intro',
           type: 'text',
           rows: 3,
-          initialValue:
-            "We don't publish a price book, and we're not going to invent one here. What we can show you is what moves the number.",
-          validation: (r) => r.required(),
+          hidden: true, // moved to the Service area template (areaTemplate); kept so older data still reads
         }),
         defineField({
           name: 'medianValue',
           title: 'Median value',
-          description: 'From City of Chicago permit data, e.g. "$6,807". Never an invented price.',
           type: 'string',
-          validation: (r) => r.required(),
+          hidden: true, // moved to the Service area template (areaTemplate); kept so older data still reads
         }),
         defineField({
           name: 'medianCaption',
           title: 'Median caption',
-          description: 'Say what it measures and the source window.',
           type: 'text',
-          rows: 3,
-          validation: (r) => r.required(),
+          hidden: true, // moved to the Service area template (areaTemplate); kept so older data still reads
         }),
         defineField({
           name: 'factors',
@@ -398,18 +347,9 @@ export const areaPage = defineType({
         }),
         defineField({
           name: 'questions',
-          title: 'Questions',
-          description: 'Exactly five. Q5 is the navy highlight.',
           type: 'array',
           of: [titledCard('question', 'Question')],
-          initialValue: [
-            { _key: 'q1', _type: 'question', title: 'Who diagnoses, and who quotes?', text: "If they're different people, ask who owns the outcome. Here it's Rob for both." },
-            { _key: 'q2', _type: 'question', title: 'Is the technician on commission?', text: 'Commission on replacements changes what "your furnace is done" means.' },
-            { _key: 'q3', _type: 'question', title: 'Does a permit count mean anything here?', text: "Not for repairs. Chicago doesn't permit HVAC repair or maintenance, so a permit count only measures installs." },
-            { _key: 'q4', _type: 'question', title: 'What do the newest reviews say?', text: 'Read the last 20, not the top 5. Look for names and specifics.' },
-            { _key: 'q5', _type: 'question', title: 'Will they tell you to keep it?', text: 'Ask if the unit has years left. Our reviewers record hearing "yes".' },
-          ],
-          validation: exactly(5),
+          hidden: true, // moved to the Service area template (areaTemplate); kept so older data still reads
         }),
       ],
     }),
@@ -557,7 +497,7 @@ export const areaPage = defineType({
         defineField({
           name: 'items',
           title: 'Questions',
-          description: `Five. Q1–3 about the area's equipment and buildings; keep "${FIXED_FAQS.join('" and "')}". The first is shown open.`,
+          description: 'Three questions about this area. The shared questions (permits, hours) come from the Service area template. The first is shown open.',
           type: 'array',
           of: [
             defineArrayMember({
@@ -570,14 +510,7 @@ export const areaPage = defineType({
               preview: { select: { title: 'question', subtitle: 'answer' } },
             }),
           ],
-          validation: (r) => [
-            exactly(5)(r),
-            r.custom((items?: { question?: string }[]) => {
-              const qs = (items ?? []).map((i) => i.question)
-              const missing = FIXED_FAQS.filter((q) => !qs.includes(q))
-              return missing.length ? `Keep the standard question(s): ${missing.join(' · ')}` : true
-            }).warning(),
-          ],
+          validation: (r) => r.required().min(3).max(5),
         }),
       ],
     }),
@@ -593,8 +526,7 @@ export const areaPage = defineType({
           name: 'heading',
           title: 'Heading',
           type: 'string',
-          initialValue: 'No heat, no cooling, or just a question?',
-          validation: (r) => r.required(),
+          hidden: true, // moved to the Service area template (areaTemplate); kept so older data still reads
         }),
         defineField({
           name: 'text',

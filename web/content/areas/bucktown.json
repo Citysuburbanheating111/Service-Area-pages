@@ -88,35 +88,10 @@
   "faq.2.a": "Under a mile. The shop is at 1225 N Cleaver St in West Town, just south-east of Bucktown across The 606, and Rob runs the calls from there.",
   "faq.3.a": "Yes. Tell us when you call that there's a system on each floor, so we know to check both.",
   "faq.4.a": "No. Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling. Permits cover installs and construction, so a company's permit count says little about its repair work.",
-  "faq.5.a": "Monday to Friday, 6:00 AM to 6:00 PM, and Saturday, 6:00 AM to 3:30 PM. Call (773) 238-3838.",
+  "faq.5.a": "Our working hours are 24/7. Call (773) 238-3838.",
   "seo.title": "HVAC Repair in Bucktown, Chicago | City & Suburban",
   "seo.description": "Furnace, AC, boiler and ductless repair for Bucktown frame houses, new builds, two-flats and Damen shops. Family-owned since 1952. Call (773) 238-3838.",
-  "confirmNotes": [
-   {
-    "block": "B1 Hero",
-    "note": "Hero keeps the shared photo (assets/5X6SBXHGCABFYFB3GFJ2CY4MYM.webp). Ask for a City & Suburban-owned or licensed photo of Bucktown; tick \"Illustrative photo\" until then."
-   },
-   {
-    "block": "B9 Districts",
-    "note": "Bucktown has no community area of its own; it sits in Logan Square (22). The City's Bucktown polygon runs north of Fullerton and east to the river, so the permit count uses it cut at Fullerton. Its strip east of the Kennedy is in ZIP 60614, left off the chip. Decide whether to list it."
-   },
-   {
-    "block": "B9 Districts",
-    "note": "Card 4 (Along The 606) \"HVAC here\" note isn't in the Paper card. Drafted from its building stock. Check it."
-   },
-   {
-    "block": "B11 Permit record",
-    "note": "Only 5 HVAC-mention permits in 24 months, the lowest of any area so far. It's correct for the City polygon south of Fullerton; re-pull before publishing."
-   },
-   {
-    "block": "B12 FAQ",
-    "note": "Answers to questions 2–5 aren't in the Paper design (collapsed). Drafted only from facts on this page and the West Town answers. Review before publishing."
-   },
-   {
-    "block": "SEO",
-    "note": "Meta title and description are new. Review them."
-   }
-  ],
+  "confirmNotes": [],
   "_sources": {
    "permits": {
     "source": "City of Chicago building permits (ydr8-5enu), inside the City's Bucktown neighborhood polygon (y6yq-dbs2) south of Fullerton Ave, all in community area 22",

@@ -21,7 +21,7 @@
    "name": "Heating",
    "title": "Heating: furnaces, boilers and heat pumps",
    "lede": "A furnace that won't light, a boiler losing pressure, a unit that short-cycles. Diagnosis comes first, and replacement only if the unit is genuinely done.",
-   "url": "https://citysuburbanheating.com/service/heating/",
+   "url": "https://citysuburbanheating.com/services/heating/",
    "items": [
     {
      "icon": "wrench",
@@ -72,7 +72,7 @@
    "name": "Cooling",
    "title": "Cooling",
    "lede": "",
-   "url": "https://citysuburbanheating.com/service/cooling/",
+   "url": "https://citysuburbanheating.com/services/cooling/",
    "items": [
     {
      "icon": "cooling",
@@ -117,7 +117,7 @@
    "name": "Air quality",
    "title": "Air quality",
    "lede": "",
-   "url": "https://citysuburbanheating.com/service/air-quality/",
+   "url": "https://citysuburbanheating.com/services/air-quality/",
    "items": [
     {
      "icon": "airQuality",
@@ -156,7 +156,7 @@
    "name": "Commercial",
    "title": "Commercial",
    "lede": "",
-   "url": "https://citysuburbanheating.com/service/commercial-hvac/",
+   "url": "https://citysuburbanheating.com/services/commercial/",
    "items": [
     {
      "icon": "commercial",
@@ -212,7 +212,7 @@
   },
   {
    "title": "Pick a time",
-   "text": "Monday to Saturday from 6 AM. High-rise visits are booked around your building's elevator and work hours."
+   "text": "We're available 24/7. If your building has rules on access, like elevator or work hours, tell us and we book around them."
   },
   {
    "title": "On-site diagnosis",

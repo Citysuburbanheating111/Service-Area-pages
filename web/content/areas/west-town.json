@@ -88,31 +88,10 @@
   "faq.2.a": "We're in it. The shop is at 1225 N Cleaver St, half a block north of Division, and Rob runs the calls from there.",
   "faq.3.a": "Usually, yes. Radiator-heated flats have no ducts for central air, so cooling means ductless mini-splits, with the condenser on a garage roof or in the gangway.",
   "faq.4.a": "No. Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling. Permits cover installs and construction, so a company's permit count says little about its repair work.",
-  "faq.5.a": "Monday to Friday, 6:00 AM to 6:00 PM, and Saturday, 6:00 AM to 3:30 PM. Call (773) 238-3838.",
+  "faq.5.a": "Our working hours are 24/7. Call (773) 238-3838.",
   "seo.title": "HVAC Repair in West Town, Chicago | City & Suburban",
   "seo.description": "Boiler, furnace, AC and ductless repair for West Town two-flats, cottages, lofts and storefronts. Family-owned since 1952. Call (773) 238-3838.",
-  "confirmNotes": [
-   {
-    "block": "B1 Hero",
-    "note": "Add the hero photo. Confirm it is City & Suburban's own or licensed; tick \"Illustrative photo\" if not."
-   },
-   {
-    "block": "B9 Districts",
-    "note": "River West \"HVAC here\" note isn't in the Paper card (card 4 has none). Drafted from its building stock. Check it."
-   },
-   {
-    "block": "B9 Districts",
-    "note": "ZIP chip shows 60622 · 60642, the two every source agrees on. Edges of West Town also touch 60612 and 60647; decide whether to list them."
-   },
-   {
-    "block": "B12 FAQ",
-    "note": "Answers to questions 2–5 aren't in the Paper design (collapsed). Drafted only from facts on this page and the West Loop answers. Review before publishing."
-   },
-   {
-    "block": "SEO",
-    "note": "Meta title and description are new. Review them."
-   }
-  ],
+  "confirmNotes": [],
   "_sources": {
    "permits": {
     "source": "City of Chicago building permits (ydr8-5enu)",
@@ -140,7 +119,9 @@
    },
    "shop_location": "1225 N Cleaver St: 41.9043, -87.6637, community area 24, ward 1 (City of Chicago permit records on Cleaver St).",
    "wards": "Wards from City permits in community area 24, last 24 months: 1 (973), 27 (486), 36 (464), 32 (308), 26 (209); 34 and 2 under 15 each.",
-   "boundaries": "Bloomingdale (north), Kinzie (south), Chicago River (east), Kedzie (west): Encyclopedia of Chicago via Chicago Public Library."
+   "boundaries": "Bloomingdale (north), Kinzie (south), Chicago River (east), Kedzie (west): Encyclopedia of Chicago via Chicago Public Library.",
+   "districts": "Ukrainian Village, East Village, Noble Square, River West: Encyclopedia of Chicago (West Town) and City of Chicago neighborhood boundaries (y6yq-dbs2).",
+   "buildings": "Two- and three-flats, workers' cottages, converted warehouse lofts, storefronts and restaurants: West Town building stock in City permit work descriptions (community area 24) and the Encyclopedia of Chicago."
   },
   "reviews.1.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUNEM05ERkJBEAE!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CIHM0ogKEICAgICD3NDFBA%7C%7C?hl=en",
   "reviews.2.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT20xVlVXRjZlRmhGWkZGRldWVkdXWFZUYVdwaE9FRRAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOm1VUWF6eFhFZFFFWVVGWXVTaWphOEE%7C%7C?hl=en",

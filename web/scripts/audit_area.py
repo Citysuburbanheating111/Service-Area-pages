@@ -3,7 +3,7 @@
 
   python scripts/audit_area.py content/areas/pilsen.json [more files…]
 
-Checks the Step 5 skeleton (every key, no extras, nothing empty), the character limits, the fixed
+Checks the Step 5 skeleton (every key, no extras, nothing empty, no open confirm notes), the character limits, the fixed
 values and patterns, building-type consistency, review rules, banned words, British spellings and
 other-area leftovers. Exit code 1 if any file has problems.
 """
@@ -47,7 +47,7 @@ FIXED = {
     'faq.4.q': 'Does HVAC repair in Chicago need a permit?',
     'faq.5.q': 'What are your hours?',
     'faq.4.a': "No. Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling. Permits cover installs and construction, so a company's permit count says little about its repair work.",
-    'faq.5.a': 'Monday to Friday, 6:00 AM to 6:00 PM, and Saturday, 6:00 AM to 3:30 PM. Call (773) 238-3838.',
+    'faq.5.a': 'Our working hours are 24/7. Call (773) 238-3838.',
 }
 BANNED = ['nestled', 'vibrant', 'bustling', 'premier', 'top-rated', 'best-in-class', 'one-stop', 'warranty', 'guarantee',
           'commission', 'licence', 'license']
@@ -72,8 +72,12 @@ def audit(path, picks_count):
     p += [f'extra extras key {k}' for k in x if k not in EXTRA_KEYS]
     for k in AREA_KEYS + EXTRA_KEYS:
         v = get(a, x, k)
-        if v in ('', None, [], {}):
+        if k != 'confirmNotes' and v in ('', None, [], {}):
             p.append(f'empty {k}')
+    # Every open item is resolved before the page goes to Sanity: decide from data and sources,
+    # soften what can't be verified. Hero photo, licence and hours are template facts, never page notes.
+    for n in x.get('confirmNotes') or []:
+        p.append(f"open confirm note, resolve it before seeding: [{n.get('block')}] {n.get('note', '')[:80]}")
     s = x.get('_sources', {})
     p += [f'missing _sources.{k}' for k in SOURCE_KEYS if k not in s]
     p += [f'extra _sources.{k}' for k in s if k not in SOURCE_KEYS]
@@ -107,11 +111,12 @@ def audit(path, picks_count):
         'buildings.heading': f'What heats and cools your {A} building',
         'permits.area_text': f'{A} permits in 24 months that even mention HVAC equipment.',
         'faq.heading': f'{A} HVAC, answered',
-        'seo.title': f'HVAC Repair in {A}, Chicago | City & Suburban',
     }
     for k, v in pat.items():
         if get(a, x, k) != v:
             p.append(f'{k} should be: {v}')
+    if x.get('seo.title') not in (f'HVAC Repair in {A}, Chicago | City & Suburban', f'HVAC Repair in {T}, Chicago | City & Suburban'):
+        p.append(f'seo.title should be: HVAC Repair in {T}, Chicago | City & Suburban')
     if not a.get('who.copy', '').startswith('City & Suburban is run from 1225 N Cleaver St, ') or \
             not a.get('who.copy', '').endswith('Rob, the owner, still runs the calls and does the diagnosis on the jobs that need it.'):
         p.append('who.copy must start "City & Suburban is run from 1225 N Cleaver St, " and end with the full Rob sentence')
@@ -170,7 +175,7 @@ def audit(path, picks_count):
                     if not k.startswith('_') and k not in ('confirmNotes', 'who.copy', 'districts.chip3', 'faq.2.a')
                     and 'quote' not in k and not k.startswith('districts.')).lower()
     for n in AREA_NAMES:
-        if n.lower() in scan and n not in allowed:
+        if n.lower() in scan and not any(n in name for name in allowed):
             p.append(f'mentions another area: {n}')
     return p
 

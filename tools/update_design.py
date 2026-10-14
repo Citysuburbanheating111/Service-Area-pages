@@ -46,7 +46,7 @@ for a, b in [('city-suburban/services-v1/service-areas/', 'city-suburban/service
 # The v2 collection page is the live one: indexable, canonical, no preview bar, and cards don't
 # link to area pages until those pages are published (they stay noindex drafts). Add a slug to
 # LIVE_AREAS when its page goes live and its card links again.
-LIVE_AREAS = {'west-loop', 'wicker-park', 'pilsen', 'rogers-park', 'bucktown'}  # published in Sanity
+LIVE_AREAS = {'west-loop', 'west-town', 'wicker-park', 'pilsen', 'rogers-park', 'bucktown'}  # published in Sanity
 CANONICAL = 'https://logeshmaximus.github.io/city-suburban/services-v2/service-areas/'
 src = src.replace('<meta name="robots" content="noindex, nofollow">',
                   f'<meta name="robots" content="index, follow">\n<link rel="canonical" href="{CANONICAL}">')
