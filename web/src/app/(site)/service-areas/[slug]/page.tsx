@@ -18,6 +18,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   return {
     title: page.seo?.title || page.hero?.h1,
     description: page.seo?.description || page.hero?.lede,
+    alternates: { canonical: `/service-areas/${slug}` },
   }
 }
 

@@ -96,9 +96,10 @@ def main():
     }
     write(os.path.join(WEB, 'src', 'lib', 'design-data.json'), json.dumps(data, ensure_ascii=False, indent=1) + '\n')
 
-    # 5. The live "All service areas" collection page (services-v2/service-areas/) for /service-areas.
-    #    Cards are written unlinked; the Next page links the ones that exist in Sanity.
-    page = open(os.path.join(ROOT, 'services-v2', 'service-areas', 'index.html'), encoding='utf-8').read()
+    # 5. The "All service areas" collection page for /service-areas. Read from the v1 page, which has
+    #    every card: the Next page keeps only the areas published in Sanity, links them and sets the
+    #    count (the static v2 page does the same from LIVE_AREAS in tools/update_design.py).
+    page = open(os.path.join(ROOT, 'services-v1', 'service-areas', 'index.html'), encoding='utf-8').read()
     css = page[page.index('<style>') + 7:page.index('</style>')]
     main = page[page.index('<main>'):page.index('</main>') + 7]
     title = html_unescape(re.search(r'<title>(.*?)</title>', page).group(1))
@@ -115,7 +116,8 @@ def main():
             os.makedirs(os.path.dirname(dst), exist_ok=True)
             shutil.copy2(src, dst)
             print('copied', 'web/public/cs-assets/' + img)
-    ts = ('// Synced from services-v2/service-areas/index.html by tools/sync_design_to_web.py. Edit the original, not this file.\n'
+    ts = ('// Synced from services-v1/service-areas/index.html (every card) by tools/sync_design_to_web.py. Edit the original, not this file.\n'
+          '// The /service-areas page keeps only the areas published in Sanity.\n'
           f'export const collectionTitle = {json.dumps(title, ensure_ascii=False)}\n\n'
           f'export const collectionDescription = {json.dumps(desc, ensure_ascii=False)}\n\n'
           f'export const collectionCss = {json.dumps(css, ensure_ascii=False)}\n\n'
