@@ -251,7 +251,7 @@ function About({ page }: { page: AreaPageData }) {
       <div className="v2-cred-grid">
         <figure className="v2-van">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={design.images.van} alt="A City & Suburban Heating & Cooling service van parked by the lakefront with the Chicago skyline at dusk behind it" width={1000} height={860} loading="lazy" decoding="async" />
+          <img src={design.images.van} alt="A City & Suburban Heating & Cooling service van parked on a Chicago street at dusk, with the skyline behind it" width={1235} height={848} loading="lazy" decoding="async" />
           <figcaption>Illustrative image</figcaption>
           <a className="v2-addr" href={design.gmaps} target="_blank" rel="noopener noreferrer"><Icon name="pin" size={16} strokeWidth={2} />1225 N Cleaver St</a>
         </figure>
@@ -434,7 +434,7 @@ function Credits({ slug }: { slug: string }) {
   return (
     <div className="cs-sec v2-credits"><details><summary>Photo credits</summary><ul>
       {c && <li>{c.caption}: {c.author} · {c.licence} · <a href={c.url} target="_blank" rel="noopener noreferrer">Wikimedia Commons</a></li>}
-      <li>Van: City &amp; Suburban, set against the Chicago skyline (Tony Webster · CC BY 2.0 · <a href="https://commons.wikimedia.org/wiki/File:Chicago_Skyline_(15240030464).jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>). Illustrative image.</li>
+      <li>Van on a Chicago street: City &amp; Suburban, AI-generated illustrative image.</li>
       <li>Hero, AC service and furnace filter photos: from citysuburbanheating.com, illustrative.</li>
     </ul></details></div>
   )
