@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Ubuntu:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/live-chrome.css">
-<link rel="preload" as="image" href="../../assets/5X6SBXHGCABFYFB3GFJ2CY4MYM.webp">
+<link rel="preload" as="image" href="../../assets/v2/van-street.webp">
 <style>
 :root{
   --color-bg:#FFFFFF;--color-fog:#F2F4F6;--color-line:#DCE2E7;--color-text:#3F4B55;--color-muted:#6A7782;
@@ -48,8 +48,9 @@ img{display:block;max-width:100%}
 .btn-sm{min-height:44px;padding:0 22px;font-size:14px}
 
 /* B1 hero */
-.hero{position:relative;color:#fff;background-color:var(--color-navy);background-image:linear-gradient(90deg,rgba(9,38,58,.96) 0%,rgba(9,38,58,.88) 55%,rgba(9,38,58,.62) 100%),url(../../assets/5X6SBXHGCABFYFB3GFJ2CY4MYM.webp);background-size:cover;background-position:50%;padding:56px 0 132px}
-.hero-grid{display:grid;grid-template-columns:minmax(0,804px) 400px;justify-content:space-between;gap:56px;align-items:start}
+/* Hero: the City & Suburban van on a Chicago street at dusk under a navy wash (darker behind the text) */
+.hero{position:relative;color:#fff;background-color:var(--color-navy);background-image:linear-gradient(90deg,rgb(9 38 58 / 93%) 0%,rgb(9 38 58 / 84%) 40%,rgb(9 38 58 / 55%) 62%,rgb(9 38 58 / 30%) 100%),linear-gradient(180deg,rgb(9 38 58 / 25%) 0%,rgb(9 38 58 / 0%) 30%,rgb(9 38 58 / 0%) 60%,rgb(9 38 58 / 75%) 100%),url(../../assets/v2/van-street.webp);background-size:cover;background-position:62% 22%;padding:56px 0 132px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,804px) 400px;justify-content:space-between;gap:56px;align-items:end}
 .crumbs{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:22px}
 .crumbs ol{list-style:none;padding:0;display:flex;gap:6px;font-size:14px;line-height:18px;color:#ffffffd9}
 .crumbs li+li::before{content:"›";margin-right:6px;opacity:.7}
@@ -59,15 +60,18 @@ img{display:block;max-width:100%}
 .hero h1{font:700 56px/62px var(--font-display);letter-spacing:-.015em;max-width:780px}
 .hero .lede{font-size:19px;line-height:30px;color:#ffffffe6;max-width:640px;margin-top:22px}
 .hero .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
-/* Frosted card: the hero photo shows through softly behind it */
-.count-card{background:rgb(255 255 255 / 80%);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);border:1px solid rgb(255 255 255 / 45%);box-shadow:0 18px 40px -20px rgb(0 0 0 / 45%);color:var(--color-text);border-radius:var(--radius-lg);padding:32px}
-@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.count-card{background:rgb(255 255 255 / 92%)}}
-.count-card .eyebrow{color:var(--color-red-dk)}
-.count-card .num{display:block;font:700 72px/72px var(--font-display);letter-spacing:-.02em;color:var(--color-navy);margin:14px 0 10px}
-.count-card p{font-size:16px;line-height:25px}
-.count-card .promise{font-size:14px;line-height:21px;color:var(--color-text);padding-top:18px;margin-top:20px;border-top:1px solid rgb(9 38 58 / 14%)}
-.count-card .go{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font:700 15px/18px var(--font-display);letter-spacing:.04em;text-transform:uppercase;color:var(--color-red-dk);text-decoration:none}
-.count-card .go:hover{color:var(--color-navy)}
+/* Count card: dark navy glass over the photo, red accent bar (Highlights-style, C&S colours) */
+.count-card{position:relative;background:rgb(9 38 58 / 58%);-webkit-backdrop-filter:blur(12px) saturate(120%);backdrop-filter:blur(12px) saturate(120%);border:1px solid rgb(255 255 255 / 16%);box-shadow:0 24px 48px -24px rgb(0 0 0 / 55%);color:#fff;border-radius:var(--radius-lg);padding:36px 32px 32px}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.count-card{background:rgb(9 38 58 / 88%)}}
+.count-card::before{content:"";position:absolute;top:36px;right:32px;width:56px;height:4px;border-radius:2px;background:var(--color-red)}
+.count-card .eyebrow{color:#FF8A7F}
+.count-card .num{display:block;font:700 80px/80px var(--font-display);letter-spacing:-.02em;color:#fff;margin:18px 0 12px}
+.count-card p{font-size:17px;line-height:27px;color:#ffffffe6}
+.count-card .promise{font-size:14px;line-height:21px;color:#ffffffbf;padding-top:18px;margin-top:20px;border-top:1px solid rgb(255 255 255 / 16%)}
+.count-card .go{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font:700 15px/18px var(--font-display);letter-spacing:.04em;text-transform:uppercase;color:#fff;text-decoration:none}
+.count-card .go span{color:#FF8A7F;transition:transform .15s}
+.count-card .go:hover span{transform:translateX(3px)}
+.count-card .go:hover{text-decoration:underline;text-underline-offset:4px}
 .trust{position:absolute;left:80px;right:80px;bottom:36px;max-width:1280px;margin:0 auto;background:#fff;border-radius:var(--radius-pill);box-shadow:#09263A73 0 12px 32px -12px;display:flex;justify-content:space-around;align-items:center;padding:18px 32px;list-style:none}
 .trust li{display:flex;align-items:center;gap:12px;font:700 16px/20px var(--font-display);letter-spacing:.05em;text-transform:uppercase;color:var(--color-navy)}
 .trust li+li{border-left:1px solid var(--color-line);padding-left:32px}
@@ -160,11 +164,12 @@ img{display:block;max-width:100%}
 }
 @media (max-width:767px){
   .wrap{padding:0 16px}
-  .hero{padding-top:32px}
+  .hero{padding-top:32px;background-image:linear-gradient(180deg,rgb(9 38 58 / 82%) 0%,rgb(9 38 58 / 86%) 60%,rgb(9 38 58 / 92%) 100%),url(../../assets/v2/van-street.webp);background-position:62% 30%}
   .hero h1{font-size:38px;line-height:44px}
   .hero .lede{font-size:17px;line-height:27px}
   .hero .actions .btn{flex:1 1 100%}
-  .count-card{padding:24px}
+  .count-card{padding:28px 24px 24px}
+  .count-card::before{top:28px;right:24px}
   .count-card .num{font-size:56px;line-height:56px}
   .trust{grid-template-columns:1fr 1fr;padding:18px;margin:28px 16px 0}
   .trust li{font-size:13px;gap:8px;letter-spacing:.03em}
@@ -377,7 +382,7 @@ img{display:block;max-width:100%}
         <li>Bucktown: <a href="https://commons.wikimedia.org/wiki/File:Welcome_to_Bucktown_(38689679811).jpg">Eric Fischer · CC BY 2.0 · Wikimedia Commons</a></li>
         <li>Logan Square: <a href="https://commons.wikimedia.org/wiki/File:Illinois_Centennial_Memorial_Column.jpg">Loganresident at en.wikipedia · CC BY 2.5 · Wikimedia Commons</a></li>
         <li>Humboldt Park: <a href="https://commons.wikimedia.org/wiki/File:Humboldt_Park_Field_House_and_Refectory.jpg">Steven Kevil · CC BY-SA 4.0 · Wikimedia Commons</a></li>
-        <li>Hero: illustrative photo.</li>
+        <li>Hero: City &amp; Suburban van on a Chicago street, AI-generated illustrative image.</li>
       </ul>
     </details>
   </div>
