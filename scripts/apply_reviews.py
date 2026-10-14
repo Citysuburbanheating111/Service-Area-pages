@@ -18,7 +18,7 @@ CONTENT = os.path.join(HERE, '..', 'content')
 
 
 def clean(t):
-    t = re.sub(r'[\U0001F000-\U0001FAFF☀-➿]+', '', t or '')
+    t = re.sub(r'[\U0001F000-\U0001FAFF☀-➿⭐⭕]+', '', t or '')  # emoji, incl. the ⭐ some reviewers type
     return re.sub(r'\s+', ' ', t).strip()
 
 

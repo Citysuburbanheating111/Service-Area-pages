@@ -57,41 +57,45 @@
  ],
  "wicker-park": [
   {
-   "num": 92,
-   "tag": "Furnace repair"
+   "num": 23,
+   "tag": "Rooftop AC & furnace"
   },
   {
    "num": 13,
    "tag": "AC & furnace replacement"
   },
   {
-   "num": 21,
-   "tag": "AC repair"
-  },
-  {
-   "num": 11,
-   "tag": "Annual maintenance"
-  }
- ],
- "pilsen": [
-  {
-   "num": 165,
-   "tag": "Furnace repair"
-  },
-  {
-   "num": 147,
-   "tag": "Older system advice"
-  },
-  {
-   "num": 181,
-   "tag": "Furnace repair, rental"
+   "num": 30,
+   "tag": "Second opinion"
   },
   {
    "num": 102,
    "tag": "Furnace cleaning"
   }
  ],
+ "pilsen": [
+  {
+   "num": 58,
+   "tag": "Furnace repair"
+  },
+  {
+   "num": 92,
+   "tag": "Old furnace repair"
+  },
+  {
+   "num": 181,
+   "tag": "Furnace repair, rental"
+  },
+  {
+   "num": 165,
+   "tag": "Same-day furnace repair"
+  }
+ ],
  "rogers-park": [
+  {
+   "num": 181,
+   "tag": "Furnace repair, rental"
+  },
   {
    "num": 75,
    "tag": "No heat, rental"
@@ -103,28 +107,24 @@
   {
    "num": 200,
    "tag": "Condo rooftop AC"
-  },
-  {
-   "num": 33,
-   "tag": "AC condenser repair"
   }
  ],
  "bucktown": [
   {
-   "num": 30,
-   "tag": "Second opinion"
-  },
-  {
-   "num": 49,
-   "tag": "AC replacement"
-  },
-  {
-   "num": 159,
-   "tag": "AC repair"
+   "num": 131,
+   "tag": "Upstairs AC & furnace"
   },
   {
    "num": 137,
    "tag": "AC & furnace replacement"
+  },
+  {
+   "num": 42,
+   "tag": "Condo furnace repair"
+  },
+  {
+   "num": 168,
+   "tag": "Furnace & AC maintenance"
   }
  ]
 }

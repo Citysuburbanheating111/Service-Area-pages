@@ -10,35 +10,35 @@
   "form.title": "Book HVAC service in Pilsen",
   "form.building_default": "Brick two-flat",
   "services.heading": "Every heating and cooling service we offer in Pilsen",
-  "who.copy": "City & Suburban is run from 1225 N Cleaver St in West Town, about three miles north of Pilsen, a straight run down Ashland Avenue. Rob, the owner, still runs the calls and does the diagnosis.",
+  "who.copy": "City & Suburban is run from 1225 N Cleaver St, about three miles north of Pilsen, a straight run down Ashland Avenue. Rob, the owner, still runs the calls and does the diagnosis on the jobs that need it.",
   "reviews.1.tag": "Furnace repair",
-  "reviews.1.quote": "Very quick response and was clear on the issue and solution! Rob came out to our place to assess the issue on our furnace and fixed it within a same day! He was transparent on the status of the furnace and provided the solution of the issue im having right away. Definitely found a local business who I can rely on that will come back for sure!",
-  "reviews.1.by": "Jaeyoon Lee · 2025",
-  "reviews.2.tag": "Older system advice",
-  "reviews.2.quote": "Rob was amazing with answering my questions regarding our 30 year old system. We just moved in to our new home and he gave us some good tips and tricks to keep it running until we’re able to replace it. He answered quickly which was unexpected due to the non urgent nature of the call and we are looking forward to working with C&S in the future.",
-  "reviews.2.by": "Katie Banik · 2025",
+  "reviews.1.quote": "Great company. I called on a Sunday night because my furnace wasn’t working. The repair person was here first thing on Monday morning. Absolutely fantastic. He was friendly and knowledgeable and got my furnace running very quickly. He then reviewed various options with me for the future. It was very easy to send my payment via Zelle. Could not have gone better.",
+  "reviews.1.by": "russell karasik · 2026",
+  "reviews.2.tag": "Old furnace repair",
+  "reviews.2.quote": "Three times, my experience with Suburban Heating and Cooling has exceeded my expectations. The first time I found them as a quick search, my heat went out on a Saturday morning. He was here at 9am that day to fix it. Kind, prompt, and knowledgeable. He explained what he was doing, what he thought about my old furnace, and we agreed to keep fixing it.",
+  "reviews.2.by": "Heather Sillin · 2025",
   "reviews.3.tag": "Furnace repair, rental",
   "reviews.3.quote": "City and suburban came recommended to me when my furnace kept going out several years ago. My landlord was sending his guy to fix this chronic issue where it kept going out, they'd fix it, it'd go out again. It was a very cold winter for me. Rob responded quickly to my message and set up an appointment. He came, identified the problem, double-checked his work and was back with…",
   "reviews.3.by": "Sarah Alshaibi · 2024",
-  "reviews.4.tag": "Furnace cleaning",
-  "reviews.4.quote": "I called City & Suburban Heating to have my furnaces cleaned. They told me that Rob was going out of town for a week. I asked he could come before he left, and he came two days after my call. I had forgotten to buy a furnace filter for one of the furnaces, but luckily he had it in his truck. He is very reliable and does a great job.",
-  "reviews.4.by": "Susan Nusbaum · 2025",
+  "reviews.4.tag": "Same-day furnace repair",
+  "reviews.4.quote": "Very quick response and was clear on the issue and solution! Rob came out to our place to assess the issue on our furnace and fixed it within a same day! He was transparent on the status of the furnace and provided the solution of the issue im having right away. Definitely found a local business who I can rely on that will come back for sure!",
+  "reviews.4.by": "Jaeyoon Lee · 2025",
   "scope.heading": "The same repair costs differently in a two-flat, a cottage and a storefront",
   "scope.1.factor": "Below-street basements",
   "scope.1.why": "Many Pilsen houses sit below the raised street, so the boiler or furnace is in a low basement and access sets the time.",
   "scope.2.factor": "Boiler or forced air",
-  "scope.2.why": "Brick two-flats here often still heat with a boiler and radiators. That's a different job from a furnace repair.",
+  "scope.2.why": "Pilsen's 19th-century brick two-flats often still heat with a boiler and radiators, a different job from a furnace repair.",
   "scope.3.factor": "Older equipment",
-  "scope.3.why": "In buildings this old, the first job can be finding the part, or telling you straight when there isn't one.",
+  "scope.3.why": "In Pilsen's oldest flats the first job can be finding the part, or telling you straight when there isn't one.",
   "scope.4.factor": "Cooling without ducts",
-  "scope.4.why": "Boiler-heated flats have no ducts for central air, so cooling usually means ductless mini-splits.",
+  "scope.4.why": "Pilsen's boiler-heated flats have no ducts for central air, so cooling usually means ductless mini-splits.",
   "scope.5.factor": "Shops on 18th Street",
   "scope.5.why": "Bakeries and restaurants run rooftop units and kitchen make-up air, so visits are booked around opening hours.",
   "scope.6.factor": "Repair or replace",
   "scope.6.why": "The biggest swing of all. Where the unit has years left, we say so.",
   "choose.heading": "Five questions that sort Pilsen HVAC companies",
   "districts.label": "PILSEN, DISTRICT BY DISTRICT",
-  "districts.heading": "The rail line on the north and west, the river on the south and east",
+  "districts.heading": "16th Street to the Stevenson, Western Avenue to the river",
   "districts.chip1": "ZIP 60608 · 60616",
   "districts.chip2": "Wards 25, 12",
   "districts.chip3": "Lower West Side (31)",
@@ -86,7 +86,7 @@
   ],
   "districts.4.hvac": "HVAC here: furnaces in frame houses, boilers in the brick two-flats.",
   "faq.2.a": "About three miles. The shop is at 1225 N Cleaver St in West Town, and Ashland Avenue runs from there straight into Pilsen. Rob runs the calls himself.",
-  "faq.3.a": "Yes. Low ceilings and tight stairs slow the job down, so tell us when you call and we book the time it needs.",
+  "faq.3.a": "Yes. Tell us when you call that the basement sits below the street, so we know about low ceilings and tight stairs before we arrive.",
   "faq.4.a": "No. Chicago doesn't require a permit to repair, diagnose or maintain heating and cooling. Permits cover installs and construction, so a company's permit count says little about its repair work.",
   "faq.5.a": "Monday to Friday, 6:00 AM to 6:00 PM, and Saturday, 6:00 AM to 3:30 PM. Call (773) 238-3838.",
   "seo.title": "HVAC Repair in Pilsen, Chicago | City & Suburban",
@@ -94,11 +94,11 @@
   "confirmNotes": [
    {
     "block": "B1 Hero",
-    "note": "Add the hero photo. Confirm it is City & Suburban's own or licensed; tick \"Illustrative photo\" if not."
+    "note": "Hero keeps the shared photo (assets/5X6SBXHGCABFYFB3GFJ2CY4MYM.webp). Ask for a City & Suburban-owned or licensed photo of Pilsen; tick \"Illustrative photo\" until then."
    },
    {
     "block": "B9 Districts",
-    "note": "Pilsen has no City community area of its own; the page uses the Lower West Side (31), which also holds Heart of Chicago. The boundary line follows the Encyclopedia of Chicago (rail tracks north and west, river south and east). Decide whether to name the streets instead."
+    "note": "Pilsen has no City community area of its own; the page uses the Lower West Side (31), which also holds Heart of Chicago. The boundary line names 16th Street, the Stevenson, Western Avenue and the river; the Encyclopedia of Chicago describes rail tracks on the north and west and the river on the south and east. Check the Stevenson and Western Avenue edges."
    },
    {
     "block": "B9 Districts",
@@ -124,7 +124,7 @@
      "from": "2024-10-13",
      "to": "2026-10-14"
     },
-    "permits_in_area": 737,
+    "permits_in_box": 737,
     "hvac_mentions": 12,
     "by_equipment": {
      "Furnace": 3,
@@ -135,16 +135,22 @@
      "Heat pump / mini-split": 2,
      "Kitchen exhaust / make-up air": 1
     },
-    "cs_permits": 0
+    "cs_permits": 0,
+    "citywide_context": {
+     "hvac_firms": 1539,
+     "hvac_permits_24m": 4888,
+     "note": "From the City Suburban permit workbook, sheet 2 Work Types, as shown on the reference page."
+    }
    },
-   "shop_location": "1225 N Cleaver St: 41.9043, -87.6637. Nearest Lower West Side edge 3.1 mi south; 18th St about 3.2 mi south.",
-   "wards": "Wards of all permits in the polygon, last 24 months: 25 (690), 12 (37), 28 (7), 11 (3).",
-   "zips": "Share of the polygon: 60608 91%, 60616 9% (City ZIP boundaries unjd-c2ca).",
-   "boundaries": "Encyclopedia of Chicago / Chicago Public Library: bounded by the Chicago River on the south and east and the Burlington Northern tracks on the north and west. 18th Street corridor, Halsted arts district, Heart of Chicago (Ashland to Western, BNSF to I-55): Wikipedia, Lower West Side."
+   "shop_location": "1225 N Cleaver St: 41.9043, -87.6637. Nearest Lower West Side edge 3.1 mi south; 18th St about 3.2 mi south. Measured as straight-line distance from the shop to the City neighborhood polygon (nearest edge and centroid), City of Chicago boundary data.",
+   "wards": "Wards of all permits in the polygon, last 24 months: 25 (690), 12 (37), 28 (7), 11 (3). ZIP shares of the City polygon: 60608 91%, 60616 9% (City ZIP boundaries unjd-c2ca).",
+   "boundaries": "Encyclopedia of Chicago / Chicago Public Library: bounded by the Chicago River on the south and east and the Burlington Northern tracks on the north and west. 18th Street corridor, Halsted arts district, Heart of Chicago (Ashland to Western, BNSF to I-55): Wikipedia, Lower West Side.",
+   "districts": "Wikipedia, Lower West Side, Chicago: 18th Street commercial corridor, the art district along Halsted (East Pilsen), Heart of Chicago (Ashland to Western, BNSF to I-55), Oakley Avenue. Harrison Park and the National Museum of Mexican Art (1852 W 19th St): Chicago Park District / museum address.",
+   "buildings": "Wikipedia, Pilsen Historic District (buildings that survived the 1871 fire; neighborhood founded 1878; NRHP 2006) and Lower West Side (\"Victorian solid brick homes\"). Houses below street level: Gapers Block and Enjoy Illinois on Chicago raising its street grade in the 1850s, and The Jaxson on Pilsen's sunken front yards."
   },
-  "reviews.1.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTURJazVUUk93EAE!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CIHM0ogKEICAgMDIk5TROw%7C%7C?hl=en",
-  "reviews.2.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2taeU9IUnVVMFJNYURaa1FYbFNUakpKVG5CdFJuYxAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOkZyOHRuU0RMaDZkQXlSTjJJTnBtRnc%7C%7C?hl=en",
+  "reviews.1.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT20xVlVXRjZlRmhGWkZGRldWVkdXWFZUYVdwaE9FRRAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOm1VUWF6eFhFZFFFWVVGWXVTaWphOEE%7C%7C?hl=en",
+  "reviews.2.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25CaVF6VkJjVmgwYlVKUFpFaFlhazFLTUVOYVdIYxAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOnBiQzVBcVh0bUJPZEhYak1KMENaWHc%7C%7C?hl=en",
   "reviews.3.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUNENllqUEpREAE!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CIHM0ogKEICAgICD6YjPJQ%7C%7C?hl=en",
-  "reviews.4.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25JeGVtMWhkV2hIVlhwSFJHaEphbFZTVTFoR2RWRRAB!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CAIQACodChtycF9oOnIxem1hdWhHVXpHRGhJalVSU1hGdVE%7C%7C?hl=en"
+  "reviews.4.url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTURJazVUUk93EAE!2m1!1s0x0:0xb1c6abfab8cf849b!3m1!1s2@1:CIHM0ogKEICAgMDIk5TROw%7C%7C?hl=en"
  }
 }

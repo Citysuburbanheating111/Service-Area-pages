@@ -4,10 +4,12 @@
   "lincoln-park"
  ],
  "Ci9DQUlRQUNvZENodHljRjlvT20xVlVXRjZlRmhGWkZGRldWVkdXWFZUYVdwaE9FRRAB": [
-  "west-town"
+  "west-town",
+  "pilsen"
  ],
  "Ci9DQUlRQUNvZENodHljRjlvT2xWSGRVeGlTQzFmWTNveFdXTXdSSHBDU1hGeFNXYxAB": [
-  "west-town"
+  "west-town",
+  "wicker-park"
  ],
  "Ci9DQUlRQUNvZENodHljRjlvT25OYVEyOWhOMjgwVmt0alRHMHpia1pMZEVWdFdHYxAB": [
   "west-town"
@@ -16,7 +18,8 @@
   "west-loop"
  ],
  "Ci9DQUlRQUNvZENodHljRjlvT2pOVFNHdHpWalZQTm14T2QwSnhXbmRDWVdOaFIxRRAB": [
-  "west-loop"
+  "west-loop",
+  "bucktown"
  ],
  "Ci9DQUlRQUNvZENodHljRjlvT25GVGJUbDVhWFl6Wkd4RlgzSkdYM2QwTkRBMWJXYxAB": [
   "west-loop"
@@ -33,28 +36,23 @@
  "Ci9DQUlRQUNvZENodHljRjlvT2t4NmJISTNWVU5JWlRWR2IwNUlZa0Z4Y25GTlMyYxAB": [
   "lincoln-park"
  ],
- "Ci9DQUlRQUNvZENodHljRjlvT25CaVF6VkJjVmgwYlVKUFpFaFlhazFLTUVOYVdIYxAB": [
-  "wicker-park"
- ],
  "Ci9DQUlRQUNvZENodHljRjlvT25CWWJGQjFNa05zZG5oSlRWQkxMVFo2VEZsbWVYYxAB": [
   "wicker-park"
  ],
- "Ci9DQUlRQUNvZENodHljRjlvT21OVmFrOTRURTloYzI5T2FsOUxTRmRQTXpsUk4wRRAB": [
+ "Ci9DQUlRQUNvZENodHljRjlvT21wSWQyaE9ibEJKUzNwTE5WTkNWa28yY2pCc1JuYxAB": [
   "wicker-park"
  ],
- "Ci9DQUlRQUNvZENodHljRjlvT2xORlNYa3RPUzE1VjIwMk4zSm9hbFp2YzBvNWIzYxAB": [
+ "Ci9DQUlRQUNvZENodHljRjlvT25JeGVtMWhkV2hIVlhwSFJHaEphbFZTVTFoR2RWRRAB": [
   "wicker-park"
  ],
- "ChZDSUhNMG9nS0VJQ0FnTURJazVUUk93EAE": [
-  "pilsen"
- ],
- "Ci9DQUlRQUNvZENodHljRjlvT2taeU9IUnVVMFJNYURaa1FYbFNUakpKVG5CdFJuYxAB": [
+ "Ci9DQUlRQUNvZENodHljRjlvT25CaVF6VkJjVmgwYlVKUFpFaFlhazFLTUVOYVdIYxAB": [
   "pilsen"
  ],
  "ChZDSUhNMG9nS0VJQ0FnSUNENllqUEpREAE": [
-  "pilsen"
+  "pilsen",
+  "rogers-park"
  ],
- "Ci9DQUlRQUNvZENodHljRjlvT25JeGVtMWhkV2hIVlhwSFJHaEphbFZTVTFoR2RWRRAB": [
+ "ChZDSUhNMG9nS0VJQ0FnTURJazVUUk93EAE": [
   "pilsen"
  ],
  "Ci9DQUlRQUNvZENodHljRjlvT2xGVFFsRllVa05aWW1sNlkzWnNaVTVTVjJsdWNXYxAB": [
@@ -66,19 +64,13 @@
  "ChdDSUhNMG9nS0VJQ0FnSUQ2OEtyTXp3RRAB": [
   "rogers-park"
  ],
- "Ci9DQUlRQUNvZENodHljRjlvT2xKdk4wSmlOVEE0WTJsVE5FSkJkbUpqZVZsd1gzYxAB": [
-  "rogers-park"
- ],
- "Ci9DQUlRQUNvZENodHljRjlvT21wSWQyaE9ibEJKUzNwTE5WTkNWa28yY2pCc1JuYxAB": [
-  "bucktown"
- ],
- "Ci9DQUlRQUNvZENodHljRjlvT2tWTE4yeG5iWFZrTVRJelVXVlFia3B6UjBKeGRrRRAB": [
-  "bucktown"
- ],
- "ChdDSUhNMG9nS0VOelI1ZnJfZ0xIampBRRAB": [
+ "Ci9DQUlRQUNvZENodHljRjlvT2s5M1ZFSjBXa2swZDBVelFsQnVjV3RCWVVGeWJFRRAB": [
   "bucktown"
  ],
  "Ci9DQUlRQUNvZENodHljRjlvT2pGdlQyRlRkbWxwU3pkbU1YbHFRV2g2WlVWSFlXYxAB": [
+  "bucktown"
+ ],
+ "ChdDSUhNMG9nS0VJQ0FnSUNQb0xTcTRnRRAB": [
   "bucktown"
  ]
 }
