@@ -126,5 +126,257 @@
    "num": 168,
    "tag": "Furnace & AC maintenance"
   }
+ ],
+ "logan-square": [
+  {
+   "num": 98,
+   "tag": "Same-day heat repair"
+  },
+  {
+   "num": 11,
+   "tag": "Annual check-ups"
+  },
+  {
+   "num": 33,
+   "tag": "AC condenser repair"
+  },
+  {
+   "num": 192,
+   "tag": "Furnace repair"
+  }
+ ],
+ "lakeview": [
+  {
+   "num": 21,
+   "tag": "AC repair"
+  },
+  {
+   "num": 49,
+   "tag": "AC replacement"
+  },
+  {
+   "num": 159,
+   "tag": "AC second opinion"
+  },
+  {
+   "num": 195,
+   "tag": "Furnace repair"
+  }
+ ],
+ "humboldt-park": [
+  {
+   "num": 199,
+   "tag": "Heat & AC repair"
+  },
+  {
+   "num": 147,
+   "tag": "Older system advice"
+  },
+  {
+   "num": 182,
+   "tag": "AC condenser leak"
+  },
+  {
+   "num": 2,
+   "tag": "Next-morning repair"
+  }
+ ],
+ "old-town": [
+  {
+   "num": 114,
+   "tag": "Repairs & maintenance"
+  },
+  {
+   "num": 154,
+   "tag": "Same-morning AC repair"
+  },
+  {
+   "num": 129,
+   "tag": "AC replacement"
+  },
+  {
+   "num": 158,
+   "tag": "Long-term maintenance"
+  }
+ ],
+ "ukrainian-village": [
+  {
+   "num": 146,
+   "tag": "Noise diagnosis"
+  },
+  {
+   "num": 171,
+   "tag": "Old AC repair"
+  },
+  {
+   "num": 141,
+   "tag": "Months-long fix"
+  },
+  {
+   "num": 186,
+   "tag": "Heating & cooling"
+  }
+ ],
+ "wrigleyville": [
+  {
+   "num": 188,
+   "tag": "HVAC check-up"
+  },
+  {
+   "num": 156,
+   "tag": "AC replacement"
+  },
+  {
+   "num": 37,
+   "tag": "Upstairs cooling repair"
+  },
+  {
+   "num": 88,
+   "tag": "Heating service"
+  }
+ ],
+ "skokie": [
+  {
+   "num": 63,
+   "tag": "Furnace motor repair"
+  },
+  {
+   "num": 13,
+   "tag": "AC & furnace replacement"
+  },
+  {
+   "num": 92,
+   "tag": "Weekend heat repair"
+  },
+  {
+   "num": 164,
+   "tag": "Long-time customer"
+  }
+ ],
+ "northbrook": [
+  {
+   "num": 102,
+   "tag": "Two-furnace cleaning"
+  },
+  {
+   "num": 70,
+   "tag": "Furnace replacement"
+  },
+  {
+   "num": 165,
+   "tag": "Same-day furnace repair"
+  },
+  {
+   "num": 30,
+   "tag": "Second opinion"
+  }
+ ],
+ "glenview": [
+  {
+   "num": 131,
+   "tag": "Two-unit AC repair"
+  },
+  {
+   "num": 168,
+   "tag": "Furnace & AC maintenance"
+  },
+  {
+   "num": 195,
+   "tag": "Furnace repair"
+  },
+  {
+   "num": 3,
+   "tag": "Single-family home service"
+  }
+ ],
+ "winnetka": [
+  {
+   "num": 137,
+   "tag": "Old-home systems"
+  },
+  {
+   "num": 73,
+   "tag": "Seasonal service"
+  },
+  {
+   "num": 159,
+   "tag": "AC second opinion"
+  },
+  {
+   "num": 192,
+   "tag": "Furnace repair"
+  }
+ ],
+ "wilmette": [
+  {
+   "num": 98,
+   "tag": "Same-day heat repair"
+  },
+  {
+   "num": 19,
+   "tag": "Heat-wave AC repair"
+  },
+  {
+   "num": 49,
+   "tag": "AC refrigerant service"
+  },
+  {
+   "num": 11,
+   "tag": "Annual check-ups"
+  }
+ ],
+ "niles": [
+  {
+   "num": 154,
+   "tag": "Same-morning AC repair"
+  },
+  {
+   "num": 171,
+   "tag": "Old AC repair"
+  },
+  {
+   "num": 75,
+   "tag": "Fast response"
+  },
+  {
+   "num": 2,
+   "tag": "Next-morning repair"
+  }
+ ],
+ "park-ridge": [
+  {
+   "num": 147,
+   "tag": "Older system advice"
+  },
+  {
+   "num": 146,
+   "tag": "Noise diagnosis"
+  },
+  {
+   "num": 199,
+   "tag": "Heat & AC repair"
+  },
+  {
+   "num": 188,
+   "tag": "HVAC check-up"
+  }
+ ],
+ "des-plaines": [
+  {
+   "num": 129,
+   "tag": "AC replacement"
+  },
+  {
+   "num": 158,
+   "tag": "Long-term maintenance"
+  },
+  {
+   "num": 182,
+   "tag": "AC condenser leak"
+  },
+  {
+   "num": 114,
+   "tag": "Repairs & maintenance"
+  }
  ]
 }

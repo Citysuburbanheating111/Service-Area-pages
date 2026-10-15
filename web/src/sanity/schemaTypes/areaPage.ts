@@ -26,6 +26,9 @@ import { defineArrayMember, defineField, defineType, type ArrayRule } from 'sani
 
 const LEDE_ENDING = 'Family-owned since 1952, with the owner, Rob, still on the calls.'
 
+// A suburb page (Skokie, Northbrook…) has no wards and no City of Chicago permit data
+const isSuburb = (ctx: { document?: unknown }) => !!(ctx.document as { locality?: string } | undefined)?.locality
+
 // Exactly `n` items in an array (playbook: fixed card counts per block).
 const exactly = (n: number) => (rule: ArrayRule<unknown[]>) =>
   rule.required().min(n).max(n).error(`This block uses exactly ${n} items.`)
@@ -92,6 +95,14 @@ export const areaPage = defineType({
       options: { source: 'areaName', maxLength: 96 },
       validation: (r) => r.required(),
     }),
+    defineField({
+      name: 'locality',
+      title: 'Suburb (leave empty for a Chicago neighborhood)',
+      description:
+        'For a suburb, the place as written in an address, e.g. "Skokie, IL". The page then leaves out the Chicago-only parts: wards, the City permit graph and the Chicago permit question.',
+      type: 'string',
+      group: 'page',
+    }),
 
     // ── B1 Hero + request card ─────────────────────────────
     defineField({
@@ -104,14 +115,14 @@ export const areaPage = defineType({
         defineField({
           name: 'h1',
           title: 'H1',
-          description: 'Pattern: "Heating and cooling repair in {area}, Chicago".',
+          description: 'Pattern: "Heating and cooling repair in {area}, Chicago" (a suburb: "…in Skokie, IL").',
           type: 'string',
           validation: (r) => [
             r.required(),
             r.custom((v?: string) =>
-              !v || /^Heating and cooling repair in .+, Chicago$/.test(v)
+              !v || /^Heating and cooling repair in .+, (Chicago|IL)$/.test(v)
                 ? true
-                : 'Playbook pattern: "Heating and cooling repair in {area}, Chicago".',
+                : 'Playbook pattern: "Heating and cooling repair in {area}, Chicago" (a suburb: "…in Skokie, IL").',
             ).warning(),
           ],
         }),
@@ -389,12 +400,13 @@ export const areaPage = defineType({
           title: 'Wards',
           type: 'array',
           of: [defineArrayMember({ type: 'number' })],
-          validation: (r) => r.required().min(1),
+          description: 'Chicago only. A suburb has none.',
+          validation: (r) => r.custom((v: unknown[] | undefined, ctx) => isSuburb(ctx) || v?.length ? true : 'Add at least one ward.'),
         }),
         defineField({
           name: 'communityArea',
-          title: 'Community area',
-          description: 'Name and number, e.g. "Near West Side (28)".',
+          title: 'Community area (a suburb: its township)',
+          description: 'Name and number, e.g. "Near West Side (28)". For a suburb, the township, e.g. "Niles Township".',
           type: 'string',
           validation: (r) => r.required(),
         }),
@@ -467,16 +479,22 @@ export const areaPage = defineType({
         defineField({
           name: 'areaCount',
           title: 'Area HVAC permits (24 months)',
-          description: 'From City of Chicago building permits, filtered to this area.',
+          description: 'From City of Chicago building permits, filtered to this area. Empty for a suburb.',
           type: 'number',
-          validation: (r) => r.required().integer().min(0),
+          validation: (r) => r.integer().min(0).custom((v, ctx) => isSuburb(ctx) || typeof v === 'number' ? true : 'Required for a Chicago neighborhood.'),
         }),
         defineField({
           name: 'areaCaption',
           title: 'Caption',
-          description: 'e.g. "West Loop permits in 24 months that even mention HVAC equipment."',
+          description: 'e.g. "West Loop permits in 24 months that even mention HVAC equipment." Empty for a suburb.',
           type: 'string',
-          validation: (r) => r.required(),
+          validation: (r) => r.custom((v, ctx) => isSuburb(ctx) || v ? true : 'Required for a Chicago neighborhood.'),
+        }),
+        defineField({
+          name: 'authority',
+          title: 'Permit authority (a suburb only)',
+          description: 'Who issues permits there, e.g. "The Village of Skokie". Shown in place of the permit graph.',
+          type: 'string',
         }),
         defineField({
           name: 'totalPermits',

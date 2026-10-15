@@ -12,7 +12,8 @@
   "wicker-park"
  ],
  "Ci9DQUlRQUNvZENodHljRjlvT25OYVEyOWhOMjgwVmt0alRHMHpia1pMZEVWdFdHYxAB": [
-  "west-town"
+  "west-town",
+  "wilmette"
  ],
  "Ci9DQUlRQUNvZENodHljRjlvT20xNVZpMXVUbEpVTW1Ob1pFMVhPVEpSYW1KeFExRRAB": [
   "west-loop"
@@ -25,38 +26,48 @@
   "west-loop"
  ],
  "ChdDSUhNMG9nS0VNTFI0c19SZzVDMHFnRRAB": [
-  "west-loop"
+  "west-loop",
+  "winnetka"
  ],
  "Ci9DQUlRQUNvZENodHljRjlvT21acFFXazNTRFpvUjJOTmJVWjFVRk5zVmxCVU1rRRAB": [
-  "lincoln-park"
+  "lincoln-park",
+  "glenview"
  ],
  "Ci9DQUlRQUNvZENodHljRjlvT2pSaFkxUXpNVEl0WlRKU2NYaFBNbFoyUkRobmJtYxAB": [
-  "lincoln-park"
+  "lincoln-park",
+  "skokie"
  ],
  "Ci9DQUlRQUNvZENodHljRjlvT2t4NmJISTNWVU5JWlRWR2IwNUlZa0Z4Y25GTlMyYxAB": [
-  "lincoln-park"
+  "lincoln-park",
+  "northbrook"
  ],
  "Ci9DQUlRQUNvZENodHljRjlvT25CWWJGQjFNa05zZG5oSlRWQkxMVFo2VEZsbWVYYxAB": [
-  "wicker-park"
+  "wicker-park",
+  "skokie"
  ],
  "Ci9DQUlRQUNvZENodHljRjlvT21wSWQyaE9ibEJKUzNwTE5WTkNWa28yY2pCc1JuYxAB": [
-  "wicker-park"
+  "wicker-park",
+  "northbrook"
  ],
  "Ci9DQUlRQUNvZENodHljRjlvT25JeGVtMWhkV2hIVlhwSFJHaEphbFZTVTFoR2RWRRAB": [
-  "wicker-park"
+  "wicker-park",
+  "northbrook"
  ],
  "Ci9DQUlRQUNvZENodHljRjlvT25CaVF6VkJjVmgwYlVKUFpFaFlhazFLTUVOYVdIYxAB": [
-  "pilsen"
+  "pilsen",
+  "skokie"
  ],
  "ChZDSUhNMG9nS0VJQ0FnSUNENllqUEpREAE": [
   "pilsen",
   "rogers-park"
  ],
  "ChZDSUhNMG9nS0VJQ0FnTURJazVUUk93EAE": [
-  "pilsen"
+  "pilsen",
+  "northbrook"
  ],
  "Ci9DQUlRQUNvZENodHljRjlvT2xGVFFsRllVa05aWW1sNlkzWnNaVTVTVjJsdWNXYxAB": [
-  "rogers-park"
+  "rogers-park",
+  "niles"
  ],
  "Ci9DQUlRQUNvZENodHljRjlvT20xeVUyOTRiMUUwV2w5dVgwMWFlVlZUZW5VMmRYYxAB": [
   "rogers-park"
@@ -65,12 +76,107 @@
   "rogers-park"
  ],
  "Ci9DQUlRQUNvZENodHljRjlvT2s5M1ZFSjBXa2swZDBVelFsQnVjV3RCWVVGeWJFRRAB": [
-  "bucktown"
+  "bucktown",
+  "glenview"
  ],
  "Ci9DQUlRQUNvZENodHljRjlvT2pGdlQyRlRkbWxwU3pkbU1YbHFRV2g2WlVWSFlXYxAB": [
-  "bucktown"
+  "bucktown",
+  "winnetka"
  ],
  "ChdDSUhNMG9nS0VJQ0FnSUNQb0xTcTRnRRAB": [
-  "bucktown"
+  "bucktown",
+  "glenview"
+ ],
+ "Ci9DQUlRQUNvZENodHljRjlvT21GcFFXOXhNbmxJUzBNMlltbE9OVFZGUzJSQmVYYxAB": [
+  "logan-square",
+  "wilmette"
+ ],
+ "Ci9DQUlRQUNvZENodHljRjlvT2xORlNYa3RPUzE1VjIwMk4zSm9hbFp2YzBvNWIzYxAB": [
+  "logan-square",
+  "wilmette"
+ ],
+ "Ci9DQUlRQUNvZENodHljRjlvT2xKdk4wSmlOVEE0WTJsVE5FSkJkbUpqZVZsd1gzYxAB": [
+  "logan-square"
+ ],
+ "ChdDSUhNMG9nS0VJQ0FnSURCdE5yMnh3RRAB": [
+  "logan-square",
+  "winnetka"
+ ],
+ "Ci9DQUlRQUNvZENodHljRjlvT21OVmFrOTRURTloYzI5T2FsOUxTRmRQTXpsUk4wRRAB": [
+  "lakeview"
+ ],
+ "Ci9DQUlRQUNvZENodHljRjlvT2tWTE4yeG5iWFZrTVRJelVXVlFia3B6UjBKeGRrRRAB": [
+  "lakeview",
+  "wilmette"
+ ],
+ "ChdDSUhNMG9nS0VOelI1ZnJfZ0xIampBRRAB": [
+  "lakeview",
+  "winnetka"
+ ],
+ "ChdDSUhNMG9nS0VJQ0FnSUMyaDlQVHpRRRAB": [
+  "lakeview",
+  "glenview"
+ ],
+ "ChdDSUhNMG9nS0VJQ0FnSURXd0xUTWtRRRAB": [
+  "humboldt-park",
+  "park-ridge"
+ ],
+ "Ci9DQUlRQUNvZENodHljRjlvT2taeU9IUnVVMFJNYURaa1FYbFNUakpKVG5CdFJuYxAB": [
+  "humboldt-park",
+  "park-ridge"
+ ],
+ "ChZDSUhNMG9nS0VJQ0FnSUNEcXFHLU53EAE": [
+  "humboldt-park",
+  "des-plaines"
+ ],
+ "Ci9DQUlRQUNvZENodHljRjlvT2tKUE9URkhPRFpXT1ZOSE5sOXljM2xyU0ZrelJWRRAB": [
+  "humboldt-park",
+  "niles"
+ ],
+ "Ci9DQUlRQUNvZENodHljRjlvT25CQ1UyVnVTME5ZWWtOWWFrOXlTMHhLU0UxcFprRRAB": [
+  "old-town",
+  "des-plaines"
+ ],
+ "Ci9DQUlRQUNvZENodHljRjlvT2s1R1N6VktVWGt3WVhselJETmpkbFV5ZVZKTmFHYxAB": [
+  "old-town",
+  "niles"
+ ],
+ "Ci9DQUlRQUNvZENodHljRjlvT2toRk1qTnFSRTAzZFd0SE5FeHJVWGd4TjNKRFRFRRAB": [
+  "old-town",
+  "des-plaines"
+ ],
+ "ChZDSUhNMG9nS0VQWC1yYXlhZ0p6N1p3EAE": [
+  "old-town",
+  "des-plaines"
+ ],
+ "Ci9DQUlRQUNvZENodHljRjlvT25sck5qUk9VMDlUYTBoWU5EaHlXakpHWjAxNlRuYxAB": [
+  "ukrainian-village",
+  "park-ridge"
+ ],
+ "ChdDSUhNMG9nS0VJQ0FnSUQ3cTdMcGxnRRAB": [
+  "ukrainian-village",
+  "niles"
+ ],
+ "Ci9DQUlRQUNvZENodHljRjlvT2xkT05Xc3pPVXBUTlhWc1pWRlBVRFZrZUU1b0xYYxAB": [
+  "ukrainian-village"
+ ],
+ "ChdDSUhNMG9nS0VJQ0FnSUM5OGZySTlnRRAB": [
+  "ukrainian-village"
+ ],
+ "ChdDSUhNMG9nS0VJQ0FnSUNKM3Bub3NBRRAB": [
+  "wrigleyville",
+  "park-ridge"
+ ],
+ "Ci9DQUlRQUNvZENodHljRjlvT2t0aFRqWkZZVXR2UzJoWlIxSjBhWFJaU2xJeWFrRRAB": [
+  "wrigleyville"
+ ],
+ "Ci9DQUlRQUNvZENodHljRjlvT21aQlpsVkpSa3BFWkVGVWVsOUZkMlp6Ymt4SVptYxAB": [
+  "wrigleyville"
+ ],
+ "Ci9DQUlRQUNvZENodHljRjlvT2pGMlJ6TnJaWFJoU1hacVQydzRVREpaZEhkcWRGRRAB": [
+  "wrigleyville"
+ ],
+ "ChdDSUhNMG9nS0VJQ0FnTUNvNklhMXNBRRAB": [
+  "skokie"
  ]
 }

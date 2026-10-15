@@ -277,6 +277,10 @@
 .ch .ch-split .ch-sub-h{padding:.5rem .5rem 0;margin-bottom:14px;font-size:14px;line-height:26px;font-weight:600;text-transform:uppercase;color:var(--ch-red)}
 .ch .ch-menu .ch-split li.ch-all a{color:var(--ch-red)}
 .ch .ch-menu .ch-split li a[aria-current]{color:var(--ch-red)}
+/* Service areas: the main areas in two groups, Chicago and Suburbs */
+.ch .ch-nav .ch-split li.ch-grp{padding:.5rem .5rem .125rem;font-size:12px;line-height:18px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#6b7280}
+.ch .ch-nav .ch-split li.ch-grp:hover{background:none}
+.ch .ch-nav .ch-split li.ch-grp~li.ch-grp{margin-top:.5rem}
 .ch .ch-btns{display:flex;align-items:center;gap:12px}
 .ch .ch-call{display:flex;flex-direction:column;row-gap:5px;padding-right:10px;border-right:1px solid #ededed}
 .ch .ch-call span{font-size:16px;font-weight:400;margin-right:5px;display:inline-flex;align-items:center;gap:5px}

@@ -9,6 +9,8 @@ export type AreaPageData = {
   areaName?: string
   areaNameInSentence?: string
   slug?: string
+  /** A suburb page: e.g. "Skokie, IL". Empty for a Chicago neighborhood. */
+  locality?: string
   hero?: {
     h1?: string
     lede?: string
@@ -43,6 +45,8 @@ export type AreaPageData = {
     totalPermits?: number
     windowFrom?: string
     windowTo?: string
+    /** A suburb page: who issues permits there, e.g. "The Village of Skokie" */
+    authority?: string
     byEquipment?: Keyed<{ label?: string; count?: number }>[]
   }
   nearby?: { items?: Keyed<{ name?: string; text?: string }>[] }

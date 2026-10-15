@@ -69,9 +69,14 @@ export const telHref = (phone: string) => `tel:+1${(stegaClean(phone) ?? '').rep
 
 /** FAQ shown on an area page: the area's own questions, then the template's shared ones. Older pages
  *  still store the shared questions themselves; the template's version wins, so nothing repeats. */
-export function mergeFaq(own: { _key: string; question?: string; answer?: string }[] | undefined, t: Template) {
+export function mergeFaq(own: { _key: string; question?: string; answer?: string }[] | undefined, t: Template, suburb = false) {
   const norm = (q?: string) => (stegaClean(q) ?? '').trim().toLowerCase()
   const shared = new Set(t.faq.items.map((f) => norm(f.question)))
   const mine = (own ?? []).filter((f) => !shared.has(norm(f.question)))
-  return { own: mine, items: [...mine, ...t.faq.items] }
+  // A suburb page carries its own permit question, so the template's Chicago one is left out
+  const common = suburb ? t.faq.items.filter((f) => !/\bin chicago\b/.test(norm(f.question))) : t.faq.items
+  return { own: mine, items: [...mine, ...common] }
 }
+
+/** A suburb page (Skokie, Northbrook…), as opposed to a Chicago neighborhood */
+export const isSuburb = (page: { locality?: string }) => !!stegaClean(page.locality ?? '')

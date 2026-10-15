@@ -8,14 +8,25 @@ type Area = { name: string; slug: string }
 
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`)
 
+// The SERVICES dropdown lists only the main areas, so the menu stays short over the hero; every
+// area is on the All service areas page. Same list in tools/build_area_page.py (MAIN_AREAS).
+export const MAIN_AREAS = [
+  { group: 'Chicago', slugs: ['west-loop', 'lincoln-park'] },
+  { group: 'Suburbs', slugs: ['skokie', 'des-plaines'] },
+]
+
 /**
- * The header, with the published areas filled into the SERVICES dropdown's "Service areas" list,
- * so a newly published area page shows up there on its own. `current` marks the page's own area.
+ * The header, with the main areas that are published filled into the SERVICES dropdown's
+ * "Service areas" list, in two groups. `current` marks the page's own area.
  */
 export function LiveHeader({ areas = [], current }: { areas?: Area[]; current?: string }) {
-  const links = areas
-    .map((a) => `<li><a href="${esc(areaPath(a.slug))}"${a.slug === current ? ' aria-current="page"' : ''}>${esc(a.name)}</a></li>`)
-    .join('')
+  const bySlug = new Map(areas.map((a) => [a.slug, a]))
+  const links = MAIN_AREAS.map(({ group, slugs }) => {
+    const items = slugs.map((s) => bySlug.get(s)).filter((a): a is Area => !!a)
+    if (!items.length) return ''
+    return `<li class="ch-grp">${esc(group)}</li>` +
+      items.map((a) => `<li><a href="${esc(areaPath(a.slug))}"${a.slug === current ? ' aria-current="page"' : ''}>${esc(a.name)}</a></li>`).join('')
+  }).join('')
   return <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: liveHeader.replace('<!--CH_AREAS-->', links) }} />
 }
 

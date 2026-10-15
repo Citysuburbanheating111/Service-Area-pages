@@ -6,7 +6,8 @@
  *   node --env-file=.env.local scripts/publish-area.mjs template        (the Service area template)
  *
  * Refuses a slug that has no draft, and an area page that doesn't follow the v3 standard design:
- * it needs the permit bar graph (permits.byEquipment with the window and total) and 3-6 nearby
+ * it needs the permit bar graph (permits.byEquipment with the window and total; a suburb: its permit
+ * authority instead) and 3-6 nearby
  * neighborhoods. Lists any "to confirm" notes still on the page (they're editorial and never shown
  * on the site).
  */
@@ -28,8 +29,13 @@ const client = createClient({
 function missingV3(doc) {
   const p = doc.permits ?? {}
   const gaps = []
-  if (!p.byEquipment?.length) gaps.push('the permit bar graph (permits.byEquipment)')
-  if (typeof p.totalPermits !== 'number' || !p.windowFrom || !p.windowTo) gaps.push('the data-source numbers (permits.totalPermits, windowFrom, windowTo)')
+  if (doc.locality) {
+    // A suburb: no City permit data, so it names who issues permits there instead of the graph
+    if (!p.authority) gaps.push('the permit authority (permits.authority, e.g. "The Village of Skokie")')
+  } else {
+    if (!p.byEquipment?.length) gaps.push('the permit bar graph (permits.byEquipment)')
+    if (typeof p.totalPermits !== 'number' || !p.windowFrom || !p.windowTo) gaps.push('the data-source numbers (permits.totalPermits, windowFrom, windowTo)')
+  }
   const near = doc.nearby?.items?.length ?? 0
   if (near < 3) gaps.push(`3-6 nearby neighborhoods (has ${near})`)
   return gaps
