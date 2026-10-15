@@ -242,7 +242,12 @@
   "citywideNumber": "1,539",
   "citywideCaption": "Firms that pull HVAC permits citywide, across 4,888 permits in 24 months.",
   "ourNumber": "0",
-  "ourCaption": "Permits on record for City & Suburban. We said we'd be honest."
+  "ourCaption": "Permits on record for City & Suburban. We said we'd be honest.",
+  "suburbHeading": "Why there's no permit chart for {area}",
+  "suburbIntro": "{area} is outside Chicago, so the City's permit file stops at its border. Here is what we can honestly say about permits there.",
+  "suburbCard": "{authority} issues its own building permits and doesn't publish them as open data, so there's no count to chart for {area}.",
+  "suburbText": "Outside Chicago, each suburb sets its own permit rules, mostly for installs and replacements. Either way, a permit file measures construction, not service. So when a company waves a permit count at you, ask how much of their work is repair.",
+  "suburbChooseText": "Not much. Each suburb sets its own permit rules, and a permit count still mostly measures installs, not repairs."
  },
  "nearby": {
   "eyebrow": "More service areas",

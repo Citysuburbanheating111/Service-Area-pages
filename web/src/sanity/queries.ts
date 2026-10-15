@@ -6,6 +6,7 @@ export const AREA_PAGE_QUERY = defineQuery(`
     areaName,
     areaNameInSentence,
     "slug": slug.current,
+    locality,
     hero{
       h1, lede, formTitle, buildingTypeOptions, defaultBuildingType, issueOptions,
       image{ asset, hotspot, crop, alt, illustrative }
@@ -18,7 +19,7 @@ export const AREA_PAGE_QUERY = defineQuery(`
     choose{ heading, questions[]{ _key, title, text } },
     districts{ eyebrow, heading, zips, wards, communityArea, items[]{ _key, name, description, hvacHere } },
     buildings{ heading, types[]{ _key, tag, name, text } },
-    permits{ areaCount, areaCaption, totalPermits, windowFrom, windowTo, byEquipment[]{ _key, label, count } },
+    permits{ areaCount, areaCaption, totalPermits, windowFrom, windowTo, authority, byEquipment[]{ _key, label, count } },
     nearby{ items[]{ _key, name, text } },
     faq{ heading, items[]{ _key, question, answer } },
     cta{ heading, text },

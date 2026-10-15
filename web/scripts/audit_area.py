@@ -71,16 +71,22 @@ def audit(path, picks_count):
     d = json.load(open(path, encoding='utf-8'))
     a, x = d.get('area', {}), d.get('extras', {})
     p = []
+    # A suburb (place.locality, e.g. "Skokie, IL"): no wards, no City of Chicago permit data. It names
+    # its permit authority instead of the graph and writes its own permit question (FAQ 4).
+    suburb = 'place.locality' in a
+    keys = AREA_KEYS
+    if suburb:
+        keys = [k for k in AREA_KEYS if not k.startswith('permits.') and k != 'districts.chip2'] + ['place.locality', 'permits.authority']
     # skeleton
-    p += [f'missing area key {k}' for k in AREA_KEYS if k not in a]
-    p += [f'extra area key {k}' for k in a if k not in AREA_KEYS and k not in NEARBY_KEYS]
+    p += [f'missing area key {k}' for k in keys if k not in a]
+    p += [f'extra area key {k}' for k in a if k not in keys and k not in NEARBY_KEYS]
     near = [i for i in range(1, 7) if a.get(f'nearby.{i}.name')]
     if len(near) < 3:
         p.append(f'nearby: list 3-6 bordering neighborhoods (nearby.N.name / nearby.N.text), found {len(near)}')
     p += [f'nearby.{i}.text is empty' for i in near if not a.get(f'nearby.{i}.text')]
     p += [f'missing extras key {k}' for k in EXTRA_KEYS if k not in x]
     p += [f'extra extras key {k}' for k in x if k not in EXTRA_KEYS]
-    for k in AREA_KEYS + EXTRA_KEYS:
+    for k in keys + EXTRA_KEYS:
         v = get(a, x, k)
         if k != 'confirmNotes' and v in ('', None, [], {}):
             p.append(f'empty {k}')
@@ -92,9 +98,16 @@ def audit(path, picks_count):
     p += [f'missing _sources.{k}' for k in SOURCE_KEYS if k not in s]
     p += [f'extra _sources.{k}' for k in s if k not in SOURCE_KEYS]
     pm = s.get('permits', {})
-    p += [f'missing _sources.permits.{k}' for k in PERMIT_KEYS if k not in pm]
+    p += [f'missing _sources.permits.{k}' for k in (['source', 'cs_permits', 'village_data'] if suburb else PERMIT_KEYS) if k not in pm]
     if pm.get('cs_permits') != 0:
         p.append('cs_permits is not 0')
+    if suburb:
+        return p + audit_rest(a, x, picks_count, suburb)
+    return p + audit_permits(a, pm) + audit_rest(a, x, picks_count, suburb)
+
+
+def audit_permits(a, pm):
+    p = []
     if str(pm.get('hvac_mentions')) != str(a.get('permits.area_count')):
         p.append('permits.area_count differs from _sources hvac_mentions')
     # The permit bar graph: the same hvac_permits.py run as the count, copied unchanged
@@ -110,6 +123,11 @@ def audit(path, picks_count):
     cw = pm.get('citywide_context', {})
     if cw.get('hvac_firms') != 1539 or cw.get('hvac_permits_24m') != 4888:
         p.append('citywide_context should be 1539 firms / 4888 permits')
+    return p
+
+
+def audit_rest(a, x, picks_count, suburb):
+    p = []
     # limits
     for k, lim in LIMITS.items():
         v = get(a, x, k)
@@ -117,24 +135,35 @@ def audit(path, picks_count):
             p.append(f'{k} is {len(v)} chars (limit {lim})')
     # fixed values and patterns
     for k, v in FIXED.items():
+        if suburb and k.startswith('faq.4.'):
+            continue  # a suburb asks about its own village's permits
         if get(a, x, k) != v:
             p.append(f'{k} must be exactly: {v}')
     A, T, slug = a.get('_area', ''), a.get('_area_the', ''), a.get('_slug', '')
+    city = 'IL' if suburb else 'Chicago'
     pat = {
-        'hero.h1': f'Heating and cooling repair in {T}, Chicago',
+        'hero.h1': f'Heating and cooling repair in {T}, {city}',
         'form.title': f'Book HVAC service in {T}',
         'services.heading': f'Every heating and cooling service we offer in {T}',
         'choose.heading': f'Five questions that sort {A} HVAC companies',
         'districts.label': f'{T.upper()}, DISTRICT BY DISTRICT',
         'buildings.heading': f'What heats and cools your {A} building',
-        'permits.area_text': f'{A} permits in 24 months that even mention HVAC equipment.',
         'faq.heading': f'{A} HVAC, answered',
     }
+    if not suburb:
+        pat['permits.area_text'] = f'{A} permits in 24 months that even mention HVAC equipment.'
+    else:
+        if a.get('place.locality') != f'{A}, IL':
+            p.append(f'place.locality should be: {A}, IL')
+        if not re.match(r'^The (Village|City) of .+$', a.get('permits.authority', '')):
+            p.append('permits.authority should read "The Village of <name>"')
+        if 'permit' not in a.get('faq.4.q', '').lower() or A not in a.get('faq.4.q', ''):
+            p.append(f'faq.4.q should ask about permits in {A}')
     for k, v in pat.items():
         if get(a, x, k) != v:
             p.append(f'{k} should be: {v}')
-    if x.get('seo.title') not in (f'HVAC Repair in {A}, Chicago | City & Suburban', f'HVAC Repair in {T}, Chicago | City & Suburban'):
-        p.append(f'seo.title should be: HVAC Repair in {T}, Chicago | City & Suburban')
+    if x.get('seo.title') not in (f'HVAC Repair in {A}, {city} | City & Suburban', f'HVAC Repair in {T}, {city} | City & Suburban'):
+        p.append(f'seo.title should be: HVAC Repair in {T}, {city} | City & Suburban')
     if not a.get('who.copy', '').startswith('City & Suburban is run from 1225 N Cleaver St, ') or \
             not a.get('who.copy', '').endswith('Rob, the owner, still runs the calls and does the diagnosis on the jobs that need it.'):
         p.append('who.copy must start "City & Suburban is run from 1225 N Cleaver St, " and end with the full Rob sentence')
@@ -144,10 +173,14 @@ def audit(path, picks_count):
         p.append('districts.heading should read "<north> to <south>, <west> to <east>"')
     if not a.get('districts.chip1', '').startswith('ZIP '):
         p.append('districts.chip1 should start "ZIP "')
-    if not re.match(r'^Wards? \d', a.get('districts.chip2', '')):
-        p.append('districts.chip2 should start "Wards "')
-    if not re.match(r'^.+ \(\d+\)$', a.get('districts.chip3', '')):
-        p.append('districts.chip3 should be "<Community area> (<number>)"')
+    if suburb:
+        if not a.get('districts.chip3', '').endswith(' Township'):
+            p.append('districts.chip3 should be "<name> Township" for a suburb')
+    else:
+        if not re.match(r'^Wards? \d', a.get('districts.chip2', '')):
+            p.append('districts.chip2 should start "Wards "')
+        if not re.match(r'^.+ \(\d+\)$', a.get('districts.chip3', '')):
+            p.append('districts.chip3 should be "<Community area> (<number>)"')
     if not a.get('cta.body', '').startswith('Have the make of your '):
         p.append('cta.body should start "Have the make of your "')
     if not x.get('seo.description', '').endswith('Family-owned since 1952. Call (773) 238-3838.'):

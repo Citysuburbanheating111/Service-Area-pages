@@ -116,13 +116,18 @@ NAMES = ['Rob', 'Eddie', 'Carissa', 'Frank', 'Nate', 'Sam', 'Andy', 'Mike']
 LIVE_AREAS = {'west-loop', 'west-town', 'wicker-park', 'pilsen', 'rogers-park', 'bucktown'}
 
 
+# The header's SERVICES dropdown lists only the four main areas (the app's MAIN_AREAS in
+# web/src/components/area/LiveChrome.tsx); every area is on the All service areas page.
+MAIN_AREAS = ['west-loop', 'lincoln-park', 'wicker-park', 'lakeview']
+
+
 def areas_menu(prefix='../'):
-    """The header's "Service areas" items: published areas by name, as in the app (order(areaName asc))."""
-    names = {}
-    for slug in LIVE_AREAS:
+    """The header's "Service areas" items: the main areas that have a page here."""
+    out = []
+    for slug in (s for s in MAIN_AREAS if s in LIVE_AREAS):
         data = json.load(open(os.path.join(ROOT, 'web', 'content', 'areas', f'{slug}.json'), encoding='utf-8'))
-        names[slug] = data['area']['_area']
-    return ''.join(f'<li><a href="{prefix}{slug}/">{html.escape(name)}</a></li>' for slug, name in sorted(names.items(), key=lambda kv: kv[1]))
+        out.append(f'<li><a href="{prefix}{slug}/">{html.escape(data["area"]["_area"])}</a></li>')
+    return ''.join(out)
 
 
 def live_chrome(name):

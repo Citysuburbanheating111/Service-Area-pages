@@ -5,7 +5,7 @@
 import { stegaClean } from 'next-sanity'
 
 import { design } from '@/components/area/design'
-import { mergeFaq, type Template } from '@/components/area/template'
+import { isSuburb, mergeFaq, type Template } from '@/components/area/template'
 import type { AreaPageData } from '@/sanity/types'
 
 import { absolute, areaPath, collectionPath } from './siteUrl'
@@ -59,7 +59,7 @@ export function areaPageSchema(page: AreaPageData, t: Template, meta: { title: s
   const slug = clean(page.slug)
   const url = absolute(areaPath(slug))
   const area = clean(page.areaName)
-  const faq = mergeFaq(page.faq?.items, t).items
+  const faq = mergeFaq(page.faq?.items, t, isSuburb(page)).items
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -71,7 +71,7 @@ export function areaPageSchema(page: AreaPageData, t: Template, meta: { title: s
         serviceType: 'Heating and cooling repair',
         description: clean(page.hero?.lede),
         provider: { '@id': BUSINESS_ID },
-        areaServed: { '@type': 'Place', name: `${area}, Chicago, IL` },
+        areaServed: { '@type': 'Place', name: `${area}, ${clean(page.locality) || 'Chicago, IL'}` },
         url,
       },
       {

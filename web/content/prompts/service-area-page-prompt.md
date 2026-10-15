@@ -163,6 +163,16 @@ Writing rules:
 - FAQ answers 2 and 3 may use only facts on this page or in the reference pages' answers. Don't invent services, response times, prices or guarantees.
 - Write in American English, and use the same punctuation style as the reference page (curly apostrophes inside review quotes stay exactly as in the CSV).
 
+## Step 5b: Suburbs (Skokie, Northbrook, Glenview, Wilmette, Winnetka, Niles, Park Ridge, Des Plaines…)
+A suburb isn't in Chicago, so the Chicago-only parts change (user's choice, 15 Oct 2026). Same 14 sections, same limits, with these differences:
+- Add `"place.locality": "<Suburb>, IL"` and `"permits.authority": "The Village of <Suburb>"` (or "The City of …" for a city). The page then shows a short note in place of the permit graph, "Township" in place of "Community area", and no wards.
+- `hero.h1`: "Heating and cooling repair in <Suburb>, IL". `seo.title`: "HVAC Repair in <Suburb>, IL | City & Suburban".
+- Leave out every `permits.*` number key and `districts.chip2` (no wards). `districts.chip3` is the township, e.g. "Niles Township". `districts.heading` may name the neighboring municipalities, e.g. "Wilmette and Glenview to Lincolnwood, Morton Grove to Evanston".
+- FAQ 4 is the suburb's own permit question, "Does HVAC work in <Suburb> need a permit?", answered from the village's own pages, softened where it can't be verified. FAQ 5 stays "What are your hours?".
+- Boundaries, ZIPs (2020 ZCTAs), township and neighbors: Census TIGERweb (incorporated place, county subdivisions). Measure the shop distance to the nearest edge of the place.
+- `_sources.permits` is `{source, cs_permits: 0, village_data}`: say what the village publishes (usually nothing as open data) and where you looked.
+- Skip the skill's `plan.py` (a Paper tool that expects the permit keys); `python scripts/audit_area.py` checks suburbs.
+
 ## Step 6: Check before you hand over (skill step 5)
 Run `python scripts/plan.py --content <area-only json> --out check.json` on the area object and fix every problem it reports. Then confirm each of these yourself:
 - [ ] All 16 blocks from Step 1 are accounted for, and every key in the Step 5 skeleton is present and filled.

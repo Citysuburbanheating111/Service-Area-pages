@@ -23,7 +23,7 @@ import { urlFor } from '@/sanity/lib/image'
 import type { AreaListItem, AreaPageData } from '@/sanity/types'
 
 import { design } from './design'
-import { fill, mergeFaq, telHref, type Template } from './template'
+import { fill, isSuburb, mergeFaq, telHref, type Template } from './template'
 import { BookingForm } from './v3/BookingForm'
 import { LiveHeader } from './LiveChrome'
 import { V3Footer } from './v3/Chrome'
@@ -78,7 +78,7 @@ function sections(page: AreaPageData, t: Template, preview: boolean) {
     price: !!page.price?.factors?.length,
     area: !!page.districts?.items?.length,
     buildings: !!page.buildings?.types?.length,
-    faq: !!mergeFaq(page.faq?.items, t).own.length,
+    faq: !!mergeFaq(page.faq?.items, t, isSuburb(page)).own.length,
   }
   return [
     { id: 'services', label: 'All services' },
@@ -314,7 +314,7 @@ function Choose({ page, t }: P) {
         {c.questions.map((q, i) => (
           <div key={q._key} className="tr" role="row">
             <span role="cell" className="q"><small>{nn(i)}</small><b>{q.title}</b></span>
-            <span role="cell">{q.text}</span>
+            <span role="cell">{isSuburb(page) && /permit/i.test(clean(q.title)) ? t.permits.suburbChooseText : q.text}</span>
             <span role="cell">{q.verify}</span>
             <span role="cell" className="us"><Svg.checkCircle size={16} stroke="#186AA4" /><span>{q.answer}</span></span>
           </div>
@@ -356,21 +356,25 @@ function Companies({ page, t }: P) {
 function Districts({ page, t }: P) {
   const d = page.districts
   if (!d?.items?.length) return null
-  const areaQ = `${clean(page.areaName)}, Chicago, IL`.replace(/ /g, '+')
+  const suburb = isSuburb(page)
+  const place = clean(page.locality) || 'Chicago, IL'
+  const areaQ = `${clean(page.areaName)}, ${place}`.replace(/ /g, '+')
   const here = (h: string) => clean(h).replace(/^HVAC here:\s*/i, '').replace(/^./, (ch) => ch.toUpperCase())
   const facts = [
-    d.communityArea && { k: 'Community area', v: d.communityArea },
+    d.communityArea && { k: suburb ? 'Township' : 'Community area', v: d.communityArea },
     d.zips?.length && { k: 'ZIP codes', v: d.zips.join(', ') },
     d.wards?.length && { k: 'City wards', v: d.wards.join(', ') },
     { k: 'Our shop', v: `${t.business.addressShort}, Chicago` },
-    { k: 'Permits', v: 'City of Chicago Department of Buildings. HVAC repair, diagnosis and maintenance need no permit' },
+    suburb
+      ? { k: 'Permits', v: `${clean(page.permits?.authority) || 'The village'}, which sets its own rules. Chicago's permit file doesn't cover ${clean(page.areaName)}` }
+      : { k: 'Permits', v: 'City of Chicago Department of Buildings. HVAC repair, diagnosis and maintenance need no permit' },
   ].filter(Boolean) as { k: string; v: string }[]
   return (
     <section className="v3-sec navy v3-area" aria-labelledby="area">
       <Head eyebrow={`${d.eyebrow ?? 'Service area'} · ${d.items.length} districts`} title={d.heading} id="area" />
       <div className="row">
         <div className="map">
-          <iframe title={`Map of ${clean(page.areaName)}, Chicago`} loading="lazy" referrerPolicy="no-referrer-when-downgrade"
+          <iframe title={`Map of ${clean(page.areaName)}, ${place}`} loading="lazy" referrerPolicy="no-referrer-when-downgrade"
             src={`https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1s${areaQ}!6i14`} />
           <p>District edges are approximate, because sources draw them differently.</p>
         </div>
@@ -450,6 +454,7 @@ const date = (iso?: string) =>
 function Permits({ page, t }: P) {
   const p = page.permits
   const s = t.permits
+  if (isSuburb(page)) return <SuburbPermits page={page} t={t} />
   // Biggest first, so the graph reads top-down
   const rows = (p?.byEquipment ?? []).filter((r) => (r.count ?? 0) > 0).sort((a, b) => (b.count ?? 0) - (a.count ?? 0))
   const max = Math.max(1, ...rows.map((r) => r.count ?? 0))
@@ -489,9 +494,34 @@ function Permits({ page, t }: P) {
   )
 }
 
+// A suburb: the City's permit file stops at the border and the village publishes no permit data,
+// so the graph's card says so instead. The honest context stays.
+function SuburbPermits({ page, t }: P) {
+  const s = t.permits
+  const area = sentence(page)
+  const card = fill(s.suburbCard, area).replace(/\{authority\}/g, clean(page.permits?.authority) || 'The village')
+  return (
+    <section className="v3-sec fog v3-permits" aria-labelledby="permits">
+      <Head eyebrow={`${s.eyebrow} · ${page.areaName}`} title={fill(s.suburbHeading, area)} id="permits" aside={fill(s.suburbIntro, area)} solo />
+      <div className="cards">
+        <div className="area">
+          <h3><span className="ic"><Svg.docCheck size={15} stroke="#FFFFFF" /></span>{page.areaName} HVAC permits</h3>
+          <p className="note">{card}</p>
+        </div>
+        <div className="honest">
+          <h3><span className="ic"><Svg.info size={15} stroke="#186AA4" /></span>The honest context</h3>
+          <p className="num"><b className="red">{s.ourNumber}</b><span>{s.ourCaption}</span></p>
+          <p className="num"><b>{s.citywideNumber}</b><span>{s.citywideCaption}</span></p>
+          <p className="text">{s.suburbText}</p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 // ── FAQ: the area's own questions, then the template's shared ones ──
 function Faq({ page, t }: P) {
-  const { own, items } = mergeFaq(page.faq?.items, t)
+  const { own, items } = mergeFaq(page.faq?.items, t, isSuburb(page))
   if (!own.length) return null
   const b = t.business
   return (
