@@ -47,7 +47,7 @@ export function AreaPageV3({ page, template: t, others, preview }: Props) {
       {preview && <div className="v3"><PreviewBar page={page} slug={slug} /></div>}
       {/* The live citysuburbanheating.com header, the same as on /service-areas; outside .v3 so the
           page's resets don't touch it */}
-      <LiveHeader />
+      <LiveHeader areas={others.map((o) => ({ name: clean(o.areaName), slug: clean(o.slug) })).filter((a) => a.slug)} current={slug} />
       <div className="v3">
         <main>
           <Hero page={page} t={t} toc={sections(page, t, preview)} />
