@@ -1,3 +1,4 @@
+import { cacheTag } from 'next/cache'
 import { cookies, draftMode } from 'next/headers'
 import {
   defineLive,
@@ -23,9 +24,14 @@ export const { sanityFetch, SanityLive } = defineLive({
   strict: true,
 })
 
+// Every cached Sanity read carries this tag, so a publish webhook can refresh them all at once
+// (app/api/revalidate). <SanityLive> only revalidates while someone has a page open.
+export const CONTENT_TAG = 'sanity-content'
+
 // The app's one shared 'use cache' boundary.
 export const cachedSanity: StrictDefinedFetchType = async (options) => {
   'use cache'
+  cacheTag(CONTENT_TAG)
   return sanityFetch(options)
 }
 
