@@ -9,7 +9,7 @@ type Area = { name: string; slug: string }
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`)
 
 /**
- * The header, with the published areas filled into the SERVICES dropdown's "Services by area" list,
+ * The header, with the published areas filled into the SERVICES dropdown's "Service areas" list,
  * so a newly published area page shows up there on its own. `current` marks the page's own area.
  */
 export function LiveHeader({ areas = [], current }: { areas?: Area[]; current?: string }) {

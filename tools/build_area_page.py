@@ -112,12 +112,12 @@ NAMES = ['Rob', 'Eddie', 'Carissa', 'Frank', 'Nate', 'Sam', 'Andy', 'Mike']
 
 # Area pages published in Sanity (one list for the static builds; the Next.js app reads Sanity itself).
 # Add a slug when its page goes live: its collection card links again and it joins the header's
-# SERVICES > "Services by area" list.
+# SERVICES > "Service areas" list.
 LIVE_AREAS = {'west-loop', 'west-town', 'wicker-park', 'pilsen', 'rogers-park', 'bucktown'}
 
 
 def areas_menu(prefix='../'):
-    """The header's "Services by area" items: published areas by name, as in the app (order(areaName asc))."""
+    """The header's "Service areas" items: published areas by name, as in the app (order(areaName asc))."""
     names = {}
     for slug in LIVE_AREAS:
         data = json.load(open(os.path.join(ROOT, 'web', 'content', 'areas', f'{slug}.json'), encoding='utf-8'))

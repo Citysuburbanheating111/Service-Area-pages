@@ -35,7 +35,7 @@ Open the West Loop reference page and record the following:
 
 | # | Block | Changes per area? |
 |---|---|---|
-| 1 | Header: the exact citysuburbanheating.com header (blue top bar with Finance / About Us / Contact Us; Heating, Cooling, Air Quality, Commercial and Services menus; CALL block; Schedule Service). The SERVICES dropdown has "Other services" and "Services by area" (filled from the published Sanity pages). No Blog. It comes from the template (assets/live/header.html); never write or change it per area | No |
+| 1 | Header: the exact citysuburbanheating.com header (blue top bar with Finance / About Us / Contact Us; Heating, Cooling, Air Quality, Commercial and Services menus; CALL block; Schedule Service). The SERVICES dropdown has "Other services" and "Service areas" (filled from the published Sanity pages). No Blog. It comes from the template (assets/live/header.html); never write or change it per area | No |
 | 2 | Hero: breadcrumb, eyebrow (area + first three districts), H1, lede, trust chips (licensing, family owned since 1952, price agreed before work, 4.98 · 204 Google reviews), Call and Schedule buttons, "On this page" links, booking form (title, building type, "What's happening?" options) | Yes: H1, lede, form title, building-type options and default |
 | 3 | All services: heading, 24 services in four groups (Heating 7, Cooling 6, Air quality 5, Commercial 6) | Heading only |
 | 4 | Who you're actually calling: owner copy, van photo, Owner Rob / 1952 / 0 permits / 24/7 cards, Google rating, why family-owned matters, how we work | Owner copy only |
