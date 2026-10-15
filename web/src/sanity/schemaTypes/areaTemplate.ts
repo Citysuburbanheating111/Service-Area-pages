@@ -247,6 +247,12 @@ export const areaTemplate = defineType({
         txt('citywideCaption', 'Citywide caption'),
         str('ourNumber', 'Our number'),
         txt('ourCaption', 'Our caption'),
+        // Suburb pages: the City's permit file doesn't reach them, so there's no graph
+        str('suburbHeading', 'Suburb: heading', 'Use {area} for the suburb name'),
+        txt('suburbIntro', 'Suburb: intro', 3, 'Use {area} for the suburb name'),
+        txt('suburbCard', 'Suburb: in place of the graph', 3, 'Use {area} and {authority} (e.g. "The Village of Skokie")'),
+        txt('suburbText', 'Suburb: honest context text', 4),
+        txt('suburbChooseText', 'Suburb: "Does a permit count mean anything here?" row', 2),
       ],
     }),
 
