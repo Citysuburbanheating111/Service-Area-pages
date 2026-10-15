@@ -25,7 +25,8 @@ import type { AreaListItem, AreaPageData } from '@/sanity/types'
 import { design } from './design'
 import { fill, mergeFaq, telHref, type Template } from './template'
 import { BookingForm } from './v3/BookingForm'
-import { V3Footer, V3Header } from './v3/Chrome'
+import { LiveHeader } from './LiveChrome'
+import { V3Footer } from './v3/Chrome'
 import { ServicesTabs } from './v3/ServicesTabs'
 import { Svg } from './v3/Svg'
 import { ReviewTrack, StepTrack } from './v3/Track'
@@ -41,29 +42,32 @@ const sentence = (page: AreaPageData) => clean(page.areaNameInSentence) || clean
 
 export function AreaPageV3({ page, template: t, others, preview }: Props) {
   const slug = clean(page.slug)
-  const areas = others.map((o) => ({ name: clean(o.areaName), slug: clean(o.slug) }))
   return (
-    <div className="v3">
-      {preview && <PreviewBar page={page} slug={slug} />}
-      <V3Header t={t} areas={areas} current={slug} />
-      <main>
-        <Hero page={page} t={t} toc={sections(page, t, preview)} />
-        <Services page={page} t={t} />
-        <About page={page} t={t} />
-        <Reviews page={page} t={t} preview={preview} />
-        <Process t={t} />
-        <Price page={page} t={t} />
-        <Choose page={page} t={t} />
-        <Companies page={page} t={t} />
-        <Districts page={page} t={t} />
-        <Buildings page={page} />
-        <Nearby page={page} t={t} others={others.filter((o) => clean(o.slug) !== slug)} />
-        <Permits page={page} t={t} />
-        <Faq page={page} t={t} />
-        <NextStep page={page} t={t} />
-      </main>
-      <V3Footer t={t} />
-    </div>
+    <>
+      {preview && <div className="v3"><PreviewBar page={page} slug={slug} /></div>}
+      {/* The live citysuburbanheating.com header, the same as on /service-areas; outside .v3 so the
+          page's resets don't touch it */}
+      <LiveHeader />
+      <div className="v3">
+        <main>
+          <Hero page={page} t={t} toc={sections(page, t, preview)} />
+          <Services page={page} t={t} />
+          <About page={page} t={t} />
+          <Reviews page={page} t={t} preview={preview} />
+          <Process t={t} />
+          <Price page={page} t={t} />
+          <Choose page={page} t={t} />
+          <Companies page={page} t={t} />
+          <Districts page={page} t={t} />
+          <Buildings page={page} />
+          <Nearby page={page} t={t} others={others.filter((o) => clean(o.slug) !== slug)} />
+          <Permits page={page} t={t} />
+          <Faq page={page} t={t} />
+          <NextStep page={page} t={t} />
+        </main>
+        <V3Footer t={t} />
+      </div>
+    </>
   )
 }
 

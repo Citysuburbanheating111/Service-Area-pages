@@ -97,47 +97,6 @@
 .v3-arrows button:disabled { cursor: default; }
 .v3-arrows button:last-child:disabled { opacity: .35; }
 
-/* ── Utility bar + header ──────────────────────────────── */
-.v3-util { display: flex; align-items: center; justify-content: space-between; padding: 10px var(--pad-x); background: var(--color-blue); font: 400 13px/16px var(--font-body); color: #fff; }
-.v3-util > * { display: flex; align-items: center; gap: 8px; }
-.v3-util .ph { color: #fff; font-weight: 600; }
-/* Top bar is sky blue like citysuburbanheating.com's; Finance sits here (not in the main nav), as on the live site */
-.v3-util .end { gap: 20px; }
-.v3-util .end > a { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
-.v3-util .fin { padding-left: 20px; border-left: 1px solid #ffffff59; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
-.v3-util a:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
-
-.v3-header { position: relative; z-index: 30; display: flex; align-items: center; justify-content: space-between; padding: 14px var(--pad-x); background: #fff; border-bottom: 1px solid var(--color-line); }
-.v3-header .logo img { display: block; width: 159px; height: 56px; object-fit: contain; }
-.v3-header nav > ul { display: flex; align-items: center; gap: 30px; }
-.v3-header nav li { position: relative; }
-.v3-header nav li > a { display: flex; align-items: center; gap: 4px; white-space: nowrap; font: 500 15px/18px var(--font-display); text-transform: uppercase; color: var(--color-navy); padding: 10px 0; }
-.v3-header nav li.on > a { color: var(--color-red); }
-.v3-header nav li.on > a svg path { stroke: var(--color-red); }
-.v3-header nav li > a svg path { stroke: var(--color-navy); }
-.v3-header nav li > a:hover { color: var(--color-red); }
-.v3-header .menu { position: absolute; top: 100%; left: -24px; display: none; gap: 28px; padding: 22px 24px; background: #fff; border: 1px solid var(--color-line); border-radius: var(--radius-card);
-  box-shadow: #09263a40 0 24px 48px -20px; }
-.v3-header .menu.narrow { min-width: 240px; }
-.v3-header .dd:hover .menu, .v3-header .dd:focus-within .menu { display: flex; }
-.v3-header .menu > div { display: flex; flex-direction: column; gap: 8px; min-width: 190px; }
-.v3-header .menu a { font: 400 14px/20px var(--font-body); color: var(--color-text); white-space: nowrap; }
-.v3-header .menu a:hover, .v3-header .menu a[aria-current] { color: var(--color-red); }
-.v3-header .menu .head { font: 700 14px/18px var(--font-display); text-transform: uppercase; color: var(--color-navy); padding-bottom: 4px; }
-.v3-header .menu .all { font-weight: 600; color: var(--color-blue); padding-top: 4px; }
-.v3-header .acts { display: flex; align-items: center; gap: 22px; }
-.v3-header .call { display: flex; align-items: center; gap: 8px; white-space: nowrap; font: 700 18px/22px var(--font-display); color: var(--color-navy); }
-.v3-header .v3-pill { padding: 14px 26px; font-size: 14px; }
-.v3-header .mob { display: none; }
-.v3-header .mob summary { width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--color-line); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; list-style: none; }
-.v3-header .mob summary::-webkit-details-marker { display: none; }
-.v3-header .mob summary span { width: 18px; height: 2px; border-radius: 2px; background: var(--color-navy); }
-.v3-header .mob nav { position: absolute; top: 100%; left: 0; right: 0; display: flex; flex-direction: column; padding: 8px var(--pad-x) 20px; background: #fff; border-bottom: 1px solid var(--color-line); box-shadow: #09263a40 0 24px 48px -20px; }
-.v3-header .mob nav > a { padding: 14px 0; border-bottom: 1px solid var(--color-line); font: 500 15px/18px var(--font-display); text-transform: uppercase; color: var(--color-navy); }
-.v3-header .mob .areas { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 0 14px; border-bottom: 1px solid var(--color-line); }
-.v3-header .mob .areas a { padding: 6px 12px; border-radius: 999px; border: 1px solid var(--color-line); font-size: 13px; line-height: 16px; color: var(--color-text); }
-.v3-header .mob .areas a[aria-current] { border-color: var(--color-red); background: var(--color-red-tint); color: var(--color-red-dk); font-weight: 600; }
-
 /* ── Hero ──────────────────────────────────────────────── */
 .v3-hero { display: flex; align-items: flex-start; gap: 56px; padding: 44px var(--pad-x) 72px; background-size: cover; background-position: 50%; color: #fff; }
 .v3-hero .copy { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; }
@@ -547,10 +506,6 @@
 /* ── Tablet ────────────────────────────────────────────── */
 @media (max-width: 1263.98px) {
   .v3 { --pad-x: 40px; }
-  .v3-util > :nth-child(2), .v3-util > :nth-child(3) { display: none; }
-  .v3-header > nav { display: none; }
-  .v3-header .mob { display: block; }
-  .v3-header .acts { gap: 14px; }
   .v3-hero { flex-direction: column; }
   .v3-book { width: 100%; max-width: 560px; }
   .v3-head { flex-direction: column; align-items: flex-start; gap: 18px; }
@@ -587,10 +542,6 @@
 /* ── Phone ─────────────────────────────────────────────── */
 @media (max-width: 720px) {
   .v3 { --pad-x: 16px; }
-  .v3-util > :first-child { display: none; }
-  .v3-util { justify-content: center; }
-  .v3-header .call { display: none; }
-  .v3-header .logo img { width: 125px; height: 44px; }
   .v3-sec { padding-top: 64px; padding-bottom: 64px; gap: 28px; }
   .v3-hero { padding-top: 28px; padding-bottom: 48px; gap: 32px; }
   .v3-hero .crumbs ol { padding-bottom: 24px; }
