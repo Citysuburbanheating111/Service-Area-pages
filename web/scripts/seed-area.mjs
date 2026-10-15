@@ -43,6 +43,12 @@ if (x.confirmNotes?.length) {
   throw new Error(`${file} still has ${x.confirmNotes.length} open confirm note(s). Resolve them first (python scripts/audit_area.py ${file}).`)
 }
 
+// Every page follows the v3 standard design: the permit bar graph and 3-6 nearby neighborhoods
+const nearbyCount = [1, 2, 3, 4, 5, 6].filter((i) => a[`nearby.${i}.name`]).length
+if (!(a['permits.by_equipment'] ?? x._sources?.permits?.by_equipment) || nearbyCount < 3) {
+  throw new Error(`${file} doesn't follow the v3 design: it needs permits.by_equipment (with permits.total and the window) and 3-6 nearby.N.name / nearby.N.text (has ${nearbyCount}). Check it with python scripts/audit_area.py ${file}.`)
+}
+
 let n = 0
 const k = () => `k${(n++).toString(36).padStart(3, '0')}`
 const items = (type, list) => list.map((v) => ({ _key: k(), _type: type, ...v }))

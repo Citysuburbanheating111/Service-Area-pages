@@ -7,7 +7,6 @@ import { SanityLive } from '@/sanity/live'
 // The shared design (synced from the design-system site), then the Next-only additions
 import './design/live-chrome.css'
 import './design/area-page.css'
-import './design/area-page-v2.css'
 import './design/area-page-v3.css'
 import './next-only.css'
 

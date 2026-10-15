@@ -81,3 +81,21 @@ Publishing a new area page in Sanity adds it to this sitemap; nothing else to do
 Publish it in the Studio (`https://service-area-pages.vercel.app/studio`). It appears at
 `https://citysuburbanheating.com/service-area/<slug>/` and in the sitemap. Until it is published,
 that URL returns 404.
+
+Edits to a page that's already live (or to the Service area template) show up on the next visit
+once the publish webhook below is set up. Without it they only appear while someone has the page
+open, or after the next deploy.
+
+### Publish webhook (one-time setup)
+
+1. Pick a long random string as the secret. In Vercel → the project → **Settings → Environment
+   Variables**, add `SANITY_REVALIDATE_SECRET` with it (Production), then redeploy.
+2. In **sanity.io/manage** → the project → **API → Webhooks → Create webhook**:
+   - URL: `https://service-area-pages.vercel.app/api/revalidate`
+   - Dataset: `production`
+   - Trigger on: Create, Update, Delete
+   - Filter: `_type in ["areaPage", "areaTemplate"]`
+   - Drafts and versions: off (only publishes)
+   - HTTP method: POST
+   - Secret: the same string as in Vercel
+3. Publish any page and check its webhook log in sanity.io/manage shows a `200`.

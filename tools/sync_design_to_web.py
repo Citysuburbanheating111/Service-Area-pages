@@ -4,10 +4,10 @@
   python tools/sync_design_to_web.py
 
 The static v2 pages (tools/build_area_page_v2.py) and the Sanity-driven Next.js pages
-(web/src/components/area/AreaPageV2.tsx) share one design. This script is the bridge, so a
+(web/src/components/area/AreaPageV3.tsx) share one design. This script is the bridge, so a
 design change is made once, here in the design-system site, and then synced:
 
-  assets/area-page.css, area-page-v2.css, area-page-v3.css, live-chrome.css -> web/src/app/(site)/design/
+  assets/area-page.css, area-page-v3.css, live-chrome.css -> web/src/app/(site)/design/
   assets/live/header.html, footer.html                    -> web/src/components/area/liveChromeHtml.ts
   photos, icons, logos                                     -> web/public/cs-assets/
   shared content (services, steps, questions, icons, ...)  -> web/src/lib/design-data.json
@@ -26,7 +26,7 @@ import build_area_page_v2 as v2  # noqa: E402
 ASSETS_URL = '/cs-assets/'      # where web/public/cs-assets/ is served
 AREAS_URL = '/service-areas/'   # area pages in the Next.js app
 
-CSS = ['area-page.css', 'area-page-v2.css', 'area-page-v3.css', 'live-chrome.css']
+CSS = ['area-page.css', 'area-page-v3.css', 'live-chrome.css']
 IMAGES = (['5X6SBXHGCABFYFB3GFJ2CY4MYM.webp', '6FN1CP4RYC9MBCFR4H39DJ8HAE.webp', 'live/city-suburban-transparent-logo.png',
            'live/live-footer-logo.webp', 'v2/van-street.webp', 'v2/family-owned-seal.webp', 'v2/photo-ac-service.webp',
            'v2/photo-furnace-filter.webp']
