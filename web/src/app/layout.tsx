@@ -14,7 +14,6 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: 'City & Suburban Heating & Cooling', template: '%s' },
   description: 'Family-owned Chicago heating and cooling since 1952.',
-  icons: { icon: '/cs-assets/6FN1CP4RYC9MBCFR4H39DJ8HAE.webp' },
 }
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {

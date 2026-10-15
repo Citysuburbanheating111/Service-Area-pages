@@ -99,10 +99,14 @@
 .v3-arrows button:last-child:disabled { opacity: .35; }
 
 /* ── Utility bar + header ──────────────────────────────── */
-.v3-util { display: flex; align-items: center; justify-content: space-between; padding: 10px var(--pad-x); background: var(--color-navy); font: 400 13px/16px var(--font-body); color: #ffffffd9; }
+.v3-util { display: flex; align-items: center; justify-content: space-between; padding: 10px var(--pad-x); background: var(--color-blue); font: 400 13px/16px var(--font-body); color: #fff; }
 .v3-util > * { display: flex; align-items: center; gap: 8px; }
 .v3-util .ph { color: #fff; font-weight: 600; }
-.v3-util a:hover { color: #fff; }
+/* Top bar is sky blue like citysuburbanheating.com's; Finance sits here (not in the main nav), as on the live site */
+.v3-util .end { gap: 20px; }
+.v3-util .end > a { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+.v3-util .fin { padding-left: 20px; border-left: 1px solid #ffffff59; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.v3-util a:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
 
 .v3-header { position: relative; z-index: 30; display: flex; align-items: center; justify-content: space-between; padding: 14px var(--pad-x); background: #fff; border-bottom: 1px solid var(--color-line); }
 .v3-header .logo img { display: block; width: 159px; height: 56px; object-fit: contain; }

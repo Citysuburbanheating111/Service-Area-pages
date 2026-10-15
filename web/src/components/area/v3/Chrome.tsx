@@ -20,11 +20,15 @@ export function V3Header({ t, areas, current }: { t: Template; areas: Area[]; cu
   const b = t.business
   return (
     <>
+      {/* Sky-blue top bar, as on citysuburbanheating.com; Finance lives here, not in the main nav */}
       <div className="v3-util">
-        <span><Svg.pin size={14} />{b.addressShort}, Chicago, IL 60642</span>
-        <span><Svg.clock size={14} />Open {b.hours} · Mon–Sun</span>
-        <a href={`mailto:${stegaClean(b.email)}`}><Svg.mail size={14} />{b.email}</a>
-        <a className="ph" href={telHref(b.phone)}><Svg.phone size={14} />{b.phone}</a>
+        <span><Svg.pin size={14} stroke="#FFFFFF" />{b.addressShort}, Chicago, IL 60642</span>
+        <span><Svg.clock size={14} stroke="#FFFFFF" />Open {b.hours} · Mon–Sun</span>
+        <a href={`mailto:${stegaClean(b.email)}`}><Svg.mail size={14} stroke="#FFFFFF" />{b.email}</a>
+        <span className="end">
+          <a className="ph" href={telHref(b.phone)}><Svg.phone size={14} stroke="#FFFFFF" />{b.phone}</a>
+          <a className="fin" href="https://retailservices.wellsfargo.com/pl/0024376626">Finance</a>
+        </span>
       </div>
       <header className="v3-header">
         <a className="logo" href={live('/')} aria-label={`${b.companyName} home`}>
@@ -57,7 +61,6 @@ export function V3Header({ t, areas, current }: { t: Template; areas: Area[]; cu
                 </div>
               </div>
             </li>
-            <li><a href="https://retailservices.wellsfargo.com/pl/0024376626">Finance</a></li>
             <li><a href={live('/blog/')}>Blog</a></li>
           </ul>
         </nav>
