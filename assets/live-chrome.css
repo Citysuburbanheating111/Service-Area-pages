@@ -258,52 +258,24 @@
 .ch .ch-nav li{position:relative}
 .ch .ch-menu li a{padding:30px 0;color:var(--ch-navy);font-weight:600;font-size:14px;text-decoration:none;text-transform:uppercase}
 .ch .ch-menu li a:hover{color:var(--ch-red)}
+.ch .ch-nav li ul.ch-sub{display:none;position:absolute;top:55px;row-gap:0;left:0;background:#fff;padding:10px 15px;min-width:20rem;max-height:14rem;box-shadow:rgba(0,0,0,.08) 0 4px 8px;z-index:999;border-top:2px solid var(--ch-navy)}
+.ch .ch-nav li ul.ch-sub li{font-size:1rem;padding:.5rem}
+.ch .ch-nav li ul.ch-sub li:hover{background-color:#f3f2f2;border-radius:.5rem}
+.ch .ch-nav li:hover>ul.ch-sub,.ch .ch-nav li:focus-within>ul.ch-sub{display:flex;flex-flow:column wrap;width:max-content}
 .ch .ch-has-sub>a:after{content:"";position:absolute;top:55%;right:-20px;width:16px;height:16px;transform:translateY(-50%)rotate(0);background-image:url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 4L16 12L8 20' stroke='%2309263A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:16px 16px;transition:transform .3s}
 .ch .ch-has-sub:hover>a:after,.ch .ch-has-sub:focus-within>a:after{transform:translateY(-35%)rotate(90deg)}
-/* ── Dropdown panels ───────────────────────────────────────────────────────────────────
-   One style for all five menu items (the live site's small lists differed per menu and the long
-   Commercial one ran off the screen). A mega menu after cloudflare.com's, in the C&S design system:
-   the open item gets a light-blue pill and its arrow turns down; one rounded panel opens under the
-   header, as wide as the header's 1170px container, so it always fits; services are a title plus a
-   one-line description; "All ... services"; and the "Services by area" card (published areas).
-   Opens on hover or keyboard focus; clicking the item still goes to its category page. */
-@keyframes ch-panel-in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
-.ch .ch-panel{display:none}
-@media (min-width:1101px){
-.ch .ch-wrap{position:relative}
-.ch .ch-nav li.ch-dd{position:static}
-.ch .ch-menu>li>a{position:relative;z-index:0}
-/* Items are static (so a panel spans the header), so arrows are anchored to the link: 40.4px = the link's
-   25px of top padding above the item + 55% of the 28px item, the live arrows' spot. */
-.ch .ch-has-sub>a:after{top:40.4px}
-.ch .ch-menu>li>a:before{content:"";position:absolute;z-index:-1;left:-14px;right:-26px;top:18px;height:42px;border-radius:999px;background:#E8F0F7;opacity:0;transition:opacity .15s}
-.ch .ch-menu>li:hover>a:before,.ch .ch-menu>li:focus-within>a:before{opacity:1}
-.ch .ch-nav li.ch-dd:hover>.ch-panel,.ch .ch-nav li.ch-dd:focus-within>.ch-panel{display:flex}
-.ch .ch-panel{position:absolute;top:calc(100% + 8px);left:15px;right:15px;z-index:999;gap:24px;padding:24px;background:#fff;border:1px solid #DCE2E7;border-radius:14px;box-shadow:#09263a33 0 24px 48px -16px;text-align:left;animation:ch-panel-in .18s ease-out}
-.ch .ch-panel:before{content:"";position:absolute;left:0;right:0;top:-26px;height:26px}
-/* The header stays at the top while scrolling, so a tall panel scrolls inside itself (its service list,
-   not the panel, so the hover bridge above it isn't clipped) instead of running off the screen */
-.ch .ch-panel{max-height:calc(100vh - 160px)}.ch .ch-panel-main{overflow-y:auto;overscroll-behavior:contain}
-}
-.ch .ch-panel-main{flex:1 1 0;min-width:0;display:flex;flex-direction:column}
-.ch .ch-panel-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px 16px;align-items:start}
-.ch .ch-panel-cols.ch-two{grid-template-columns:repeat(2,minmax(0,1fr))}
-.ch .ch-col{display:flex;flex-direction:column;gap:2px}
-.ch .ch-panel .ch-panel-h{grid-column:1/-1;display:flex;align-items:center;gap:8px;padding:0 12px 6px;font-size:11px;line-height:16px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6A7782}
-.ch .ch-panel .ch-panel-h:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ch-red);flex-shrink:0}
-.ch .ch-col .ch-panel-h~.ch-panel-h{margin-top:14px}
-.ch .ch-menu .ch-panel a.ch-item{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border-radius:10px;text-transform:none;color:var(--ch-navy);transition:background-color .15s}
-.ch .ch-menu .ch-panel a.ch-item span{font-size:15px;line-height:20px;font-weight:600;color:inherit}
-.ch .ch-menu .ch-panel a.ch-item small{font-size:13px;line-height:18px;font-weight:400;color:#6A7782}
-.ch .ch-menu .ch-panel a.ch-item:hover,.ch .ch-menu .ch-panel a.ch-item:focus-visible{background:#F2F4F6;color:var(--ch-red)}
-.ch .ch-menu .ch-panel a.ch-panel-all{align-self:flex-start;margin-top:14px;padding:10px 12px;font-size:14px;line-height:18px;font-weight:600;text-transform:uppercase;color:var(--ch-red)}
-.ch .ch-card{width:280px;flex-shrink:0;align-self:flex-start;display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:20px;border-radius:12px;background:#E8F0F7}
-.ch .ch-card .ch-card-h{font-size:11px;line-height:16px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#186AA4}
-.ch .ch-card .ch-card-t{font-size:14px;line-height:21px;color:#3F4B55}
-.ch .ch-card .ch-card-chips{display:flex;flex-wrap:wrap;gap:6px}
-.ch .ch-menu .ch-card .ch-card-chips a{padding:5px 10px;border-radius:999px;background:#fff;border:1px solid #DCE2E7;font-size:12px;line-height:16px;font-weight:600;text-transform:none;color:var(--ch-navy)}
-.ch .ch-menu .ch-card .ch-card-chips a:hover,.ch .ch-menu .ch-card .ch-card-chips a[aria-current]{border-color:var(--ch-red);color:var(--ch-red)}
-.ch .ch-menu .ch-card a.ch-card-go{padding:0;margin-top:2px;font-size:14px;line-height:18px;font-weight:600;text-transform:uppercase;color:var(--ch-red)}
+/* Two additions to the live dropdowns. Commercial's list (two columns of long names, 722px) is centred
+   under its item, because left-aligned as on the live site it ran off the screen below 1440px. SERVICES
+   gets a dropdown in the same style: "Other services" and "Services by area" side by side. */
+.ch .ch-nav li.ch-center>.ch-sub{left:50%;transform:translateX(-50%)}
+.ch .ch-nav li div.ch-sub{display:none;position:absolute;top:55px;background:#fff;padding:10px 15px;box-shadow:rgba(0,0,0,.08) 0 4px 8px;z-index:999;border-top:2px solid var(--ch-navy);gap:24px;width:max-content}
+.ch .ch-nav li:hover>div.ch-sub,.ch .ch-nav li:focus-within>div.ch-sub{display:flex}
+.ch .ch-nav .ch-split ul{flex-direction:column;gap:0}
+.ch .ch-nav .ch-split li{font-size:1rem;padding:.5rem}
+.ch .ch-nav .ch-split li:hover{background-color:#f3f2f2;border-radius:.5rem}
+.ch .ch-split .ch-sub-h{padding:.5rem .5rem 0;font-size:11px;line-height:16px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6A7782}
+.ch .ch-menu .ch-split li.ch-all a{color:var(--ch-red)}
+.ch .ch-menu .ch-split li a[aria-current]{color:var(--ch-red)}
 .ch .ch-btns{display:flex;align-items:center;gap:12px}
 .ch .ch-call{display:flex;flex-direction:column;row-gap:5px;padding-right:10px;border-right:1px solid #ededed}
 .ch .ch-call span{font-size:16px;font-weight:400;margin-right:5px;display:inline-flex;align-items:center;gap:5px}
@@ -322,17 +294,18 @@
 .ch .ch-nav{position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;gap:0;padding:20px;display:none;transition:.3s;height:100vh}
 .ch .ch-toggle:checked~.ch-nav{display:flex}
 .ch .ch-nav ul{flex-direction:column;width:100%;overflow-y:auto;height:100%}
+.ch .ch-nav li ul.ch-sub{display:none;position:unset;padding:5px 15px;min-width:160px;box-shadow:none;border-top:none}
+.ch .ch-nav li:hover>ul.ch-sub,.ch .ch-nav li:focus-within>ul.ch-sub{flex-wrap:nowrap}
 .ch .ch-menu li a{padding:0}
 .ch .ch-has-sub>a:after{margin-left:5px}
 .ch .ch-has-sub:hover>a:after,.ch .ch-has-sub:focus-within>a:after{top:50%;left:92%}
 .ch .ch-btns{display:none}
 .ch .ch-burger{display:flex}
-/* Phone and tablet menu: a panel opens inside the menu under its item, one column, no descriptions */
-.ch .ch-nav li.ch-dd:hover>.ch-panel,.ch .ch-nav li.ch-dd:focus-within>.ch-panel{display:flex;flex-direction:column;gap:12px;padding:8px 0 12px}
-.ch .ch-panel-cols{grid-template-columns:1fr}
-.ch .ch-menu .ch-panel a.ch-item{padding:6px 12px}
-.ch .ch-menu .ch-panel a.ch-item small{display:none}
-.ch .ch-card{width:auto;align-self:stretch}
+.ch .ch-nav li.ch-center>.ch-sub{transform:none}
+.ch .ch-nav li div.ch-sub{position:unset;flex-direction:column;gap:0;padding:5px 15px;box-shadow:none;border-top:none;width:auto}
+.ch .ch-nav .ch-split ul{height:auto;overflow:visible}
+/* Phone menu: lists fit the screen (as max-content, Commercial's long names ran 70px past it) */
+.ch .ch-nav li:hover>ul.ch-sub,.ch .ch-nav li:focus-within>ul.ch-sub{width:auto;min-width:0}
 }
 @media (max-width:992px){.ch .ch-top{display:none}}
 @media (max-width:768px){.ch .ch-logo img{max-width:130px}}
