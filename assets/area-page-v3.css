@@ -23,7 +23,9 @@
   --font-body: var(--font-noto-sans), 'Noto Sans', sans-serif;
   --radius-sm: 8px;
   --radius-card: 14px;
-  --pad-x: max(120px, calc((100% - 1200px) / 2));
+  /* Paper's artboard is 1440 wide: 120px sides around a 1200px content column. The column stays
+     1200px on every desktop; narrower laptops (1264-1439 incl. scrollbar) just get less side space. */
+  --pad-x: max(24px, calc((100% - 1200px) / 2));
 
   background: var(--color-bg);
   color: var(--color-text);
@@ -42,6 +44,11 @@
 .v3 :focus-visible { outline: 2px solid var(--color-red); outline-offset: 3px; border-radius: 4px; }
 .v3 .navy :focus-visible, .v3 .v3-hero :focus-visible, .v3 .v3-next :focus-visible, .v3 .v3-footer :focus-visible { outline-color: #fff; }
 .v3 svg { display: block; flex-shrink: 0; }
+/* Figures never split across lines (the page allows breaking anywhere, as Paper does) */
+.v3 :is(.v3-permits .big b, .v3-permits .num b, .v3-price .median .big b, .v3-who .fact > b, .v3-stats li > b,
+  .v3-steps header b, .v3-stepper .count b, .v3-next .proof b, .v3-faq .proof b, .v3-hero .trust .rt b, .v3-price .factors b,
+  .v3-hero .trust .rt small, .v3 .stars, .v3-area .districts h3 b, .v3-who .family li b, .v3-next .ready li b, .v3-faq .n) {
+  flex-shrink: 0; white-space: nowrap; overflow-wrap: normal; }
 
 /* ── Shared pieces ─────────────────────────────────────── */
 .v3-sec { display: flex; flex-direction: column; gap: 40px; padding: 100px var(--pad-x); }
@@ -100,7 +107,7 @@
 .v3-header .logo img { display: block; width: 159px; height: 56px; object-fit: contain; }
 .v3-header nav > ul { display: flex; align-items: center; gap: 30px; }
 .v3-header nav li { position: relative; }
-.v3-header nav li > a { display: flex; align-items: center; gap: 4px; font: 500 15px/18px var(--font-display); text-transform: uppercase; color: var(--color-navy); padding: 10px 0; }
+.v3-header nav li > a { display: flex; align-items: center; gap: 4px; white-space: nowrap; font: 500 15px/18px var(--font-display); text-transform: uppercase; color: var(--color-navy); padding: 10px 0; }
 .v3-header nav li.on > a { color: var(--color-red); }
 .v3-header nav li.on > a svg path { stroke: var(--color-red); }
 .v3-header nav li > a svg path { stroke: var(--color-navy); }
@@ -115,7 +122,7 @@
 .v3-header .menu .head { font: 700 14px/18px var(--font-display); text-transform: uppercase; color: var(--color-navy); padding-bottom: 4px; }
 .v3-header .menu .all { font-weight: 600; color: var(--color-blue); padding-top: 4px; }
 .v3-header .acts { display: flex; align-items: center; gap: 22px; }
-.v3-header .call { display: flex; align-items: center; gap: 8px; font: 700 18px/22px var(--font-display); color: var(--color-navy); }
+.v3-header .call { display: flex; align-items: center; gap: 8px; white-space: nowrap; font: 700 18px/22px var(--font-display); color: var(--color-navy); }
 .v3-header .v3-pill { padding: 14px 26px; font-size: 14px; }
 .v3-header .mob { display: none; }
 .v3-header .mob summary { width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--color-line); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; list-style: none; }
@@ -534,7 +541,7 @@
 .v3-footer .bar a:hover { color: #fff; }
 
 /* ── Tablet ────────────────────────────────────────────── */
-@media (max-width: 1180px) {
+@media (max-width: 1263.98px) {
   .v3 { --pad-x: 40px; }
   .v3-util > :nth-child(2), .v3-util > :nth-child(3) { display: none; }
   .v3-header > nav { display: none; }
