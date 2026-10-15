@@ -221,7 +221,7 @@
    Differences from the live site: the rating in text (4.98), a CSS-only menu toggle (the live
    one needs its JavaScript), and real tel: links. The site-* rules above still style the
    older static pages and the footer. */
-.ch{--ch-navy:#09263A;--ch-red:#DD382B;position:sticky;top:0;width:100%;background:#fff;z-index:1000;box-shadow:rgba(0,0,0,.1) 0 1px 5px;transition:top .3s;font-family:var(--font-noto-sans),"Noto Sans",sans-serif;font-size:16px;line-height:normal;font-weight:400;color:#000;text-align:left;-webkit-font-smoothing:antialiased}
+.ch{--ch-navy:#09263A;--ch-red:#DD382B;position:sticky;top:0;width:100%;background:#fff;z-index:1000;box-shadow:rgba(0,0,0,.1) 0 1px 5px;transition:top .3s;font-family:var(--font-noto-sans,"Noto Sans"),"Noto Sans",sans-serif;font-size:16px;line-height:normal;font-weight:400;color:#000;text-align:left;-webkit-font-smoothing:antialiased}
 .ch *{padding:0;margin:0;box-sizing:border-box}
 .ch img{width:100%;height:auto;object-fit:cover;display:block}
 .ch p,.ch span,.ch ul,.ch li,.ch a{font-family:inherit}

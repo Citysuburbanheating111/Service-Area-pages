@@ -35,6 +35,12 @@ for slug in sorted(area_slugs('v1') | area_slugs('v2')):
 
 # 2. v2 collection page = v1 collection page with v2 labels and links
 src = open(os.path.join(ROOT, 'services-v1', 'service-areas', 'index.html'), encoding='utf-8').read()
+# The v1 page still has the old copy of the live header; the v2 page gets the current one (assets/live/header.html),
+# the same header as the v2 area pages and the Next.js app.
+hdr = re.search(r'<div class="site-header-stack">.*?<div class="site-mobile-actions".*?</div></div>', src, flags=re.S)
+if not hdr:
+    sys.exit('v1 collection page changed: old live header not found')
+src = src.replace(hdr.group(0), v2.live_chrome('header', './', v2.A.replace('../', '', 1)))
 for a, b in [('city-suburban/services-v1/service-areas/', 'city-suburban/services-v2/service-areas/'),
              ('<span class="t">Service areas · collection page v1</span>', '<span class="t">Service areas · collection page v2</span>'),
              ('<span class="acts"><a href="../../">Design system</a>',
@@ -45,8 +51,8 @@ for a, b in [('city-suburban/services-v1/service-areas/', 'city-suburban/service
 
 # The v2 collection page is the live one: indexable, canonical, no preview bar, and cards don't
 # link to area pages until those pages are published (they stay noindex drafts). Add a slug to
-# LIVE_AREAS when its page goes live and its card links again.
-LIVE_AREAS = {'west-loop', 'west-town', 'wicker-park', 'pilsen', 'rogers-park', 'bucktown'}  # published in Sanity
+# LIVE_AREAS (tools/build_area_page.py) when its page goes live and its card links again.
+LIVE_AREAS = v2.v1.LIVE_AREAS  # published in Sanity; the one list is in tools/build_area_page.py
 CANONICAL = 'https://logeshmaximus.github.io/city-suburban/services-v2/service-areas/'
 src = src.replace('<meta name="robots" content="noindex, nofollow">',
                   f'<meta name="robots" content="index, follow">\n<link rel="canonical" href="{CANONICAL}">')

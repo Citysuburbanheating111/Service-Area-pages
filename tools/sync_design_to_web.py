@@ -98,7 +98,7 @@ def main():
 
     # 5. The "All service areas" collection page for /service-areas. Read from the v1 page, which has
     #    every card: the Next page keeps only the areas published in Sanity, links them and sets the
-    #    count (the static v2 page does the same from LIVE_AREAS in tools/update_design.py).
+    #    count (the static v2 page does the same from LIVE_AREAS in tools/build_area_page.py).
     page = open(os.path.join(ROOT, 'services-v1', 'service-areas', 'index.html'), encoding='utf-8').read()
     css = page[page.index('<style>') + 7:page.index('</style>')]
     main = page[page.index('<main>'):page.index('</main>') + 7]

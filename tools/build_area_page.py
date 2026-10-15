@@ -110,9 +110,25 @@ COMPANIES = [
 NAMES = ['Rob', 'Eddie', 'Carissa', 'Frank', 'Nate', 'Sam', 'Andy', 'Mike']
 
 
+# Area pages published in Sanity (one list for the static builds; the Next.js app reads Sanity itself).
+# Add a slug when its page goes live: its collection card links again and it joins the header's
+# SERVICES > "Services by area" list.
+LIVE_AREAS = {'west-loop', 'west-town', 'wicker-park', 'pilsen', 'rogers-park', 'bucktown'}
+
+
+def areas_menu(prefix='../'):
+    """The header's "Services by area" items: published areas by name, as in the app (order(areaName asc))."""
+    names = {}
+    for slug in LIVE_AREAS:
+        data = json.load(open(os.path.join(ROOT, 'web', 'content', 'areas', f'{slug}.json'), encoding='utf-8'))
+        names[slug] = data['area']['_area']
+    return ''.join(f'<li><a href="{prefix}{slug}/">{html.escape(name)}</a></li>' for slug, name in sorted(names.items(), key=lambda kv: kv[1]))
+
+
 def live_chrome(name):
-    """Live-site header or footer (assets/live/<name>.html, copied from citysuburbanheating.com/services/)."""
-    return open(os.path.join(ROOT, 'assets', 'live', name + '.html'), encoding='utf-8').read().replace('{{ASSETS}}', A).replace('{{AREAS}}', '../')
+    """Live-site header or footer (assets/live/<name>.html, copied from citysuburbanheating.com)."""
+    src = open(os.path.join(ROOT, 'assets', 'live', name + '.html'), encoding='utf-8').read()
+    return src.replace('{{ASSETS}}', A).replace('{{AREAS}}', '../').replace('<!--CH_AREAS-->', areas_menu())
 
 
 def track_controls(label):
