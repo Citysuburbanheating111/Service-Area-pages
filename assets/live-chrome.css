@@ -266,14 +266,14 @@
 .ch .ch-has-sub:hover>a:after,.ch .ch-has-sub:focus-within>a:after{transform:translateY(-35%)rotate(90deg)}
 /* Two additions to the live dropdowns. Commercial's list (two columns of long names, 722px) is centred
    under its item, because left-aligned as on the live site it ran off the screen below 1440px. SERVICES
-   gets a dropdown in the same style: "Other services" and "Services by area" side by side. */
+   gets a dropdown in the same style: "Other services" and "Service areas" side by side, with red headings. */
 .ch .ch-nav li.ch-center>.ch-sub{left:50%;transform:translateX(-50%)}
 .ch .ch-nav li div.ch-sub{display:none;position:absolute;top:55px;background:#fff;padding:10px 15px;box-shadow:rgba(0,0,0,.08) 0 4px 8px;z-index:999;border-top:2px solid var(--ch-navy);gap:24px;width:max-content}
 .ch .ch-nav li:hover>div.ch-sub,.ch .ch-nav li:focus-within>div.ch-sub{display:flex}
 .ch .ch-nav .ch-split ul{flex-direction:column;gap:0}
 .ch .ch-nav .ch-split li{font-size:1rem;padding:.5rem}
 .ch .ch-nav .ch-split li:hover{background-color:#f3f2f2;border-radius:.5rem}
-.ch .ch-split .ch-sub-h{padding:.5rem .5rem 0;font-size:11px;line-height:16px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6A7782}
+.ch .ch-split .ch-sub-h{padding:.5rem .5rem 0;margin-bottom:14px;font-size:14px;line-height:26px;font-weight:600;text-transform:uppercase;color:var(--ch-red)}
 .ch .ch-menu .ch-split li.ch-all a{color:var(--ch-red)}
 .ch .ch-menu .ch-split li a[aria-current]{color:var(--ch-red)}
 .ch .ch-btns{display:flex;align-items:center;gap:12px}
