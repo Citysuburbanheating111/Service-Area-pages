@@ -17,7 +17,7 @@ The code is [`service-areas-worker.js`](service-areas-worker.js).
 ## 1. Vercel: tell the app its public address
 
 1. Vercel → **Service-Area-pages** project → **Settings → Environment Variables**.
-2. Add `NEXT_PUBLIC_SITE_URL` = `https://citysuburbanheating.com` for **Production**.
+2. Set `NEXT_SITE_URL` = `https://citysuburbanheating.com` for **Production** (the full address, with `https://` and no trailing slash).
 3. **Deployments** → the latest production deployment → **⋯ → Redeploy**.
 
 With this set:
