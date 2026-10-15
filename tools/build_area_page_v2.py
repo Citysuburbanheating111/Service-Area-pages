@@ -127,8 +127,11 @@ def head(eyebrow, title, tid, lede='', cls=''):
             + (f'<p class="v2-lede">{lede}</p>' if lede else '') + '</div>')
 
 
-def live_chrome(name):
-    return open(os.path.join(ROOT, 'assets', 'live', name + '.html'), encoding='utf-8').read().replace('{{ASSETS}}', A).replace('{{AREAS}}', '../')
+def live_chrome(name, areas='../', assets=None):
+    """Live-site header or footer. Paths default to an area page's; the collection page, one level up, passes
+    its own `areas` (path to itself) and `assets`."""
+    src = open(os.path.join(ROOT, 'assets', 'live', name + '.html'), encoding='utf-8').read()
+    return src.replace('{{ASSETS}}', assets or A).replace('{{AREAS}}', areas).replace('<!--CH_AREAS-->', v1.areas_menu(areas))
 
 
 def build(path):

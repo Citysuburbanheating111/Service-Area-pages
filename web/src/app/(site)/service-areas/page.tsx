@@ -47,7 +47,7 @@ export default async function ServiceAreasPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />
       <style dangerouslySetInnerHTML={{ __html: collectionCss }} />
-      <LiveHeader />
+      <LiveHeader areas={areas} />
       <div className="cs-published" style={{ display: 'contents' }}><Collection html={published} /></div>
       <Suspense fallback={null}>
         <PreviewAwareCollection />
