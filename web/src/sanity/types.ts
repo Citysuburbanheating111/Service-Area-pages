@@ -124,4 +124,14 @@ export type AreaTemplateData = {
 }
 
 // Shape returned by AREA_LIST_QUERY
-export type AreaListItem = { _id: string; areaName?: string; slug?: string; h1?: string; districts?: string[] }
+export type AreaListItem = {
+  _id: string
+  areaName?: string
+  slug?: string
+  h1?: string
+  districts?: string[]
+  locality?: string
+  lede?: string
+  communityArea?: string
+  hvac?: string
+}

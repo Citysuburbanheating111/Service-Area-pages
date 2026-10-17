@@ -2,15 +2,16 @@ import type { Metadata } from 'next'
 import { stegaClean } from 'next-sanity'
 import { Suspense } from 'react'
 
+import { publishedOnly } from '@/components/area/collectionCards'
 import { collectionCss, collectionDescription, collectionMain, collectionTitle } from '@/components/area/collectionHtml'
 import { design } from '@/components/area/design'
 import { LiveFooter, LiveHeader } from '@/components/area/LiveChrome'
 import { resolveTemplate } from '@/components/area/template'
 import { collectionSchema, jsonLd } from '@/lib/schema'
-import { areaPath, collectionPath } from '@/lib/siteUrl'
+import { collectionPath } from '@/lib/siteUrl'
 import { cachedSanity, getDynamicFetchOptions } from '@/sanity/live'
 import { AREA_LIST_QUERY, AREA_TEMPLATE_QUERY } from '@/sanity/queries'
-import type { AreaTemplateData } from '@/sanity/types'
+import type { AreaListItem, AreaTemplateData } from '@/sanity/types'
 
 // The live "All service areas" collection page, synced from services-v2/service-areas/ by
 // tools/sync_design_to_web.py. Cards link to an area page only when that page exists in Sanity:
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', title: collectionTitle, description: collectionDescription, images: [design.images.van] },
 }
 
-type Row = { slug?: string; areaName?: string }
+type Row = AreaListItem
 
 export default async function ServiceAreasPage() {
   // Published pages are the same for every visitor, so their links are in the first HTML
@@ -72,41 +73,10 @@ async function PreviewAwareCollection() {
 
 async function linkedHtml(perspective: Awaited<ReturnType<typeof getDynamicFetchOptions>>['perspective'], variant?: string) {
   const { data } = await cachedSanity({ query: AREA_LIST_QUERY, perspective, variant, stega: false })
-  const slugs = new Set(((data ?? []) as Row[]).map((r) => stegaClean(r.slug)).filter((s): s is string => !!s))
-  return publishedOnly(collectionMain, slugs)
+  const rows = ((data ?? []) as Row[]).filter((r) => stegaClean(r.slug))
+  return publishedOnly(collectionMain, rows)
 }
 
 function Collection({ html }: { html: string }) {
   return <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: html }} />
-}
-
-// The collection shows only areas with a page in Sanity: their cards (linked), their photo credits,
-// and the count. The Chicago citywide card always stays. Same rules as tools/update_design.py.
-function publishedOnly(html: string, slugs: Set<string>) {
-  const shown: string[] = []
-  let suburbs = 0
-  // One card (<article>) at a time, so a card without an "HVAC here" line can't run into the next one
-  let out = html.replace(/\s*<article class="area[^"]*"[\s\S]*?<\/article>/g, (card) => {
-    const m = card.match(/<h3 id="area-([a-z-]+)">([^<]+)<\/h3>/)
-    if (!m || card.includes('class="area city"')) return card
-    const [heading, slug, name] = m
-    if (!slugs.has(slug)) return ''
-    shown.push(name)
-    if (card.includes('data-place="suburb"')) suburbs++
-    return card
-      .replace(heading, `<h3 id="area-${slug}"><a class="stretch" href="${areaPath(slug)}">${name}</a></h3>`)
-      .replace(/(<p class="hvac">[\s\S]*?<\/p>)/, `$1\n          <p class="open" aria-hidden="true">Open the ${name} page <span>→</span></p>`)
-  })
-  // Photo credits: Chicago, the hero and the cards on the page
-  out = out.replace(/\s*<li>([A-Z][A-Za-z .']+): <a [\s\S]*?<\/li>/g, (li, name: string) =>
-    name === 'Chicago' || shown.includes(name) ? li : '',
-  )
-  const n = shown.length
-  const what = suburbs ? `Chicago neighborhoods and suburbs` : `Chicago neighborhood${n === 1 ? '' : 's'}`
-  return out
-    .replace(/aria-label="\d+ service areas?"/, `aria-label="${n} service area${n === 1 ? '' : 's'}"`)
-    .replace(/<strong class="num">\d+<\/strong>/, `<strong class="num">${n}</strong>`)
-    .replace(/(<strong class="num">\d+<\/strong>\s*<p>)[^<]*(<\/p>)/,
-      `$1${what} we serve, each with its own page, all from one family shop.$2`)
-    .replace('The nine neighborhoods below are', suburbs ? 'The neighborhoods and suburbs below are' : 'The neighborhoods below are')
 }

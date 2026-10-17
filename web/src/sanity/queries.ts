@@ -30,7 +30,9 @@ export const AREA_PAGE_QUERY = defineQuery(`
 
 export const AREA_LIST_QUERY = defineQuery(`
   *[_type == "areaPage" && defined(slug.current)] | order(areaName asc){
-    _id, areaName, "slug": slug.current, "h1": hero.h1, "districts": districts.items[].name
+    _id, areaName, "slug": slug.current, "h1": hero.h1, "districts": districts.items[].name,
+    // For the collection card of an area that has no designed card
+    locality, "lede": hero.lede, "communityArea": districts.communityArea, "hvac": districts.items[0].hvacHere
   }
 `)
 
