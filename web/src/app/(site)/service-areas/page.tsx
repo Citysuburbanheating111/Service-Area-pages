@@ -84,6 +84,7 @@ function Collection({ html }: { html: string }) {
 // and the count. The Chicago citywide card always stays. Same rules as tools/update_design.py.
 function publishedOnly(html: string, slugs: Set<string>) {
   const shown: string[] = []
+  let suburbs = 0
   // One card (<article>) at a time, so a card without an "HVAC here" line can't run into the next one
   let out = html.replace(/\s*<article class="area[^"]*"[\s\S]*?<\/article>/g, (card) => {
     const m = card.match(/<h3 id="area-([a-z-]+)">([^<]+)<\/h3>/)
@@ -91,6 +92,7 @@ function publishedOnly(html: string, slugs: Set<string>) {
     const [heading, slug, name] = m
     if (!slugs.has(slug)) return ''
     shown.push(name)
+    if (card.includes('data-place="suburb"')) suburbs++
     return card
       .replace(heading, `<h3 id="area-${slug}"><a class="stretch" href="${areaPath(slug)}">${name}</a></h3>`)
       .replace(/(<p class="hvac">[\s\S]*?<\/p>)/, `$1\n          <p class="open" aria-hidden="true">Open the ${name} page <span>→</span></p>`)
@@ -100,10 +102,11 @@ function publishedOnly(html: string, slugs: Set<string>) {
     name === 'Chicago' || shown.includes(name) ? li : '',
   )
   const n = shown.length
+  const what = suburbs ? `Chicago neighborhoods and suburbs` : `Chicago neighborhood${n === 1 ? '' : 's'}`
   return out
     .replace(/aria-label="\d+ service areas?"/, `aria-label="${n} service area${n === 1 ? '' : 's'}"`)
     .replace(/<strong class="num">\d+<\/strong>/, `<strong class="num">${n}</strong>`)
     .replace(/(<strong class="num">\d+<\/strong>\s*<p>)[^<]*(<\/p>)/,
-      `$1Chicago neighborhood${n === 1 ? '' : 's'} we serve, each with its own page, all from one family shop.$2`)
-    .replace('The nine neighborhoods below are', 'The neighborhoods below are')
+      `$1${what} we serve, each with its own page, all from one family shop.$2`)
+    .replace('The nine neighborhoods below are', suburbs ? 'The neighborhoods and suburbs below are' : 'The neighborhoods below are')
 }

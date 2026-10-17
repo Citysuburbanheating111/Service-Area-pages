@@ -428,6 +428,78 @@
    "author": "Steven Kevil",
    "licence": "CC BY-SA 4.0",
    "url": "https://commons.wikimedia.org/wiki/File:Humboldt_Park_Field_House_and_Refectory.jpg"
+  },
+  "lakeview": {
+   "caption": "A Lakeview side street",
+   "author": "Ken Lund",
+   "licence": "CC BY-SA 2.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Lakeview,_Chicago,_Illinois_(43344176612).jpg"
+  },
+  "wrigleyville": {
+   "caption": "Wrigley Field marquee",
+   "author": "Arturo Pardavila III",
+   "licence": "CC BY 2.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Wrigley_Field_marquee_2016-10-22.jpg"
+  },
+  "old-town": {
+   "caption": "North Avenue and Wells Street, Old Town",
+   "author": "Victor Grigas",
+   "licence": "Public domain",
+   "url": "https://commons.wikimedia.org/wiki/File:North_and_Wells.jpg"
+  },
+  "ukrainian-village": {
+   "caption": "Apartments in the Ukrainian Village District",
+   "author": "Thshriver",
+   "licence": "CC BY-SA 3.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Ukrainian_Village_District,_Chicago,_IL_3.jpg"
+  },
+  "skokie": {
+   "caption": "Skokie Theatre",
+   "author": "Nick Number",
+   "licence": "CC BY 4.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Skokie_Theatre_front.jpg"
+  },
+  "northbrook": {
+   "caption": "Shermer Road, downtown Northbrook",
+   "author": "CL Minecraft",
+   "licence": "CC BY-SA 4.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Downtown_Northbrook,_IL.jpg"
+  },
+  "glenview": {
+   "caption": "The Glen Town Center",
+   "author": "Payton Chung",
+   "licence": "CC BY 2.0",
+   "url": "https://commons.wikimedia.org/wiki/File:The_Glen_Town_Center_(2723219030).jpg"
+  },
+  "winnetka": {
+   "caption": "Winnetka Metra station",
+   "author": "Zol87",
+   "licence": "CC BY-SA 2.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Winnetka_Metra_Station.jpg"
+  },
+  "wilmette": {
+   "caption": "Baha'i House of Worship, Wilmette",
+   "author": "Ashley Frillman",
+   "licence": "CC BY-SA 2.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Bahai_Temple_(20365734404).jpg"
+  },
+  "niles": {
+   "caption": "Leaning Tower of Niles",
+   "author": "Ken Lund",
+   "licence": "CC BY-SA 2.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Leaning_Tower_of_Niles,_Niles,_Illinois_(9179543263).jpg"
+  },
+  "park-ridge": {
+   "caption": "Pickwick Theatre, Park Ridge",
+   "author": "Kelly Martin",
+   "licence": "CC BY-SA 3.0",
+   "url": "https://commons.wikimedia.org/wiki/File:ParkRidgePickwick.jpg"
+  },
+  "des-plaines": {
+   "caption": "A Des Plaines street",
+   "author": "Randy Escalada",
+   "licence": "CC BY-SA 2.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Des_Plaines,_IL.jpg"
   }
  },
  "cross": {
@@ -437,13 +509,25 @@
  "areaPhotos": [
   "bucktown",
   "chicago",
+  "des-plaines",
+  "glenview",
   "humboldt-park",
+  "lakeview",
   "lincoln-park",
   "logan-square",
+  "niles",
+  "northbrook",
+  "old-town",
+  "park-ridge",
   "pilsen",
   "rogers-park",
+  "skokie",
+  "ukrainian-village",
   "west-loop",
   "west-town",
-  "wicker-park"
+  "wicker-park",
+  "wilmette",
+  "winnetka",
+  "wrigleyville"
  ]
 }
