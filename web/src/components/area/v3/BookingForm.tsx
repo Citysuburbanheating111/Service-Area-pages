@@ -14,6 +14,7 @@ const ISSUES = ['No heat or no cooling', 'Strange noise or smell', 'Tune-up or m
 type Props = {
   title?: string
   area: string
+  city: string
   promise: string
   buildingOptions: string[]
   defaultBuilding?: string
@@ -25,7 +26,7 @@ type Props = {
   ownerName: string
 }
 
-export function BookingForm({ title, area, promise, buildingOptions, defaultBuilding, issueOptions, crossStreets, submitLabel, reassurance, phone: phoneNumber, ownerName }: Props) {
+export function BookingForm({ title, area, city, promise, buildingOptions, defaultBuilding, issueOptions, crossStreets, submitLabel, reassurance, phone: phoneNumber, ownerName }: Props) {
   const [phoneError, setPhoneError] = useState(false)
   const [emailError, setEmailError] = useState(false)
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'failed'>('idle')
@@ -45,7 +46,7 @@ export function BookingForm({ title, area, promise, buildingOptions, defaultBuil
     if (!phoneOk) { phone.current?.focus(); return }
     if (!emailOk) { email.current?.focus(); return }
     setStatus('sending')
-    const sent = await sendLead(form, { area: stegaClean(area), form: 'Booking form' })
+    const sent = await sendLead(form, { area: stegaClean(area), city: stegaClean(city), form: 'Booking form' })
     if (sent) form.reset()
     setStatus(sent ? 'sent' : 'failed')
     setTimeout(() => msg.current?.focus(), 0)

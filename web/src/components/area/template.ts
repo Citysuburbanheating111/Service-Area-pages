@@ -80,3 +80,7 @@ export function mergeFaq(own: { _key: string; question?: string; answer?: string
 
 /** A suburb page (Skokie, Northbrook…), as opposed to a Chicago neighborhood */
 export const isSuburb = (page: { locality?: string }) => !!stegaClean(page.locality ?? '')
+
+/** The city a lead's address belongs to: the suburb ("Skokie, IL" gives "Skokie"), else Chicago */
+export const areaCity = (page: { locality?: string }) =>
+  stegaClean(page.locality ?? '').replace(/,\s*[A-Z]{2}$/i, '').trim() || 'Chicago'
