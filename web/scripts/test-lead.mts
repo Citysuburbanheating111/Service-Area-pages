@@ -24,8 +24,10 @@ function lead(payload: unknown) {
   })
 }
 
-function configure(env: Partial<Record<'RESEND_API_KEY' | 'LEAD_FROM_EMAIL' | 'LEAD_NOTIFICATION_EMAIL', string>>) {
-  for (const key of ['RESEND_API_KEY', 'LEAD_FROM_EMAIL', 'LEAD_NOTIFICATION_EMAIL'] as const) {
+const settings = ['RESEND_API_KEY', 'LEAD_FROM_EMAIL', 'LEAD_NOTIFICATION_EMAIL', 'LEAD_WEBHOOK_URL'] as const
+
+function configure(env: Partial<Record<(typeof settings)[number], string>>) {
+  for (const key of settings) {
     if (env[key] === undefined) delete process.env[key]
     else process.env[key] = env[key]
   }
@@ -112,6 +114,62 @@ async function run() {
   mockResend(() => { throw new TypeError('fetch failed') })
   res = await POST(lead(booking))
   assert.equal(res.status, 502)
+
+  // With the Zapier webhook set, each lead goes to email and to Zapier (for Jobber) at the same time
+  const hook = 'https://hooks.zapier.com/hooks/catch/123/test/'
+  configure({ ...ready, LEAD_WEBHOOK_URL: hook })
+  mockResend(() => Response.json({ status: 'success' }))
+  res = await POST(lead({ ...booking, name: 'Mary Ann Smith' }))
+  assert.equal(res.status, 200)
+  assert.deepEqual(sent.map((s) => s.url).sort(), ['https://api.resend.com/emails', hook])
+  const zap = sent.find((s) => s.url === hook)!
+  assert.equal(zap.init?.method, 'POST')
+  const data = JSON.parse(String(zap.init?.body)) as Record<string, string>
+  assert.deepEqual(Object.keys(data).sort(), ['area', 'building_type', 'email', 'first_name', 'form', 'full_name', 'issue', 'last_name',
+    'message', 'page_url', 'phone', 'service', 'source', 'street', 'submitted_at'])
+  assert.equal(data.source, 'Area page')
+  assert.equal(data.first_name, 'Mary')
+  assert.equal(data.last_name, 'Ann Smith')
+  assert.equal(data.full_name, 'Mary Ann Smith')
+  assert.equal(data.phone, '(773) 555-0100')
+  assert.equal(data.street, 'Damen & North')
+  assert.equal(data.building_type, 'Two-flat')
+  assert.equal(data.issue, 'No heat or no cooling')
+  assert.equal(data.area, 'Wicker Park')
+  assert.equal(data.form, 'Booking form')
+  assert.equal(data.page_url, 'https://citysuburbanheating.com/service-area/wicker-park/')
+  assert.match(data.submitted_at, /^\d{4}-\d\d-\d\dT/)
+
+  // Zapier only (no email settings yet): still accepted
+  configure({ LEAD_WEBHOOK_URL: hook })
+  mockResend(() => Response.json({ status: 'success' }))
+  res = await POST(lead(booking))
+  assert.equal(res.status, 200)
+  assert.deepEqual(sent.map((s) => s.url), [hook])
+
+  // One delivery failing does not lose the lead: the visitor is told it was sent
+  configure({ ...ready, LEAD_WEBHOOK_URL: hook })
+  mockResend(() => new Response(null, { status: 500 }))
+  res = await POST(lead(booking))
+  assert.equal(res.status, 502, 'both failing is a failure')
+  for (const failing of ['https://api.resend.com/emails', hook]) {
+    sent = []
+    globalThis.fetch = (async (url: RequestInfo | URL, init?: RequestInit) => {
+      sent.push({ url: String(url), init })
+      if (String(url) === failing) throw new TypeError('fetch failed')
+      return Response.json({ ok: true })
+    }) as typeof fetch
+    res = await POST(lead(booking))
+    assert.equal(res.status, 200, `lead accepted when only ${failing} fails`)
+    assert.equal(sent.length, 2)
+  }
+
+  // A webhook value that is not an https address is ignored
+  configure({ LEAD_WEBHOOK_URL: 'http://hooks.zapier.com/x' })
+  mockResend(() => Response.json({ status: 'success' }))
+  res = await POST(lead(booking))
+  assert.equal(res.status, 503)
+  assert.equal(sent.length, 0)
 
   console.log('Lead route: all checks passed')
 }

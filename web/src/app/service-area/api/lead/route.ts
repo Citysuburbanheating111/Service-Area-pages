@@ -1,11 +1,15 @@
 /**
  * Receives the area pages' request forms (the booking form in the hero and the quick quote form in the
- * footer) and emails each lead through Resend, like the service pages do. It sits under /service-area/
- * because the Cloudflare Worker already sends that path to this app, so the forms work on
- * citysuburbanheating.com and on the vercel.app address alike.
+ * footer). Each lead is emailed through Resend and sent to a Zapier webhook, which creates the client
+ * and request in City & Suburban's Jobber account. It sits under /service-area/ because the Cloudflare
+ * Worker already sends that path to this app, so the forms work on citysuburbanheating.com and on the
+ * vercel.app address alike.
  *
- * Needs three Vercel environment variables: RESEND_API_KEY, LEAD_FROM_EMAIL (a sender on a domain
- * verified in Resend) and LEAD_NOTIFICATION_EMAIL (one address, or several separated by commas).
+ * Vercel environment variables:
+ * - Email: RESEND_API_KEY, LEAD_FROM_EMAIL (a sender on a domain verified in Resend) and
+ *   LEAD_NOTIFICATION_EMAIL (one address, or several separated by commas)
+ * - Jobber: LEAD_WEBHOOK_URL (the Zapier "Catch Hook" address)
+ * Either one is enough to accept a lead; the visitor is told it was sent if at least one delivery worked.
  */
 import { randomUUID } from 'node:crypto'
 
@@ -13,6 +17,7 @@ const fields = ['name', 'phone', 'street', 'building', 'issue', 'message', 'area
 type Lead = Record<(typeof fields)[number], string>
 
 const resendEndpoint = 'https://api.resend.com/emails'
+const siteUrl = 'https://citysuburbanheating.com'
 
 // Ignores empty values and unfilled template placeholders such as "PASTE_KEY_HERE"
 function configured(value: string | undefined) {
@@ -28,7 +33,15 @@ function recipients(value: string) {
   return value.split(',').map((email) => email.trim()).filter((email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)).slice(0, 50)
 }
 
-function leadEmail(lead: Lead, submitted = new Date()) {
+function webhookUrl(value: string) {
+  try {
+    return new URL(value).protocol === 'https:' ? value : ''
+  } catch {
+    return ''
+  }
+}
+
+function leadEmail(lead: Lead, submitted: Date) {
   const where = lead.area ? `: ${lead.area}` : ''
   const subject = `New area page lead${where}${lead.form ? ` (${lead.form})` : ''}`.slice(0, 200)
   const text = [
@@ -48,6 +61,67 @@ function leadEmail(lead: Lead, submitted = new Date()) {
   return { subject, text }
 }
 
+// The fields Zapier maps into Jobber. Same names as the service pages send, so one Zap serves both.
+function zapierLead(lead: Lead, submitted: Date) {
+  const [firstName = '', ...rest] = lead.name.split(' ')
+  return {
+    source: 'Area page',
+    service: '',
+    area: lead.area,
+    form: lead.form,
+    page_url: lead.page.startsWith('/') ? `${siteUrl}${lead.page}` : lead.page,
+    first_name: firstName,
+    last_name: rest.join(' '),
+    full_name: lead.name,
+    phone: lead.phone,
+    email: '',
+    street: lead.street,
+    building_type: lead.building,
+    issue: lead.issue,
+    message: lead.message,
+    submitted_at: submitted.toISOString(),
+  }
+}
+
+async function sendEmail(lead: Lead, submitted: Date, apiKey: string, from: string, to: string[]) {
+  const { subject, text } = leadEmail(lead, submitted)
+  try {
+    const response = await fetch(resendEndpoint, {
+      method: 'POST',
+      headers: {
+        authorization: `Bearer ${apiKey}`,
+        'content-type': 'application/json',
+        'Idempotency-Key': `area-lead/${randomUUID()}`,
+      },
+      body: JSON.stringify({ from, to, subject, text }),
+      cache: 'no-store',
+      signal: AbortSignal.timeout(10_000),
+    })
+    if (!response.ok) console.error('Resend lead delivery failed', { status: response.status })
+    return response.ok
+  } catch (error: unknown) {
+    console.error('Resend lead delivery request failed', { error: error instanceof Error ? error.name : 'UnknownError' })
+    return false
+  }
+}
+
+async function sendToZapier(lead: Lead, submitted: Date, url: string) {
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(zapierLead(lead, submitted)),
+      cache: 'no-store',
+      signal: AbortSignal.timeout(10_000),
+    })
+    if (!response.ok) console.error('Zapier lead delivery failed', { status: response.status })
+    return response.ok
+  } catch (error: unknown) {
+    console.error('Zapier lead delivery request failed', { error: error instanceof Error ? error.name : 'UnknownError' })
+    return false
+  }
+}
+
 export async function POST(request: Request) {
   const payload = (await request.json().catch(() => null)) as Record<string, unknown> | null
   // "website" is a hidden field people never see; a value there means a bot filled the form
@@ -61,31 +135,18 @@ export async function POST(request: Request) {
   const apiKey = configured(process.env.RESEND_API_KEY)
   const from = configured(process.env.LEAD_FROM_EMAIL)
   const to = recipients(configured(process.env.LEAD_NOTIFICATION_EMAIL))
-  if (!apiKey || !from || !to.length) {
-    console.error('Lead email delivery is not configured')
-    return Response.json({ message: 'Lead email delivery is not configured' }, { status: 503 })
+  const hook = webhookUrl(configured(process.env.LEAD_WEBHOOK_URL))
+  const emailReady = Boolean(apiKey && from && to.length)
+  if (!emailReady && !hook) {
+    console.error('Lead delivery is not configured')
+    return Response.json({ message: 'Lead delivery is not configured' }, { status: 503 })
   }
 
-  const { subject, text } = leadEmail(lead)
-  try {
-    const response = await fetch(resendEndpoint, {
-      method: 'POST',
-      headers: {
-        authorization: `Bearer ${apiKey}`,
-        'content-type': 'application/json',
-        'Idempotency-Key': `area-lead/${randomUUID()}`,
-      },
-      body: JSON.stringify({ from, to, subject, text }),
-      cache: 'no-store',
-      signal: AbortSignal.timeout(10_000),
-    })
-    if (!response.ok) {
-      console.error('Resend lead delivery failed', { status: response.status })
-      return Response.json({ message: 'Lead email delivery failed' }, { status: 502 })
-    }
-    return Response.json({ ok: true })
-  } catch (error: unknown) {
-    console.error('Resend lead delivery request failed', { error: error instanceof Error ? error.name : 'UnknownError' })
-    return Response.json({ message: 'Lead email delivery failed' }, { status: 502 })
-  }
+  const submitted = new Date()
+  const results = await Promise.all([
+    emailReady ? sendEmail(lead, submitted, apiKey, from, to) : false,
+    hook ? sendToZapier(lead, submitted, hook) : false,
+  ])
+  if (!results.some(Boolean)) return Response.json({ message: 'Lead delivery failed' }, { status: 502 })
+  return Response.json({ ok: true })
 }
