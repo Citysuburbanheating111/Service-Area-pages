@@ -6,7 +6,7 @@ import { stegaClean } from 'next-sanity'
 import { useRef, useState, type FormEvent } from 'react'
 
 import { telHref } from '../template'
-import { sendLead } from './sendLead'
+import { sendLead, validEmail } from './sendLead'
 import { Svg } from './Svg'
 
 const ISSUES = ['No heat or no cooling', 'Strange noise or smell', 'Tune-up or maintenance', 'Replacement quote', 'Something else']
@@ -27,8 +27,10 @@ type Props = {
 
 export function BookingForm({ title, area, promise, buildingOptions, defaultBuilding, issueOptions, crossStreets, submitLabel, reassurance, phone: phoneNumber, ownerName }: Props) {
   const [phoneError, setPhoneError] = useState(false)
+  const [emailError, setEmailError] = useState(false)
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'failed'>('idle')
   const phone = useRef<HTMLInputElement>(null)
+  const email = useRef<HTMLInputElement>(null)
   const msg = useRef<HTMLParagraphElement>(null)
   const issues = issueOptions && issueOptions.length > 1 ? issueOptions : ISSUES
   const selected = buildingOptions.find((o) => stegaClean(o) === stegaClean(defaultBuilding))
@@ -36,9 +38,12 @@ export function BookingForm({ title, area, promise, buildingOptions, defaultBuil
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const form = e.currentTarget
-    const ok = (phone.current?.value ?? '').replace(/\D/g, '').length >= 10
-    setPhoneError(!ok)
-    if (!ok) { phone.current?.focus(); return }
+    const phoneOk = (phone.current?.value ?? '').replace(/\D/g, '').length >= 10
+    const emailOk = validEmail(email.current?.value ?? '')
+    setPhoneError(!phoneOk)
+    setEmailError(!emailOk)
+    if (!phoneOk) { phone.current?.focus(); return }
+    if (!emailOk) { email.current?.focus(); return }
     setStatus('sending')
     const sent = await sendLead(form, { area: stegaClean(area), form: 'Booking form' })
     if (sent) form.reset()
@@ -62,6 +67,9 @@ export function BookingForm({ title, area, promise, buildingOptions, defaultBuil
             <input id="rq-phone" name="phone" type="tel" autoComplete="tel" required ref={phone} aria-invalid={phoneError} aria-describedby="rq-phone-err" /></div>
         </div>
         <p className="err" id="rq-phone-err" hidden={!phoneError}>Enter a phone number so {ownerName} can call you back.</p>
+        <div className="field"><label htmlFor="rq-email">Email</label>
+          <input id="rq-email" name="email" type="email" autoComplete="email" required ref={email} aria-invalid={emailError} aria-describedby="rq-email-err" /></div>
+        <p className="err" id="rq-email-err" hidden={!emailError}>Enter a valid email address.</p>
         <div className="field"><label htmlFor="rq-street">Street or cross streets</label>
           <div className="ic"><Svg.pinOnly size={14} stroke="#6A7782" /><input id="rq-street" name="street" autoComplete="street-address" placeholder={crossStreets} /></div></div>
       </div>

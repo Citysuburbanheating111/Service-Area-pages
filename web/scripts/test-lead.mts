@@ -42,6 +42,7 @@ const ready = {
 const booking = {
   name: 'QA Customer',
   phone: '(773) 555-0100',
+  email: 'qa@example.com',
   street: 'Damen & North',
   building: 'Two-flat',
   issue: 'No heat or no cooling',
@@ -66,14 +67,14 @@ async function run() {
   assert.equal(email.from, ready.LEAD_FROM_EMAIL)
   assert.deepEqual(email.to, ['dispatch@example.com', 'owner@example.com'])
   assert.equal(email.subject, 'New area page lead: Wicker Park (Booking form)')
-  for (const line of ['Name: QA Customer', 'Phone: (773) 555-0100', 'Street or cross streets: Damen & North', 'Building type: Two-flat',
+  for (const line of ['Name: QA Customer', 'Phone: (773) 555-0100', 'Email: qa@example.com', 'Street or cross streets: Damen & North', 'Building type: Two-flat',
     "What's happening: No heat or no cooling", 'Message: Not provided', 'Area: Wicker Park', 'Form: Booking form', 'Page: /service-area/wicker-park/']) {
     assert.ok(email.text.includes(line), `email text has "${line}"`)
   }
 
   // The quick quote form sends a free-text message; line breaks and control characters are flattened
   mockResend(() => Response.json({ id: 'email_2' }))
-  res = await POST(lead({ name: 'QA', phone: '7735550100', message: "Furnace won't light\r\nBcc: x@example.com", area: 'Pilsen', form: 'Quick quote form' }))
+  res = await POST(lead({ name: 'QA', phone: '7735550100', email: 'qa@example.com', message: "Furnace won't light\r\nBcc: x@example.com", area: 'Pilsen', form: 'Quick quote form' }))
   assert.equal(res.status, 200)
   const quote = JSON.parse(String(sent[0].init?.body)) as { subject: string; text: string }
   assert.equal(quote.subject, 'New area page lead: Pilsen (Quick quote form)')
@@ -90,6 +91,13 @@ async function run() {
   res = await POST(lead({ ...booking, phone: '555-0100' }))
   assert.equal(res.status, 400)
   assert.equal(sent.length, 0)
+
+  // Jobber needs an email to create the client, so a missing or malformed email is refused before sending
+  for (const email of [undefined, '', 'not-an-email', 'qa@example', 'qa @example.com']) {
+    res = await POST(lead({ ...booking, email }))
+    assert.equal(res.status, 400, `email ${JSON.stringify(email)} is refused`)
+    assert.equal(sent.length, 0)
+  }
 
   // Not JSON at all
   res = await POST(new Request('http://localhost/service-area/api/lead/', { method: 'POST', body: 'not json' }))
@@ -132,6 +140,7 @@ async function run() {
   assert.equal(data.last_name, 'Ann Smith')
   assert.equal(data.full_name, 'Mary Ann Smith')
   assert.equal(data.phone, '(773) 555-0100')
+  assert.equal(data.email, 'qa@example.com')
   assert.equal(data.street, 'Damen & North')
   assert.equal(data.building_type, 'Two-flat')
   assert.equal(data.issue, 'No heat or no cooling')
