@@ -168,6 +168,9 @@
 .v3-book .err { margin-top: -8px; font-size: 13px; line-height: 16px; color: var(--color-red-dk); }
 .v3-book .sent { padding: 12px 14px; border-radius: var(--radius-sm); background: var(--color-fog); font-size: 14px; line-height: 21px; color: var(--color-navy); }
 .v3-book .sent a { color: var(--color-red); font-weight: 700; }
+.v3-book button:disabled, .v3-quote button:disabled { cursor: wait; opacity: .75; }
+/* Spam trap: a field people never see or reach, so only bots fill it */
+.v3-trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 .v3-book [hidden] { display: none; }
 
 /* ── All services ──────────────────────────────────────── */
