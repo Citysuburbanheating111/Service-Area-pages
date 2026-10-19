@@ -13,7 +13,7 @@
  */
 import { randomUUID } from 'node:crypto'
 
-const fields = ['name', 'phone', 'street', 'building', 'issue', 'message', 'area', 'form', 'page'] as const
+const fields = ['name', 'phone', 'email', 'street', 'building', 'issue', 'message', 'area', 'form', 'page'] as const
 type Lead = Record<(typeof fields)[number], string>
 
 const resendEndpoint = 'https://api.resend.com/emails'
@@ -49,6 +49,7 @@ function leadEmail(lead: Lead, submitted: Date) {
     '',
     `Name: ${lead.name || 'Not provided'}`,
     `Phone: ${lead.phone}`,
+    `Email: ${lead.email}`,
     `Street or cross streets: ${lead.street || 'Not provided'}`,
     `Building type: ${lead.building || 'Not provided'}`,
     `What's happening: ${lead.issue || 'Not provided'}`,
@@ -74,7 +75,7 @@ function zapierLead(lead: Lead, submitted: Date) {
     last_name: rest.join(' '),
     full_name: lead.name,
     phone: lead.phone,
-    email: '',
+    email: lead.email,
     street: lead.street,
     building_type: lead.building,
     issue: lead.issue,
@@ -130,6 +131,10 @@ export async function POST(request: Request) {
   const lead = Object.fromEntries(fields.map((field) => [field, cleanField(payload[field])])) as Lead
   if (lead.phone.replace(/\D/g, '').length < 10) {
     return Response.json({ message: 'A valid phone number is required' }, { status: 400 })
+  }
+  // Jobber (through Zapier) needs an email to create the client, so the forms require one
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email)) {
+    return Response.json({ message: 'A valid email is required' }, { status: 400 })
   }
 
   const apiKey = configured(process.env.RESEND_API_KEY)
