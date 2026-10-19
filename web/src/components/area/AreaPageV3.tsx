@@ -65,7 +65,7 @@ export function AreaPageV3({ page, template: t, others, preview }: Props) {
           <Faq page={page} t={t} />
           <NextStep page={page} t={t} />
         </main>
-        <V3Footer t={t} />
+        <V3Footer t={t} area={clean(page.areaName)} />
       </div>
     </>
   )
@@ -161,6 +161,7 @@ function Hero({ page, t, toc }: P & { toc: { id: string; label: string }[] }) {
       </div>
       <BookingForm
         title={hero.formTitle}
+        area={clean(page.areaName)}
         promise={t.form.promise}
         buildingOptions={hero.buildingTypeOptions ?? []}
         defaultBuilding={hero.defaultBuildingType}

@@ -1,17 +1,19 @@
 'use client'
 
-// Hero booking form, as in the Paper master design. Real fields and phone validation; not connected
-// to a backend yet, so a valid request shows a note with the phone number.
+// Hero booking form, as in the Paper master design. A valid request is emailed to City & Suburban
+// (see sendLead); if that fails, the note points to the phone line instead.
 import { stegaClean } from 'next-sanity'
 import { useRef, useState, type FormEvent } from 'react'
 
 import { telHref } from '../template'
+import { sendLead } from './sendLead'
 import { Svg } from './Svg'
 
 const ISSUES = ['No heat or no cooling', 'Strange noise or smell', 'Tune-up or maintenance', 'Replacement quote', 'Something else']
 
 type Props = {
   title?: string
+  area: string
   promise: string
   buildingOptions: string[]
   defaultBuilding?: string
@@ -23,20 +25,24 @@ type Props = {
   ownerName: string
 }
 
-export function BookingForm({ title, promise, buildingOptions, defaultBuilding, issueOptions, crossStreets, submitLabel, reassurance, phone: phoneNumber, ownerName }: Props) {
+export function BookingForm({ title, area, promise, buildingOptions, defaultBuilding, issueOptions, crossStreets, submitLabel, reassurance, phone: phoneNumber, ownerName }: Props) {
   const [phoneError, setPhoneError] = useState(false)
-  const [sent, setSent] = useState(false)
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'failed'>('idle')
   const phone = useRef<HTMLInputElement>(null)
   const msg = useRef<HTMLParagraphElement>(null)
   const issues = issueOptions && issueOptions.length > 1 ? issueOptions : ISSUES
   const selected = buildingOptions.find((o) => stegaClean(o) === stegaClean(defaultBuilding))
 
-  function submit(e: FormEvent) {
+  async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    const form = e.currentTarget
     const ok = (phone.current?.value ?? '').replace(/\D/g, '').length >= 10
     setPhoneError(!ok)
     if (!ok) { phone.current?.focus(); return }
-    setSent(true)
+    setStatus('sending')
+    const sent = await sendLead(form, { area: stegaClean(area), form: 'Booking form' })
+    if (sent) form.reset()
+    setStatus(sent ? 'sent' : 'failed')
     setTimeout(() => msg.current?.focus(), 0)
   }
 
@@ -47,6 +53,7 @@ export function BookingForm({ title, promise, buildingOptions, defaultBuilding, 
         <p>{promise}</p>
       </div>
       <div className="rule" />
+      <div className="v3-trap" aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
       <div className="group" role="group" aria-labelledby="rq-g1">
         <p className="legend" id="rq-g1"><span className="n">1</span>Your details</p>
         <div className="row">
@@ -76,10 +83,12 @@ export function BookingForm({ title, promise, buildingOptions, defaultBuilding, 
             ))}
           </div></div>
       </div>
-      <button type="submit">{submitLabel}<Svg.arrow size={16} stroke="#FFFFFF" /></button>
+      <button type="submit" disabled={status === 'sending'}>{status === 'sending' ? 'Sending…' : submitLabel}<Svg.arrow size={16} stroke="#FFFFFF" /></button>
       <p className="reassure"><Svg.checkCircle size={13} stroke="#186AA4" />{reassurance}</p>
-      <p className="sent" role="status" tabIndex={-1} ref={msg} hidden={!sent}>
-        Thanks. This form isn&apos;t connected yet, so nothing was sent. To book now, call <a href={telHref(phoneNumber)}>{phoneNumber}</a>.
+      <p className="sent" role="status" tabIndex={-1} ref={msg} hidden={status !== 'sent' && status !== 'failed'}>
+        {status === 'sent'
+          ? <>Thanks. Your request was sent, and {ownerName} will call you back. To talk now, call <a href={telHref(phoneNumber)}>{phoneNumber}</a>.</>
+          : <>Your request could not be sent. Please call <a href={telHref(phoneNumber)}>{phoneNumber}</a> to book.</>}
       </p>
     </form>
   )
