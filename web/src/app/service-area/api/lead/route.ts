@@ -13,7 +13,7 @@
  */
 import { randomUUID } from 'node:crypto'
 
-const fields = ['name', 'phone', 'email', 'street', 'building', 'issue', 'message', 'area', 'form', 'page'] as const
+const fields = ['name', 'phone', 'email', 'street', 'building', 'issue', 'message', 'area', 'city', 'form', 'page'] as const
 type Lead = Record<(typeof fields)[number], string>
 
 const resendEndpoint = 'https://api.resend.com/emails'
@@ -55,6 +55,7 @@ function leadEmail(lead: Lead, submitted: Date) {
     `What's happening: ${lead.issue || 'Not provided'}`,
     `Message: ${lead.message || 'Not provided'}`,
     `Area: ${lead.area || 'Not provided'}`,
+    `City: ${lead.city || 'Chicago'}`,
     `Form: ${lead.form || 'Not provided'}`,
     `Page: ${lead.page || 'Not provided'}`,
     `Submitted (UTC): ${submitted.toISOString()}`,
@@ -67,8 +68,11 @@ function zapierLead(lead: Lead, submitted: Date) {
   const [firstName = '', ...rest] = lead.name.split(' ')
   return {
     source: 'Area page',
-    service: '',
+    // Jobber's request title is "service - area", so area pages name a general service
+    service: 'HVAC service',
     area: lead.area,
+    // The city of the address in Jobber: the suburb for suburb pages, otherwise Chicago
+    city: lead.city || 'Chicago',
     form: lead.form,
     page_url: lead.page.startsWith('/') ? `${siteUrl}${lead.page}` : lead.page,
     first_name: firstName,

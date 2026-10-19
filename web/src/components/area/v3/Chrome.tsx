@@ -15,7 +15,7 @@ import { Svg } from './Svg'
 
 const live = (path: string) => `${design.live}${path}`
 
-export function V3Footer({ t, area }: { t: Template; area?: string }) {
+export function V3Footer({ t, area, city }: { t: Template; area?: string; city?: string }) {
   const b = t.business
   return (
     <footer className="v3-footer">
@@ -45,7 +45,7 @@ export function V3Footer({ t, area }: { t: Template; area?: string }) {
             </div>
           </div>
         </div>
-        <QuickQuote phone={b.phone} area={area} />
+        <QuickQuote phone={b.phone} area={area} city={city} />
       </div>
       <div className="bar">
         <span>© <Year /> {b.companyName}. All rights reserved.</span>

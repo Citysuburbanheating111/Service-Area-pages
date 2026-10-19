@@ -7,7 +7,7 @@ import { useRef, useState, useSyncExternalStore, type FormEvent } from 'react'
 import { telHref } from '../template'
 import { sendLead, validEmail } from './sendLead'
 
-export function QuickQuote({ phone: phoneNumber, area }: { phone: string; area?: string }) {
+export function QuickQuote({ phone: phoneNumber, area, city }: { phone: string; area?: string; city?: string }) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'failed'>('idle')
   const [phoneError, setPhoneError] = useState(false)
   const [emailError, setEmailError] = useState(false)
@@ -24,7 +24,7 @@ export function QuickQuote({ phone: phoneNumber, area }: { phone: string; area?:
     if (!phoneOk) { phone.current?.focus(); return }
     if (!emailOk) { email.current?.focus(); return }
     setStatus('sending')
-    const sent = await sendLead(form, { area: area ?? '', form: 'Quick quote form' })
+    const sent = await sendLead(form, { area: area ?? '', city: city ?? '', form: 'Quick quote form' })
     if (sent) form.reset()
     setStatus(sent ? 'sent' : 'failed')
   }

@@ -133,9 +133,13 @@ async function run() {
   const zap = sent.find((s) => s.url === hook)!
   assert.equal(zap.init?.method, 'POST')
   const data = JSON.parse(String(zap.init?.body)) as Record<string, string>
-  assert.deepEqual(Object.keys(data).sort(), ['area', 'building_type', 'email', 'first_name', 'form', 'full_name', 'issue', 'last_name',
+  assert.deepEqual(Object.keys(data).sort(), ['area', 'building_type', 'city', 'email', 'first_name', 'form', 'full_name', 'issue', 'last_name',
     'message', 'page_url', 'phone', 'service', 'source', 'street', 'submitted_at'])
   assert.equal(data.source, 'Area page')
+  // Jobber's request title is "service - area", so it must never start with a bare "-"
+  assert.equal(data.service, 'HVAC service')
+  // A Chicago neighborhood page sends no city, so the address stays in Chicago
+  assert.equal(data.city, 'Chicago')
   assert.equal(data.first_name, 'Mary')
   assert.equal(data.last_name, 'Ann Smith')
   assert.equal(data.full_name, 'Mary Ann Smith')
@@ -148,6 +152,14 @@ async function run() {
   assert.equal(data.form, 'Booking form')
   assert.equal(data.page_url, 'https://citysuburbanheating.com/service-area/wicker-park/')
   assert.match(data.submitted_at, /^\d{4}-\d\d-\d\dT/)
+
+  // A suburb page sends its own city, which becomes the city of the address in Jobber
+  mockResend(() => Response.json({ status: 'success' }))
+  res = await POST(lead({ ...booking, area: 'Park Ridge', city: 'Park Ridge' }))
+  assert.equal(res.status, 200)
+  const suburb = JSON.parse(String(sent.find((s) => s.url === hook)!.init?.body)) as Record<string, string>
+  assert.equal(suburb.city, 'Park Ridge')
+  assert.equal(suburb.area, 'Park Ridge')
 
   // Zapier only (no email settings yet): still accepted
   configure({ LEAD_WEBHOOK_URL: hook })
