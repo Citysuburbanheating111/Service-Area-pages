@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test:lead": "node scripts/test-lead.mts"
+    "test:lead": "node scripts/test-lead.mts",
+    "check:leads": "node scripts/check-lead-delivery.mjs"
   },
   "dependencies": {
     "@sanity/icons": "^5.2.3",
