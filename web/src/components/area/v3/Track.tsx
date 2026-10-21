@@ -5,6 +5,7 @@
 import { stegaClean } from 'next-sanity'
 import { useCallback, useEffect, useRef, useState, type ReactNode, type RefObject } from 'react'
 
+import { GoogleG } from './Brand'
 import { Svg } from './Svg'
 
 /** Index of the card nearest the left edge, and how far along the row is (0-1) */
@@ -62,7 +63,7 @@ export function ReviewTrack({ title, rating, count, items }: { title: string; ra
     <>
       <div className="v3-row-head">
         <h3>{title}</h3>
-        <div className="meta"><b className="g">G</b><b>{rating}</b><span>· {count} Google reviews</span>
+        <div className="meta"><GoogleG size={20} /><b>{rating}</b><span>· {count} Google reviews</span>
           <Arrows label="review" prev={t.progress > 0.01} next={t.progress < 0.99 && t.ratio < 1} onPrev={() => t.go(t.index - 1)} onNext={() => t.go(t.index + 1)} />
         </div>
       </div>
@@ -74,7 +75,7 @@ export function ReviewTrack({ title, rating, count, items }: { title: string; ra
               <header>
                 <span className="av" aria-hidden="true">{stegaClean(name).slice(0, 1)}</span>
                 <div><b>{name}</b><small>Google review, {r.year}</small></div>
-                <span className="g" aria-hidden="true">G</span>
+                <GoogleG size={18} />
               </header>
               <span className="stars" aria-label="5 stars">★★★★★</span>
               <blockquote>{r.quote}</blockquote>

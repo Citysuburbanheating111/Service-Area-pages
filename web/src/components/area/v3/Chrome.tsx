@@ -10,6 +10,7 @@ import { collectionPath } from '@/lib/siteUrl'
 
 import { design } from '../design'
 import { telHref, type Template } from '../template'
+import { SocialIcons } from './Brand'
 import { QuickQuote, Year } from './QuickQuote'
 import { Svg } from './Svg'
 
@@ -42,6 +43,7 @@ export function V3Footer({ t, area, city }: { t: Template; area?: string; city?:
               <a href={stegaClean(b.mapsUrl)} target="_blank" rel="noopener noreferrer"><Svg.pin size={14} /><span>{b.addressShort}<br />Chicago, IL 60642</span></a>
               <a className="strong" href={telHref(b.phone)}><Svg.phone size={14} /><span>{b.phone}</span></a>
               <a href={`mailto:${stegaClean(b.email)}`}><Svg.mail size={14} /><span>{b.email}</span></a>
+              <SocialIcons />
             </div>
           </div>
         </div>

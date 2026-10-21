@@ -25,6 +25,7 @@ import type { AreaListItem, AreaPageData } from '@/sanity/types'
 import { design } from './design'
 import { areaCity, fill, isSuburb, mergeFaq, telHref, type Template } from './template'
 import { BookingForm } from './v3/BookingForm'
+import { GoogleG, PartnerLine, RatingRow, TrustBand, WriteReview } from './v3/Brand'
 import { LiveHeader } from './LiveChrome'
 import { V3Footer } from './v3/Chrome'
 import { ServicesTabs } from './v3/ServicesTabs'
@@ -54,6 +55,7 @@ export function AreaPageV3({ page, template: t, others, preview }: Props) {
           <Services page={page} t={t} />
           <About page={page} t={t} />
           <Reviews page={page} t={t} preview={preview} />
+          <TrustBand />
           <Process t={t} />
           <Price page={page} t={t} />
           <Choose page={page} t={t} />
@@ -122,7 +124,10 @@ function PreviewBar({ page, slug }: { page: AreaPageData; slug: string }) {
 }
 
 const Stars = () => <span className="stars" aria-hidden="true">★★★★★</span>
-const G = ({ size = '' }: { size?: string }) => <span className={`v3-g ${size}`} aria-hidden="true">G</span>
+// The real Google G in a white circle, for navy backgrounds
+const G = ({ size = '' }: { size?: string }) => (
+  <span className={`v3-g ${size}`} aria-hidden="true"><GoogleG size={size === 'lg' ? 30 : 18} /></span>
+)
 
 // ── Hero + booking form ────────────────────────────────
 function Hero({ page, t, toc }: P & { toc: { id: string; label: string }[] }) {
@@ -144,11 +149,11 @@ function Hero({ page, t, toc }: P & { toc: { id: string; label: string }[] }) {
           <ol><li><a href={`${design.live}/`}>Home</a></li><li><Link href={collectionPath}>Service areas</Link></li><li aria-current="page">{page.areaName}</li></ol>
         </nav>
         <p className="v3-eyebrow light big">{places.join(' · ')}</p>
+        <RatingRow rating={b.rating} count={b.reviewCount} mapsUrl={maps(t)} />
         <h1 id="hero-title">{hero.h1}</h1>
         {hero.lede && <p className="lede">{hero.lede}</p>}
         <ul className="trust" aria-label={`Why ${b.companyName}`}>
           {chips.map((c) => <li key={c.text}>{c.icon}<span>{c.text}</span></li>)}
-          <li className="rt"><a href={maps(t)} target="_blank" rel="noopener noreferrer"><G /><b>{b.rating}</b><small>/5</small><Stars /><span>{b.reviewCount} Google reviews</span></a></li>
         </ul>
         <div className="acts">
           <a className="v3-pill white" href={telHref(b.phone)}><Svg.phone size={16} />Call {b.phone}</a>
@@ -184,6 +189,7 @@ function Services({ page, t }: P) {
     <section className="v3-sec fog v3-services" aria-labelledby="services">
       <Head eyebrow={`All services · ${count} in ${design.groups.length} groups`} title={page.services?.heading} id="services" aside={t.services.intro} />
       <ServicesTabs groups={design.groups} />
+      <PartnerLine />
     </section>
   )
 }
@@ -256,7 +262,7 @@ function Reviews({ page, t, preview }: P & { preview: boolean }) {
       </ul>
       <p className="v3-note"><Svg.info size={14} stroke="#6A7782" />{r.statsNote}</p>
       {items.length
-        ? <ReviewTrack title={r.heading} rating={b.rating} count={b.reviewCount} items={items} />
+        ? <><ReviewTrack title={r.heading} rating={b.rating} count={b.reviewCount} items={items} /><WriteReview mapsUrl={maps(t)} /></>
         : <p className="cs-confirm">[CONFIRM: add 4 verbatim Google reviews. This section is hidden on the published page until then.]</p>}
     </section>
   )
@@ -538,7 +544,7 @@ function Faq({ page, t }: P) {
           <a className="v3-pill white sm" href={telHref(b.phone)}><Svg.phone size={14} />Call {b.phone}</a>
         </div>
         <div className="proof">
-          <a href={maps(t)} target="_blank" rel="noopener noreferrer"><b className="g">G</b><span><b>{b.rating} <Stars /></b><small>{b.reviewCount} Google reviews</small></span></a>
+          <a href={maps(t)} target="_blank" rel="noopener noreferrer"><span className="g"><GoogleG size={24} /></span><span><b>{b.rating} <Stars /></b><small>{b.reviewCount} Google reviews</small></span></a>
           <p><span className="ic"><Svg.shield size={13} width={2.4} /></span><span><b>Since {b.foundedYear}</b><small>Family owned, {b.licensing.replace(/^./, (c) => c.toLowerCase()).replace(/ technicians$/, '')}</small></span></p>
         </div>
       </div>
@@ -572,7 +578,7 @@ function NextStep({ page, t }: P) {
         </div>
       </div>
       <ul className="proof">
-        <li><a href={maps(t)} target="_blank" rel="noopener noreferrer"><b><G size="md" />{b.rating}<Stars /></b><small>{b.reviewCount} Google reviews</small></a></li>
+        <li className="google"><a href={maps(t)} target="_blank" rel="noopener noreferrer"><b><G size="md" />{b.rating}<Stars /></b><small>{b.reviewCount} Google reviews</small></a></li>
         <li><b>{b.foundedYear}</b><small>Family owned, second generation</small></li>
         <li><b>{b.hours}</b><small>Working hours</small></li>
         <li><b>{b.ownerName}</b><small>The owner, on the calls</small></li>
