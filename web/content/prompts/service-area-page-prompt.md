@@ -186,6 +186,7 @@ Run `python scripts/plan.py --content <area-only json> --out check.json` on the 
 - [ ] No licence numbers (they're unverified). No commission claims, "most common call" claims, price books or warranties. Competitors are criticised for their set-up and incentives, never their workmanship.
 - [ ] Reviews are verbatim 60–70-word openings, 5-star, and no review appears on more than two pages.
 - [ ] Shared values and image URLs match the scraped reference page exactly.
+- [ ] The request forms can deliver leads: `npm run check:leads` (from `web/`) passes before the batch is published. It checks, without sending a lead, that email and Jobber delivery are configured in Vercel, that form posts reach the app on both domains, and that a published page renders both forms. If it fails, fix the Vercel settings it names before publishing; publish-area.mjs refuses to publish until it passes.
 
 ## Output (for each area)
 1. <area-slug>.json, the complete content file from Step 5, as a downloadable file.
@@ -203,3 +204,4 @@ When all areas are done, finish with a one-line summary per area: slug, permit c
 - Skill scripts: if the installed skill folder is missing, unzip `C:\Citysuburban\city-suburban-service-area-page.skill`.
 - Shared content (business facts from citysuburbanheating.com, section intros, review stats, the 5 questions and their table columns, the 6 process steps, kinds of company, About tiles, the permit record text, FAQ 4 and 5, the call checklist) lives in ONE Sanity document, the **Service area template** (`areaTemplate`). `seed-area.mjs` writes only the area's own fields, including the permit graph (`permits.byEquipment`, `totalPermits`, the window), the nearby neighbourhoods and FAQ 1–3. Pages render through `web/src/components/area/AreaPageV3.tsx`. Don't flag hero photos, licence numbers or hours per page: they're template facts, taken from the live site.
 - After review, load into Sanity as a draft: `node --env-file=.env.local scripts/seed-area.mjs content/areas/<slug>.json` (from `web/`). Check in the Studio's Preview tool at http://localhost:3000/studio (launch config `web-dev`).
+- Publishing: `node --env-file=.env.local scripts/publish-area.mjs <slug> [more]` (from `web/`). It first runs the lead delivery check (scripts/check-lead-delivery.mjs) and publishes nothing if the forms can't deliver leads. CI runs the same check after every deploy to main and every morning (GitHub Actions, "Lead delivery").

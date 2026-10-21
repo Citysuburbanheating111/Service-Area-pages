@@ -10,6 +10,7 @@
  *   LEAD_NOTIFICATION_EMAIL (one address, or several separated by commas)
  * - Jobber: LEAD_WEBHOOK_URL (the Zapier "Catch Hook" address)
  * Either one is enough to accept a lead; the visitor is told it was sent if at least one delivery worked.
+ * GET reports whether delivery is configured (yes/no only); CI and publish-area.mjs check it.
  */
 import { randomUUID } from 'node:crypto'
 
@@ -127,6 +128,28 @@ async function sendToZapier(lead: Lead, submitted: Date, url: string) {
   }
 }
 
+/** Lead delivery settings from the Vercel environment variables, as the POST handler uses them */
+function deliverySettings() {
+  const apiKey = configured(process.env.RESEND_API_KEY)
+  const from = configured(process.env.LEAD_FROM_EMAIL)
+  const to = recipients(configured(process.env.LEAD_NOTIFICATION_EMAIL))
+  const hook = webhookUrl(configured(process.env.LEAD_WEBHOOK_URL))
+  return { apiKey, from, to, hook, emailReady: Boolean(apiKey && from && to.length) }
+}
+
+/**
+ * Delivery check for CI and the publish step (web/scripts/check-lead-delivery.mjs): whether email and
+ * Jobber delivery are configured. Only yes/no, never a value, and it calls nothing outside, so it's safe
+ * to leave public.
+ */
+export async function GET() {
+  const { emailReady, hook } = deliverySettings()
+  return Response.json(
+    { ready: emailReady || Boolean(hook), email: emailReady, jobber: Boolean(hook) },
+    { headers: { 'cache-control': 'no-store' } },
+  )
+}
+
 export async function POST(request: Request) {
   const payload = (await request.json().catch(() => null)) as Record<string, unknown> | null
   // "website" is a hidden field people never see; a value there means a bot filled the form
@@ -141,11 +164,7 @@ export async function POST(request: Request) {
     return Response.json({ message: 'A valid email is required' }, { status: 400 })
   }
 
-  const apiKey = configured(process.env.RESEND_API_KEY)
-  const from = configured(process.env.LEAD_FROM_EMAIL)
-  const to = recipients(configured(process.env.LEAD_NOTIFICATION_EMAIL))
-  const hook = webhookUrl(configured(process.env.LEAD_WEBHOOK_URL))
-  const emailReady = Boolean(apiKey && from && to.length)
+  const { apiKey, from, to, hook, emailReady } = deliverySettings()
   if (!emailReady && !hook) {
     console.error('Lead delivery is not configured')
     return Response.json({ message: 'Lead delivery is not configured' }, { status: 503 })

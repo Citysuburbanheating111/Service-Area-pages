@@ -2,7 +2,7 @@
 // nothing reaches Resend. Run with `npm run test:lead`.
 import assert from 'node:assert/strict'
 
-import { POST } from '../src/app/service-area/api/lead/route.ts'
+import { GET, POST } from '../src/app/service-area/api/lead/route.ts'
 
 type Sent = { url: string; init?: RequestInit }
 const realFetch = globalThis.fetch
@@ -191,6 +191,25 @@ async function run() {
   res = await POST(lead(booking))
   assert.equal(res.status, 503)
   assert.equal(sent.length, 0)
+
+  // GET reports what's configured, yes/no only: never a key, address or webhook, and it calls nothing
+  const status = async () => (await GET()).json() as Promise<Record<string, unknown>>
+  const hookUrl = 'https://hooks.zapier.com/hooks/catch/1/secret/'
+  mockResend(() => Response.json({ ok: true }))
+  configure({})
+  assert.deepEqual(await status(), { ready: false, email: false, jobber: false })
+  configure({ ...ready, RESEND_API_KEY: 'PASTE_RESEND_KEY' })
+  assert.deepEqual(await status(), { ready: false, email: false, jobber: false })
+  configure(ready)
+  assert.deepEqual(await status(), { ready: true, email: true, jobber: false })
+  configure({ LEAD_WEBHOOK_URL: hookUrl })
+  assert.deepEqual(await status(), { ready: true, email: false, jobber: true })
+  configure({ ...ready, LEAD_WEBHOOK_URL: hookUrl })
+  const res2 = await GET()
+  const body = await res2.text()
+  assert.equal(res2.headers.get('cache-control'), 'no-store')
+  for (const secret of ['re_test_key', 'dispatch@example.com', 'leads@updates.example.com', hookUrl]) assert.ok(!body.includes(secret), `GET leaks ${secret}`)
+  assert.equal(sent.length, 0, 'GET calls nothing outside')
 
   console.log('Lead route: all checks passed')
 }

@@ -1,0 +1,44 @@
+# Keeps the area pages' request forms able to deliver leads (email through Resend, Jobber through Zapier).
+#  - test: the lead route's own tests (no network, nothing sent), on every pull request and push
+#  - production: checks the live site without sending a lead (web/scripts/check-lead-delivery.mjs):
+#    delivery configured in Vercel, form posts reaching the app on both domains, validation live, and a
+#    published page rendering both forms with working scripts. After a merge to main it waits up to
+#    10 minutes for Vercel to deploy; it also runs every morning and on demand (Actions > Run workflow).
+# A failing production run means visitors' requests aren't getting through: fix the Vercel settings it
+# names (Settings > Environment Variables, Production) before publishing more pages.
+name: Lead delivery
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 12 * * *' # 7:00 Chicago (CDT), 6:00 (CST)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Lead route tests
+        working-directory: web
+        run: node scripts/test-lead.mts
+
+  production:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Check lead delivery on the live site (sends nothing)
+        working-directory: web
+        run: node scripts/check-lead-delivery.mjs --wait ${{ github.event_name == 'push' && 600 || 0 }}

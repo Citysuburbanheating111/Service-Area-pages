@@ -10,10 +10,17 @@
  * authority instead) and 3-6 nearby
  * neighborhoods. Lists any "to confirm" notes still on the page (they're editorial and never shown
  * on the site).
+ *
+ * Before any area page goes live it checks that the request forms can deliver leads in production
+ * (scripts/check-lead-delivery.mjs: email and Jobber configured in Vercel, form posts reaching the app).
+ * It refuses to publish area pages if that fails; --skip-lead-check publishes anyway.
  */
 import { createClient } from '@sanity/client'
 
-const slugs = process.argv.slice(2)
+import { checkLeadDelivery } from './check-lead-delivery.mjs'
+
+const skipLeadCheck = process.argv.includes('--skip-lead-check')
+const slugs = process.argv.slice(2).filter((a) => !a.startsWith('--'))
 if (!slugs.length) throw new Error('Usage: node --env-file=.env.local scripts/publish-area.mjs <slug|template> [more]')
 
 const client = createClient({
@@ -39,6 +46,15 @@ function missingV3(doc) {
   const near = doc.nearby?.items?.length ?? 0
   if (near < 3) gaps.push(`3-6 nearby neighborhoods (has ${near})`)
   return gaps
+}
+
+// A page that goes live must be able to take requests: no publishing while lead delivery is broken
+if (slugs.some((s) => s !== 'template') && !skipLeadCheck) {
+  const failures = await checkLeadDelivery()
+  if (failures.length) {
+    console.log("\nNothing published: the request forms can't deliver leads yet (see above). Fix it, or run again with --skip-lead-check.")
+    process.exit(1)
+  }
 }
 
 for (const slug of slugs) {
