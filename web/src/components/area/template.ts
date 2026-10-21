@@ -21,6 +21,7 @@ export type Template = {
   companies: Omit<D['companies'], 'items'> & { items: Keyed<D['companies']['items'][number]>[] }
   about: Omit<D['about'], 'promises'> & { promises: Card[] }
   reviews: Omit<D['reviews'], 'stats'> & { stats: Keyed<D['reviews']['stats'][number]>[] }
+  trust: Omit<D['trust'], 'band'> & { band: Keyed<D['trust']['band'][number]>[]; partnerLogo?: NonNullable<AreaTemplateData['trust']>['partnerLogo'] }
   process: Omit<D['process'], 'steps'> & { steps: Card[] }
   permits: D['permits']
   nearby: D['nearby']
@@ -58,6 +59,7 @@ export function resolveTemplate(t: AreaTemplateData | null | undefined): Templat
   void _note
   const merged = merge(base as Record<string, unknown>, t as Record<string, unknown>) as unknown as Template
   merged.hero.image = t?.hero?.image ?? undefined
+  merged.trust.partnerLogo = t?.trust?.partnerLogo?.asset ? t.trust.partnerLogo : undefined
   return merged
 }
 

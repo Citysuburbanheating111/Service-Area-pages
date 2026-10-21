@@ -48,6 +48,7 @@ export const AREA_TEMPLATE_QUERY = defineQuery(`
     companies{ eyebrow, heading, fitNote, items[]{ _key, title, text, us, talkTo, priceSet, fitsWhen } },
     about{ eyebrow, heading, lead, ownerTile, foundedTile, permitTile, hoursTile, familyHeading, familyPoints, promises[]{ _key, title, text } },
     reviews{ eyebrow, heading, intro, statsHeading, statsIntro, statsNote, stats[]{ _key, value, label, percent } },
+    trust{ yelpRating, yelpUrl, googleReviewUrl, writeReviewText, writeReviewLink, band[]{ _key, label, icon }, partnerText, partnerName, partnerLogo{ asset }, facebookUrl, instagramUrl },
     process{ heading, steps[]{ _key, title, text } },
     permits,
     nearby,

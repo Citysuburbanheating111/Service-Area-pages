@@ -55,7 +55,7 @@ export function AreaPageV3({ page, template: t, others, preview }: Props) {
           <Services page={page} t={t} />
           <About page={page} t={t} />
           <Reviews page={page} t={t} preview={preview} />
-          <TrustBand />
+          <TrustBand trust={t.trust} />
           <Process t={t} />
           <Price page={page} t={t} />
           <Choose page={page} t={t} />
@@ -149,7 +149,7 @@ function Hero({ page, t, toc }: P & { toc: { id: string; label: string }[] }) {
           <ol><li><a href={`${design.live}/`}>Home</a></li><li><Link href={collectionPath}>Service areas</Link></li><li aria-current="page">{page.areaName}</li></ol>
         </nav>
         <p className="v3-eyebrow light big">{places.join(' · ')}</p>
-        <RatingRow rating={b.rating} count={b.reviewCount} mapsUrl={maps(t)} />
+        <RatingRow rating={b.rating} count={b.reviewCount} mapsUrl={maps(t)} trust={t.trust} />
         <h1 id="hero-title">{hero.h1}</h1>
         {hero.lede && <p className="lede">{hero.lede}</p>}
         <ul className="trust" aria-label={`Why ${b.companyName}`}>
@@ -189,7 +189,7 @@ function Services({ page, t }: P) {
     <section className="v3-sec fog v3-services" aria-labelledby="services">
       <Head eyebrow={`All services · ${count} in ${design.groups.length} groups`} title={page.services?.heading} id="services" aside={t.services.intro} />
       <ServicesTabs groups={design.groups} />
-      <PartnerLine />
+      <PartnerLine trust={t.trust} />
     </section>
   )
 }
@@ -262,7 +262,7 @@ function Reviews({ page, t, preview }: P & { preview: boolean }) {
       </ul>
       <p className="v3-note"><Svg.info size={14} stroke="#6A7782" />{r.statsNote}</p>
       {items.length
-        ? <><ReviewTrack title={r.heading} rating={b.rating} count={b.reviewCount} items={items} /><WriteReview mapsUrl={maps(t)} /></>
+        ? <><ReviewTrack title={r.heading} rating={b.rating} count={b.reviewCount} items={items} /><WriteReview trust={t.trust} mapsUrl={maps(t)} /></>
         : <p className="cs-confirm">[CONFIRM: add 4 verbatim Google reviews. This section is hidden on the published page until then.]</p>}
     </section>
   )

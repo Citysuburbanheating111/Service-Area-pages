@@ -112,7 +112,10 @@
 .v3-rating u { font-size: 13px; line-height: 16px; text-decoration-thickness: 1px; text-underline-position: from-font; color: #ffffffd9; }
 .v3-rating a:hover u { color: #fff; }
 .v3-rating .div { width: 1px; height: 26px; background: #ffffff73; flex-shrink: 0; }
-.v3-rating img { display: block; width: auto; height: 28px; }
+.v3-rating .yelp { gap: 6px; }
+.v3-rating .yelp b { color: #fff; margin-right: 2px; }
+.v3-rating .boxes { display: flex; gap: 4px; }
+.v3-rating .box { width: 18px; height: 18px; border-radius: 3px; background: #dd382b; display: grid; place-items: center; }
 .v3-hero h1 { font: 500 64px/68px var(--font-display); letter-spacing: -.01em; text-transform: uppercase; color: #fff; padding-bottom: 24px; }
 .v3-hero .lede { max-width: 620px; padding-bottom: 28px; font-size: 18px; line-height: 30px; color: #ffffffd9; }
 .v3-hero .trust { display: flex; flex-wrap: wrap; gap: 12px; max-width: 640px; padding-bottom: 32px; }

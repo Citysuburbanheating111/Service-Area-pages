@@ -15,7 +15,7 @@ export const design = data as unknown as {
   live: string
   gmaps: string
   shop: string
-  images: { hero: string; van: string; seal: string; acService: string; furnaceFilter: string; logo: string; yelpRating: string; partner: string; favicon: string }
+  images: { hero: string; van: string; seal: string; acService: string; furnaceFilter: string; logo: string; partner: string; favicon: string }
   groups: ServiceGroup[]
   stepIcons: string[]
   steps: { title: string; text: string }[]

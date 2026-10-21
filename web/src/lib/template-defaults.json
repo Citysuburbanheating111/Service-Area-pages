@@ -205,6 +205,39 @@
   ],
   "statsNote": "Counted by keyword matching across all 204 Google reviews (export of 31 Aug 2026), so the numbers are approximate. 202 of the 204 are five stars."
  },
+ "trust": {
+  "yelpRating": 4.9,
+  "yelpUrl": "https://www.yelp.com/biz/city-and-suburban-heating-and-cooling-chicago",
+  "googleReviewUrl": "",
+  "writeReviewText": "We'd love to hear about your experience –",
+  "writeReviewLink": "write a review",
+  "band": [
+   {
+    "label": "5 Star Service",
+    "icon": "star"
+   },
+   {
+    "label": "Transparent Pricing",
+    "icon": "tag"
+   },
+   {
+    "label": "Financing",
+    "icon": "dollar"
+   },
+   {
+    "label": "Certified Professional",
+    "icon": "award"
+   },
+   {
+    "label": "Top Quality Work",
+    "icon": "shield"
+   }
+  ],
+  "partnerText": "Partnered with the Best in the Business",
+  "partnerName": "American Standard",
+  "facebookUrl": "https://www.facebook.com/profile.php?id=61576251038690",
+  "instagramUrl": "https://www.instagram.com/city_suburban_heating_cooling"
+ },
  "process": {
   "heading": "From the first call to a warm apartment, in six steps",
   "steps": [
