@@ -19,7 +19,7 @@
   --color-blue-tint: #e8f0f7;
   --color-red-tint: #fcedeb;
   --color-coral: #f08a80;
-  --color-star: #f5a623;
+  --color-star: #fbbc04;
   --font-display: var(--font-ubuntu), 'Ubuntu', sans-serif;
   --font-body: var(--font-noto-sans), 'Noto Sans', sans-serif;
   --radius-sm: 8px;
@@ -47,8 +47,8 @@
 .v3 svg { display: block; flex-shrink: 0; }
 /* Figures never split across lines (the page allows breaking anywhere, as Paper does) */
 .v3 :is(.v3-permits .big b, .v3-permits .num b, .v3-price .median .big b, .v3-who .fact > b, .v3-stats li > b,
-  .v3-steps header b, .v3-stepper .count b, .v3-next .proof b, .v3-faq .proof b, .v3-hero .trust .rt b, .v3-price .factors b,
-  .v3-hero .trust .rt small, .v3 .stars, .v3-area .districts h3 b, .v3-who .family li b, .v3-next .ready li b, .v3-faq .n) {
+  .v3-steps header b, .v3-stepper .count b, .v3-next .proof b, .v3-faq .proof b, .v3-rating b, .v3-price .factors b,
+  .v3 .stars, .v3-area .districts h3 b, .v3-who .family li b, .v3-next .ready li b, .v3-faq .n) {
   flex-shrink: 0; white-space: nowrap; overflow-wrap: normal; }
 
 /* ── Shared pieces ─────────────────────────────────────── */
@@ -83,10 +83,9 @@
 .v3-pill.sm { padding: 11px 20px; gap: 8px; font-size: 13px; line-height: 16px; }
 
 .v3 .stars { color: var(--color-star); font: 400 13px/16px system-ui, sans-serif; letter-spacing: .08em; }
-.v3-g { width: 28px; height: 28px; border-radius: 999px; background: #fff; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
-  font: 700 15px/18px var(--font-display); color: #4285f4; }
+.v3-g { width: 28px; height: 28px; border-radius: 999px; background: #fff; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .v3-g.md { width: 30px; height: 30px; }
-.v3-g.lg { width: 52px; height: 52px; font-size: 26px; line-height: 30px; }
+.v3-g.lg { width: 52px; height: 52px; }
 .v3-logo { display: inline-flex; padding: 8px 14px; border-radius: 10px; background: #fff; }
 .v3-logo img { display: block; width: 125px; height: 44px; object-fit: contain; }
 .v3-note { display: flex; align-items: center; gap: 8px; font-size: 13px; line-height: 18px; color: var(--color-muted); }
@@ -105,15 +104,23 @@
 .v3-hero .crumbs li + li::before { content: '›'; padding: 0 9px; }
 .v3-hero .crumbs a:hover, .v3-hero .crumbs [aria-current] { color: #fff; }
 .v3-hero .v3-eyebrow { padding-bottom: 20px; }
+/* Rating row (design system v3.1): under the eyebrow, Google then Yelp, both linking to the reviews */
+.v3-rating { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; padding-bottom: 20px; }
+.v3-rating a { display: flex; align-items: center; gap: 8px; }
+.v3-rating b { font: 500 24px/30px var(--font-display); color: var(--color-star); }
+.v3-rating .stars { font-size: 15px; line-height: 18px; letter-spacing: .06em; }
+.v3-rating u { font-size: 13px; line-height: 16px; text-decoration-thickness: 1px; text-underline-position: from-font; color: #ffffffd9; }
+.v3-rating a:hover u { color: #fff; }
+.v3-rating .div { width: 1px; height: 26px; background: #ffffff73; flex-shrink: 0; }
+.v3-rating .yelp { gap: 6px; }
+.v3-rating .yelp b { color: #fff; margin-right: 2px; }
+.v3-rating .boxes { display: flex; gap: 4px; }
+.v3-rating .box { width: 18px; height: 18px; border-radius: 3px; background: #dd382b; display: grid; place-items: center; }
 .v3-hero h1 { font: 500 64px/68px var(--font-display); letter-spacing: -.01em; text-transform: uppercase; color: #fff; padding-bottom: 24px; }
 .v3-hero .lede { max-width: 620px; padding-bottom: 28px; font-size: 18px; line-height: 30px; color: #ffffffd9; }
 .v3-hero .trust { display: flex; flex-wrap: wrap; gap: 12px; max-width: 640px; padding-bottom: 32px; }
 .v3-hero .trust li, .v3-hero .trust li a { display: flex; align-items: center; gap: 10px; }
 .v3-hero .trust li { padding: 10px 18px; border-radius: 999px; background: #ffffff14; border: 1px solid #ffffff29; font: 600 14px/18px var(--font-body); color: #fff; }
-.v3-hero .trust .rt { padding: 7px 18px 7px 8px; }
-.v3-hero .trust .rt b { font: 700 18px/22px var(--font-display); }
-.v3-hero .trust .rt small { font: 400 13px/16px var(--font-body); color: #ffffff99; }
-.v3-hero .trust .rt span:last-child { font: 600 14px/18px var(--font-body); }
 .v3-hero .acts { display: flex; flex-wrap: wrap; gap: 14px; padding-bottom: 44px; }
 .v3-hero .toc { display: flex; flex-direction: column; gap: 14px; max-width: 560px; padding-top: 24px; border-top: 1px solid #ffffff29; }
 .v3-hero .toc p { display: flex; justify-content: space-between; align-items: center; }
@@ -175,6 +182,10 @@
 
 /* ── All services ──────────────────────────────────────── */
 .v3-services { gap: 48px; }
+/* Partner line under the services: copy left, American Standard logo right */
+.v3-partner { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 20px; padding: 24px; border-top: 1px solid var(--color-line);
+  font-size: 17px; line-height: 22px; color: var(--color-text); }
+.v3-partner img { display: block; width: 170px; height: auto; }
 .v3-svc { display: flex; align-items: flex-start; gap: 32px; }
 .v3-svc .tabs { width: 250px; flex-shrink: 0; display: flex; flex-direction: column; gap: 8px; }
 .v3-svc .tabs button { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px; border-radius: 10px; border: 1px solid var(--color-line); background: #fff; cursor: pointer; text-align: left;
@@ -252,7 +263,6 @@
 .v3-row-head h3 { padding-bottom: 16px; font: 500 20px/26px var(--font-display); text-transform: uppercase; color: var(--color-navy); }
 .v3-row-head .meta { display: flex; align-items: center; gap: 14px; padding-bottom: 16px; }
 .v3-row-head .meta b { font: 700 18px/22px var(--font-display); color: var(--color-navy); }
-.v3-row-head .meta .g { color: #4285f4; }
 .v3-row-head .meta > span { font-size: 13px; line-height: 16px; color: var(--color-muted); }
 .v3-row-head .v3-arrows { gap: 14px; }
 .v3-reviews { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
@@ -264,8 +274,7 @@
 .v3-reviews header div { flex: 1 1 0; display: flex; flex-direction: column; gap: 2px; }
 .v3-reviews header b { font: 700 14px/18px var(--font-body); color: var(--color-navy); }
 .v3-reviews header small { font-size: 12px; line-height: 15px; color: var(--color-muted); }
-.v3-reviews .g { font: 700 16px/18px var(--font-display); color: #4285f4; }
-.v3-reviews .stars { font-size: 14px; line-height: 16px; }
+.v3-reviews .stars { font-size: 17px; line-height: 16px; letter-spacing: .06em; }
 .v3-reviews blockquote { flex: 1 1 auto; font-size: 14px; line-height: 22px; color: var(--color-text); }
 .v3-reviews .more { font: 600 13px/16px var(--font-body); color: var(--color-blue); }
 .v3-reviews .more:hover { text-decoration: underline; }
@@ -273,6 +282,19 @@
 .v3-reviews .tag { align-self: flex-start; padding: 5px 12px; border-radius: 999px; background: var(--color-red-tint); font: 600 12px/15px var(--font-body); color: var(--color-red-dk); }
 .v3-scroll { display: flex; height: 4px; border-radius: 4px; background: var(--color-fog); overflow: hidden; }
 .v3-scroll span { height: 4px; border-radius: 4px; background: var(--color-navy); transition: margin-left .2s; }
+/* End of every review track: write a review */
+.v3-write { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 28px 32px; border-radius: var(--radius-card); background: var(--color-fog); }
+.v3-write p { font: 500 22px/28px var(--font-display); color: var(--color-navy); }
+.v3-write p a { color: var(--color-blue); text-decoration: underline 1px; text-underline-position: from-font; }
+.v3-write .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+.v3-write .btns a { display: flex; align-items: center; gap: 8px; padding: 10px 16px; border: 1px solid var(--color-line); border-radius: 999px; background: #fff;
+  font: 600 14px/18px var(--font-body); color: var(--color-navy); white-space: nowrap; transition: border-color .15s; }
+.v3-write .btns a:hover { border-color: var(--color-navy); }
+
+/* ── Trust band: blue, after the reviews ───────────────── */
+.v3-band { display: flex; justify-content: space-between; align-items: center; padding: 44px calc(var(--pad-x) + 40px); background: var(--color-blue); }
+.v3-band li { width: 180px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center;
+  font: 500 17px/22px var(--font-display); color: #fff; }
 
 /* ── What happens when you call ────────────────────────── */
 .v3-stepper { display: flex; align-items: center; gap: 28px; }
@@ -429,7 +451,7 @@
 .v3-faq .proof { display: flex; flex-direction: column; padding: 6px 22px; border: 1px solid var(--color-line); border-radius: var(--radius-card); }
 .v3-faq .proof > * { display: flex; align-items: center; gap: 14px; padding: 16px 0; }
 .v3-faq .proof > * + * { border-top: 1px solid var(--color-line); }
-.v3-faq .proof .g { width: 28px; font: 700 22px/26px var(--font-display); color: #4285f4; }
+.v3-faq .proof .g { width: 28px; display: grid; place-items: center; flex-shrink: 0; }
 .v3-faq .proof > * > span:last-child { display: flex; flex-direction: column; gap: 2px; }
 .v3-faq .proof span > b { display: flex; align-items: center; gap: 8px; font: 700 20px/24px var(--font-display); color: var(--color-navy); }
 .v3-faq .proof .stars { font-size: 12px; line-height: 14px; }
@@ -465,6 +487,7 @@
 .v3-next .proof li, .v3-next .proof li a { display: flex; flex-direction: column; gap: 6px; }
 .v3-next .proof b { display: flex; align-items: center; gap: 10px; font: 500 30px/34px var(--font-display); }
 .v3-next .proof .stars { font-size: 12px; line-height: 14px; }
+.v3-next .proof .google b { color: var(--color-star); }
 .v3-next .proof small { font-size: 13px; line-height: 18px; color: #ffffffb3; }
 .v3-next .ready { display: flex; gap: 48px; padding: 36px; border-radius: var(--radius-card); background: #123349eb; border: 1px solid #ffffff1f; }
 .v3-next .ready > div { width: 260px; flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
@@ -490,6 +513,10 @@
 .v3-footer .contact a { display: flex; gap: 10px; line-height: 20px; color: #fff; }
 .v3-footer .contact a svg { margin-top: 3px; }
 .v3-footer .contact .strong { font-weight: 600; }
+.v3-social { display: flex; gap: 12px; padding-top: 8px; }
+.v3-footer .contact .v3-social a { width: 40px; height: 40px; border-radius: 999px; background: var(--color-red); display: grid; place-items: center; gap: 0; transition: background-color .15s; }
+.v3-footer .contact .v3-social a:hover { background: var(--color-red-dk); }
+.v3-footer .contact .v3-social svg { margin: 0; }
 .v3-quote { width: 440px; flex-shrink: 0; display: flex; flex-direction: column; gap: 14px; padding: 30px; border-radius: var(--radius-card); background: var(--color-navy-2); border: 1px solid #ffffff1a; }
 .v3-quote h2 { padding: 0; font: 700 24px/30px var(--font-display); text-transform: uppercase; }
 .v3-quote h2 span { color: var(--color-red); }
@@ -543,6 +570,9 @@
   .v3-next .proof li:nth-last-child(-n + 2) { border-bottom: 0; }
   .v3-footer .main { flex-direction: column; }
   .v3-quote { width: 100%; max-width: 560px; }
+  .v3-band { flex-wrap: wrap; justify-content: center; gap: 32px 16px; padding: 44px var(--pad-x); }
+  .v3-band li { width: 160px; }
+  .v3-write { flex-direction: column; align-items: flex-start; }
 }
 
 /* ── Phone ─────────────────────────────────────────────── */
@@ -587,4 +617,12 @@
   .v3-faq details > p { padding: 12px 24px 22px; }
   .v3-footer .cols { flex-wrap: wrap; gap: 32px; }
   .v3-footer .bar { flex-direction: column; }
+  .v3-rating { gap: 10px 14px; }
+  .v3-rating .div { display: none; }
+  .v3-band { gap: 28px 12px; padding: 36px var(--pad-x); }
+  .v3-band li { width: calc(50% - 6px); font-size: 15px; line-height: 20px; }
+  .v3-band li:last-child { width: 100%; }
+  .v3-write { padding: 24px 20px; }
+  .v3-write p { font-size: 18px; line-height: 24px; }
+  .v3-partner { padding: 24px 0 0; font-size: 15px; }
 }

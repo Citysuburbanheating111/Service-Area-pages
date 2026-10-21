@@ -28,7 +28,7 @@ AREAS_URL = '/service-areas/'   # area pages in the Next.js app
 
 CSS = ['area-page.css', 'area-page-v3.css', 'live-chrome.css']
 IMAGES = (['5X6SBXHGCABFYFB3GFJ2CY4MYM.webp', '6FN1CP4RYC9MBCFR4H39DJ8HAE.webp', 'live/city-suburban-transparent-logo.png',
-           'live/live-footer-logo.webp', 'v2/van-street.webp', 'v2/family-owned-seal.webp', 'v2/photo-ac-service.webp',
+           'live/live-footer-logo.webp', 'live/american-standard-logo.png', 'v2/van-street.webp', 'v2/family-owned-seal.webp', 'v2/photo-ac-service.webp',
            'v2/photo-furnace-filter.webp']
           + [f'{img}.webp' for img, _, _ in v1.STEPS]
           + [f'areas/{f}' for f in os.listdir(os.path.join(ROOT, 'assets', 'areas')) if f.endswith('.webp')])
@@ -77,6 +77,7 @@ def main():
                    'seal': ASSETS_URL + 'v2/family-owned-seal.webp', 'acService': ASSETS_URL + 'v2/photo-ac-service.webp',
                    'furnaceFilter': ASSETS_URL + 'v2/photo-furnace-filter.webp',
                    'logo': ASSETS_URL + 'live/city-suburban-transparent-logo.png',
+                   'partner': ASSETS_URL + 'live/american-standard-logo.png',
                    'favicon': ASSETS_URL + '6FN1CP4RYC9MBCFR4H39DJ8HAE.webp'},
         'groups': [{'key': k, 'name': n, 'title': t, 'lede': l, 'url': u,
                     'items': [{'icon': ic, 'title': it, 'text': d, 'url': iu} for ic, it, d, iu in items]}

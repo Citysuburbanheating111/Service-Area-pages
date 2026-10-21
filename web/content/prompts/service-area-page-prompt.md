@@ -36,10 +36,10 @@ Open the West Loop reference page and record the following:
 | # | Block | Changes per area? |
 |---|---|---|
 | 1 | Header: the exact citysuburbanheating.com header (blue top bar with Finance / About Us / Contact Us; Heating, Cooling, Air Quality, Commercial and Services menus; CALL block; Schedule Service). The SERVICES dropdown has "Other services" and "Service areas" (filled from the published Sanity pages). No Blog. It comes from the template (assets/live/header.html); never write or change it per area | No |
-| 2 | Hero: breadcrumb, eyebrow (area + first three districts), H1, lede, trust chips (licensing, family owned since 1952, price agreed before work, 4.98 · 204 Google reviews), Call and Schedule buttons, "On this page" links, booking form (title, building type, "What's happening?" options) | Yes: H1, lede, form title, building-type options and default |
-| 3 | All services: heading, 24 services in four groups (Heating 7, Cooling 6, Air quality 5, Commercial 6) | Heading only |
+| 2 | Hero: breadcrumb, eyebrow (area + first three districts), rating row (Google G, 4.98 in gold, 204 Google reviews link, divider, Yelp 4.9), H1, lede, trust chips (licensing, family owned since 1952, price agreed before work), Call and Schedule buttons, "On this page" links, booking form (title, building type, "What's happening?" options) | Yes: H1, lede, form title, building-type options and default |
+| 3 | All services: heading, 24 services in four groups (Heating 7, Cooling 6, Air quality 5, Commercial 6), "Partnered with the Best in the Business" + American Standard logo | Heading only |
 | 4 | Who you're actually calling: owner copy, van photo, Owner Rob / 1952 / 0 permits / 24/7 cards, Google rating, why family-owned matters, how we work | Owner copy only |
-| 5 | What customers say: four review stats (counts across all 204 reviews), four review cards with tag, verbatim quote, "Author · year" | Yes: all four cards |
+| 5 | What customers say: four review stats (counts across all 204 reviews), four review cards (real Google G, gold stars) with tag, verbatim quote, "Author · year", the "write a review" box (Review on Google / Review on Yelp), then the blue trust band (5 Star Service, Transparent Pricing, Financing, Certified Professional, Top Quality Work) | Yes: all four cards |
 | 6 | What happens when you call: six steps | No |
 | 7 | What changes the price: heading, How we price, $6,807 median, six factor cards | Yes: heading and factors 1–5. Factor 6 is always "Repair or replace". |
 | 8 | How to choose: heading, five-row table (what to check, why it matters, how to verify, City & Suburban's answer) | Heading only |
@@ -49,8 +49,10 @@ Open the West Loop reference page and record the following:
 | 12 | Neighbourhoods next to the area: 3–6 cards | Yes: all |
 | 13 | Permit record: data-source line, area permit count and line, **bar graph of the area's HVAC permits by equipment**, the honest context (0 for City & Suburban, 1,539 firms / 4,888 permits citywide) | Yes: count, line, data-source numbers and the graph |
 | 14 | FAQ: heading, five questions and answers | Yes: heading, Q1–Q3 and their answers. Q4 and Q5 stay fixed. |
-| 15 | Next step: call buttons, proof strip, "Have these ready when you call" | CTA body only |
-| 16 | Footer | No |
+| 15 | Next step: call buttons, proof strip (Google G, 4.98 in gold), "Have these ready when you call" | CTA body only |
+| 16 | Footer, with Facebook, Instagram and Yelp icons under Contact | No |
+
+The rating row, the "write a review" box, the trust band, the partner line and the footer social icons (design system v3.1, "Trust & Reviews") come from the Service area template in Sanity ("Trust + partner" tab). Never write them per area.
 
 2. Every image. For each one, record its src URL, alt text, which block it sits in and what it shows. That covers the hero background, the three images beside the form, the six process-step images and the logos. These are shared assets: reuse the same URLs on the new page, don't swap or generate images, and don't take photos from other websites. The hero photo is shared by every page: it's set once in the Service area template in Sanity. Don't add a hero-photo note.
 

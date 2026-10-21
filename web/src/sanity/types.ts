@@ -107,6 +107,19 @@ export type AreaTemplateData = {
     stats?: Keyed<{ value?: string; label?: string; percent?: number }>[]
     statsNote?: string
   }
+  trust?: {
+    yelpRating?: number
+    yelpUrl?: string
+    googleReviewUrl?: string
+    writeReviewText?: string
+    writeReviewLink?: string
+    band?: Keyed<{ label?: string; icon?: string }>[]
+    partnerText?: string
+    partnerName?: string
+    partnerLogo?: (SanityImageSource & { asset?: unknown }) | null
+    facebookUrl?: string
+    instagramUrl?: string
+  }
   process?: { heading?: string; steps?: Card[] }
   permits?: {
     eyebrow?: string

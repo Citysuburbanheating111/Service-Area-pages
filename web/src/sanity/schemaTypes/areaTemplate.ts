@@ -40,6 +40,7 @@ export const areaTemplate = defineType({
     { name: 'hero', title: 'Hero + form' },
     { name: 'sections', title: 'Shared sections' },
     { name: 'about', title: 'About + reviews' },
+    { name: 'trust', title: 'Trust + partner' },
     { name: 'process', title: 'Process + permits' },
     { name: 'faq', title: 'FAQ + next step' },
   ],
@@ -218,6 +219,70 @@ export const areaTemplate = defineType({
           validation: exactly(4),
         }),
         txt('statsNote', 'Note under the stats'),
+      ],
+    }),
+
+    // ── Trust + partner (design system v3.1, "Trust & Reviews") ─────────
+    defineField({
+      name: 'trust',
+      title: 'Trust, Yelp and partner',
+      type: 'object',
+      group: 'trust',
+      description:
+        'The Yelp rating next to Google in the hero, the "write a review" box after the reviews, the blue trust band, the partner line under the services and the footer social icons. The Google rating itself is under Business facts.',
+      fields: [
+        defineField({ name: 'yelpRating', title: 'Yelp rating', type: 'number', description: 'Shown next to the Google rating in the hero, e.g. 4.9', validation: (r) => r.required().min(1).max(5) }),
+        defineField({ name: 'yelpUrl', title: 'Yelp page', type: 'url', validation: (r) => r.required() }),
+        defineField({
+          name: 'googleReviewUrl',
+          title: '"Review on Google" link',
+          type: 'url',
+          description: "Google's write-a-review link for the business. Leave empty to use the Google Maps link (Business facts).",
+        }),
+        str('writeReviewText', '"Write a review" box: text'),
+        str('writeReviewLink', '"Write a review" box: link text'),
+        defineField({
+          name: 'band',
+          title: 'Blue trust band',
+          description: 'The five points in the blue band after the reviews.',
+          type: 'array',
+          of: [
+            defineArrayMember({
+              name: 'bandItem',
+              type: 'object',
+              fields: [
+                str('label', 'Label'),
+                defineField({
+                  name: 'icon',
+                  title: 'Icon',
+                  type: 'string',
+                  options: {
+                    list: [
+                      { title: 'Star', value: 'star' },
+                      { title: 'Price tag', value: 'tag' },
+                      { title: 'Dollar', value: 'dollar' },
+                      { title: 'Award ribbon', value: 'award' },
+                      { title: 'Shield with check', value: 'shield' },
+                    ],
+                  },
+                  validation: (r) => r.required(),
+                }),
+              ],
+              preview: { select: { title: 'label', subtitle: 'icon' } },
+            }),
+          ],
+          validation: exactly(5),
+        }),
+        str('partnerText', 'Partner line', 'Under the services, e.g. "Partnered with the Best in the Business"'),
+        str('partnerName', 'Partner name', "The logo's alt text, e.g. American Standard"),
+        defineField({
+          name: 'partnerLogo',
+          title: 'Partner logo',
+          description: 'Leave empty to use the American Standard logo.',
+          type: 'image',
+        }),
+        defineField({ name: 'facebookUrl', title: 'Facebook page', type: 'url', validation: (r) => r.required() }),
+        defineField({ name: 'instagramUrl', title: 'Instagram page', type: 'url', validation: (r) => r.required() }),
       ],
     }),
 
