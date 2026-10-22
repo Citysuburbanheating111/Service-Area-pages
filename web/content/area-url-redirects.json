@@ -1,0 +1,26 @@
+{
+  "_about": "The area page URLs before the near-me change (2026-10-22), each with its new URL. next.config.ts sends every old URL here with a 301, in one hop. Fixed list: pages published later are born with their near-me URL.",
+  "redirects": {
+    "/service-area/bucktown/": "/service-area/near-me-bucktown-60647/",
+    "/service-area/des-plaines/": "/service-area/near-me-des-plaines-60016/",
+    "/service-area/glenview/": "/service-area/near-me-glenview-60025/",
+    "/service-area/humboldt-park/": "/service-area/near-me-humboldt-park-60651/",
+    "/service-area/lakeview/": "/service-area/near-me-lakeview-60657/",
+    "/service-area/lincoln-park/": "/service-area/near-me-lincoln-park-60614/",
+    "/service-area/logan-square/": "/service-area/near-me-logan-square-60647/",
+    "/service-area/niles/": "/service-area/near-me-niles-60714/",
+    "/service-area/northbrook/": "/service-area/near-me-northbrook-60062/",
+    "/service-area/old-town/": "/service-area/near-me-old-town-60614/",
+    "/service-area/park-ridge/": "/service-area/near-me-park-ridge-60068/",
+    "/service-area/pilsen/": "/service-area/near-me-pilsen-60608/",
+    "/service-area/rogers-park/": "/service-area/near-me-rogers-park-60626/",
+    "/service-area/skokie/": "/service-area/near-me-skokie-60076/",
+    "/service-area/ukrainian-village/": "/service-area/near-me-ukrainian-village-60622/",
+    "/service-area/west-loop/": "/service-area/near-me-west-loop-60607/",
+    "/service-area/west-town/": "/service-area/near-me-west-town-60622/",
+    "/service-area/wicker-park/": "/service-area/near-me-wicker-park-60622/",
+    "/service-area/wilmette/": "/service-area/near-me-wilmette-60091/",
+    "/service-area/winnetka/": "/service-area/near-me-winnetka-60093/",
+    "/service-area/wrigleyville/": "/service-area/near-me-wrigleyville-60613/"
+  }
+}

@@ -4,7 +4,7 @@ import { areaPath } from '@/lib/siteUrl'
 
 import { liveFooter, liveHeader } from './liveChromeHtml'
 
-type Area = { name: string; slug: string }
+type Area = { name: string; slug: string; zip?: string }
 
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`)
 
@@ -20,7 +20,7 @@ export function LiveHeader({ areas = [], current }: { areas?: Area[]; current?: 
   const bySlug = new Map(areas.map((a) => [a.slug, a]))
   const links = MAIN_AREAS.map((s) => bySlug.get(s))
     .filter((a): a is Area => !!a)
-    .map((a) => `<li><a href="${esc(areaPath(a.slug))}"${a.slug === current ? ' aria-current="page"' : ''}>${esc(a.name)}</a></li>`)
+    .map((a) => `<li><a href="${esc(areaPath(a.slug, a.zip))}"${a.slug === current ? ' aria-current="page"' : ''}>${esc(a.name)}</a></li>`)
     .join('')
   return <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: liveHeader.replace('<!--CH_AREAS-->', links) }} />
 }

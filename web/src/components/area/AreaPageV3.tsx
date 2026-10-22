@@ -48,7 +48,7 @@ export function AreaPageV3({ page, template: t, others, preview }: Props) {
       {preview && <div className="v3"><PreviewBar page={page} slug={slug} /></div>}
       {/* The live citysuburbanheating.com header, the same as on /service-areas; outside .v3 so the
           page's resets don't touch it */}
-      <LiveHeader areas={others.map((o) => ({ name: clean(o.areaName), slug: clean(o.slug) })).filter((a) => a.slug)} current={slug} />
+      <LiveHeader areas={others.map((o) => ({ name: clean(o.areaName), slug: clean(o.slug), zip: clean(o.zip) })).filter((a) => a.slug)} current={slug} />
       <div className="v3">
         <main>
           <Hero page={page} t={t} toc={sections(page, t, preview)} />
@@ -116,7 +116,7 @@ function PreviewBar({ page, slug }: { page: AreaPageData; slug: string }) {
     <details className="cs-preview-bar">
       <summary>
         <span>Draft preview · {notes.length ? `${notes.length} item${notes.length > 1 ? 's' : ''} to confirm before publishing` : 'nothing left to confirm'}</span>
-        <a href={`/api/draft-mode/disable?redirect=${areaPath(slug)}`}>Exit preview</a>
+        <a href={`/api/draft-mode/disable?redirect=${areaPath(slug, clean(page.districts?.zips?.[0]))}`}>Exit preview</a>
       </summary>
       {notes.length > 0 && <ul>{notes.map((n) => <li key={n._key}><b>{n.block}</b>{n.note}</li>)}</ul>}
     </details>
@@ -436,10 +436,11 @@ function Buildings({ page }: { page: AreaPageData }) {
 // ── Nearby: the area's own bordering neighborhoods, or else the other published area pages ──
 function Nearby({ page, t, others }: { page: AreaPageData; t: Template; others: AreaListItem[] }) {
   const own = page.nearby?.items ?? []
-  const published = new Map(others.map((o) => [clean(o.areaName).toLowerCase(), clean(o.slug)]))
+  const href = (o: AreaListItem) => (clean(o.slug) ? areaPath(clean(o.slug), clean(o.zip)) : undefined)
+  const published = new Map(others.map((o) => [clean(o.areaName).toLowerCase(), href(o)]))
   const cards = own.length
-    ? own.map((x) => ({ key: x._key, name: x.name, text: x.text, slug: published.get(clean(x.name).toLowerCase()) }))
-    : others.map((o) => ({ key: o._id, name: o.areaName, text: o.districts?.length ? o.districts.slice(0, 3).join(', ') : o.h1, slug: clean(o.slug) }))
+    ? own.map((x) => ({ key: x._key, name: x.name, text: x.text, href: published.get(clean(x.name).toLowerCase()) }))
+    : others.map((o) => ({ key: o._id, name: o.areaName, text: o.districts?.length ? o.districts.slice(0, 3).join(', ') : o.h1, href: href(o) }))
   if (!cards.length) return null
   const n = t.nearby
   return (
@@ -448,7 +449,7 @@ function Nearby({ page, t, others }: { page: AreaPageData; t: Template; others: 
       <ul className="cards">
         {cards.map((c) => {
           const body = <><h3><span>{c.name}</span><span className="go"><Svg.upRight size={11} /></span></h3><p>{c.text}</p></>
-          return <li key={c.key}>{c.slug ? <Link href={areaPath(c.slug)}>{body}</Link> : <div>{body}</div>}</li>
+          return <li key={c.key}>{c.href ? <Link href={c.href}>{body}</Link> : <div>{body}</div>}</li>
         })}
       </ul>
     </section>

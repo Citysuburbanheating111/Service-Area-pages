@@ -8,7 +8,7 @@ import { cachedSanity } from '@/sanity/live'
 // Served at /service-areas/sitemap.xml (the main site's /sitemap.xml belongs to WordPress/Yoast).
 // The collection and every area page published in Sanity; drafts are never listed.
 const SITEMAP_QUERY = defineQuery(`
-  *[_type == "areaPage" && defined(slug.current)] | order(areaName asc){ "slug": slug.current, _updatedAt }
+  *[_type == "areaPage" && defined(slug.current)] | order(areaName asc){ "slug": slug.current, "zip": districts.zips[0], _updatedAt }
 `)
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -17,12 +17,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // cached and is refreshed by that webhook (app/api/revalidate), like the area pages.
   await connection()
   const { data } = await cachedSanity({ query: SITEMAP_QUERY, perspective: 'published', stega: false })
-  const pages = (data ?? []) as { slug: string; _updatedAt: string }[]
+  const pages = (data ?? []) as { slug: string; zip?: string; _updatedAt: string }[]
   const newest = pages.map((p) => p._updatedAt).sort().at(-1)
   return [
     { url: absolute(collectionPath), lastModified: newest, changeFrequency: 'weekly', priority: 1 },
     ...pages.map((p) => ({
-      url: absolute(areaPath(p.slug)),
+      url: absolute(areaPath(p.slug, p.zip)),
       lastModified: p._updatedAt,
       changeFrequency: 'monthly' as const,
       priority: 0.8,

@@ -19,7 +19,7 @@ Write one page per area, one area at a time, in the order given. Each page must 
 
 ## Reference pages (public, scrape these first)
 - Approved reference page (v3 standard design, West Loop): https://logeshmaximus.github.io/city-suburban/west-loop-v3.html (exported 1:1 from the Paper template, https://app.paper.design/file/01M4X2DQFNVXA75B9MRX99QYFG/p-1-0)
-- The same page on the site, from Sanity: https://service-area-pages.vercel.app/service-area/west-loop/
+- The same page on the site, from Sanity: https://service-area-pages.vercel.app/service-area/near-me-west-loop-60607/
 - Design system and tokens: https://logeshmaximus.github.io/city-suburban/
 - The skill's references/content-fields.md, references/examples/west-loop.json and references/examples/west-town.json.
 

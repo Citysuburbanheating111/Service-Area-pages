@@ -42,7 +42,7 @@ export default async function ServiceAreasPage() {
     cachedSanity({ query: AREA_LIST_QUERY, perspective: 'published', stega: false }),
     cachedSanity({ query: AREA_TEMPLATE_QUERY, perspective: 'published', stega: false }),
   ])
-  const areas = ((list ?? []) as Row[]).filter((r) => r.slug).map((r) => ({ slug: r.slug as string, name: r.areaName ?? r.slug as string }))
+  const areas = ((list ?? []) as Row[]).filter((r) => r.slug).map((r) => ({ slug: r.slug as string, zip: r.zip, name: r.areaName ?? r.slug as string }))
   const schema = collectionSchema(resolveTemplate(tpl as AreaTemplateData | null), areas, { title: collectionTitle, description: collectionDescription })
   return (
     <>

@@ -60,9 +60,9 @@ Notes:
 Open each of these in a browser:
 
 - `https://citysuburbanheating.com/service-areas/`: the new collection page.
-- `https://citysuburbanheating.com/service-area/west-loop/`: the new area page. The address bar stays on citysuburbanheating.com.
+- `https://citysuburbanheating.com/service-area/near-me-west-loop-60607/`: an area page. The address bar stays on citysuburbanheating.com.
 - `https://citysuburbanheating.com/service-areas/sitemap.xml`: lists only `https://citysuburbanheating.com/...` URLs.
-- `https://citysuburbanheating.com/service-areas/west-loop/`: lands on `/service-area/west-loop/`.
+- `https://citysuburbanheating.com/service-area/west-loop/` and `https://citysuburbanheating.com/service-areas/west-loop/`: old URLs, both land on `/service-area/near-me-west-loop-60607/` with one 301.
 
 ## 6. WordPress / Yoast clean-up
 
