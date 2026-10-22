@@ -55,6 +55,9 @@ const nextConfig: NextConfig = {
       { source: "/", destination: "/service-areas/", permanent: false },
       // Area pages' public URL is /service-area/near-<slug>-<main ZIP>/ (src/lib/siteUrl.ts).
       ...areaRedirects,
+      // The near-me-<slug>-<ZIP> URLs were live for a short while on 2026-10-22: send them to near-<slug>-<ZIP>
+      { source: "/service-area/near-me-old-town-60614/", destination: "/service-area/near-old-town-60610/", statusCode: 301 },
+      { source: "/service-area/near-me-:rest/", destination: "/service-area/near-:rest/", statusCode: 301 },
       // Any other old plural URL goes to the singular form, where the page redirects to its own URL.
       // The sitemap at /service-areas/sitemap.xml is left alone.
       { source: "/service-areas/:slug((?!sitemap\\.xml$)[^/]+)", destination: "/service-area/:slug/", permanent: true },
