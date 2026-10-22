@@ -62,3 +62,6 @@ sources, not sent to the client. From now on pages are written this way: `confir
 | Des Plaines | FAQ 4 | Verified: the City's on-demand permit covers a like-for-like furnace or AC replacement where the outdoor unit doesn't move, final inspection only (city handout, May 2023). |
 | Niles, Park Ridge | FAQ 4 | No HVAC permit guidance found, so the answer stays general. |
 | All suburbs | Template wording | Suburb text now says "each suburb" instead of "each village", since Park Ridge and Des Plaines are cities. |
+
+## Old Town main ZIP (2026-10-22)
+Main ZIP 60610, not 60614: the ZIP list in the Highlights Chicago internal sheet ("Service Areas" tab) gives 60610 as "Near North Side / Old Town / Gold Coast" and 60614 as "Lincoln Park / DePaul". The chip now reads 60610 · 60614 (the polygon share is 60614 52%, 60610 47%), so the page URL is /service-area/near-old-town-60610/.
