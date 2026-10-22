@@ -54,9 +54,9 @@ export default defineConfig({
       resolve: {
         // Opening a page in Preview selects its document
         mainDocuments: defineDocuments([
-          // Public URL /service-area/near-me-<slug>-<main ZIP>/ (src/lib/siteUrl.ts)
-          { route: '/service-area/:segment/', filter: `_type == "areaPage" && "near-me-" + slug.current + "-" + districts.zips[0] == $segment` },
-          { route: '/service-area/:segment', filter: `_type == "areaPage" && "near-me-" + slug.current + "-" + districts.zips[0] == $segment` },
+          // Public URL /service-area/near-<slug>-<main ZIP>/ (src/lib/siteUrl.ts)
+          { route: '/service-area/:segment/', filter: `_type == "areaPage" && "near-" + slug.current + "-" + districts.zips[0] == $segment` },
+          { route: '/service-area/:segment', filter: `_type == "areaPage" && "near-" + slug.current + "-" + districts.zips[0] == $segment` },
         ]),
         // "Used on" links shown at the top of each document
         locations: {
