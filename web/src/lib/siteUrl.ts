@@ -12,17 +12,17 @@ export const siteUrl = (
 export const servedOnMainDomain = !/\.vercel\.app$|localhost/.test(new URL(siteUrl).hostname)
 
 // Public URLs:
-//   collection  /service-areas/        area page  /service-area/near-me-<slug>-<main ZIP>/
+//   collection  /service-areas/        area page  /service-area/near-<slug>-<main ZIP>/
 // The main ZIP is the first ZIP on the page's ZIP chip (districts.zips[0] in Sanity), e.g.
-// /service-area/near-me-west-loop-60607/. The old /service-area/<slug>/ URLs redirect (next.config.ts).
+// /service-area/near-west-loop-60607/. The old /service-area/<slug>/ URLs redirect (next.config.ts).
 // The Next.js routes live at /service-areas/[slug]; next.config.ts rewrites /service-area/:slug to it,
-// so the route's [slug] is the whole URL segment ("near-me-west-loop-60607"), read with parseAreaSegment.
+// so the route's [slug] is the whole URL segment ("near-west-loop-60607"), read with parseAreaSegment.
 export const collectionPath = '/service-areas/'
-export const areaSegment = (slug: string, zip?: string | null) => (zip ? `near-me-${slug}-${zip}` : slug)
+export const areaSegment = (slug: string, zip?: string | null) => (zip ? `near-${slug}-${zip}` : slug)
 export const areaPath = (slug: string, zip?: string | null) => `/service-area/${areaSegment(slug, zip)}/`
-/** "near-me-west-loop-60607" → { slug: "west-loop", zip: "60607" }; an old bare slug → { slug, zip: null } */
+/** "near-west-loop-60607" → { slug: "west-loop", zip: "60607" }; an old bare slug → { slug, zip: null } */
 export function parseAreaSegment(segment: string): { slug: string; zip: string | null } {
-  const m = segment.match(/^near-me-([a-z0-9-]+)-(\d{5})$/)
+  const m = segment.match(/^near-([a-z0-9-]+)-(\d{5})$/)
   return m ? { slug: m[1], zip: m[2] } : { slug: segment, zip: null }
 }
 export const absolute = (path: string) => `${siteUrl}${path}`
