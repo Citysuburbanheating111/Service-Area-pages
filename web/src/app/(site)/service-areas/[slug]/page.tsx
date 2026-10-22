@@ -12,7 +12,7 @@ import { cachedSanity, getDynamicFetchOptions } from '@/sanity/live'
 import { AREA_LIST_QUERY, AREA_PAGE_QUERY, AREA_TEMPLATE_QUERY } from '@/sanity/queries'
 import type { AreaListItem, AreaPageData, AreaTemplateData } from '@/sanity/types'
 
-// Public URL: /service-area/near-me-<slug>-<main ZIP>/ (next.config.ts rewrites it to this route), so
+// Public URL: /service-area/near-<slug>-<main ZIP>/ (next.config.ts rewrites it to this route), so
 // the [slug] param is that whole segment; parseAreaSegment gives the page's slug.
 type Props = PageProps<'/service-areas/[slug]'>
 
@@ -73,7 +73,7 @@ export default async function AreaPage({ params }: Props) {
   const template = resolveTemplate(tpl as AreaTemplateData | null)
   const live = page && stegaClean(page.slug) ? page : null
   // An old URL (/service-area/<slug>/) or a ZIP that is no longer the page's main ZIP: send the
-  // visitor to the page's own URL. The 21 URLs that were live before the near-me change also
+  // visitor to the page's own URL. The 21 URLs that were live before the near-URL change also
   // have fixed 301s in next.config.ts; this covers anything else.
   const own = live && areaSegment(slug, stegaClean(live.districts?.zips?.[0]))
   if (own && own !== segment) permanentRedirect(areaPath(slug, stegaClean(live.districts?.zips?.[0])))

@@ -2,7 +2,7 @@
  * City & Suburban: serve the service area pages (Next.js + Sanity on Vercel) on the main domain.
  *
  *   https://citysuburbanheating.com/service-areas/              -> collection page
- *   https://citysuburbanheating.com/service-area/near-me-<slug>-<ZIP>/ -> one area page
+ *   https://citysuburbanheating.com/service-area/near-<slug>-<ZIP>/ -> one area page
  *   https://citysuburbanheating.com/service-areas/sitemap.xml   -> sitemap for Search Console
  *
  * Visitors only ever see citysuburbanheating.com. Every other path (the WordPress site) never
@@ -32,7 +32,7 @@ export default {
     if (!PROXIED.some((re) => re.test(path))) return fetch(request)
 
     // Old area URLs (/service-areas/<slug>/ and /service-area/<slug>/) are redirected by the app
-    // (web/next.config.ts) straight to the page's near-me URL, in a single hop.
+    // (web/next.config.ts) straight to the page's near URL, in a single hop.
 
     // /service-area/ on its own -> the collection
     if (path === '/service-area/' || path === '/service-area') return redirect(url, '/service-areas/')
