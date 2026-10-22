@@ -14,7 +14,7 @@ const areaUrlRedirects: Record<string, string> = {
   "/service-area/logan-square/": "/service-area/near-logan-square-60647/",
   "/service-area/niles/": "/service-area/near-niles-60714/",
   "/service-area/northbrook/": "/service-area/near-northbrook-60062/",
-  "/service-area/old-town/": "/service-area/near-old-town-60614/",
+  "/service-area/old-town/": "/service-area/near-old-town-60610/",
   "/service-area/park-ridge/": "/service-area/near-park-ridge-60068/",
   "/service-area/pilsen/": "/service-area/near-pilsen-60608/",
   "/service-area/rogers-park/": "/service-area/near-rogers-park-60626/",
