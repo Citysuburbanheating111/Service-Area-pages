@@ -44,6 +44,7 @@ function builtCard(r: Row) {
 // and the count always match the published pages, with no code change.
 export function publishedOnly(designed: string, rows: Row[]) {
   const slugs = new Set(rows.map((r) => stegaClean(r.slug) as string))
+  const zips = new Map(rows.map((r) => [stegaClean(r.slug) as string, stegaClean(r.zip)]))
   const has = new Set([...designed.matchAll(/<h3 id="area-([a-z0-9-]+)">/g)].map((m) => m[1]))
   const extra = rows.filter((r) => !has.has(stegaClean(r.slug) as string)).map(builtCard).join('')
   const html = extra ? designed.replace(/(<\/article>\s*)(<\/div>\s*<details class="credits">)/, `$1${extra}\n    $2`) : designed
@@ -58,7 +59,7 @@ export function publishedOnly(designed: string, rows: Row[]) {
     shown.push(name)
     if (card.includes('data-place="suburb"')) suburbs++
     return card
-      .replace(heading, `<h3 id="area-${slug}"><a class="stretch" href="${areaPath(slug)}">${name}</a></h3>`)
+      .replace(heading, `<h3 id="area-${slug}"><a class="stretch" href="${areaPath(slug, zips.get(slug))}">${name}</a></h3>`)
       .replace(/(<p class="hvac">[\s\S]*?<\/p>)/, `$1\n          <p class="open" aria-hidden="true">Open the ${name} page <span>→</span></p>`)
   })
   // Photo credits: Chicago, the hero and the cards on the page

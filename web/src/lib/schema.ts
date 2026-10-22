@@ -57,7 +57,7 @@ function breadcrumb(id: string, items: [string, string][]) {
 /** JSON-LD for one area page */
 export function areaPageSchema(page: AreaPageData, t: Template, meta: { title: string; description: string }) {
   const slug = clean(page.slug)
-  const url = absolute(areaPath(slug))
+  const url = absolute(areaPath(slug, clean(page.districts?.zips?.[0])))
   const area = clean(page.areaName)
   const faq = mergeFaq(page.faq?.items, t, isSuburb(page)).items
   return {
@@ -97,7 +97,7 @@ export function areaPageSchema(page: AreaPageData, t: Template, meta: { title: s
 }
 
 /** JSON-LD for the collection page: the published area pages as a list */
-export function collectionSchema(t: Template, areas: { slug: string; name: string }[], meta: { title: string; description: string }) {
+export function collectionSchema(t: Template, areas: { slug: string; zip?: string; name: string }[], meta: { title: string; description: string }) {
   const url = absolute(collectionPath)
   return {
     '@context': 'https://schema.org',
@@ -114,7 +114,7 @@ export function collectionSchema(t: Template, areas: { slug: string; name: strin
         breadcrumb: { '@id': `${url}#breadcrumb` },
         mainEntity: {
           '@type': 'ItemList',
-          itemListElement: areas.map((a, i) => ({ '@type': 'ListItem', position: i + 1, name: a.name, url: absolute(areaPath(a.slug)) })),
+          itemListElement: areas.map((a, i) => ({ '@type': 'ListItem', position: i + 1, name: a.name, url: absolute(areaPath(a.slug, a.zip)) })),
         },
       },
       breadcrumb(url, [['Home', MAIN_SITE], ['Service areas', url]]),

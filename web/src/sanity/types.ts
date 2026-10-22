@@ -141,6 +141,8 @@ export type AreaListItem = {
   _id: string
   areaName?: string
   slug?: string
+  /** Main ZIP (districts.zips[0]), part of the page's URL */
+  zip?: string
   h1?: string
   districts?: string[]
   locality?: string

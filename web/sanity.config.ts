@@ -8,6 +8,7 @@ import { defineConfig } from 'sanity'
 import { defineDocuments, defineLocations, presentationTool } from 'sanity/presentation'
 import { structureTool } from 'sanity/structure'
 
+import { areaPath } from './src/lib/siteUrl'
 import { apiVersion, dataset, projectId } from './src/sanity/env'
 import { schema } from './src/sanity/schemaTypes'
 import { TEMPLATE_ID } from './src/sanity/schemaTypes/areaTemplate'
@@ -53,9 +54,9 @@ export default defineConfig({
       resolve: {
         // Opening a page in Preview selects its document
         mainDocuments: defineDocuments([
-          // Public URL /service-area/<slug>/ (the old /service-areas/<slug> redirects there)
-          { route: '/service-area/:slug/', filter: `_type == "areaPage" && slug.current == $slug` },
-          { route: '/service-area/:slug', filter: `_type == "areaPage" && slug.current == $slug` },
+          // Public URL /service-area/near-me-<slug>-<main ZIP>/ (src/lib/siteUrl.ts)
+          { route: '/service-area/:segment/', filter: `_type == "areaPage" && "near-me-" + slug.current + "-" + districts.zips[0] == $segment` },
+          { route: '/service-area/:segment', filter: `_type == "areaPage" && "near-me-" + slug.current + "-" + districts.zips[0] == $segment` },
         ]),
         // "Used on" links shown at the top of each document
         locations: {
@@ -65,11 +66,11 @@ export default defineConfig({
             locations: [{ title: 'All service areas', href: '/service-areas/' }],
           }),
           areaPage: defineLocations({
-            select: { title: 'areaName', slug: 'slug.current' },
+            select: { title: 'areaName', slug: 'slug.current', zip: 'districts.zips.0' },
             resolve: (doc) => ({
               locations: doc?.slug
                 ? [
-                    { title: doc.title || 'Untitled', href: `/service-area/${doc.slug}/` },
+                    { title: doc.title || 'Untitled', href: areaPath(doc.slug, doc.zip) },
                     { title: 'All service areas', href: '/service-areas/' },
                   ]
                 : [],
