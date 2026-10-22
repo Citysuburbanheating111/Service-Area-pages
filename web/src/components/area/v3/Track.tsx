@@ -21,6 +21,8 @@ function useTrack(ref: RefObject<HTMLElement | null>, count: number) {
   // (smooth scrolling fires many scroll events on the way)
   const picked = useRef<{ index: number; left: number } | null>(null)
   const fallback = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
+  // The latest current and left-edge cards, so quick repeated clicks each move one card
+  const latest = useRef({ index: 0, edge: 0 })
 
   const measure = useCallback(() => {
     const el = ref.current
@@ -43,6 +45,7 @@ function useTrack(ref: RefObject<HTMLElement | null>, count: number) {
     setState((s) => {
       let index = chosen ?? s.index
       if (chosen === undefined && !inView(index)) index = atEnd ? count - 1 : edge
+      latest.current = { index, edge }
       return { index, edge, progress: max > 0 ? left / max : 0, ratio: el.scrollWidth ? el.clientWidth / el.scrollWidth : 1 }
     })
   }, [ref, count])
@@ -75,6 +78,7 @@ function useTrack(ref: RefObject<HTMLElement | null>, count: number) {
     const cards = Array.from(el.children) as HTMLElement[]
     // The row can't scroll past its end; a card there is already in view and just becomes current
     const left = Math.max(0, Math.min(cards[n].offsetLeft - cards[0].offsetLeft, el.scrollWidth - el.clientWidth))
+    latest.current = { ...latest.current, index: n }
     setState((s) => ({ ...s, index: n }))
     if (Math.abs(el.scrollLeft - left) <= 2) { picked.current = null; return }
     picked.current = { index: n, left }
@@ -83,7 +87,9 @@ function useTrack(ref: RefObject<HTMLElement | null>, count: number) {
     clearTimeout(fallback.current)
     fallback.current = setTimeout(() => { picked.current = null; measure() }, 1500)
   }
-  return { ...state, go }
+  /** One card from the current card (steps) or from the card at the left edge (reviews) */
+  const step = (by: number, from: 'index' | 'edge' = 'index') => go(latest.current[from] + by)
+  return { ...state, go, step }
 }
 
 function Arrows({ prev, next, onPrev, onNext, label }: { prev: boolean; next: boolean; onPrev: () => void; onNext: () => void; label: string }) {
@@ -106,7 +112,7 @@ export function ReviewTrack({ title, rating, count, items }: { title: string; ra
       <div className="v3-row-head">
         <h3>{title}</h3>
         <div className="meta"><GoogleG size={20} /><b>{rating}</b><span>· {count} Google reviews</span>
-          <Arrows label="review" prev={t.progress > 0.01} next={t.progress < 0.99 && t.ratio < 1} onPrev={() => t.go(t.edge - 1)} onNext={() => t.go(t.edge + 1)} />
+          <Arrows label="review" prev={t.progress > 0.01} next={t.progress < 0.99 && t.ratio < 1} onPrev={() => t.step(-1, 'edge')} onNext={() => t.step(1, 'edge')} />
         </div>
       </div>
       <ul className="v3-reviews" ref={ref}>
@@ -149,7 +155,7 @@ export function StepTrack({ steps }: { steps: Step[] }) {
             <button key={s._key} type="button" aria-label={`Step ${i + 1}`} aria-current={i === t.index ? 'step' : undefined} onClick={() => t.go(i)}>{i + 1}</button>
           ))}
         </div>
-        <Arrows label="step" prev={t.index > 0} next={t.index < steps.length - 1} onPrev={() => t.go(t.index - 1)} onNext={() => t.go(t.index + 1)} />
+        <Arrows label="step" prev={t.index > 0} next={t.index < steps.length - 1} onPrev={() => t.step(-1)} onNext={() => t.step(1)} />
       </div>
       <ol className="v3-steps" ref={ref} tabIndex={0} aria-label="Steps: use the arrows or scroll sideways">
         {steps.map((s, i) => {
