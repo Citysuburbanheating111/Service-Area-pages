@@ -8,30 +8,64 @@ import { useCallback, useEffect, useRef, useState, type ReactNode, type RefObjec
 import { GoogleG } from './Brand'
 import { Svg } from './Svg'
 
-/** Index of the card nearest the left edge, and how far along the row is (0-1) */
+/**
+ * A sideways row of cards. `index` is the current card: the one picked with the arrows or the
+ * numbered stepper, kept while its card is in view (near the end of the row, several cards can't
+ * reach the left edge, so a picked card there stays current without the row moving). Scrolling by
+ * hand moves it to the card at the left edge, or to the last card at the end of the row.
+ * `edge` is the card nearest the left edge, `progress` how far along the row is (0-1).
+ */
 function useTrack(ref: RefObject<HTMLElement | null>, count: number) {
-  const [state, setState] = useState({ index: 0, progress: 0, ratio: 1 })
+  const [state, setState] = useState({ index: 0, edge: 0, progress: 0, ratio: 1 })
+  // The card picked with a button, and where the row is heading, while it scrolls there
+  // (smooth scrolling fires many scroll events on the way)
+  const picked = useRef<{ index: number; left: number } | null>(null)
+  const fallback = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
 
   const measure = useCallback(() => {
     const el = ref.current
     if (!el) return
     const max = el.scrollWidth - el.clientWidth
     const cards = Array.from(el.children) as HTMLElement[]
-    const base = cards[0]?.offsetLeft ?? 0
-    let index = 0
-    cards.forEach((c, i) => { if (Math.abs(c.offsetLeft - base - el.scrollLeft) < Math.abs(cards[index].offsetLeft - base - el.scrollLeft)) index = i })
-    // At the end of the row, the last card counts as current
-    if (max > 0 && el.scrollLeft >= max - 2) index = count - 1
-    setState({ index, progress: max > 0 ? el.scrollLeft / max : 0, ratio: el.scrollWidth ? el.clientWidth / el.scrollWidth : 1 })
+    if (!cards.length) return
+    const base = cards[0].offsetLeft
+    const left = el.scrollLeft
+    // Arrived at the picked card: scrolling by hand takes over again
+    if (picked.current && Math.abs(left - picked.current.left) <= 2) picked.current = null
+    let edge = 0
+    cards.forEach((c, i) => { if (Math.abs(c.offsetLeft - base - left) < Math.abs(cards[edge].offsetLeft - base - left)) edge = i })
+    const inView = (i: number) => {
+      const x = cards[i].offsetLeft - base
+      return x >= left - 2 && x + cards[i].offsetWidth <= left + el.clientWidth + 2
+    }
+    const atEnd = max > 0 && left >= max - 2
+    const chosen = picked.current?.index
+    setState((s) => {
+      let index = chosen ?? s.index
+      if (chosen === undefined && !inView(index)) index = atEnd ? count - 1 : edge
+      return { index, edge, progress: max > 0 ? left / max : 0, ratio: el.scrollWidth ? el.clientWidth / el.scrollWidth : 1 }
+    })
   }, [ref, count])
 
   useEffect(() => {
     const el = ref.current
     if (!el) return
     measure()
+    // Touching, clicking or wheeling the row is scrolling by hand
+    const byHand = () => { picked.current = null }
     el.addEventListener('scroll', measure, { passive: true })
+    el.addEventListener('wheel', byHand, { passive: true })
+    el.addEventListener('touchstart', byHand, { passive: true })
+    el.addEventListener('pointerdown', byHand)
     window.addEventListener('resize', measure)
-    return () => { el.removeEventListener('scroll', measure); window.removeEventListener('resize', measure) }
+    return () => {
+      el.removeEventListener('scroll', measure)
+      el.removeEventListener('wheel', byHand)
+      el.removeEventListener('touchstart', byHand)
+      el.removeEventListener('pointerdown', byHand)
+      window.removeEventListener('resize', measure)
+      clearTimeout(fallback.current)
+    }
   }, [ref, measure])
 
   const go = (i: number) => {
@@ -39,7 +73,15 @@ function useTrack(ref: RefObject<HTMLElement | null>, count: number) {
     if (!el) return
     const n = Math.max(0, Math.min(count - 1, i))
     const cards = Array.from(el.children) as HTMLElement[]
-    el.scrollTo({ left: cards[n].offsetLeft - cards[0].offsetLeft, behavior: 'smooth' })
+    // The row can't scroll past its end; a card there is already in view and just becomes current
+    const left = Math.max(0, Math.min(cards[n].offsetLeft - cards[0].offsetLeft, el.scrollWidth - el.clientWidth))
+    setState((s) => ({ ...s, index: n }))
+    if (Math.abs(el.scrollLeft - left) <= 2) { picked.current = null; return }
+    picked.current = { index: n, left }
+    el.scrollTo({ left, behavior: 'smooth' })
+    // In case the row never gets there (stopped mid-way), hand control back
+    clearTimeout(fallback.current)
+    fallback.current = setTimeout(() => { picked.current = null; measure() }, 1500)
   }
   return { ...state, go }
 }
@@ -64,7 +106,7 @@ export function ReviewTrack({ title, rating, count, items }: { title: string; ra
       <div className="v3-row-head">
         <h3>{title}</h3>
         <div className="meta"><GoogleG size={20} /><b>{rating}</b><span>· {count} Google reviews</span>
-          <Arrows label="review" prev={t.progress > 0.01} next={t.progress < 0.99 && t.ratio < 1} onPrev={() => t.go(t.index - 1)} onNext={() => t.go(t.index + 1)} />
+          <Arrows label="review" prev={t.progress > 0.01} next={t.progress < 0.99 && t.ratio < 1} onPrev={() => t.go(t.edge - 1)} onNext={() => t.go(t.edge + 1)} />
         </div>
       </div>
       <ul className="v3-reviews" ref={ref}>
@@ -113,7 +155,7 @@ export function StepTrack({ steps }: { steps: Step[] }) {
         {steps.map((s, i) => {
           const Icon = STEP_ICONS[i % STEP_ICONS.length]
           return (
-            <li key={s._key}>
+            <li key={s._key} aria-current={i === t.index ? 'step' : undefined}>
               <header><b>{nn(i + 1)}</b><span className="ic"><Icon size={16} /></span></header>
               <h3>{s.title}</h3>
               <p>{s.text}</p>

@@ -309,6 +309,7 @@
 .v3-steps { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .v3-steps::-webkit-scrollbar { display: none; }
 .v3-steps li { flex: 0 0 280px; scroll-snap-align: start; display: flex; flex-direction: column; gap: 14px; padding: 28px; background: #fff; border: 1px solid var(--color-line); border-radius: var(--radius-card); }
+.v3-steps li[aria-current='step'] { border-color: var(--color-navy); }
 .v3-steps header { display: flex; justify-content: space-between; align-items: flex-start; }
 .v3-steps header b { font: 500 44px/48px var(--font-display); color: var(--color-blue); }
 .v3-steps .ic { width: 38px; height: 38px; border-radius: 999px; background: var(--color-red-tint); display: grid; place-items: center; }
