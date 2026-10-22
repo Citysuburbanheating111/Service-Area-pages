@@ -41,13 +41,10 @@ function useTrack(ref: RefObject<HTMLElement | null>, count: number) {
       return x >= left - 2 && x + cards[i].offsetWidth <= left + el.clientWidth + 2
     }
     const atEnd = max > 0 && left >= max - 2
-    const chosen = picked.current?.index
-    setState((s) => {
-      let index = chosen ?? s.index
-      if (chosen === undefined && !inView(index)) index = atEnd ? count - 1 : edge
-      latest.current = { index, edge }
-      return { index, edge, progress: max > 0 ? left / max : 0, ratio: el.scrollWidth ? el.clientWidth / el.scrollWidth : 1 }
-    })
+    let index = picked.current?.index ?? latest.current.index
+    if (!picked.current && !inView(index)) index = atEnd ? count - 1 : edge
+    latest.current = { index, edge }
+    setState({ index, edge, progress: max > 0 ? left / max : 0, ratio: el.scrollWidth ? el.clientWidth / el.scrollWidth : 1 })
   }, [ref, count])
 
   useEffect(() => {
@@ -78,7 +75,8 @@ function useTrack(ref: RefObject<HTMLElement | null>, count: number) {
     const cards = Array.from(el.children) as HTMLElement[]
     // The row can't scroll past its end; a card there is already in view and just becomes current
     const left = Math.max(0, Math.min(cards[n].offsetLeft - cards[0].offsetLeft, el.scrollWidth - el.clientWidth))
-    latest.current = { ...latest.current, index: n }
+    // The row is heading for card n: quick repeated clicks count on from there
+    latest.current = { index: n, edge: n }
     setState((s) => ({ ...s, index: n }))
     if (Math.abs(el.scrollLeft - left) <= 2) { picked.current = null; return }
     picked.current = { index: n, left }
