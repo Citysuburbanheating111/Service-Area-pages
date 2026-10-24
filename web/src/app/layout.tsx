@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Noto_Sans, Ubuntu } from 'next/font/google'
 
+import { GoogleTagManager, GoogleTagManagerNoScript } from '@/components/GoogleTagManager'
 import { siteUrl } from '@/lib/siteUrl'
 
 import './globals.css'
@@ -19,7 +20,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body>{children}</body>
+      <body>
+        <GoogleTagManagerNoScript />
+        {children}
+        <GoogleTagManager />
+      </body>
     </html>
   )
 }
