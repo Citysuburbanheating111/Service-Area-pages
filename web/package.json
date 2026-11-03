@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test:lead": "node scripts/test-lead.mts"
+    "test:lead": "node scripts/test-lead.mts",
+    "apps-script:build": "tsx scripts/build-apps-script.ts",
+    "test:apps-script": "tsx scripts/test-apps-script.ts"
   },
   "dependencies": {
     "@sanity/icons": "^5.2.3",
@@ -25,9 +27,11 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "esbuild": "^0.28.2",
     "eslint": "^9",
     "eslint-config-next": "16.4.0",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }
