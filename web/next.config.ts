@@ -16,6 +16,8 @@ const areaUrlRedirects: Record<string, string> = {
   "/service-area/northbrook/": "/service-area/near-northbrook-60062/",
   "/service-area/old-town/": "/service-area/near-old-town-60610/",
   "/service-area/park-ridge/": "/service-area/near-park-ridge-60068/",
+  // The WordPress page's own slug for Park Ridge, still listed in its sitemap
+  "/service-area/parkridge-il/": "/service-area/near-park-ridge-60068/",
   "/service-area/pilsen/": "/service-area/near-pilsen-60608/",
   "/service-area/rogers-park/": "/service-area/near-rogers-park-60626/",
   "/service-area/skokie/": "/service-area/near-skokie-60076/",
