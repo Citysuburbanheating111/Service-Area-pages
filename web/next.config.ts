@@ -43,6 +43,13 @@ const nextConfig: NextConfig = {
   // URLs end in "/" like the main site's (WordPress), so the Cloudflare Worker can pass paths
   // through unchanged: /service-areas/, /service-area/<slug>/. Files (sitemap.xml) keep none.
   trailingSlash: true,
+  // Every visitor gets the same complete HTML, whatever the user agent. By default Next.js
+  // builds the page differently for crawlers on its bot list (any "...-Google" agent, so
+  // AdsBot-Google and Google's URL Inspection tool): they skip the prerendered shell and get the
+  // whole page in one piece, while browsers and Googlebot get the shell plus streamed content.
+  // The text was the same, but a response that depends on the user agent is what Google Ads
+  // checks for as cloaking. Matching every agent means no user-agent branch at all.
+  htmlLimitedBots: /.*/,
   experimental: {
     // The pages are also served on the main domain through a Cloudflare Worker (../cloudflare/), so
     // Sanity Live's Server Action arrives with that origin while the host is this deployment's.
